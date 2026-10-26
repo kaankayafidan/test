@@ -189,8 +189,12 @@ def main():
     # one crop for the whole recording keeps Kilian's framing identical in all ads
     crop = None
     if do_video:
+        crop_file = ROOT / "data/edit/crop.json"
         if crop_arg:
             crop = (*crop_arg, -1)
+        elif crop_file.exists():
+            c = json.loads(crop_file.read_text())
+            crop = (c["x"], c["y"], c["size"], -1)
         else:
             ivs = [iv for x in docs.values() for iv in x["edl"]]
             crop = face_crop(raw, ivs[:: max(1, len(ivs) // 60)], vw, vh)

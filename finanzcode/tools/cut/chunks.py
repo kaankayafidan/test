@@ -18,7 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from pieces import MODEL, load_wav  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-CACHE = ROOT / "data/work/chunks"
+CACHE = ROOT / "data/cache/chunks"
 
 
 def main():

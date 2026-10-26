@@ -23,8 +23,9 @@ from takes import FILLERS, PAD, PAUSE_IN, PAUSE_SENT, norm, onset, quietest, rms
 from edit import spelled  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
-MODEL = "/tmp/claude-0/-home-user-test/c4ca8c25-c3ea-5a69-aaa6-00800e934607/scratchpad/models/whisper-large-v3-turbo"
-CACHE = ROOT / "data/work/win"
+import os
+MODEL = os.environ.get("FC_WHISPER_MODEL", "large-v3-turbo")  # local dir or faster-whisper model name (downloads once)
+CACHE = ROOT / "data/cache/win"
 _model = None
 
 
@@ -43,7 +44,7 @@ def load_wav(path):
     return a, sr
 
 
-CHUNK_WORDS = ROOT / "data/work/chunks.words.json"
+CHUNK_WORDS = ROOT / "data/cache/chunks.words.json"
 _chunk = None
 
 

@@ -13,7 +13,8 @@ import sys
 import tempfile
 from pathlib import Path
 
-MODEL = "/tmp/claude-0/-home-user-test/c4ca8c25-c3ea-5a69-aaa6-00800e934607/scratchpad/models/whisper-small"
+import os
+MODEL = os.environ.get("FC_WHISPER_MODEL", "large-v3-turbo")
 PROMPT = (
     "Trading, Swing-Trades, Daytrading, Stop, Rache-Trade, Push-Nachricht, Roulette, Casino, "
     "Videokurs, „Mehr dazu“, Strategie, Indikator, 2,7 Prozent, 60 Tage, 500 Euro."
