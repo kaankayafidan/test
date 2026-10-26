@@ -78,7 +78,7 @@
     // ---------------------------------------------------------------- Lupen-Cursor sucht (ab Frame 1 in Bewegung)
     // 1 Runde in 1,5 s um den Stempel herum (Ellipse mit dem Stempel 8° gekippt, so verdeckt die Linse das Wort nie),
     // Start unten rechts wie in der Skizze. Danach sucht sie in der Lücke nach der Arbeit (Di -> Mi) und klickt.
-    const PHI = (-8 * Math.PI) / 180, OC = [540, 292], ORX = 480, ORY = 168, A0 = (60 * Math.PI) / 180;
+    const PHI = (-8 * Math.PI) / 180, OC = [540, 282], ORX = 470, ORY = 160, A0 = (60 * Math.PI) / 180;
     const orbitAt = function (a) {
       const ex = ORX * Math.cos(a), ey = ORY * Math.sin(a);
       return [OC[0] + ex * Math.cos(PHI) - ey * Math.sin(PHI), OC[1] + ex * Math.sin(PHI) + ey * Math.cos(PHI)];

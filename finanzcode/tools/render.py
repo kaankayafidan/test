@@ -63,7 +63,7 @@ def main():
         r2 = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(final), "-map", "0:a", "-af", "ebur128=peak=true", "-f", "null", "-"], capture_output=True, text=True)
         tail = r2.stderr[r2.stderr.rfind("Summary:"):]
         info = {
-            "name": name, "file": str(final.relative_to(ROOT)), "size_mb": round(final.stat().st_size / 1e6, 1),
+            "name": name, "file": str(final.relative_to(ROOT) if final.is_relative_to(ROOT) else final), "size_mb": round(final.stat().st_size / 1e6, 1),
             "duration": round(float(p["format"]["duration"]), 2), "expected": m["duration"],
             "video": f"{v['codec_name']} {v.get('profile')} {v['width']}x{v['height']} {v['avg_frame_rate']} {round(int(v.get('bit_rate', 0)) / 1e6, 1)} Mbit/s",
             "audio": f"aac {au['sample_rate']} Hz {au['channels']}ch {round(int(au.get('bit_rate', 0)) / 1e3)} kbit/s",
