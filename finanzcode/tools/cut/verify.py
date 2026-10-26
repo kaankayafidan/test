@@ -38,10 +38,16 @@ def main():
         raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(wav), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
         a = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768
         ts = get_speech_timestamps(a, VadOptions(min_silence_duration_ms=120, speech_pad_ms=60, threshold=0.4, min_speech_duration_ms=80, max_speech_duration_s=7))
-        heard = []
+        heard, stamps = [], []
         for t in ts:
-            segs, _ = model.transcribe(a[max(0, t["start"] - 2400) : t["end"] + 2400], language="de", beam_size=5, vad_filter=False, condition_on_previous_text=False)
-            heard += " ".join(s.text for s in segs).split()
+            c0 = max(0, t["start"] - 2400)
+            segs, _ = model.transcribe(a[c0 : t["end"] + 2400], language="de", beam_size=5, vad_filter=False, condition_on_previous_text=False, word_timestamps=True)
+            for w in (x for s in segs for x in (s.words or [])):
+                mid = c0 / 16000 + (w.start + w.end) / 2
+                # the clip is padded by 0.15 s on both sides; keep only words centred inside the island so a
+                # word at an island boundary is not heard twice
+                if t["start"] / 16000 <= mid < t["end"] / 16000 and w.word.strip():
+                    heard.append(w.word.strip()); stamps.append(round(c0 / 16000 + w.start, 2))
         plan = [w["text"] for w in json.loads(wj.read_text()) if w["text"]]
         P, H = [canon(x) for x in plan], [canon(x) for x in heard]
         sm = SequenceMatcher(None, P, H, autojunk=False)
@@ -52,7 +58,7 @@ def main():
             if op in ("delete", "replace"):
                 issues.append(f"- geplant, nicht gehört: {' '.join(plan[i1:i2])}")
             if op in ("insert", "replace"):
-                issues.append(f"+ gehört, nicht geplant: {' '.join(heard[j1:j2])}")
+                issues.append(f"+ gehört, nicht geplant: {' '.join(heard[j1:j2])}  (bei {stamps[j1]:.2f} s)")
         ratio = sm.ratio()
         out.append(f"## {seg}  (Übereinstimmung {ratio:.0%})\n")
         out.append("gehört: " + " ".join(heard) + "\n")
