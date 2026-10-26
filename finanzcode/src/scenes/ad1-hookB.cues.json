@@ -1,0 +1,10 @@
+{
+  "cues": {
+    "null": "Siehst du diese kleine grüne Null?",
+    "wegen": "Wegen ihr gewinnt das Casino am Ende jedes Jahres",
+    "genau": "und genau davon kannst du beim Trading eine Menge lernen."
+  },
+  "sfx": [
+    { "at": "wegen", "type": "whoosh", "offset": -0.05 }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "cues": {
+    "frage": "Wie hoch ist eigentlich der Vorteil vom Casino beim Roulette?",
+    "gerade": "Gerade mal 2,7 Prozent",
+    "p27": { "phrase": "Gerade mal 2,7 Prozent", "word": 2 },
+    "trading": "beim Trading eine Menge lernen."
+  },
+  "sfx": [
+    { "t": 0, "type": "whoosh" },
+    { "at": "p27", "type": "stamp", "offset": -0.05 }
+  ]
+}
