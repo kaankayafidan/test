@@ -1,0 +1,729 @@
+{
+ "_policy": "Follow the briefing script as closely as the recording allows: best complete take per sentence, no false starts, repeats, fillers or long pauses. Ad-libs that are not in the script are kept only where they carry the script's point; profit/success promises, scarcity and urgency ('100 Personen', 'sei schnell', 'danach kostet es Geld', 'profitabel', 'reich', 'Profite generieren', '1:1 kopieren') are cut. Missing script lines are not replaced.",
+ "ad1-hookA": [
+  {
+   "t": [
+    14.0,
+    21.6
+   ],
+   "from": "Wie hoch ist",
+   "to": "Menge lernen"
+  }
+ ],
+ "ad1-hookB": [
+  {
+   "t": [
+    21.7,
+    27.1
+   ],
+   "from": "Siehst du diese",
+   "to": "Ende des Jahres"
+  },
+  {
+   "t": [
+    32.3,
+    35.3
+   ],
+   "from": "und genau davon",
+   "to": "Menge lernen"
+  }
+ ],
+ "ad1-body": [
+  {
+   "t": [
+    42.5,
+    47.9
+   ],
+   "from": "ein Roulette-Kessel",
+   "to": "nur 36",
+   "fix": [
+    [
+     "ein",
+     "Ein"
+    ]
+   ]
+  },
+  {
+   "t": [
+    48.0,
+    51.5
+   ],
+   "from": "und dieses eine",
+   "to": "komplette Vorteil"
+  },
+  {
+   "t": [
+    51.5,
+    53.4
+   ],
+   "from": "Rechnerisch",
+   "to": "Prozent"
+  },
+  {
+   "t": [
+    59.4,
+    67.7
+   ],
+   "from": "Das Casino verliert",
+   "to": "die Mathematik"
+  },
+  {
+   "t": [
+    67.7,
+    69.9
+   ],
+   "from": "Und genau so",
+   "to": "Jahren",
+   "fix": [
+    [
+     "in über",
+     "seit über"
+    ]
+   ]
+  },
+  {
+   "t": [
+    69.9,
+    76.8
+   ],
+   "from": "Ich nehme",
+   "to": "kleinen Teil"
+  },
+  {
+   "t": [
+    97.8,
+    120.4
+   ],
+   "from": "ich verliere trotzdem Trades",
+   "to": "Treffer hofft",
+   "fix": [
+    [
+     "ich",
+     "Ich"
+    ]
+   ]
+  },
+  {
+   "t": [
+    120.2,
+    137.5
+   ],
+   "from": "Und genau dafür",
+   "to": "klare Regeln"
+  },
+  {
+   "t": [
+    154.3,
+    161.0
+   ],
+   "from": "Und welche Regeln wirklich",
+   "to": "Trading-Videokurs"
+  },
+  {
+   "t": [
+    167.5,
+    170.8
+   ],
+   "from": "Und ich sag dir",
+   "to": "500 Euro nehmen"
+  },
+  {
+   "t": [
+    182.3,
+    184.6
+   ],
+   "from": "Deswegen klick",
+   "to": "mehr dazu"
+  }
+ ],
+ "ad2-hookA": [
+  {
+   "t": [
+    218.8,
+    228.1
+   ],
+   "from": "Beide dieser Trader",
+   "to": "einzige Zahl",
+   "fix": [
+    [
+     "eine davon",
+     "einer davon"
+    ]
+   ]
+  }
+ ],
+ "ad2-hookB": [
+  {
+   "t": [
+    228.6,
+    237.7
+   ],
+   "from": "Was passiert",
+   "to": "einzige Zahl"
+  }
+ ],
+ "ad2-body": [
+  {
+   "t": [
+    238.2,
+    249.2
+   ],
+   "from": "Trader A riskiert bei jedem",
+   "to": "ein Prozent",
+   "from_last": true,
+   "drop": [
+    "rund"
+   ],
+   "fix": [
+    [
+     "ein Prozent",
+     "1 Prozent"
+    ]
+   ]
+  },
+  {
+   "t": [
+    249.0,
+    254.7
+   ],
+   "from": "10 Verluste",
+   "to": "auch"
+  },
+  {
+   "t": [
+    254.7,
+    261.8
+   ],
+   "from": "Aber schau",
+   "to": "10 Prozent"
+  },
+  {
+   "t": [
+    295.5,
+    307.8
+   ],
+   "from": "und jetzt der Teil",
+   "to": "Startwert ist",
+   "from_last": true
+  },
+  {
+   "t": [
+    307.8,
+    317.2
+   ],
+   "from": "Und genau deshalb",
+   "to": "theoretisch"
+  },
+  {
+   "t": [
+    317.3,
+    328.6
+   ],
+   "from": "Und dafür musst du",
+   "to": "Trading kennen",
+   "drop": [
+    "auf gar keinen Fall"
+   ]
+  },
+  {
+   "t": [
+    328.4,
+    339.1
+   ],
+   "from": "Und wie das funktioniert",
+   "to": "kostenlosen Videokurs",
+   "drop": [
+    "und wie du auch als Trading-Anfänger in den nächsten 60 Tagen erfolgreich, also profitabel werden kannst"
+   ]
+  },
+  {
+   "t": [
+    339.0,
+    344.3
+   ],
+   "from": "Und ich sage es ganz ehrlich",
+   "to": "500 Euro verlangen"
+  },
+  {
+   "t": [
+    351.8,
+    357.1
+   ],
+   "from": "Deswegen klick",
+   "to": "mehr dazu"
+  }
+ ],
+ "ad3-hookA": [
+  {
+   "t": [
+    380.5,
+    386.8
+   ],
+   "from": "Würdest du",
+   "to": "die meisten"
+  }
+ ],
+ "ad3-hookB": [
+  {
+   "t": [
+    399.3,
+    411.3
+   ],
+   "from": "dieser Trade sieht",
+   "to": "Trade stelle",
+   "fix": [
+    [
+     "dieser",
+     "Dieser"
+    ]
+   ]
+  }
+ ],
+ "ad3-body": [
+  {
+   "t": [
+    436.0,
+    447.7
+   ],
+   "from": "Frage 1 von 3",
+   "to": "mich juckt"
+  },
+  {
+   "t": [
+    473.6,
+    481.4
+   ],
+   "from": "Frage 2",
+   "to": "Verlust bin",
+   "from_last": true
+  },
+  {
+   "t": [
+    487.7,
+    489.2
+   ],
+   "from": "Und wenn du auch lernen möchtest",
+   "to": "möchtest"
+  },
+  {
+   "t": [
+    500.9,
+    509.9
+   ],
+   "from": "wie du im Trading ein",
+   "to": "Trade überhaupt",
+   "fix": [
+    [
+     "zweiter Standort",
+     "zweites Standbein"
+    ],
+    [
+     "zweiter Standbein",
+     "zweites Standbein"
+    ]
+   ]
+  },
+  {
+   "t": [
+    573.3,
+    577.3
+   ],
+   "from": "Ich nehme nur Trades",
+   "to": "Stop-Loss"
+  },
+  {
+   "t": [
+    581.4,
+    591.6
+   ],
+   "from": "Und hier siehst du",
+   "to": "Signal da ist",
+   "from_last": true
+  },
+  {
+   "t": [
+    614.0,
+    627.1
+   ],
+   "from": "Und genau diese Disziplin",
+   "to": "zusammengefasst"
+  },
+  {
+   "t": [
+    639.4,
+    644.9
+   ],
+   "from": "Klicke gerne auf den Button",
+   "to": "mehr dazu"
+  }
+ ],
+ "ad4-hookA": [
+  {
+   "t": [
+    662.6,
+    671.4
+   ],
+   "from": "Welcher dieser",
+   "to": "kommen wir gleich",
+   "from_last": true
+  }
+ ],
+ "ad4-hookB": [
+  {
+   "t": [
+    673.5,
+    684.2
+   ],
+   "from": "Es gibt",
+   "to": "davon wieder",
+   "fix": [
+    [
+     "kennst dich in einen",
+     "erkennst dich in einem"
+    ]
+   ]
+  }
+ ],
+ "ad4-body": [
+  {
+   "t": [
+    684.2,
+    693.2
+   ],
+   "from": "Typ 1",
+   "to": "wieder raus ist",
+   "drop": [
+    "damit er endlich reich wird"
+   ]
+  },
+  {
+   "t": [
+    693.1,
+    702.5
+   ],
+   "from": "Tipp 2",
+   "to": "irgendwas macht",
+   "fix": [
+    [
+     "Tipp",
+     "Typ"
+    ]
+   ]
+  },
+  {
+   "t": [
+    709.2,
+    716.6
+   ],
+   "from": "Typ 3",
+   "to": "Rache-Trade",
+   "from_last": true
+  },
+  {
+   "t": [
+    735.5,
+    743.4
+   ],
+   "from": "Und jetzt zum Typ Nummer 4",
+   "to": "dranbleiben",
+   "fix": [
+    [
+     "2000",
+     "2.000"
+    ]
+   ]
+  },
+  {
+   "t": [
+    743.4,
+    756.7
+   ],
+   "from": "Das sind keine Genies",
+   "to": "Disziplin haben",
+   "drop": [
+    "aber dennoch ein konstantes zweites Standbein aufbauen können"
+   ]
+  },
+  {
+   "t": [
+    799.5,
+    802.0
+   ],
+   "from": "Und wenn du zu den vierten Typen",
+   "to": "möchtest"
+  },
+  {
+   "t": [
+    786.5,
+    790.4
+   ],
+   "from": "dann kannst du dir",
+   "to": "anschauen"
+  },
+  {
+   "t": [
+    805.5,
+    812.1
+   ],
+   "from": "dort zeige ich dir",
+   "to": "dazuzugehören",
+   "fix": [
+    [
+     "dort",
+     "Dort"
+    ]
+   ]
+  },
+  {
+   "t": [
+    812.0,
+    814.3
+   ],
+   "from": "Deswegen",
+   "to": "Erfolg"
+  }
+ ],
+ "ad5-hookA": [
+  {
+   "t": [
+    865.7,
+    871.4
+   ],
+   "from": "Siehst du",
+   "to": "am Tag"
+  }
+ ],
+ "ad5-hookB": [
+  {
+   "t": [
+    878.2,
+    884.6
+   ],
+   "from": "Wie viel Zeit braucht Trading",
+   "to": "Kalender"
+  }
+ ],
+ "ad5-body": [
+  {
+   "t": [
+    895.3,
+    900.4
+   ],
+   "from": "Das hier ist eine ganz normale Woche",
+   "to": "gearbeitet"
+  },
+  {
+   "t": [
+    900.4,
+    902.9
+   ],
+   "from": "Abends",
+   "to": "Freunde",
+   "fix": [
+    [
+     "Abends",
+     "abends"
+    ]
+   ]
+  },
+  {
+   "t": [
+    891.0,
+    893.9
+   ],
+   "from": "und das Wochenende",
+   "to": "frei"
+  },
+  {
+   "t": [
+    904.2,
+    909.9
+   ],
+   "from": "Und jetzt schau mal hier",
+   "to": "Feierabend"
+  },
+  {
+   "t": [
+    909.9,
+    912.8
+   ],
+   "from": "Mehr ist es nicht",
+   "to": "nicht"
+  },
+  {
+   "t": [
+    920.5,
+    928.8
+   ],
+   "from": "Und das funktioniert",
+   "to": "sitzen muss",
+   "fix": [
+    [
+     "ab Stunden",
+     "8 Stunden"
+    ]
+   ]
+  },
+  {
+   "t": [
+    930.1,
+    937.5
+   ],
+   "from": "Die meisten Trader denken",
+   "to": "der Fehler",
+   "fix": [
+    [
+     "gehen wir nebenbei",
+     "irgendwie nebenbei"
+    ]
+   ]
+  },
+  {
+   "t": [
+    941.7,
+    947.3
+   ],
+   "from": "Du tradest aus Langeweile",
+   "to": "ersten Fehler",
+   "fix": [
+    [
+     "du tradest",
+     "Du tradest"
+    ]
+   ]
+  },
+  {
+   "t": [
+    947.1,
+    957.6
+   ],
+   "from": "Und genau deswegen rate ich dir",
+   "to": "als auch Kapital"
+  },
+  {
+   "t": [
+    959.3,
+    963.6
+   ],
+   "from": "Und wenn du wissen möchtest",
+   "to": "Videokurs"
+  },
+  {
+   "t": [
+    963.6,
+    970.0
+   ],
+   "from": "Ich könnte dir für",
+   "to": "umsonst",
+   "fix": [
+    [
+     "dir für",
+     "dafür"
+    ]
+   ]
+  },
+  {
+   "t": [
+    976.1,
+    979.2
+   ],
+   "from": "klicke einfach unter dem Video",
+   "to": "Link",
+   "fix": [
+    [
+     "klick",
+     "Klick"
+    ]
+   ]
+  }
+ ],
+ "ad6-hookA": [
+  {
+   "t": [
+    1016.0,
+    1024.2
+   ],
+   "from": "Würdest du dich",
+   "to": "aufbauen",
+   "drop": [
+    "weil"
+   ],
+   "fix": [
+    [
+     "Schuh",
+     "Stuhl"
+    ],
+    [
+     "setzen genau",
+     "setzen? Genau"
+    ]
+   ]
+  }
+ ],
+ "ad6-hookB": [
+  {
+   "t": [
+    1075.3,
+    1083.6
+   ],
+   "from": "Die meisten Angestellten",
+   "to": "aufbauen"
+  }
+ ],
+ "ad6-body": [
+  {
+   "t": [
+    1125.1,
+    1139.9
+   ],
+   "from": "Das erste Bein ist das Gehalt",
+   "to": "auf einmal"
+  },
+  {
+   "t": [
+    1159.0,
+    1165.8
+   ],
+   "from": "Ein zweites Standbein",
+   "to": "abhängig ist"
+  },
+  {
+   "t": [
+    1165.8,
+    1179.6
+   ],
+   "from": "und nach über neun Jahren",
+   "to": "aufzubauen"
+  },
+  {
+   "t": [
+    1183.3,
+    1194.7
+   ],
+   "from": "Und Trading ist",
+   "to": "Fachchinesisch",
+   "fix": [
+    [
+     "den zweiten Standbein",
+     "ein zweites Standbein"
+    ]
+   ]
+  },
+  {
+   "t": [
+    1194.6,
+    1200.8
+   ],
+   "from": "Und wie das Ganze funktioniert",
+   "to": "Videokurs"
+  },
+  {
+   "t": [
+    1216.2,
+    1218.3
+   ],
+   "from": "Klicke gerne",
+   "to": "Video"
+  }
+ ]
+}
