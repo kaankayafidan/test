@@ -7,6 +7,6 @@
   },
   "sfx": [
     { "t": 0, "type": "whoosh" },
-    { "at": "p27", "type": "stamp", "offset": -0.05 }
+    { "t": "Math.max(0.9, C.p27 - 0.05)", "type": "stamp" }
   ]
 }

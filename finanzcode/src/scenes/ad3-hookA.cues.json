@@ -1,0 +1,11 @@
+{
+  "cues": {
+    "frage": "Würdest du hier einen Trade setzen?",
+    "bevor": "Bevor ich das beantworte",
+    "drei": { "phrase": "genau 3 Fragen", "word": 1 },
+    "dritten": { "phrase": "und an der dritten scheitern die meisten.", "word": 3 }
+  },
+  "sfx": [
+    { "at": "drei", "type": "pop" }
+  ]
+}

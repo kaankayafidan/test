@@ -1,0 +1,12 @@
+{
+  "cues": {
+    "dieser": "Dieser Trade sieht auf den ersten Blick perfekt aus",
+    "trotzdem": "und trotzdem lass ich ihn liegen.",
+    "warum": "Warum, zeig ich dir mit den 3 Fragen",
+    "drei": { "phrase": "mit den 3 Fragen", "word": 2 }
+  },
+  "sfx": [
+    { "t": "Math.min(0.5, Math.max(0.3, C.trotzdem - 0.6))", "type": "stamp" },
+    { "at": "drei", "type": "pop" }
+  ]
+}

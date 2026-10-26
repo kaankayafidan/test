@@ -47,7 +47,9 @@
           <circle cx="521" cy="246" r="7" fill="#111827" />
           <circle cx="559" cy="246" r="7" fill="#111827" />
           <path d="M507 232 L529 224 M573 232 L551 224" stroke="#111827" stroke-width="5" stroke-linecap="round" />
-          <ellipse cx="540" cy="274" rx="11" ry="14" fill="#7F1D1D" />
+          <!-- Mund: offen (Panik), nach dem Anhalten ein nervöser Wellenmund -->
+          <ellipse id="a6ha-mouthO" cx="540" cy="274" rx="11" ry="14" fill="#7F1D1D" />
+          <path id="a6ha-mouthN" d="M524 276 Q532 268 540 276 Q548 284 556 276" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
           <!-- Schweißtropfen -->
           <path id="a6ha-drop" d="M606 196 Q616 214 606 222 Q596 214 606 196 Z" fill="#60A5FA" />
         </g>
@@ -57,34 +59,49 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     const PIVOT = "540 650";
+    const SH_L = "498 322", SH_R = "582 322";   // Schultern (Drehpunkte der Arme)
 
     // Initial states (t = 0). Every transformed SVG group gets its pivot here first, so GSAP never
     // switches origin on an already rotated element (smoothOrigin would add a lasting x/y offset).
     FX.init(tl, "#a6ha-rig", { svgOrigin: PIVOT, smoothOrigin: false });
-    FX.init(tl, "#a6ha-armL", { svgOrigin: "498 322", smoothOrigin: false });
-    FX.init(tl, "#a6ha-armR", { svgOrigin: "582 322", smoothOrigin: false });
+    FX.init(tl, "#a6ha-armL", { svgOrigin: SH_L, smoothOrigin: false });
+    FX.init(tl, "#a6ha-armR", { svgOrigin: SH_R, smoothOrigin: false });
     FX.init(tl, "#a6ha-leg2", { svgOrigin: "676 563", smoothOrigin: false, opacity: 0 });
     FX.init(tl, "#a6ha-drop", { opacity: 1, x: 0, y: 0 });
+    FX.init(tl, "#a6ha-mouthN", { opacity: 0 });
 
-    // Frame 1: der Hocker wackelt ±6° um den Fußpunkt, bis "Genau so sieht ..." – dann hält das Wackeln an.
-    const w = FX.wobble(tl, "#a6ha-rig", 0, Math.max(0.6, C.genau), { svgOrigin: PIVOT });
-    FX.settle(tl, "#a6ha-rig", w.end, w.endRotation, { svgOrigin: PIVOT });
+    // Frame 1: der Hocker wackelt ±6° um den Fußpunkt. Die Schwünge werden so gestreckt, dass das
+    // Anhalten (0,3 s) 0,15 s vor "Genau" beginnt und kurz nach dem Wort steht (~0,6 s pro Schwung).
+    const tStop = Math.max(0.6, C.genau - 0.15);
+    const n = Math.max(1, Math.round(tStop / 0.6));
+    const sw = tStop / n;
+    FX.tween(tl, "#a6ha-rig", { rotation: -6, svgOrigin: PIVOT, smoothOrigin: false },
+      { rotation: 6, duration: sw, ease: "sine.inOut", yoyo: true, repeat: n - 1, svgOrigin: PIVOT, smoothOrigin: false }, 0);
+    FX.settle(tl, "#a6ha-rig", tStop, n % 2 ? 6 : -6, { svgOrigin: PIVOT });
 
-    // Die Arme rudern gegenläufig, solange es wackelt (endliche Wiederholung).
-    const flails = Math.max(1, Math.floor(w.end / 0.3));
-    FX.tween(tl, "#a6ha-armL", { rotation: -14, svgOrigin: "498 322" }, { rotation: 10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: flails - 1, svgOrigin: "498 322" }, 0);
-    FX.tween(tl, "#a6ha-armR", { rotation: 10, svgOrigin: "582 322" }, { rotation: -14, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: flails - 1, svgOrigin: "582 322" }, 0);
-    FX.tween(tl, "#a6ha-armL", { rotation: flails % 2 ? 10 : -14 }, { rotation: 0, duration: 0.3, ease: "power2.out", svgOrigin: "498 322" }, w.end);
-    FX.tween(tl, "#a6ha-armR", { rotation: flails % 2 ? -14 : 10 }, { rotation: 0, duration: 0.3, ease: "power2.out", svgOrigin: "582 322" }, w.end);
+    // Die Arme rudern gegenläufig, solange es wackelt (2 Schläge pro Schwung, enden genau bei tStop) ...
+    FX.tween(tl, "#a6ha-armL", { rotation: -14, svgOrigin: SH_L }, { rotation: 10, duration: sw / 2, ease: "sine.inOut", yoyo: true, repeat: 2 * n - 1, svgOrigin: SH_L }, 0);
+    FX.tween(tl, "#a6ha-armR", { rotation: 10, svgOrigin: SH_R }, { rotation: -14, duration: sw / 2, ease: "sine.inOut", yoyo: true, repeat: 2 * n - 1, svgOrigin: SH_R }, 0);
+    // ... und sinken beim Anhalten in eine vorsichtige Balance-Haltung (Arme seitlich ausgestreckt).
+    FX.tween(tl, "#a6ha-armL", { rotation: -14, svgOrigin: SH_L }, { rotation: -40, duration: 0.3, ease: "power2.out", svgOrigin: SH_L }, tStop);
+    FX.tween(tl, "#a6ha-armR", { rotation: 10, svgOrigin: SH_R }, { rotation: 40, duration: 0.3, ease: "power2.out", svgOrigin: SH_R }, tStop);
+    // Der Panik-Mund wird zum nervösen Wellenmund, sobald der Hocker steht.
+    FX.set(tl, "#a6ha-mouthO", { opacity: 0 }, tStop + 0.3);
+    FX.set(tl, "#a6ha-mouthN", { opacity: 1 }, tStop + 0.3);
 
-    // Ein Schweißtropfen fliegt ab dem ersten Frame vom Kopf weg (zweimal).
-    [0, 1.2].filter((t) => t < w.end).forEach((t) => {
+    // Ein Schweißtropfen fliegt ab dem ersten Frame vom Kopf weg (zweimal, solange es wackelt).
+    [0, 1.2].filter((t) => t + 0.7 <= tStop).forEach((t) => {
       FX.tween(tl, "#a6ha-drop", { opacity: 1, x: 0, y: 0 }, { opacity: 0, x: 46, y: -26, duration: 0.7, ease: "power1.out" }, t);
     });
-    tl.set("#a6ha-drop", { x: 0, y: 0, opacity: 0 }, Math.min(w.end, 1.9));
+    tl.set("#a6ha-drop", { x: 0, y: 0, opacity: 0 }, Math.min(tStop, 1.9));
 
-    // "... ein zweites Bein bauen": kurz ein gestricheltes zweites Bein als Andeutung.
-    FX.pop(tl, "#a6ha-leg2", C.zweites, { svgOrigin: "676 563" });
+    // "... und mit Trading kannst du dir ein zweites Bein bauen.": kurz ein gestricheltes zweites Bein
+    // als Andeutung (ploppt zum Satzanfang auf, pulsiert einmal auf "zweites").
+    // Same formula as the pop sfx "t" in ad6-hookA.cues.json.
+    const tLeg = Math.max(tStop + 0.9, C.trading - 0.1);
+    FX.pop(tl, "#a6ha-leg2", tLeg, { svgOrigin: "676 563" });
+    const tPulse = Math.max(tLeg + 0.3, C.zweites - 0.05);
+    if (tPulse + 0.8 <= DUR - 0.3) FX.pulse(tl, "#a6ha-leg2", tPulse, 0.8, { svgOrigin: "676 563" });
 
     window.__timelines["ad6-hookA"] = tl;
   </script>

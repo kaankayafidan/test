@@ -72,7 +72,7 @@
     }
 
     // "Entweder fast nichts, oder zwei Drittel sind weg ...": auf dem Akku erscheint ein "?".
-    FX.fadeOut(tl, "#a2hb-acc-t0", tQ - 0.05, 0.15);
+    FX.set(tl, "#a2hb-acc-t0", { opacity: 0 }, tQ);
     FX.pop(tl, "#a2hb-qm", tQ, { svgOrigin: QC });
 
     // "... und der Unterschied ist eine einzige Zahl.": das "?" pulsiert.

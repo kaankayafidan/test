@@ -32,9 +32,13 @@
     "trB": "Trader B reicht ein kleines Plus von gut 10 Prozent.",
     "plus": {
       "phrase": "ein kleines Plus von gut 10 Prozent.",
-      "word": 1
+      "word": 2
     },
     "deshalb": "Deshalb ist die wichtigste Zahl beim Trading nicht",
+    "gewinnen": {
+      "phrase": "wie viel du gewinnen kannst",
+      "word": 3
+    },
     "riskierst": {
       "phrase": "sondern wie viel du pro Trade maximal riskierst.",
       "word": 1
@@ -67,6 +71,10 @@
     "plan": {
       "phrase": "einen Plan für deine ersten 60 Tage",
       "word": 1
+    },
+    "kostenlos": {
+      "phrase": "in meinem kostenlosen Videokurs",
+      "word": 2
     },
     "klick": "Klick unter dem Video auf „Mehr dazu“",
     "bevor": "bevor du deinen nächsten Trade setzt."

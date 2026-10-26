@@ -1,0 +1,106 @@
+<template>
+  <!-- Ad 5 "Platz im Kalender", Anfang A. Selbstgebauter, neutraler Wochenkalender Mo–Fr (5 Spalten à 200 px).
+       Dasselbe Kalender-Markup steht in ad5-hookB und ad5-body, damit der Übergang Anfang -> Body pixelgleich ist. -->
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a5ha-scene { position: absolute; inset: 0; }
+    #a5ha-cal { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    .a5ha-day { position: absolute; top: 0; width: 200px; height: 710px; }
+    .a5ha-dl { position: absolute; left: 0; top: 14px; width: 200px; height: 60px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 40px; line-height: 60px; color: #0E1A2B; }
+    .a5ha-card { position: absolute; left: 8px; top: 84px; width: 184px; height: 612px; border-radius: 22px; background: #F3F4F6; overflow: hidden; }
+    .a5ha-b { position: absolute; left: 10px; width: 164px; }
+    .a5ha-grey { top: 66px; height: 250px; border-radius: 16px; background: #9CA3AF; }
+    .a5ha-ev { top: 380px; height: 80px; border-radius: 14px; }
+    .a5ha-blue { background: #60A5FA; }
+    .a5ha-yellow { background: #FACC15; }
+    /* Stempel "AUSGEBUCHT": rot, 8° schräg, doppelte Kante wie ein Gummistempel */
+    #a5ha-stamp { position: absolute; left: 150px; top: 316px; width: 780px; height: 168px; box-sizing: border-box; border: 12px solid #DC2626; border-radius: 26px; background: rgba(255, 255, 255, 0.92); box-shadow: inset 0 0 0 8px #FFFFFF, inset 0 0 0 13px #DC2626; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 100px; line-height: 1; letter-spacing: 3px; color: #DC2626; white-space: nowrap; z-index: 10; }
+    /* Einblendung "30 Min." */
+    #a5ha-m30 { position: absolute; left: 190px; top: 170px; width: 700px; height: 236px; box-sizing: border-box; border: 10px solid #16A34A; border-radius: 40px; background: #FFFFFF; box-shadow: 0 18px 44px rgba(14, 26, 43, 0.22); display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 170px; line-height: 1; color: #0E1A2B; white-space: nowrap; z-index: 20; }
+    /* Lupen-Cursor: Mittelpunkt der Linse = Position (0,0) des Elements */
+    #a5ha-cur { position: absolute; left: 0; top: 0; width: 1px; height: 1px; z-index: 90; pointer-events: none; }
+    #a5ha-cur svg { position: absolute; left: -70px; top: -70px; width: 190px; height: 190px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="ad5-hookA" data-width="1080" data-height="710">
+    <div id="a5ha-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <div id="a5ha-cal">
+        <div id="a5ha-d0" class="a5ha-day" style="left: 40px;"><div class="a5ha-dl">Mo</div><div class="a5ha-card"><div id="a5ha-g0" class="a5ha-b a5ha-grey"></div><div id="a5ha-e0" class="a5ha-b a5ha-ev a5ha-blue"></div></div></div>
+        <div id="a5ha-d1" class="a5ha-day" style="left: 240px;"><div class="a5ha-dl">Di</div><div class="a5ha-card"><div id="a5ha-g1" class="a5ha-b a5ha-grey"></div><div id="a5ha-e1" class="a5ha-b a5ha-ev a5ha-yellow"></div></div></div>
+        <div id="a5ha-d2" class="a5ha-day" style="left: 440px;"><div class="a5ha-dl">Mi</div><div class="a5ha-card"><div id="a5ha-g2" class="a5ha-b a5ha-grey"></div><div id="a5ha-e2" class="a5ha-b a5ha-ev a5ha-blue"></div></div></div>
+        <div id="a5ha-d3" class="a5ha-day" style="left: 640px;"><div class="a5ha-dl">Do</div><div class="a5ha-card"><div id="a5ha-g3" class="a5ha-b a5ha-grey"></div><div id="a5ha-e3" class="a5ha-b a5ha-ev a5ha-yellow"></div></div></div>
+        <div id="a5ha-d4" class="a5ha-day" style="left: 840px;"><div class="a5ha-dl">Fr</div><div class="a5ha-card"><div id="a5ha-g4" class="a5ha-b a5ha-grey"></div><div id="a5ha-e4" class="a5ha-b a5ha-ev a5ha-blue"></div></div></div>
+      </div>
+      <div id="a5ha-stamp">AUSGEBUCHT</div>
+      <div id="a5ha-m30">30 Min.</div>
+      <div id="a5ha-ring" class="fx-ring"></div>
+      <div id="a5ha-cur">
+        <svg viewBox="-70 -70 190 190">
+          <line x1="36" y1="36" x2="92" y2="92" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="50" fill="none" stroke="#FFFFFF" stroke-width="22" />
+          <line x1="40" y1="40" x2="90" y2="90" stroke="#111827" stroke-width="22" stroke-linecap="round" />
+          <circle cx="0" cy="0" r="50" fill="rgba(255,255,255,0.28)" stroke="#111827" stroke-width="13" />
+          <path d="M-30 -14 A32 32 0 0 1 -12 -31" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // ---------------------------------------------------------------- Frame 1: die Woche füllt sich per Klick
+    // Arbeits-Blöcke fallen von oben, Abend-Blöcke steigen von unten in ihre Tages-Spalte (0,25 s, ease-out,
+    // je 0,08 s versetzt), Tag für Tag von Montag bis Freitag – so kreuzen sich die Blöcke nie.
+    // Der Lauf beginnt 0,4 s vor Frame 1, damit schon das erste Bild wie die Skizze eine fast volle Woche
+    // in Bewegung zeigt (Mo/Di gelandet, Mi fliegt); nach 0,57 s ist die Woche voll.
+    const ORDER = [0, 1, 2, 3, 4].flatMap(function (d) { return [["#a5ha-g" + d, -560], ["#a5ha-e" + d, 320]]; });
+    const STAG = 0.08, PRE = 0.4, FD = 0.25;
+    ORDER.forEach(function (b, i) {
+      const el = b[0], off = b[1], s = -PRE + i * STAG;
+      if (s >= 0) {
+        FX.init(tl, el, { y: off });
+        FX.tween(tl, el, { y: off }, { y: 0, duration: FD, ease: "power2.out" }, s);
+      } else if (s + FD > 0.02) {
+        const p0 = -s / FD, done = 1 - (1 - p0) * (1 - p0);
+        FX.tween(tl, el, { y: off * (1 - done) }, { y: 0, duration: FD + s, ease: "power1.out" }, 0);
+      }
+    });
+    const tFull = -PRE + (ORDER.length - 1) * STAG + FD;
+
+    // Dann knallt der rote Stempel "AUSGEBUCHT" drauf (140 -> 100 % in 0,12 s, 8° schräg).
+    const tStamp = Math.min(0.75, Math.max(tFull + 0.05, C.ich - 1.0));
+    FX.init(tl, "#a5ha-stamp", { opacity: 0, rotation: -8, transformOrigin: "50% 50%" });
+    FX.slam(tl, "#a5ha-stamp", tStamp, { rotation: -8 });
+
+    // "Ich schon …": Klick, der Stempel verschwindet (ausblenden 0,2 s) und gibt die Lücke nach der Arbeit frei.
+    const tIch = Math.max(tStamp + 0.6, C.ich - 0.05);
+    FX.fadeOut(tl, "#a5ha-stamp", tIch);
+
+    // "… gerade mal 30 Minuten am Tag.": Klick, Einblendung "30 Min." (ploppt auf).
+    const t30 = Math.max(tIch + 0.6, C.min30 - 0.05);
+    FX.init(tl, "#a5ha-m30", { opacity: 0 });
+    FX.pop(tl, "#a5ha-m30", t30);
+
+    // ---------------------------------------------------------------- Lupen-Cursor sucht (ab Frame 1 in Bewegung)
+    // 1 Runde in 1,5 s über dem Kalender, dann sucht er unten links, landet auf der Lücke nach der Arbeit (Mi)
+    // und klickt den Stempel weg; danach eine ruhige Bewegung nach rechts unten zum Klick für "30 Min.".
+    const ORB = { cx: 560, cy: 440, rx: 300, ry: 150 };
+    const a0 = (40 * Math.PI) / 180;
+    const start = [ORB.cx + ORB.rx * Math.cos(a0), ORB.cy + ORB.ry * Math.sin(a0)];
+    const GAP = [540, 432];
+    const steps = [{ t: 0, orbit: Object.assign({}, ORB, { start: a0, turns: 1 }), d: 1.5 }];
+    const tArrive = tIch - 0.02;
+    const legGap = Math.max(0.35, Math.min(0.6, tArrive - 1.55));
+    if (tArrive - legGap - 1.55 >= 0.55) {
+      const dS = Math.min(0.6, tArrive - legGap - 1.6);
+      steps.push({ t: 1.55, to: [300, 600], d: dS });
+    }
+    steps.push({ t: tArrive - legGap, to: GAP, d: legGap });
+    steps.push({ t: tIch, click: true });
+    const legOut = Math.max(0.35, Math.min(0.6, t30 - tIch - 0.45));
+    steps.push({ t: t30 - 0.05 - legOut, to: [880, 590], d: legOut });
+    steps.push({ t: t30, click: true });
+    FX.cursor(tl, "#a5ha-cur", "#a5ha-ring", start, steps);
+
+    window.__timelines["ad5-hookA"] = tl;
+  </script>
+</template>

@@ -12,7 +12,8 @@
       <!-- Bild 1: Roulette-Kessel von oben, Kugel läuft (Platzhalter für den Stock-Loop, keine Schrift im Motiv) -->
       <div id="a1ha-photo" class="photo-slot" data-asset="roulette-wheel-loop-top">
         <svg id="a1ha-art" viewBox="0 0 1080 710">
-          <g transform="translate(540 355) scale(0.81875)">
+          <!-- Grundgröße: Radius 212 px bei 100 %, 275 px bei 130 % (= Startbild des Body) -->
+          <g transform="translate(540 355) scale(0.6615385)">
             <g id="a1ha-zoom">
 <!--gen:wheel p="a1ha" ball="1"-->
 <circle r="320" fill="#4A2A12"/>
@@ -46,12 +47,11 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     const O = { svgOrigin: "0 0" };
+    const R0 = 320 * 0.6615385;        // Kesselradius bei 100 % (212 px); bei 130 % 275 px
+    // Übergabe an den Body (identische Pixel): Kessel mittig bei 130 % (Radius 275), steht still mit der Null oben, keine Kugel.
+    const tEnd = DUR - 0.05;
 
-    // Kessel dreht sich (im Uhrzeigersinn), die Kugel läuft gegenläufig – endlich, linear über die ganze Szene.
-    FX.tween(tl, "#a1ha-spin", { rotation: 0, ...O }, { rotation: 150 * DUR, duration: DUR, ease: "none", ...O }, 0);
-    FX.tween(tl, "#a1ha-borb", { rotation: 38, ...O }, { rotation: 38 - 410 * DUR, duration: DUR, ease: "none", ...O }, 0);
-
-    // Frame 1: schnelles Ranzoomen 100 -> 130 % in 0,4 s auf den Kessel.
+    // Frame 1: schnelles Ranzoomen 100 -> 130 % in 0,4 s auf den laufenden Kessel.
     FX.zoomFast(tl, "#a1ha-zoom", 0, O);
 
     // "Gerade mal 2,7 Prozent": harter Schnitt auf Weiß, "2,7 %" knallt ins Bild (auf das Wort "2,7").
@@ -61,23 +61,37 @@
     FX.cut(tl, "#a1ha-photo", "#a1ha-s27", tS);
     FX.slam(tl, "#a1ha-n27", tS);
 
-    // "... beim Trading eine Menge lernen": zurück zum Kessel, langsamer Zoom (100 -> 108 % über 3 s).
-    const tB = Math.max(tS + 1.0, C.trading - 0.05);
+    // Bild 1: Kessel dreht sich (im Uhrzeigersinn), die Kugel läuft gegenläufig – linear bis zum Rückschnitt.
+    const tB = Math.min(Math.max(tS + 1.0, C.trading - 0.05), tEnd - 0.3);
+    FX.tween(tl, "#a1ha-spin", { rotation: 0, ...O }, { rotation: 150 * tB, duration: tB, ease: "none", ...O }, 0);
+    FX.tween(tl, "#a1ha-borb", { rotation: 38, ...O }, { rotation: 38 - 410 * tB, duration: tB, ease: "none", ...O }, 0);
+    FX.init(tl, "#a1ha-bdrop", { opacity: 1 });
+
+    // "... beim Trading eine Menge lernen": zurück zum Kessel (ohne Kugel), langsam rauszoomen 108 -> 100 % (Tempo wie 8 % / 3 s),
+    // der Kessel läuft aus und bleibt genau mit der Null oben stehen (720° = 0°), wo der Body weitermacht.
+    const dB = tEnd - tB, dZ = Math.min(3, dB);
+    const zB = 1.3 * (1 + (0.08 * dZ) / 3);
     FX.cut(tl, "#a1ha-s27", "#a1ha-photo", tB);
-    tl.set("#a1ha-zoom", { scale: 1, ...O }, tB);
-    FX.slowZoom(tl, "#a1ha-zoom", tB, O);
+    tl.set("#a1ha-bdrop", { opacity: 0 }, tB);
+    tl.set("#a1ha-zoom", { scale: zB, ...O }, tB);
+    FX.slowZoom(tl, "#a1ha-zoom", tEnd - dZ, { from: zB, to: 1.3, d: dZ, ...O });
+    FX.tween(tl, "#a1ha-spin", { rotation: 720 - 75 * dB, ...O }, { rotation: 720, duration: dB, ease: "power2.out", ...O }, tB);
 
     // Cursor: kreist ab Frame 1 knapp außerhalb um den Kessel (1 Runde in 1,5 s), danach ruhig.
-    const ORB = { cx: 540, cy: 355, rx: 388, ry: 314 };
-    const a0 = (38 * Math.PI) / 180;
-    const start = [ORB.cx + ORB.rx * Math.cos(a0), ORB.cy + ORB.ry * Math.sin(a0)];
+    // Die Bahn wächst mit dem Ranzoomen mit; die Bahn der Pfeilspitze ist nach links oben versetzt, damit der ganze Pfeil
+    // (er hängt rechts unter der Spitze) außerhalb des Holzrands bleibt.
+    const zAt = (t) => 1 + 0.3 * (1 - Math.pow(1 - Math.min(1, t / 0.4), 3)); // = zoomFast (power3.out)
+    const OC = [540 - 16, 355 - 26], MX = 50, MY = 36, a0 = (38 * Math.PI) / 180;
+    const orbitAt = (t) => {
+      const a = a0 + (t / 1.5) * 2 * Math.PI, r = R0 * zAt(t);
+      return [OC[0] + (r + MX) * Math.cos(a), OC[1] + (r + MY) * Math.sin(a)];
+    };
+    const N = 40, steps = [];
+    for (let i = 1; i <= N; i++) steps.push({ t: (1.5 * (i - 1)) / N, to: orbitAt((1.5 * i) / N), d: 1.5 / N, ease: "none" });
     const tMove = Math.max(1.6, tS - 0.7);
-    FX.cursor(tl, "#a1ha-cur", "#a1ha-ring", start, [
-      { t: 0, orbit: { ...ORB, start: a0, turns: 1 }, d: 1.5 },
-      { t: tMove, to: [960, 640], d: Math.max(0.2, Math.min(0.55, tS - tMove - 0.05)) },
-      { t: tS, click: true },
-      { t: tB, click: true },
-    ]);
+    steps.push({ t: tMove, to: [960, 640], d: Math.max(0.2, Math.min(0.55, tS - tMove - 0.05)) });
+    steps.push({ t: tS, click: true }, { t: tB, click: true });
+    FX.cursor(tl, "#a1ha-cur", "#a1ha-ring", orbitAt(0), steps);
 
     window.__timelines["ad1-hookA"] = tl;
   </script>

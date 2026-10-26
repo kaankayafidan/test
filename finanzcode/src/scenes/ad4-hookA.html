@@ -77,7 +77,10 @@
     const S = 1 / 1.9;                                    // Groß-Format 912 x 638 -> Raster 480 x 336
     const SL = [[288,178],[792,178],[288,532],[792,532]];                     // Kartenmitten im Raster
     const R = [215, 270];                                 // Ruhepunkt am Ende = Startpunkt im Body (Bild Karte 1)
-    const LOOP = [[318,196],[345,183],[382,172],[429,163],[481,157],[536,153],[593,152],[647,153],[698,157],[741,163],[776,172],[798,183],[806,196],[798,215],[776,242],[741,276],[698,313],[647,353],[593,394],[536,433],[481,470],[429,501],[382,526],[345,542],[318,548],[299,542],[284,526],[272,501],[264,470],[259,433],[257,394],[259,353],[264,313],[272,276],[284,242],[299,215],[318,196]];
+    const LOOP0 = [[318,196],[345,183],[382,172],[429,163],[481,157],[536,153],[593,152],[647,153],[698,157],[741,163],[776,172],[798,183],[806,196],[798,215],[776,242],[741,276],[698,313],[647,353],[593,394],[536,433],[481,470],[429,501],[382,526],[345,542],[318,548],[299,542],[284,526],[272,501],[264,470],[259,433],[257,394],[259,353],[264,313],[272,276],[284,242],[299,215],[318,196]];   // geschlossene Runde über die 3 offenen Karten (erster = letzter Punkt)
+    function loopFrom(i) { return LOOP0.slice(i, LOOP0.length - 1).concat(LOOP0.slice(0, i + 1)); }
+    const LOOP = loopFrom(5);                             // Start in der Lücke zwischen Karte 1 und 2: im ersten Bild verdeckt der Cursor keine Ziffer
+    const MID = [540, 352];                               // Lücke in der Mitte des Rasters
 
     // Raster-Zustand (t = 0)
     SL.forEach(function (c, i) {
@@ -85,14 +88,14 @@
     });
     [1, 2, 3].forEach(function (n) { FX.init(tl, "#a4ha-d" + n, { scale: 1.9, transformOrigin: "50% 50%" }); });
     FX.init(tl, "#a4ha-d4", { scale: 1.9, transformOrigin: "50% 50%" });
-    FX.init(tl, "#a4ha-front4", { rotationY: -90, opacity: 0, transformPerspective: 2400, transformOrigin: "50% 50%" });   // Vorderseite von Karte 4: hochkant und unsichtbar (wie im Body vor dem Umdrehen)
+    FX.init(tl, "#a4ha-front4", { opacity: 0 });   // Vorderseite von Karte 4: unsichtbar (im Anfang nie gezeigt; ohne 3D-Transform, sonst zeichnet Chrome in 9:16 eine Haarlinie am unteren Rand der Motiv-Zone)
 
-    // Frame 1: die Karten werden ausgeteilt – jede rutscht von knapp neben ihrem Platz (leicht gedreht) in 0,25 s (ease-out)
-    // an ihren Platz, je 0,08 s versetzt, nach 0,49 s liegen alle 4 (so steht das Skizzen-Raster schon im ersten Frame).
-    const DEAL = [[-60, -28, -5], [60, -28, 5], [-60, 28, 4], [60, 28, -5]];
+    // Frame 1: die Karten werden ausgeteilt – jede rutscht aus der Mitte (leicht gedreht, 88 %) in 0,25 s (ease-out) an ihren Platz,
+    // je 0,08 s versetzt; nach 0,49 s liegen alle 4. Schon im ersten Frame liegen alle 4 Karten vollständig in der Motiv-Zone (Skizzen-Raster).
+    const DEAL = [[28, 14, -4], [-28, 14, 4], [28, -14, 3], [-28, -14, -3]];
     SL.forEach(function (c, i) {
       const el = "#a4ha-s" + (i + 1), o = c[0] + "px " + c[1] + "px", d = DEAL[i];
-      const from = { x: d[0], y: d[1], rotation: d[2], scale: 1.05, transformOrigin: o };
+      const from = { x: d[0], y: d[1], rotation: d[2], scale: 0.88, transformOrigin: o };
       FX.init(tl, el, from);
       FX.tween(tl, el, from, { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.25, ease: "power2.out", transformOrigin: o }, i * 0.08);
     });
@@ -103,11 +106,14 @@
     function mv(t, to, d, ease) { t = Math.max(t, busy + 0.01); steps.push({ t: t, to: to, d: d, ease: ease || "power2.inOut" }); busy = t + d; return busy; }
     function path(t, pts, d) { t = Math.max(t, busy + 0.01); const seg = d / (pts.length - 1); for (let i = 1; i < pts.length; i++) steps.push({ t: t + (i - 1) * seg, to: pts[i], d: seg, ease: "none" }); busy = t + d; return busy; }
 
-    // "?"-Karte wackelt leicht (±2,5°, 0,6 s pro Schwung) bis kurz vor "… noch einen 4." und hält dann an.
+    // "?"-Karte wackelt leicht (±2,5°, 0,6 s pro Schwung), sobald sie liegt (nach dem Austeilen, 0,49 s), bis kurz vor "… noch einen 4." und hält dann an.
+    // Sie startet gerade (0°), damit sie im ersten Frame nicht doppelt gekippt ist; eine Viertel-Schwingung führt weich ins Wackeln.
     const WO = "792px 532px";
     const tCirc = Math.max(1.8, C.vierter - 0.1);
-    FX.init(tl, "#a4ha-w4", { rotation: -2.5, transformOrigin: WO });
-    const w = FX.wobble(tl, "#a4ha-w4", 0, Math.max(0.6, tCirc - 0.35), { deg: 2.5, origin: WO });
+    const tW0 = 0.49;
+    FX.init(tl, "#a4ha-w4", { rotation: 0, transformOrigin: WO });
+    FX.tween(tl, "#a4ha-w4", { rotation: 0, transformOrigin: WO, smoothOrigin: false }, { rotation: -2.5, duration: 0.3, ease: "sine.out", transformOrigin: WO, smoothOrigin: false }, tW0);
+    const w = FX.wobble(tl, "#a4ha-w4", tW0 + 0.3, Math.max(0.6, tCirc - 0.35 - tW0 - 0.3), { deg: 2.5, origin: WO });
     FX.settle(tl, "#a4ha-w4", w.end, w.endRotation, { origin: WO });
 
     // "… aber es gibt noch einen 4." -> die verdeckte Karte wird eingekreist (rot, 0,5 s); der Cursor zeichnet mit.
@@ -116,11 +122,17 @@
 
     // Cursor: kreist ab Frame 1 über die 3 offenen Karten (1 Runde ≈ 1,6 s), danach ruhig.
     path(0, LOOP, 1.6);
-    mv(Math.max(C.aber, tCirc - 0.8), TRACE[0], Math.min(0.7, Math.max(0.3, tCirc - 0.05 - Math.max(C.aber, busy + 0.01))));
+    // "Alle 3 geben meistens nach ein paar Wochen auf …" -> der Cursor sinkt ruhig in die Lücke in der Mitte des Rasters.
+    const tApp = Math.max(C.aber, tCirc - 0.8);              // Anflug auf den Kreis um die "?"-Karte
+    const tAlle = Math.max(busy + 0.1, C.alle);
+    mv(tAlle, MID, Math.max(0.4, Math.min(1.1, tApp - 0.15 - tAlle)), "sine.inOut");
+    mv(tApp, TRACE[0], Math.min(0.7, Math.max(0.3, tCirc - 0.05 - Math.max(tApp, busy + 0.01))));
     path(tCirc, TRACE, 0.5);
-    // "… und zu dem kommen wir gleich." -> ruhig zurück auf Karte 1 (dort klickt der Body weiter).
+    // "… und zu dem kommen wir gleich." -> ruhig zurück auf Karte 1 (dort klickt der Body weiter); der rote Kreis blendet dabei aus,
+    // damit er am Schnitt in den Body nicht in einem Frame verschwindet.
     const tBack = Math.max(busy + 0.25, Math.min(E.gleich - 0.9, DUR - 1.0));
     mv(tBack, R, Math.max(0.3, Math.min(0.8, DUR - 0.1 - tBack)));
+    FX.fadeOut(tl, "#a4ha-circ", Math.max(tCirc + 0.6, Math.min(tBack, DUR - 0.3)), 0.2);
     FX.cursor(tl, "#a4ha-cur", "#a4ha-ring", LOOP[0], steps);
 
     window.__timelines["ad4-hookA"] = tl;

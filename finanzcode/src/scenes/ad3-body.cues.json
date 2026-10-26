@@ -1,0 +1,94 @@
+{
+  "cues": {
+    "f1": "Frage 1 von 3: Gibt's hier überhaupt ein klares Signal",
+    "hier": "Hier ja, mein Indikator zeigt einen Einstieg",
+    "einstieg": {
+      "phrase": "zeigt einen Einstieg",
+      "word": 2
+    },
+    "f2": "Frage 2 von 3: Wo weiß ich, dass ich falsch liege?",
+    "stop": "Genau da kommt mein Stop hin",
+    "stopW": {
+      "phrase": "kommt mein Stop hin",
+      "word": 2
+    },
+    "bevor": {
+      "phrase": "und zwar bevor ich einsteige",
+      "word": 2
+    },
+    "mehr": "Wenn du sehen willst, wie ich das Schritt für Schritt mache",
+    "mehrDazu": "klick unter dem Video auf „Mehr dazu“.",
+    "bleib": "Aber bleib noch kurz",
+    "f3": "Frage 3 von 3: Lohnt sich der Trade überhaupt?",
+    "nehme": "Ich nehme nur Trades",
+    "doppelt": {
+      "phrase": "mein Ziel mindestens doppelt so weit weg ist wie mein Stop.",
+      "word": 2
+    },
+    "undhier": "Und hier?",
+    "ziel": {
+      "phrase": "Das nächste Ziel liegt",
+      "word": 2
+    },
+    "gerade": "gerade mal so weit weg wie der Stop.",
+    "also": "Also lass ich den Trade weg, obwohl das Signal da war.",
+    "disziplin": "Genau diese Disziplin hat mir in 9 Jahren",
+    "dauert": "Das dauert keine 2 Minuten",
+    "wie": "Wie du mit genau dieser Denkweise startest",
+    "denkweise": {
+      "phrase": "mit genau dieser Denkweise startest",
+      "word": 3
+    },
+    "videokurs": {
+      "phrase": "in meinem kostenlosen Videokurs",
+      "word": 3
+    },
+    "strategie": {
+      "phrase": "mit einer einfachen Strategie",
+      "word": 3
+    },
+    "plan": {
+      "phrase": "einem Plan für deine ersten 60 Tage",
+      "word": 1
+    },
+    "klick": "Klick unter dem Video auf „Mehr dazu“."
+  },
+  "sfx": [
+    {
+      "at": "f1",
+      "type": "whoosh"
+    },
+    {
+      "at": "hier",
+      "type": "pop"
+    },
+    {
+      "at": "f2",
+      "type": "whoosh"
+    },
+    {
+      "at": "mehr",
+      "type": "pop"
+    },
+    {
+      "at": "f3",
+      "type": "whoosh"
+    },
+    {
+      "at": "undhier",
+      "type": "pop"
+    },
+    {
+      "at": "also",
+      "type": "stamp"
+    },
+    {
+      "at": "wie",
+      "type": "whoosh"
+    },
+    {
+      "at": "klick",
+      "type": "pop"
+    }
+  ]
+}

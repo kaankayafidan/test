@@ -24,6 +24,10 @@
     },
     "frust": "macht er aus Frust einen Rache-Trade nach dem anderen.",
     "typ4": "Und dann gibt's noch einen 4. Typ:",
+    "typ4n": {
+      "phrase": "noch einen 4. Typ",
+      "word": 2
+    },
     "coaching": "Von über 2.000 Leuten in meinem Coaching",
     "k2000": {
       "phrase": "über 2.000 Leuten",
@@ -31,6 +35,7 @@
     },
     "dran": "sind das die, die dranbleiben.",
     "genies": "Das sind keine Genies und keine Zocker",
+    "job": "sondern ganz normale Leute mit Job",
     "einzige": {
       "phrase": "die eine einzige Strategie mit festen Regeln haben",
       "word": 2

@@ -1,0 +1,12 @@
+{
+  "cues": {
+    "wie": "Wie viel Zeit braucht Trading eigentlich neben einem 40-Stunden-Job?",
+    "gerade": "Gerade mal 30 Minuten am Tag",
+    "min30": { "phrase": "Gerade mal 30 Minuten am Tag", "word": 2 },
+    "zeig": { "phrase": "und ich zeig's dir direkt hier im Kalender.", "word": 2 },
+    "kalender": { "phrase": "direkt hier im Kalender.", "word": 3 }
+  },
+  "sfx": [
+    { "at": "min30", "type": "pop" }
+  ]
+}

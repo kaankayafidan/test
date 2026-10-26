@@ -37,22 +37,31 @@
           <path d="M583 326 L600 384" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
           <!-- Handy mit beiden Händen vor der Brust -->
           <rect x="512" y="328" width="56" height="88" rx="10" fill="#0E1A2B" />
-          <rect x="519" y="337" width="42" height="66" rx="5" fill="#334155" />
-          <path d="M526 346 L548 346" stroke="#64748B" stroke-width="5" stroke-linecap="round" />
+          <rect x="519" y="337" width="42" height="66" rx="5" fill="#F3F4F6" />
+          <!-- Feed auf dem Display (scrollt auf "Ihr ganzes Einkommen ..." einmal nach oben) -->
+          <clipPath id="a6hb-clip"><rect x="519" y="337" width="42" height="66" rx="5" /></clipPath>
+          <g clip-path="url(#a6hb-clip)">
+            <g id="a6hb-feed">
+              <path d="M526 348 L554 348 M526 360 L546 360 M526 376 L554 376 M526 388 L542 388 M526 404 L554 404 M526 416 L548 416" stroke="#9CA3AF" stroke-width="5" stroke-linecap="round" />
+            </g>
+          </g>
           <!-- Unterarme (hochgekrempelt) + Hände halten das Handy -->
           <path d="M480 384 L510 396" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
           <path d="M600 384 L570 396" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
           <circle cx="512" cy="394" r="15" fill="#F2C29B" />
           <circle cx="568" cy="394" r="15" fill="#F2C29B" />
+          <!-- Daumen der rechten Hand (wischt einmal übers Display) -->
+          <ellipse id="a6hb-thumb" cx="556" cy="386" rx="6" ry="10" fill="#F2C29B" stroke="#E0A57C" stroke-width="2" />
           <!-- Kopf: entspannt, schaut aufs Handy, lächelt -->
           <circle cx="540" cy="240" r="54" fill="#F2C29B" />
           <path d="M488 232 Q490 180 540 180 Q594 180 594 230 Q580 206 552 204 Q520 204 500 222 Z" fill="#5B3A1E" />
           <circle cx="522" cy="251" r="7" fill="#111827" />
           <circle cx="558" cy="251" r="7" fill="#111827" />
           <path d="M524 270 Q540 284 556 270" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          <!-- "... auf einem einzigen Bein": das freie Stück Hocker-Bein zwischen den Schuhen und dem Boden
+               einkreisen (rot, 10 px, 0,5 s). Im Rig, damit der Kreis mit dem Bein mitwackelt. -->
+          <path id="a6hb-circ" class="fx-stroke" pathLength="1" d="M0 0" />
         </g>
-        <!-- "... auf einem einzigen Bein": das Bein einkreisen (rot, 10 px, 0,5 s) -->
-        <path id="a6hb-circ" class="fx-stroke" pathLength="1" d="M0 0" />
       </svg>
     </div>
   </div>
@@ -61,17 +70,25 @@
     const PIVOT = "540 650";
 
     // Hand-drawn circle around the single leg (seeded, identical every render).
-    document.querySelector("#a6hb-circ").setAttribute("d", FX.handCircle(540, 562, 60, 116, 11));
+    document.querySelector("#a6hb-circ").setAttribute("d", FX.handCircle(540, 606, 36, 64, 11));
 
     // Initial states (t = 0). Pivots first, so GSAP never switches origin on a rotated element.
     FX.init(tl, "#a6hb-rig", { svgOrigin: PIVOT, smoothOrigin: false });
     FX.init(tl, "#a6hb-leg2", { svgOrigin: "676 563", smoothOrigin: false, opacity: 0 });
+    FX.init(tl, ["#a6hb-feed", "#a6hb-thumb"], { x: 0, y: 0 });
 
     // Frame 1: der Hocker wackelt ±6° um den Fußpunkt, die Figur merkt nichts.
     // Wackelt weiter bis kurz vor "zweites", dann steht er (das gestrichelte Bein kommt dazu).
     const swings = Math.max(1, Math.floor((C.zweites - 0.3) / 0.6));
     const w = FX.wobble(tl, "#a6hb-rig", 0, swings * 0.6 + 0.01, { svgOrigin: PIVOT });
     FX.settle(tl, "#a6hb-rig", w.end, w.endRotation, { svgOrigin: PIVOT });
+
+    // "Ihr ganzes Einkommen ...": die Figur wischt einmal mit dem Daumen, der Feed scrollt hoch
+    // (sie merkt weiter nichts vom Wackeln).
+    const tSwipe = Math.max(0.8, C.ihr - 0.1);
+    FX.tween(tl, "#a6hb-thumb", { y: 0 }, { y: -22, duration: 0.3, ease: "power2.inOut" }, tSwipe);
+    FX.tween(tl, "#a6hb-thumb", { y: -22 }, { y: 0, duration: 0.25, ease: "power2.inOut" }, tSwipe + 0.3);
+    FX.tween(tl, "#a6hb-feed", { y: 0 }, { y: -28, duration: 0.35, ease: "power2.out" }, tSwipe);
 
     // "Ihr ganzes Einkommen steht auf einem einzigen Bein.": das Bein einkreisen.
     FX.drawCircle(tl, "#a6hb-circ", Math.max(0.6, C.einzigen - 0.1));

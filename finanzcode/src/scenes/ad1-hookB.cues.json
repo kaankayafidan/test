@@ -5,6 +5,6 @@
     "genau": "und genau davon kannst du beim Trading eine Menge lernen."
   },
   "sfx": [
-    { "at": "wegen", "type": "whoosh", "offset": -0.05 }
+    { "t": "Math.max(0.9, C.wegen - 0.05)", "type": "whoosh" }
   ]
 }

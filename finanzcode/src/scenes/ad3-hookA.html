@@ -1,0 +1,85 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a3ha-scene { position: absolute; inset: 0; }
+    #a3ha-chart { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: hidden; }
+    #a3ha-chart line { stroke-width: 4; vector-effect: non-scaling-stroke; }
+    /* JA / NEIN: beide gleich, weiß mit Navy-Rand (keine Kaufen-/Verkaufen-Optik) */
+    .a3ha-btn { position: absolute; top: 566px; width: 270px; height: 116px; border: 7px solid #0E1A2B; border-radius: 24px; background: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 1; color: #0E1A2B; }
+    #a3ha-ja { left: 255px; }
+    #a3ha-nein { left: 555px; }
+    #a3ha-q { position: absolute; left: 0; top: 572px; width: 1080px; font-size: 100px; display: flex; justify-content: center; gap: 50px; }
+  </style>
+  <div id="root" data-composition-id="ad3-hookA" data-width="1080" data-height="710">
+    <div id="a3ha-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <!-- Gold-Chart (4h, bereinigt), reingezoomt auf die dicke grüne Ausbruchskerze. Gleiche Kerzen wie im Body,
+           hier mit der Hook-Ansicht (Body-Koordinaten x 2,63 / y 3,52): Basis + Ausbruchskerze. -->
+      <svg id="a3ha-chart" viewBox="0 0 1080 710">
+        <g transform="matrix(2.62987 0 0 3.51563 -1422.21 -1444.14)">
+          <!--gen:chart-->
+          <g><line x1="556" y1="521.8" x2="556" y2="553" stroke="#DC2626" /><rect x="545" y="529" width="22" height="9.6" fill="#DC2626" /></g>
+          <g><line x1="584" y1="524.2" x2="584" y2="545.8" stroke="#16A34A" /><rect x="573" y="529" width="22" height="9.6" fill="#16A34A" /></g>
+          <g><line x1="612" y1="517" x2="612" y2="536.2" stroke="#16A34A" /><rect x="601" y="521.8" width="22" height="7.2" fill="#16A34A" /></g>
+          <g><line x1="640" y1="518.2" x2="640" y2="538.6" stroke="#DC2626" /><rect x="629" y="521.8" width="22" height="12" fill="#DC2626" /></g>
+          <g><line x1="668" y1="519.4" x2="668" y2="541" stroke="#16A34A" /><rect x="657" y="524.2" width="22" height="9.6" fill="#16A34A" /></g>
+          <g><line x1="696" y1="512.2" x2="696" y2="531.4" stroke="#16A34A" /><rect x="685" y="517" width="22" height="7.2" fill="#16A34A" /></g>
+          <g><line x1="724" y1="512.2" x2="724" y2="531.4" stroke="#DC2626" /><rect x="713" y="517" width="22" height="9.6" fill="#DC2626" /></g>
+          <g><line x1="752" y1="514.6" x2="752" y2="533.8" stroke="#16A34A" /><rect x="741" y="519.4" width="22" height="7.2" fill="#16A34A" /></g>
+          <g><line x1="780" y1="507.4" x2="780" y2="526.6" stroke="#16A34A" /><rect x="769" y="512.2" width="22" height="7.2" fill="#16A34A" /></g>
+          <g><line x1="808" y1="506.2" x2="808" y2="524.2" stroke="#DC2626" /><rect x="797" y="512.2" width="22" height="7.2" fill="#DC2626" /></g>
+          <g><line x1="836" y1="509.8" x2="836" y2="524.2" stroke="#16A34A" /><rect x="825" y="514.6" width="22" height="4.8" fill="#16A34A" /></g>
+          <g id="a3ha-bo"><line x1="864" y1="437.8" x2="864" y2="519.4" stroke="#16A34A" /><rect x="853" y="445" width="22" height="69.6" fill="#16A34A" /></g>
+          <!--/gen:chart-->
+        </g>
+      </svg>
+      <div id="a3ha-ja" class="a3ha-btn">JA</div>
+      <div id="a3ha-nein" class="a3ha-btn">NEIN</div>
+      <div id="a3ha-q" class="fx-word"><span>3</span><span>Fragen</span></div>
+      <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a3ha-c3" class="fx-stroke" pathLength="1" d="M0 0" /></svg>
+      <!--@include cursor p="a3ha"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+
+    // Beats (alle aus den Cue-Zeiten abgeleitet, mit Mindestabständen falls schneller gesprochen wird).
+    const tOut = Math.max(1.2, C.bevor - 0.05);                    // "Bevor ich das beantworte": Buttons ausblenden
+    const tQ = Math.max(tOut + 0.9, C.drei - 0.05);                 // "... genau 3 Fragen": "3 Fragen" einblenden
+    const tRing = Math.max(tQ + 0.6, C.dritten - 0.05);             // "... an der dritten ...": die "3" einkreisen
+
+    FX.init(tl, "#a3ha-q", { opacity: 0 });
+    FX.fadeOut(tl, ["#a3ha-ja", "#a3ha-nein"], tOut);
+    FX.fadeIn(tl, "#a3ha-q", tQ);
+
+    // Kreis um die "3" ("3" und "Fragen" mit 50 px Abstand, mittig: die "3" liegt bei x 304-364, Ziffer 310-358).
+    const RING = FX.handCircle(334, 627, 52, 60, 5);
+    document.getElementById("a3ha-c3").setAttribute("d", RING);
+    FX.drawCircle(tl, "#a3ha-c3", tRing);
+
+    // Cursor: pendelt ab Frame 1 über die Lücke zwischen JA und NEIN (0,6 s pro Weg; der Pfeil bleibt auf den
+    // Rändern, nie auf den Buchstaben), klickt keinen Button. Danach eine ruhige Bewegung pro Satz.
+    const Y0 = 594, X1 = 454, X2 = 558;
+    const HAND = [215, 590];                                        // Übergabepunkt: Ende beider Hooks = Start Body
+    const swayD = Math.max(0.6, tOut - 0.1);
+    // Beim Einkreisen fährt die Pfeilspitze den Kreis mit, im selben Tempo wie FX.drawCircle (0,5 s, power1.inOut).
+    const pts = RING.split(/[ML]/).map((s) => s.trim()).filter(Boolean).map((s) => s.split(/\s+/).map(Number));
+    const inv = (p) => (p < 0.5 ? Math.sqrt(p / 2) : 1 - Math.sqrt((1 - p) / 2));
+    const trace = [];
+    let tPrev = tRing;
+    for (let i = 1; i < pts.length; i++) {
+      const stepEnd = tRing + 0.5 * inv(i / (pts.length - 1));
+      trace.push({ t: tPrev, to: pts[i], d: Math.max(0.004, stepEnd - tPrev), ease: "none" });
+      tPrev = stepEnd;
+    }
+    FX.cursor(tl, "#a3ha-cur", "#a3ha-ring", [X1, Y0], [
+      { t: 0, sway: { x1: X1, x2: X2, y: Y0 }, d: swayD },
+      { t: tOut, to: HAND, d: Math.min(0.7, Math.max(0.35, tQ - tOut - 0.2)) },   // Buttons blenden aus, Hand geht nach links
+      { t: tQ, click: true },                                                      // Klick neben der "3": "3 Fragen" erscheint
+      { t: tRing - 0.3, to: pts[0], d: 0.25 },
+      ...trace,
+      { t: tRing + 0.55, to: HAND, d: Math.min(0.45, Math.max(0.2, DUR - 0.3 - (tRing + 0.55))) },
+    ]);
+
+    window.__timelines["ad3-hookA"] = tl;
+  </script>
+</template>

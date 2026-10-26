@@ -58,6 +58,10 @@
       "word": 1
     },
     "welche": "Welche das sind, zeig ich dir in meinem kostenlosen Videokurs",
+    "kostenlosen": {
+      "phrase": "zeig ich dir in meinem kostenlosen Videokurs",
+      "word": 5
+    },
     "grundlagen": {
       "phrase": "mit den Grundlagen",
       "word": 2
@@ -70,22 +74,32 @@
       "phrase": "einem Plan für deine ersten 60 Tage",
       "word": 1
     },
+    "eigentlich": {
+      "phrase": "und eigentlich könnte ich dafür locker 500 Euro nehmen.",
+      "word": 1
+    },
+    "locker": {
+      "phrase": "und eigentlich könnte ich dafür locker 500 Euro nehmen.",
+      "word": 5
+    },
     "klick": "Klick unter dem Video auf „Mehr dazu“.",
     "wer": "wer am Tisch wirklich gewinnt."
   },
   "sfx": [
     {
-      "at": "p27",
+      "t": "(() => { const lo = C.rechnerisch + 0.2, hi = C.verliert - 1.45; return hi < lo ? lo : Math.min(hi, Math.max(lo, C.p27 - 0.2)); })()",
       "type": "stamp",
-      "offset": -0.2
+      "_beat": "2,7 % (t27s)"
     },
     {
-      "at": "mathe",
-      "type": "pop"
+      "t": "Math.max(C.tausende + 0.2, Math.min(Math.max(C.tausende + 0.45, C.mathe - 0.05), C.genau9 - 1.25))",
+      "type": "pop",
+      "_beat": "Mathematik gewinnt (tWins)"
     },
     {
-      "at": "ziel",
-      "type": "pop"
+      "t": "Math.max(Math.max(C.genau9 + 0.35, C.nehme + 0.15) + 0.4, C.ziel - 0.05)",
+      "type": "pop",
+      "_beat": "Ziel 2 (tZ)"
     },
     {
       "at": "casino",
@@ -94,11 +108,13 @@
     },
     {
       "at": "klare",
-      "type": "pop"
+      "type": "pop",
+      "offset": -0.05
     },
     {
       "at": "klick",
-      "type": "pop"
+      "type": "pop",
+      "offset": -0.05
     }
   ]
 }

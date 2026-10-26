@@ -11,14 +11,21 @@
       <div id="a1hb-photo" class="photo-slot" data-asset="roulette-zero-closeup">
         <svg id="a1hb-art" viewBox="0 0 1080 710">
           <defs>
-            <!-- Tiefenunschärfe: weiche Kopie des Kessels, die um die Null herum ausgeblendet ist -->
+            <!-- Tiefenunschärfe: weiche, ausgebleichte Kopie des Kessels, die um die Null herum ausgeblendet ist -->
             <filter id="a1hb-soft" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">
-              <feGaussianBlur stdDeviation="1.05" />
+              <feGaussianBlur stdDeviation="1.6" />
+              <feColorMatrix type="saturate" values="0.55" />
+              <feComponentTransfer>
+                <feFuncR type="linear" slope="0.74" intercept="0.22" />
+                <feFuncG type="linear" slope="0.74" intercept="0.2" />
+                <feFuncB type="linear" slope="0.74" intercept="0.19" />
+              </feComponentTransfer>
             </filter>
-            <radialGradient id="a1hb-dof" gradientUnits="userSpaceOnUse" cx="0" cy="-210" r="1" gradientTransform="translate(0 -210) scale(64 92) translate(0 210)">
+            <!-- scharf nur in der Null-Tasche (bis 50 % des Verlaufs), ab 95 % voll weich und ausgebleicht -->
+            <radialGradient id="a1hb-dof" gradientUnits="userSpaceOnUse" cx="0" cy="-206" r="1" gradientTransform="translate(0 -206) scale(46 120) translate(0 206)">
               <stop offset="0" stop-color="#000000" />
-              <stop offset="0.42" stop-color="#000000" />
-              <stop offset="1" stop-color="#FFFFFF" />
+              <stop offset="0.5" stop-color="#000000" />
+              <stop offset="0.95" stop-color="#FFFFFF" />
             </radialGradient>
             <mask id="a1hb-mask" maskUnits="userSpaceOnUse" x="-400" y="-400" width="800" height="800">
               <rect x="-400" y="-400" width="800" height="800" fill="url(#a1hb-dof)" />
@@ -28,7 +35,7 @@
             <g id="a1hb-pan">
             <g id="a1hb-zoom">
               <g id="a1hb-wheel">
-<!--gen:wheel p="a1hb" numbers="1" ball="1"-->
+<!--gen:wheel p="a1hb" numbers="1"-->
 <circle r="320" fill="#4A2A12"/>
 <circle r="314" fill="#8A5226"/>
 <circle r="300" fill="#9C5F2D"/>
@@ -44,7 +51,6 @@
 <path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(337.5)"/>
 <circle r="250" fill="#C9971C"/>
 <g id="a1hb-spin"><circle r="246" fill="#1F2937"/><path d="M-20.86 -245.11A246 246 0 0 1 20.86 -245.11L17.39 -204.26A205 205 0 0 0 -17.39 -204.26Z" fill="#16A34A"/><path d="M-17.39 -204.26A205 205 0 0 1 17.39 -204.26L13.57 -159.42A160 160 0 0 0 -13.57 -159.42Z" fill="#15803D"/><path d="M20.86 -245.11A246 246 0 0 1 61.99 -238.06L51.66 -198.39A205 205 0 0 0 17.39 -204.26Z" fill="#DC2626"/><path d="M17.39 -204.26A205 205 0 0 1 51.66 -198.39L40.32 -154.84A160 160 0 0 0 13.57 -159.42Z" fill="#B91C1C"/><path d="M51.66 -198.39A205 205 0 0 1 84.44 -186.8L65.9 -145.8A160 160 0 0 0 40.32 -154.84Z" fill="#111827"/><path d="M101.33 -224.16A246 246 0 0 1 137.75 -203.81L114.79 -169.84A205 205 0 0 0 84.44 -186.8Z" fill="#DC2626"/><path d="M84.44 -186.8A205 205 0 0 1 114.79 -169.84L89.6 -132.56A160 160 0 0 0 65.9 -145.8Z" fill="#B91C1C"/><path d="M114.79 -169.84A205 205 0 0 1 141.85 -148L110.71 -115.51A160 160 0 0 0 89.6 -132.56Z" fill="#111827"/><path d="M170.22 -177.6A246 246 0 0 1 197.78 -146.28L164.82 -121.9A205 205 0 0 0 141.85 -148Z" fill="#DC2626"/><path d="M141.85 -148A205 205 0 0 1 164.82 -121.9L128.64 -95.14A160 160 0 0 0 110.71 -115.51Z" fill="#B91C1C"/><path d="M164.82 -121.9A205 205 0 0 1 183.05 -92.29L142.87 -72.03A160 160 0 0 0 128.64 -95.14Z" fill="#111827"/><path d="M219.66 -110.75A246 246 0 0 1 235.22 -72.03L196.01 -60.03A205 205 0 0 0 183.05 -92.29Z" fill="#DC2626"/><path d="M183.05 -92.29A205 205 0 0 1 196.01 -60.03L152.99 -46.85A160 160 0 0 0 142.87 -72.03Z" fill="#B91C1C"/><path d="M196.01 -60.03A205 205 0 0 1 203.34 -26.04L158.7 -20.32A160 160 0 0 0 152.99 -46.85Z" fill="#111827"/><path d="M244.01 -31.25A246 246 0 0 1 245.78 10.44L204.82 8.7A205 205 0 0 0 203.34 -26.04Z" fill="#DC2626"/><path d="M203.34 -26.04A205 205 0 0 1 204.82 8.7L159.86 6.79A160 160 0 0 0 158.7 -20.32Z" fill="#B91C1C"/><path d="M204.82 8.7A205 205 0 0 1 200.4 43.19L156.41 33.71A160 160 0 0 0 159.86 6.79Z" fill="#111827"/><path d="M240.48 51.83A246 246 0 0 1 228.26 91.72L190.22 76.44A205 205 0 0 0 200.4 43.19Z" fill="#DC2626"/><path d="M200.4 43.19A205 205 0 0 1 190.22 76.44L148.46 59.66A160 160 0 0 0 156.41 33.71Z" fill="#B91C1C"/><path d="M190.22 76.44A205 205 0 0 1 174.56 107.48L136.24 83.89A160 160 0 0 0 148.46 59.66Z" fill="#111827"/><path d="M209.48 128.98A246 246 0 0 1 184.67 162.53L153.89 135.44A205 205 0 0 0 174.56 107.48Z" fill="#DC2626"/><path d="M174.56 107.48A205 205 0 0 1 153.89 135.44L120.11 105.71A160 160 0 0 0 136.24 83.89Z" fill="#B91C1C"/><path d="M153.89 135.44A205 205 0 0 1 128.79 159.5L100.52 124.49A160 160 0 0 0 120.11 105.71Z" fill="#111827"/><path d="M154.54 191.4A246 246 0 0 1 119.97 214.76L99.98 178.97A205 205 0 0 0 128.79 159.5Z" fill="#DC2626"/><path d="M128.79 159.5A205 205 0 0 1 99.98 178.97L78.03 139.68A160 160 0 0 0 100.52 124.49Z" fill="#B91C1C"/><path d="M99.98 178.97A205 205 0 0 1 68.29 193.29L53.3 150.86A160 160 0 0 0 78.03 139.68Z" fill="#111827"/><path d="M81.95 231.95A246 246 0 0 1 41.57 242.46L34.65 202.05A205 205 0 0 0 68.29 193.29Z" fill="#DC2626"/><path d="M68.29 193.29A205 205 0 0 1 34.65 202.05L27.04 157.7A160 160 0 0 0 53.3 150.86Z" fill="#B91C1C"/><path d="M34.65 202.05A205 205 0 0 1 0 205L0 160A160 160 0 0 0 27.04 157.7Z" fill="#111827"/><path d="M0 246A246 246 0 0 1 -41.57 242.46L-34.65 202.05A205 205 0 0 0 0 205Z" fill="#DC2626"/><path d="M0 205A205 205 0 0 1 -34.65 202.05L-27.04 157.7A160 160 0 0 0 0 160Z" fill="#B91C1C"/><path d="M-34.65 202.05A205 205 0 0 1 -68.29 193.29L-53.3 150.86A160 160 0 0 0 -27.04 157.7Z" fill="#111827"/><path d="M-81.95 231.95A246 246 0 0 1 -119.97 214.76L-99.98 178.97A205 205 0 0 0 -68.29 193.29Z" fill="#DC2626"/><path d="M-68.29 193.29A205 205 0 0 1 -99.98 178.97L-78.03 139.68A160 160 0 0 0 -53.3 150.86Z" fill="#B91C1C"/><path d="M-99.98 178.97A205 205 0 0 1 -128.79 159.5L-100.52 124.49A160 160 0 0 0 -78.03 139.68Z" fill="#111827"/><path d="M-154.54 191.4A246 246 0 0 1 -184.67 162.53L-153.89 135.44A205 205 0 0 0 -128.79 159.5Z" fill="#DC2626"/><path d="M-128.79 159.5A205 205 0 0 1 -153.89 135.44L-120.11 105.71A160 160 0 0 0 -100.52 124.49Z" fill="#B91C1C"/><path d="M-153.89 135.44A205 205 0 0 1 -174.56 107.48L-136.24 83.89A160 160 0 0 0 -120.11 105.71Z" fill="#111827"/><path d="M-209.48 128.98A246 246 0 0 1 -228.26 91.72L-190.22 76.44A205 205 0 0 0 -174.56 107.48Z" fill="#DC2626"/><path d="M-174.56 107.48A205 205 0 0 1 -190.22 76.44L-148.46 59.66A160 160 0 0 0 -136.24 83.89Z" fill="#B91C1C"/><path d="M-190.22 76.44A205 205 0 0 1 -200.4 43.19L-156.41 33.71A160 160 0 0 0 -148.46 59.66Z" fill="#111827"/><path d="M-240.48 51.83A246 246 0 0 1 -245.78 10.44L-204.82 8.7A205 205 0 0 0 -200.4 43.19Z" fill="#DC2626"/><path d="M-200.4 43.19A205 205 0 0 1 -204.82 8.7L-159.86 6.79A160 160 0 0 0 -156.41 33.71Z" fill="#B91C1C"/><path d="M-204.82 8.7A205 205 0 0 1 -203.34 -26.04L-158.7 -20.32A160 160 0 0 0 -159.86 6.79Z" fill="#111827"/><path d="M-244.01 -31.25A246 246 0 0 1 -235.22 -72.03L-196.01 -60.03A205 205 0 0 0 -203.34 -26.04Z" fill="#DC2626"/><path d="M-203.34 -26.04A205 205 0 0 1 -196.01 -60.03L-152.99 -46.85A160 160 0 0 0 -158.7 -20.32Z" fill="#B91C1C"/><path d="M-196.01 -60.03A205 205 0 0 1 -183.05 -92.29L-142.87 -72.03A160 160 0 0 0 -152.99 -46.85Z" fill="#111827"/><path d="M-219.66 -110.75A246 246 0 0 1 -197.78 -146.28L-164.82 -121.9A205 205 0 0 0 -183.05 -92.29Z" fill="#DC2626"/><path d="M-183.05 -92.29A205 205 0 0 1 -164.82 -121.9L-128.64 -95.14A160 160 0 0 0 -142.87 -72.03Z" fill="#B91C1C"/><path d="M-164.82 -121.9A205 205 0 0 1 -141.85 -148L-110.71 -115.51A160 160 0 0 0 -128.64 -95.14Z" fill="#111827"/><path d="M-170.22 -177.6A246 246 0 0 1 -137.75 -203.81L-114.79 -169.84A205 205 0 0 0 -141.85 -148Z" fill="#DC2626"/><path d="M-141.85 -148A205 205 0 0 1 -114.79 -169.84L-89.6 -132.56A160 160 0 0 0 -110.71 -115.51Z" fill="#B91C1C"/><path d="M-114.79 -169.84A205 205 0 0 1 -84.44 -186.8L-65.9 -145.8A160 160 0 0 0 -89.6 -132.56Z" fill="#111827"/><path d="M-101.33 -224.16A246 246 0 0 1 -61.99 -238.06L-51.66 -198.39A205 205 0 0 0 -84.44 -186.8Z" fill="#DC2626"/><path d="M-84.44 -186.8A205 205 0 0 1 -51.66 -198.39L-40.32 -154.84A160 160 0 0 0 -65.9 -145.8Z" fill="#B91C1C"/><path d="M-51.66 -198.39A205 205 0 0 1 -17.39 -204.26L-13.57 -159.42A160 160 0 0 0 -40.32 -154.84Z" fill="#111827"/><path d="M-13.57 -159.42L-20.86 -245.11M13.57 -159.42L20.86 -245.11M40.32 -154.84L61.99 -238.06M65.9 -145.8L101.33 -224.16M89.6 -132.56L137.75 -203.81M110.71 -115.51L170.22 -177.6M128.64 -95.14L197.78 -146.28M142.87 -72.03L219.66 -110.75M152.99 -46.85L235.22 -72.03M158.7 -20.32L244.01 -31.25M159.86 6.79L245.78 10.44M156.41 33.71L240.48 51.83M148.46 59.66L228.26 91.72M136.24 83.89L209.48 128.98M120.11 105.71L184.67 162.53M100.52 124.49L154.54 191.4M78.03 139.68L119.97 214.76M53.3 150.86L81.95 231.95M27.04 157.7L41.57 242.46M0 160L0 246M-27.04 157.7L-41.57 242.46M-53.3 150.86L-81.95 231.95M-78.03 139.68L-119.97 214.76M-100.52 124.49L-154.54 191.4M-120.11 105.71L-184.67 162.53M-136.24 83.89L-209.48 128.98M-148.46 59.66L-228.26 91.72M-156.41 33.71L-240.48 51.83M-159.86 6.79L-245.78 10.44M-158.7 -20.32L-244.01 -31.25M-152.99 -46.85L-235.22 -72.03M-142.87 -72.03L-219.66 -110.75M-128.64 -95.14L-197.78 -146.28M-110.71 -115.51L-170.22 -177.6M-89.6 -132.56L-137.75 -203.81M-65.9 -145.8L-101.33 -224.16M-40.32 -154.84L-61.99 -238.06" stroke="#D4A017" stroke-width="2.4" fill="none"/><circle r="205" fill="none" stroke="#D4A017" stroke-width="3"/><circle r="246" fill="none" stroke="#D4A017" stroke-width="3"/><g id="a1hb-nums" font-family="Poppins" font-weight="700" font-size="17" text-anchor="middle" dominant-baseline="central"><text transform="rotate(0) translate(0 -226)" fill="#FFFFFF">0</text><text transform="rotate(9.73) translate(0 -226)" fill="#FFFFFF">32</text><text transform="rotate(19.46) translate(0 -226)" fill="#FFFFFF">15</text><text transform="rotate(29.19) translate(0 -226)" fill="#FFFFFF">19</text><text transform="rotate(330.81) translate(0 -226)" fill="#FFFFFF">35</text><text transform="rotate(340.54) translate(0 -226)" fill="#FFFFFF">3</text><text transform="rotate(350.27) translate(0 -226)" fill="#FFFFFF">26</text></g><circle r="160" fill="#C9971C"/><circle r="156" fill="#6E4220"/><circle r="148" fill="#9A6332"/><circle r="112" fill="#AD7442"/><circle r="74" fill="#BE8650"/><g transform="rotate(45)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><g transform="rotate(135)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><g transform="rotate(225)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><g transform="rotate(315)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><circle r="26" fill="#D4A017"/><circle r="15" fill="#F2D06B"/></g>
-<g id="a1hb-borb"><g id="a1hb-bdrop"><circle cy="-277" r="10.5" fill="#D1D5DB"/><circle cx="-1.2" cy="-278.2" r="8.6" fill="#FFFFFF"/></g></g>
 <!--/gen:wheel-->
               </g>
               <use id="a1hb-blur" href="#a1hb-wheel" filter="url(#a1hb-soft)" mask="url(#a1hb-mask)" />
@@ -63,15 +69,15 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     const O = { svgOrigin: "0 0" };
-    // Lokaler Ersatz für FX.drawCircle: FX.draw rundet stroke-dashoffset auf ganze px (GSAP autoRound),
-    // dann ploppt der Strich nur auf statt sich zu zeichnen. Gleiche Werte (0,5 s Kreis), nur ohne Rundung.
-    const draw = (el, t, d) => FX.tween(tl, el, { opacity: 1, strokeDashoffset: 1 }, { opacity: 1, strokeDashoffset: 0, autoRound: false, duration: d, ease: "power1.inOut" }, t);
-    const K = 0.9375;                 // Kessel-Gesamtansicht: Radius 300 px
+    const K = 0.9375;                 // Grundgröße des Kessels (Radius 300 px bei Zoom 1)
     const CX = 540, CY = 355;
-    const S0 = 4.6 / K;               // Close-up: 4,6-fach
-    const ZY = -210;                  // Mitte der Null-Tasche (lokal)
+    const S0 = 5.2 / K;               // Close-up: 5,2-fach, zeigt 3 · 26 · 0 · 32 · 15
+    const ZY = -210;                  // Mitte des Kreises um die Null (lokal)
     const Y0 = (285 - CY) / K - S0 * ZY; // Null-Tasche sitzt bei y = 285 px
     const toScreen = (x, y, s, oy) => [CX + K * (s * x), CY + K * (oy + s * y)];
+    // Übergabe an den Body (identische Pixel): Kessel mittig, Radius 275 px (Zoom 0,86 / K), steht mit der Null oben, keine Kugel.
+    const zEnd = 0.86 / K;
+    const tEnd = DUR - 0.05;
 
     // Frame 1: Close-up. Danach weicher Push-in (Tempo wie "langsamer Zoom", die Null bleibt stehen) bis zum Rauszoomen.
     const tZ = Math.max(0.9, C.wegen - 0.05);
@@ -84,36 +90,34 @@
 
     // In den ersten 0,5 s zieht sich der rote Kreis um die Null (der Cursor zeichnet ihn mit).
     // Danach übernimmt eine identische Kopie im Kessel, die beim Rauszoomen mitwandert.
-    const ringL = FX.handCircle(0, ZY, 33, 44, 7);
+    const ringL = FX.handCircle(0, ZY, 31, 44, 7);
     const sD = S0 + (S1 - S0) * (0.5 / tZ), yD = Y0 + (Y1 - Y0) * (0.5 / tZ);
     const pts = [...ringL.matchAll(/[ML]([-\d.]+) ([-\d.]+)/g)].map((m) => toScreen(+m[1], +m[2], sD, yD));
     document.getElementById("a1hb-ring0").setAttribute("d", pts.map((q, i) => (i ? "L" : "M") + q[0].toFixed(1) + " " + q[1].toFixed(1)).join(" "));
     document.getElementById("a1hb-ring1").setAttribute("d", ringL);
     FX.init(tl, "#a1hb-ring1", { opacity: 0 });
-    draw("#a1hb-ring0", 0, 0.5);
+    FX.drawCircle(tl, "#a1hb-ring0", 0);
     FX.cut(tl, "#a1hb-ring0", "#a1hb-ring1", 0.5);
 
-    // "Wegen ihr gewinnt das Casino ...": Rauszoomen auf den ganzen Kessel (0,5 s, weich).
-    FX.zoomOut(tl, "#a1hb-zoom", tZ, { from: S1, ...O });
+    // "Wegen ihr gewinnt das Casino ...": Rauszoomen auf den ganzen Kessel (0,5 s, weich), danach ganz langsam weiter raus
+    // (Tempo wie 8 % / 3 s) bis genau auf die Übergabegröße.
+    const tW = tZ + 0.5;
+    const dZ = Math.min(3, tEnd - tW);
+    const zW = dZ >= 0.3 ? zEnd * (1 + (0.08 * dZ) / 3) : zEnd;
+    FX.tween(tl, "#a1hb-zoom", { scale: S1, ...O }, { scale: zW, duration: 0.5, ease: "power2.inOut", ...O }, tZ);
     FX.tween(tl, "#a1hb-pan", { x: 0, y: Y1 }, { x: 0, y: 0, duration: 0.5, ease: "power2.inOut" }, tZ);
     FX.fadeOut(tl, "#a1hb-blur", tZ, 0.35);
     FX.fadeOut(tl, "#a1hb-nums", tZ + 0.1, 0.3);
-    // danach: ganz langsamer Zoom auf den Kessel
-    const tW = tZ + 0.5;
-    FX.slowZoom(tl, "#a1hb-zoom", tW, { from: 1, to: 1.08, d: 3, ...O });
+    if (dZ >= 0.3) FX.slowZoom(tl, "#a1hb-zoom", tEnd - dZ, { from: zW, to: zEnd, d: dZ, ...O });
 
-    // "... und genau davon ...": der Kessel läuft an, die Kugel wird eingeworfen, der Kreis geht weg.
-    const tU = Math.max(tZ + 1.0, C.genau - 0.05);
-    const D = Math.max(0.5, DUR - tU);
+    // "... und genau davon ...": der Kreis geht weg, der Kessel dreht eine ganze Runde und steht wieder mit der Null oben.
+    const tU = Math.min(Math.max(tZ + 1.0, C.genau - 0.05), tEnd - 0.8);
+    const D = tEnd - tU;
     FX.fadeOut(tl, "#a1hb-ring1", tU, 0.2);
-    FX.tween(tl, "#a1hb-spin", { rotation: 0, ...O }, { rotation: 80 * D, duration: D, ease: "power1.in", ...O }, tU);
-    FX.init(tl, "#a1hb-borb", { rotation: 100, ...O });
-    FX.init(tl, "#a1hb-bdrop", { opacity: 0 });
-    FX.pop(tl, "#a1hb-bdrop", tU, { svgOrigin: "0 -277" });
-    FX.tween(tl, "#a1hb-borb", { rotation: 100, ...O }, { rotation: 100 - 400 * D, duration: D, ease: "power1.out", ...O }, tU);
+    FX.tween(tl, "#a1hb-spin", { rotation: 0, ...O }, { rotation: 360 * Math.max(1, Math.round(D / 2.9)), duration: D, ease: "sine.inOut", ...O }, tU);
 
-    // Cursor zeichnet den Kreis (folgt dem Strich), danach eine ruhige Bewegung pro Satz.
-    // Die Pfeilspitze bleibt am Ende des Strichs: Zeitpunkte nach Weglänge und derselben Kurve (power1.inOut) wie der Strich.
+    // Cursor zeichnet den Kreis (folgt dem Strich), geht danach knapp rechts oben aus dem Kreis heraus;
+    // eine ruhige Bewegung pro Satz. Zeitpunkte nach Weglänge und derselben Kurve (power1.inOut) wie der Strich.
     const followPath = (P, t0, d) => {
       const L = [0];
       for (let i = 1; i < P.length; i++) L.push(L[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
@@ -122,7 +126,10 @@
       return P.slice(1).map((q, i) => ({ t: T[i], to: q, d: Math.max(0.001, T[i + 1] - T[i]), ease: "none" }));
     };
     const steps = followPath(pts, 0, 0.5);
-    steps.push({ t: tZ + 0.15, to: [960, 640], d: 0.6 });
+    const a = (-40 * Math.PI) / 180;   // rechts oben, 55 px außerhalb des Kreises: der Pfeil hängt nach rechts unten weg vom Strich
+    const park = toScreen(Math.cos(a) * 31 * 1.05, ZY + Math.sin(a) * 44 * 1.05, sD, yD).map((v, i) => v + (i ? -1 : 1) * 40);
+    steps.push({ t: 0.55, to: park, d: 0.25 });
+    steps.push({ t: Math.max(0.85, tZ + 0.15), to: [960, 640], d: 0.6 });
     FX.cursor(tl, "#a1hb-cur", "#a1hb-ring", pts[0], steps);
 
     window.__timelines["ad1-hookB"] = tl;

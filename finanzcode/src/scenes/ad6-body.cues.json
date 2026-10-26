@@ -1,43 +1,116 @@
 {
   "cues": {
     "erste": "Das erste Bein ist das Gehalt.",
-    "gehalt": { "phrase": "ist das Gehalt.", "word": 2 },
+    "gehalt": {
+      "phrase": "ist das Gehalt.",
+      "word": 2
+    },
     "haengt": "Das hängt an einem einzigen Arbeitgeber",
-    "einzigen": { "phrase": "an einem einzigen Arbeitgeber", "word": 2 },
-    "arbeitgeber": { "phrase": "einzigen Arbeitgeber", "word": 1 },
+    "einzigen": {
+      "phrase": "an einem einzigen Arbeitgeber",
+      "word": 2
+    },
+    "arbeitgeber": {
+      "phrase": "einzigen Arbeitgeber",
+      "word": 1
+    },
     "solange": "und solange keiner dran sägt, steht der Stuhl.",
-    "saegt": { "phrase": "keiner dran sägt", "word": 2 },
+    "saegt": {
+      "phrase": "keiner dran sägt",
+      "word": 2
+    },
     "aber": "Aber wenn doch, kippt alles auf einmal.",
-    "kippt": { "phrase": "kippt alles auf einmal.", "word": 0 },
+    "kippt": {
+      "phrase": "kippt alles auf einmal.",
+      "word": 0
+    },
     "standbein": "Ein zweites Standbein heißt nicht, dass du morgen kündigst.",
     "nicht": "nicht mehr alles an einer einzigen Unterschrift hängt.",
-    "unterschrift": { "phrase": "einzigen Unterschrift hängt.", "word": 1 },
-    "trading": { "phrase": "Und nach 9 Jahren ist Trading für mich das sinnvollste zweite Bein", "word": 5 },
+    "unterschrift": {
+      "phrase": "einzigen Unterschrift hängt.",
+      "word": 1
+    },
+    "trading": {
+      "phrase": "Und nach 9 Jahren ist Trading für mich das sinnvollste zweite Bein",
+      "word": 5
+    },
     "kunden": "keine Kunden brauchst",
     "verkaufen": "nichts verkaufen musst",
-    "stunden": { "phrase": "es nicht nach Stunden läuft", "word": 1 },
+    "stunden": {
+      "phrase": "es nicht nach Stunden läuft",
+      "word": 1
+    },
     "trade": "Ein Trade kostet dich gleich viel Zeit, egal wie groß das Konto später mal ist.",
+    "gleich": {
+      "phrase": "Ein Trade kostet dich gleich viel Zeit",
+      "word": 4
+    },
     "klar": "Klar, das baut sich nicht über Nacht auf.",
     "anfang": "Am Anfang lernst du, riskierst wenig und machst auch Fehler, das gehört dazu.",
-    "min30": { "phrase": "Dafür brauchst du 30 Minuten am Tag", "word": 3 },
-    "tag": { "phrase": "30 Minuten am Tag", "word": 3 },
+    "min30": {
+      "phrase": "Dafür brauchst du 30 Minuten am Tag",
+      "word": 3
+    },
+    "tag": {
+      "phrase": "30 Minuten am Tag",
+      "word": 3
+    },
     "kurs": "In meinem kostenlosen Videokurs",
-    "grund": { "phrase": "die Grundlagen von 0 auf 100", "word": 1 },
-    "strategie": { "phrase": "eine einfache Strategie", "word": 2 },
-    "plan": { "phrase": "einen Plan für deine ersten 60 Tage", "word": 1 },
+    "grund": {
+      "phrase": "die Grundlagen von 0 auf 100",
+      "word": 1
+    },
+    "strategie": {
+      "phrase": "eine einfache Strategie",
+      "word": 2
+    },
+    "plan": {
+      "phrase": "einen Plan für deine ersten 60 Tage",
+      "word": 1
+    },
     "klick": "Klick unter dem Video auf „Mehr dazu“",
     "ende": "solange das erste noch fest steht."
   },
   "sfx": [
-    { "at": "gehalt", "type": "pop" },
-    { "at": "einzigen", "type": "pop" },
-    { "at": "kippt", "type": "whoosh" },
-    { "at": "standbein", "type": "pop" },
-    { "at": "nicht", "type": "whoosh" },
-    { "at": "kunden", "type": "pop" },
-    { "at": "klar", "type": "pop" },
-    { "at": "min30", "type": "pop" },
-    { "at": "kurs", "type": "whoosh" },
-    { "at": "klick", "type": "pop" }
+    {
+      "at": "gehalt",
+      "type": "pop"
+    },
+    {
+      "at": "einzigen",
+      "type": "pop"
+    },
+    {
+      "at": "kippt",
+      "type": "whoosh"
+    },
+    {
+      "at": "standbein",
+      "type": "pop"
+    },
+    {
+      "at": "nicht",
+      "type": "whoosh"
+    },
+    {
+      "at": "kunden",
+      "type": "pop"
+    },
+    {
+      "at": "klar",
+      "type": "pop"
+    },
+    {
+      "at": "min30",
+      "type": "pop"
+    },
+    {
+      "at": "kurs",
+      "type": "whoosh"
+    },
+    {
+      "at": "klick",
+      "type": "pop"
+    }
   ]
 }

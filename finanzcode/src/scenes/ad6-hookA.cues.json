@@ -6,6 +6,6 @@
     "zweites": { "phrase": "ein zweites Bein bauen.", "word": 1 }
   },
   "sfx": [
-    { "at": "zweites", "type": "pop" }
+    { "at": "trading", "t": "Math.max(Math.max(0.6, C.genau - 0.15) + 0.9, C.trading - 0.1) + 0.05", "type": "pop" }
   ]
 }
