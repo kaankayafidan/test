@@ -1,8 +1,10 @@
-node_modules/
-build/
+*.log
+.hyperframes/
+assets/media/
+assets/music/bed.wav
 build-*/
-out/
+build/
 data/raw/
 data/work/
-.hyperframes/
-*.log
+node_modules/
+out/

@@ -143,10 +143,24 @@ function resolveCues(segName, spec, script, words) {
     return ta + ((si - a) / (b - a)) * (tb - ta);
   };
   const C = {}, E = {}, warn = [];
-  let from = 0;
+  let from = 0, fromW = 0;
   for (const [name, raw] of Object.entries(spec.cues || {})) {
     const c = typeof raw === "string" ? { phrase: raw } : raw;
     const pTok = tokenize(c.phrase).map((t) => t.n);
+    // 1. the phrase as actually spoken (cut voice): exact token match in the spoken words
+    const findW = (start) => {
+      for (let i = start; i + pTok.length <= wTok.length; i++) if (pTok.every((p, k) => wTok[i + k] === p)) return i;
+      return -1;
+    };
+    let wHit = findW(c.anywhere ? 0 : fromW);
+    if (wHit < 0) wHit = findW(0);
+    if (wHit >= 0) {
+      if (!c.anywhere) fromW = wHit;
+      C[name] = r3(words[wHit + (c.word ?? 0)].start + (c.offset ?? 0));
+      E[name] = r3(words[wHit + pTok.length - 1].end);
+      continue;
+    }
+    // 2. else: the phrase in the briefing script, mapped onto the spoken words by alignment
     let hit = -1;
     const search = (start) => {
       for (let i = start; i + pTok.length <= sTok.length; i++) if (pTok.every((p, k) => sTok[i + k] === p)) return i;
@@ -154,13 +168,13 @@ function resolveCues(segName, spec, script, words) {
     };
     hit = search(c.anywhere ? 0 : from);
     if (hit < 0) hit = search(0);
-    if (hit < 0) { warn.push(`${segName}: cue "${name}" phrase not found in script: "${c.phrase}"`); C[name] = 0; E[name] = 0; continue; }
+    if (hit < 0) { warn.push(`${segName}: cue "${name}" phrase neither spoken nor in the script: "${c.phrase}"`); C[name] = 0; E[name] = 0; continue; }
     if (!c.anywhere) from = hit;
     const wi = hit + (c.word ?? 0);
     C[name] = r3(timeOf(wi, "start") + (c.offset ?? 0));
     E[name] = r3(timeOf(hit + pTok.length - 1, "end"));
     const matched = pTok.filter((_, k) => map[hit + k] != null).length;
-    if (matched / pTok.length < 0.5) warn.push(`${segName}: cue "${name}" only ${matched}/${pTok.length} words spoken as scripted`);
+    if (matched / pTok.length < 1) warn.push(`${segName}: cue "${name}" not spoken verbatim (${matched}/${pTok.length} words found): "${c.phrase}" → ${C[name]} s`);
   }
   return { C, E, warn };
 }
@@ -224,9 +238,23 @@ const OUTLINE = [[8, 40], [5, 24], [2.5, 12]]
   .join(", ");
 const SENT_END = /[.?!:]["“”]?$/;
 const COMMA = /[,;]["“”]?$/;
+// Untertitel: Zahlen als Ziffern ("neun Jahre" → "9 Jahre", "zehnmal" → "10 Mal"). "Null" (the pocket)
+// and the articles ein/eine/einen stay words.
+const NUM = { zwei: 2, drei: 3, vier: 4, fünf: 5, sechs: 6, sieben: 7, acht: 8, neun: 9, zehn: 10, elf: 11, zwölf: 12,
+  fünfzehn: 15, zwanzig: 20, dreißig: 30, vierzig: 40, fünfzig: 50, sechzig: 60, hundert: 100, tausend: "1.000" };
+function digits(text) {
+  const m = text.match(/^([„"]?)([A-Za-zÄÖÜäöüß]+)(.*)$/);
+  if (!m) return text;
+  const low = m[2].toLowerCase();
+  if (low in NUM) return `${m[1]}${NUM[low]}${m[3]}`;
+  const mal = low.match(/^(.+)mal$/);
+  if (mal && mal[1] in NUM) return `${m[1]}${NUM[mal[1]]} Mal${m[3]}`;
+  return text;
+}
 function captionTokens(words) {
   const toks = [];
-  for (const w of words) {
+  for (const w0 of words) {
+    const w = { ...w0, text: digits(w0.text) };
     const t = w.text.replace(/[.,;:]+(["“”]?)$/, "$1");
     if (/^prozent[.,;:?!]*$/i.test(w.text) && toks.length && /^\d+(,\d+)?$/.test(toks.at(-1).text)) {
       const prev = toks.at(-1);
