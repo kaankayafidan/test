@@ -337,8 +337,8 @@ function rootHtml(v) {
           <video id="kil-v2" class="clip" src="${camBody}" data-start="${r3(hook.dur)}" data-duration="${r3(body.dur)}" muted playsinline></video>`
     : SILHOUETTE;
   const audio = [];
-  if (hook.media?.voice) audio.push(`<audio id="vo-1" class="clip" src="${hook.media.voice}" data-start="0" data-duration="${r3(hook.dur)}" data-volume="1"></audio>`);
-  if (body.media?.voice) audio.push(`<audio id="vo-2" class="clip" src="${body.media.voice}" data-start="${r3(hook.dur)}" data-duration="${r3(body.dur)}" data-volume="1"></audio>`);
+  if (hook.media?.voice) audio.push(`<audio id="vo-1" class="clip" src="${hook.media.voice}" data-start="0" data-duration="${r3(Math.min(hook.dur, hook.media.duration))}" data-volume="1"></audio>`);
+  if (body.media?.voice) audio.push(`<audio id="vo-2" class="clip" src="${body.media.voice}" data-start="${r3(hook.dur)}" data-duration="${r3(Math.min(body.dur, body.media.duration))}" data-volume="1"></audio>`);
   v.sfx.forEach((s, i) => audio.push(`<audio id="sfx-${i}" class="clip" src="${s.src}" data-start="${r3(s.start)}" data-duration="${r3(s.dur)}" data-volume="${s.vol}"></audio>`));
   if (fs.existsSync(P("assets/music/bed.wav"))) audio.push(`<audio id="music" class="clip" src="assets/music/bed.wav" data-start="0" data-duration="${total}" data-volume="0.1" data-fade-out="0.5"></audio>`);
   const cuts = [...(hook.media?.cuts || []), ...(body.media?.cuts || []).map((t) => t + hook.dur), hook.dur];
@@ -378,7 +378,7 @@ function rootHtml(v) {
       </div>
       <div id="hook" class="clip" data-start="0" data-duration="3.7" data-track-index="3"><div id="hook-bar">${esc(v.hookText)}</div></div>
       <div id="kil-ring"></div>
-      <div id="kil"><div id="kil-z">
+      <div id="kil"><div id="kil-z" data-layout-allow-overflow>
           ${cam}
       </div></div>
       <div id="cap" data-composition-id="cap" data-composition-src="compositions/cap.html" data-start="0" data-duration="${total}" data-track-index="5" data-track-kind="captions" data-width="${F.W}" data-height="${F.H}"></div>
