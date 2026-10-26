@@ -1,0 +1,1197 @@
+
+
+===== Seite 1 =====
+BRIEFING FÜR KAAN
+Loom-Ads
+Finanzcode
+6 Ads · je 2 Hook-Varianten
+Bildschirmaufnahme und kompletter Schnitt
+Von Kilian  ·  Version 2  ·  Stand: 26.10.2026
+Worum es geht
+Kilian hat 6 Loom-Ads hintereinander in einer Loom-Aufnahme eingesprochen. Jede Ad hat 2 Anfänge (A und B) und
+einen gemeinsamen Hauptteil, den Body. Daraus baust du 12 fertige Ads: 1A, 1B, 2A, 2B bis 6B. Du nimmst die
+Bildschirme auf und machst den kompletten Schnitt.
+Der Look: Es soll aussehen wie eine schnell gebaute Präsentation, die Kilian locker erklärt. Schlicht, weiß, spontan,
+nicht wie ein Werbespot. Genau das macht Loom-Ads stark.
+Das Wichtigste ist das erste Bild. Es entscheidet, ob jemand stehen bleibt. Deshalb ist jedes erste Bild genau
+beschrieben und als Skizze gezeichnet. Alle Maße, Schriften, Farben und Tonwerte stehen in den Specs.
+6
+Ads
+12
+Versionen (A und B)
+24
+Dateien (4:5 und 9:16)
+0,5 s
+so schnell muss das erste
+Bild verstanden werden
+INHALT
+ So arbeitest du
+ Regeln für alle 6 Ads
+ Specs: Layout, Schrift, Farben, Kreis, Animationen, Ton, Export
+ Ad 1 · Das Casino
+ Ad 2 · Trader A und B
+ Ad 3 · Würdest du hier einsteigen?
+ Ad 4 · Die 3 Typen
+ Ad 5 · Platz im Kalender
+ Ad 6 · Der Stuhl mit einem Bein
+ Dateinamen und Checkliste
+
+
+===== Seite 2 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 2
+So arbeitest du
+1
+Rohmaterial schneiden. Die Loom-Aufnahme in die 6 Ads zerlegen und pro Ad Anfang A, Anfang B und Body
+trennen. Die Zuordnung findest du über die Skripte in diesem Briefing. Jeweils den besten Take nehmen,
+Versprecher, Wiederholungen und lange Pausen raus.
+2
+Ton bearbeiten. Rauschen raus, Stimme auf −14 LUFS (alle Tonwerte in den Specs). Tempo erhöhen: Ad 3 auf
+1,1×, alle anderen auf 1,05×.
+3
+Slides vorbauen. In Keynote oder PowerPoint mit 1080 × 710 px Foliengröße und Klick-Animationen, genau nach
+den Ablauf-Tabellen. Die Skizzen zeigen, wie das erste Bild aussehen soll.
+4
+Bildschirm aufnehmen. Den fertigen Ton über Kopfhörer abspielen und dazu passend klicken, zoomen und
+einkreisen, mit 30 fps. Den Body nimmst du pro Ad nur einmal auf und setzt die beiden Anfänge davor.
+5
+Zusammenbauen. Die Aufnahme in die Motiv-Zone, dazu Kilian im Kreis, Hook-Text, Untertitel und Musik, alles
+nach den Specs. Dann Export in beiden Formaten.
+Regeln für alle 6 Ads
+ Ein-Hand-Regel
+Auf dem Bildschirm passiert nur, was man nebenbei mit einer Hand am Trackpad schafft:
+klicken, scrollen, zoomen, verschieben, einkreisen, unterstreichen. Kein Tippen. Alles ist
+vorbereitet und wird per Klick aufgedeckt.
+Einfache Effekte
+Einblenden, zoomen, drehen, verschieben, mit den Werten aus der Animations-Tabelle in den
+Specs. Keine aufwendigen Animationen, die nach Agentur aussehen. Lieber etwas krakelig und
+echt als glatt und teuer.
+Das erste Bild
+Bewegung ab dem allerersten Frame. Ein Motiv, das man in einer halben Sekunde erkennt.
+Etwas Offenes: ein Fragezeichen, eine verdeckte Karte oder ein Widerspruch. Text: oben der
+Hook-Text, unten die Untertitel, im Motiv höchstens 2 Text-Elemente mit je höchstens 2
+Wörtern (zum Beispiel „JA“ und „NEIN“). Einzelne Ziffern und Zeichen (1, 2, 3, ?) und kleine
+Beschriftungen wie Wochentage zählen nicht.
+Handy-Test
+Jedes erste Bild als Standbild aufs Handy schicken und in normaler Größe ansehen. Versteht
+man nicht in 1 Sekunde, was zu sehen ist, ist es zu kompliziert.
+Kilian im Kreis
+Unten links, unter der Motiv-Zone, damit er das Motiv nie verdeckt. 0–2 s Ø 360 px, dann in
+0,4 s auf Ø 240 px. Schnitte im Kreis mit einem Zoom von 100 auf 108 % kaschieren oder auf
+einen Bildwechsel legen.
+Cursor
+In Ad 1, 3, 4 und 5 bewegt er sich ab Frame 1 und kreist das Hauptmotiv ein (siehe Skizzen). In
+Ad 2 und 6 bewegt sich das Motiv selbst, dort bleibt der Cursor im ersten Bild weg. Danach ruhig
+führen, eine Bewegung pro Satz.
+Lesbarkeit
+Ein Motiv pro Bild. Jede Einblendung hat höchstens 5 Wörter. Text, den du einblendest, ist nie
+kleiner als 40 px. Alle 2 bis 4 Sekunden passiert etwas Neues.
+Hook-Text
+Oben im Bild, höchstens 5 Wörter, immer 1 Zeile. Steht von 0 bis 3,5 s.
+Untertitel
+Max. 3 Wörter pro Einblendung, max. 2 Zeilen, nie über dem Motiv. Zahlen als Ziffern (2,7 %, 37,
+9 Jahre, 60 Tage, 500 Euro). Richtig schreiben: Swing-Trades, Rache-Trade, Stop, Daytrading,
+Push-Nachricht.
+Musik
+Lizenzfrei, ohne Gesang, etwa 20 dB unter der Stimme. Keine bekannten Songs.
+
+
+===== Seite 3 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 3
+CTA-Bild
+In allen Ads gleich: Laptop-Mockup mit der Startseite des kostenlosen Videokurses, darunter
+„Mehr dazu“ mit Pfeil nach unten (Maße in den Specs). Nur „Kostenlos“ zeigen, keinen
+durchgestrichenen Preis (500 € → 0 €).
+Verboten im Bild, sonst lehnt Meta die Ad ab
+✗ Logos und Markennamen: Casinos, Börsen, Broker, Chart-Plattformen, Kalender-Apps, Tabellenprogramme.
+✗ Echte bekannte Personen. Meta erkennt Promi-Gesichter automatisch.
+✗ Geld, Luxus, Autos, Gewinn-Screenshots und Kontostände in Euro.
+✗ Krypto und Bitcoin.
+✗ Buy/Sell-Buttons.
+✗ Nicht lizenzierte Fotos, Videos oder Musik.
+✗ Das Wort „Masterclass“.
+Specs
+Alle Werte in Pixeln, x von links, y von oben gemessen. Wo in den Ablauf-Tabellen „groß“, „schnell“, „leise“ oder
+„wackelt“ steht, gelten die Werte auf diesen Seiten.
+Motiv-Zone
+ Folie 1080 × 710 px
+ y 220–930
+Hook-Text · y 60–170
+Ø 360
+Ø 240
+Untertitel
+x 440–1040 · y 1080–1280
+ frei · y 0–270
+frei · y 1248–1920
+hier liegen Text und Button von Meta
+Hook-Text · y 290–400
+Motiv-Zone
+Folie auf 75 %: 810 × 533
+ x 135–945 · y 420–953
+Ø 280
+Ø 220
+Untertitel
+x 380–950 · y 1030–1230
+4:5 · 1080 × 1350 · Feed
+9:16 · 1080 × 1920 · Reels und Stories
+Gestrichelter Kreis = Kilian in den ersten 2 Sekunden, grauer Kreis = danach. Rot = frei lassen.
+
+
+===== Seite 4 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 4
+LAYOUT 4:5 · FEED · 1080 × 1350 PX
+Hintergrund
+Weiß #FFFFFF im ganzen Bild.
+Hook-Text-Balken
+Oberkante y 60, Höhe 110 px, waagerecht mittig, max. 960 px breit.
+Motiv-Zone
+y 220–930 über die volle Breite, also 1080 × 710 px. Hier sitzt die Folie oder der Chart.
+Kilian 0–2 s
+Kreis Ø 360 px, unten links mit 40 px Abstand zum Rand (x 40–400, y 950–1310).
+Kilian ab 2 s
+Kreis Ø 240 px (x 40–280, y 1070–1310). Übergang bei Sekunde 2 in 0,4 s, weich
+(ease-in-out).
+Untertitel
+Mittelpunkt x 740, y 1180. Text max. 600 px breit (x 440–1040).
+LAYOUT 9:16 · REELS UND STORIES · 1080 × 1920 PX
+Frei lassen
+Oben y 0–270, unten y 1248–1920, seitlich je 65 px. Dort steht kein Text und nichts
+Wichtiges, Meta legt Profilname, Text und Button drüber.
+Hook-Text-Balken
+Oberkante y 290, Höhe 110 px, mittig, max. 950 px breit. Gleiche Schriftgröße wie in
+4:5.
+Motiv-Zone
+Dieselbe Folie auf 75 % verkleinert: 810 × 533 px, x 135–945, y 420–953.
+Kilian
+0–2 s Ø 280 px (x 65–345, y 965–1245), danach Ø 220 px (x 65–285, y 1025–1245).
+Untertitel
+Mittelpunkt x 665, y 1130. Text max. 570 px breit (x 380–950). Rechts bleibt Platz für
+die Reels-Buttons.
+Unterer Bereich
+Weiß lassen.
+SCHRIFT · POPPINS, KOSTENLOS BEI GOOGLE FONTS
+Hook-Text
+Poppins Bold 64 px, weiß auf dem Navy-Balken, 28 px Innenabstand links und rechts,
+Ecken 20 px rund. Passt der Text nicht in 1 Zeile, bis auf 54 px verkleinern. Nie 2 Zeilen.
+Steht von 0 bis 3,5 s, dann in 0,2 s ausblenden.
+Untertitel
+Poppins Bold 64 px, weiß mit 8 px schwarzer Kontur (#000000). Das gerade
+gesprochene Wort ist gelb #FACC15. Max. 3 Wörter pro Einblendung, max. 2 Zeilen,
+Zeilenabstand 80 px. In das Video eingebrannt, keine SRT-Datei.
+Große Zahl im Motiv
+Poppins Bold 180–240 px, wenn sie allein steht, bezogen auf die 1080 × 710 Folie. Zum
+Beispiel „2,7 %“ oder „1 %“. Zwei Zahlen nebeneinander (Ad 2: „34,9 %“ und „90,4 %“)
+je 120 px.
+Wörter im Motiv
+Poppins Bold 60–110 px. Zum Beispiel „AUSGEBUCHT“, „JA“, „Job: 40 h“.
+Kleine Beschriftung
+Poppins Bold 40–48 px, zum Beispiel Wochentage und die Schilder im Kalender. Nie
+kleiner als 40 px.
+CTA-Bild
+Laptop-Mockup mittig, 80 % der Motiv-Breite. Darunter „Mehr dazu“ in Poppins Bold
+72 px und ein dicker Pfeil nach unten als Form (Navy, 120 px hoch). Bleibt bis zum Ende
+stehen.
+FARBEN
+Navy #0E1A2B
+Hook-Balken, große Zahlen, Text im Motiv, Pfeil im CTA-Bild.
+Grün #16A34A
+Richtig, Haken, Ziel, voller Akku, Trading-Blöcke.
+Rot #DC2626
+Falsch, X, Stop, Blitze, Einkreisen, Durchstreichen.
+
+
+===== Seite 5 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 5
+FARBEN
+Grau #9CA3AF
+Neutrale Flächen: Job-Balken, Arbeit-Blöcke.
+Hellgrau #F3F4F6
+Kartenflächen und Hintergründe von Labels.
+Gelb #FACC15
+Gesprochenes Wort im Untertitel, Klick-Ring, Kalender-Block „Freunde“.
+Blau #60A5FA
+Nur der Kalender-Block „Sport“.
+Weiß #FFFFFF
+Hintergrund aller Folien, Schilder im Kalender.
+Schwarz #111827
+Striche und Figuren im Whiteboard-Look (Ad 2).
+Ausnahmen
+Fotos und Stock-Videos bleiben in ihren echten Farben. In Ad 6 sind Figur und Hocker
+frei in flachen, kräftigen Farben, ohne Neon.
+KILIAN-KREIS UND CURSOR
+Kreis-Rand
+Weiß, 8 px. Dazu ein Schatten: Schwarz mit 25 % Deckkraft, 24 px weich, ohne Versatz.
+Ausschnitt
+Kopf und Schultern. Die Augen liegen etwa 40 % unter dem oberen Kreisrand, das
+Gesicht füllt etwa 60 % des Kreises.
+Falls unscharf
+Wird Kilians Bild bei Ø 360 px unscharf, nimm durchgehend Ø 240 px (9:16:
+durchgehend 220 px).
+Schnitte im Kreis
+Mit einem Zoom von 100 auf 108 % kaschieren oder auf einen Bildwechsel legen.
+Cursor-Größe
+Systemzeiger vor der Aufnahme auf etwa das 2,5-Fache stellen.
+Klick-Markierung
+Wenn dein Aufnahme-Tool das kann: gelber Ring #FACC15, Ø 64 px, 50 % Deckkraft.
+Cursor-Bewegung
+In Ad 1, 3, 4 und 5 ist der Cursor ab Frame 1 in Bewegung. Kreisen heißt 1 Runde in
+etwa 1,5 s, knapp außerhalb des Motivs. Danach ruhig führen, eine Bewegung pro Satz.
+In Ad 2 und 6 bewegt sich das Motiv selbst, dort ist im ersten Bild kein Cursor zu sehen.
+ANIMATIONEN · SO SIND DIE BEGRIFFE IN DEN ABLAUF-TABELLEN GEMEINT
+ploppt rein, ploppt auf
+Größe 120 → 100 % in 0,15 s.
+einblenden, erscheint,
+ausblenden
+Deckkraft 0 → 100 % (oder zurück) in 0,2 s.
+knallt drauf, knallt ins Bild
+Größe 140 → 100 % in 0,12 s. Der Stempel „AUSGEBUCHT“ steht zusätzlich 8° schräg.
+schnelles Ranzoomen
+100 → 130 % in 0,4 s, am Ende abbremsen (ease-out).
+reinzoomen auf ein Detail
+Auf 150–200 % in 0,5 s, weich (ease-in-out). Rauszoomen auf das ganze Motiv genauso
+zurück auf 100 %.
+langsamer Zoom, leicht
+rauszoomen
+100 → 108 % über 3 s (oder rückwärts), gleichmäßig (linear).
+fliegt rein, schiebt sich rein,
+wird ausgeteilt
+Von außerhalb des Bilds in 0,25 s (ease-out). Mehrere Elemente je 0,08 s versetzt.
+fliegt groß nach vorn (Ad 4)
+Die Karte wächst aus dem Raster auf 90 % der Motiv-Zone, in 0,4 s (ease-out).
+dreht sich um (Ad 4)
+Die Karte dreht sich in 0,4 s um die senkrechte Achse und zeigt die Vorderseite.
+wackelt
+Drehung um 6° nach links und rechts um den Fußpunkt, 0,6 s pro Schwung, in Schleife.
+
+
+===== Seite 6 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 6
+ANIMATIONEN · SO SIND DIE BEGRIFFE IN DEN ABLAUF-TABELLEN GEMEINT
+kippt
+Drehung um 90° in 0,35 s.
+pulsiert
+Größe 100 → 108 % und zurück, 0,8 s pro Schlag.
+blinkt
+Deckkraft 100 → 40 % und zurück, 0,8 s pro Takt.
+einkreisen, unterstreichen,
+durchstreichen
+Rote Linie #DC2626, 10 px dick. Zeichnet sich in 0,5 s (Kreis) oder 0,3 s (Linie). Keynote:
+„Linie zeichnen“. PowerPoint: „Rad“ für Kreise, „Wischen“ für Linien.
+Blitz schlägt ein
+Blitz ploppt in 0,1 s rein, 0,1 s weißer Flash über dem Motiv, der Akku wackelt 0,2 s.
+Zurückspulen (Ad 2)
+0,5 s schneller Rücklauf mit leichtem Rauszoomen, dann steht das Bild.
+harter Schnitt, Schnitt auf
+Schnitt ohne Übergang.
+TON
+Stimme
+−14 LUFS integriert, Spitzen max. −1 dBTP. Leichter Kompressor (etwa 3:1), Rauschen
+raus, ohne dass die Stimme blechern klingt.
+Musik
+Lizenzfrei, ruhiger Lo-Fi- oder Corporate-Track, 90–110 BPM, ohne Gesang. Etwa 20 dB
+unter der Stimme (rund −34 LUFS), in Sprechpausen nicht hochziehen.
+Soundeffekte
+Nur Pop, Whoosh, Stempel und Blitz, etwa 12 dB unter der Stimme. Höchstens 1 Effekt
+pro Satz, auch wenn mehrere Dinge gleichzeitig reinploppen. Ausnahme: Die 10 Blitze
+in Ad 2 bekommen je einen kurzen, leisen Tick.
+Anfang und Ende
+Stimme und Musik starten ab Frame 1, ohne Einblenden. Am Ende die Musik in 0,5 s
+ausblenden.
+FOLIEN, AUFNAHME UND EXPORT
+Foliengröße
+1080 × 710 px, so wie die Motiv-Zone. Keynote: eigene Foliengröße 1080 × 710.
+PowerPoint: Entwurf, Foliengröße, benutzerdefiniert 28,58 × 18,79 cm.
+Aufnahme
+Nur den Folienbereich aufnehmen, 30 fps, mindestens 1080 px breit.
+Ad 3 (Chart)
+Das Chart-Fenster im Seitenverhältnis 3:2 aufnehmen, ohne Browser-Leisten. Danach
+auf 1080 × 710 px skalieren und zuschneiden.
+Video-Export
+MP4, H.264 (High), 30 fps konstant, 1080 × 1350 und 1080 × 1920, etwa 15 Mbit/s.
+Ton-Export
+AAC, 48 kHz, Stereo, 320 kbit/s.
+
+
+===== Seite 7 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 7
+AD 1 VON 6
+Das Casino
+STIL
+LÄNGE
+TEMPO
+Foto-Slideshow mit harten Zooms
+ca. 65 Sek.
+1,05×
+Das erste Bild
+ANFANG A
+Hook-Text: „Wie hoch ist der Casino-Vorteil?“
+Wie hoch ist der Casino-Vorteil?
+WieWie
+hochhoch
+istist
+Ranzoomen 100 → 130 % in 0,4 s
+Cursor kreist
+Kurzer Loop eines Roulette-Kessels von oben, die Kugel
+läuft. Start mit schnellem Ranzoomen auf den Kessel. Im
+Motiv steht keine Schrift. Der Cursor kreist ab Frame 1
+um den Kessel.
+ ANFANG B
+Hook-Text: „Diese Null …“
+3
+26
+0
+32
+15
+Diese Null …
+SiehstSiehst
+dudu
+diesediese
+Roter Kreis zieht sich in 0,5 s drum
+Rest leicht unscharf
+Extremer Close-up auf die grüne Null, der Rest leicht
+unscharf. In den ersten 0,5 Sekunden zieht sich ein roter
+Kreis um die Null.
+Skizze im 4:5-Layout, Maße wie in den Specs. Orange = Bewegung oder Hinweis, kommt nicht ins Video. Grauer Kreis = Kilian. Gelbes Wort
+im Untertitel = das Wort, das gerade gesprochen wird.
+Look
+ Echte Fotos und kurze Stock-Video-Loops, zwischen den Bildern harte Zooms.
+ Weißer Hintergrund zwischen den Fotos, große Zahlen in Navy, Akzente nur in Grün und Rot.
+Achtung
+ Keine Casino-Logos und keine bedruckten Jetons im Bild.
+ Glücksspiel-Begriffe sind ein kleines Restrisiko bei Meta. Die Lotto-Ad ist damit trotzdem durchgegangen.
+
+
+===== Seite 8 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 8
+Assets vorbereiten
+ Stock-Video: Roulette-Kessel von oben, Kugel läuft (Loop, ohne Logo)
+ Close-up der grünen Null (Foto oder Video)
+ Stock-Video: Kugel landet auf der Null
+ Foto Croupier-Tisch, ohne Logo und ohne bedruckte Jetons
+ Foto einer frustrierten Person (unbekannt, lizenziert)
+ Gold-Chart-Screenshot, bereinigt
+ Icons Doktorhut und Uhr
+ Kurs-Mockup
+Skript
+ANFANG A
+Wie hoch ist eigentlich der Vorteil vom Casino beim Roulette? Gerade mal 2,7 Prozent, und genau davon
+kannst du beim Trading eine Menge lernen.
+ANFANG B
+Siehst du diese kleine grüne Null? Wegen ihr gewinnt das Casino am Ende jedes Jahres, und genau davon
+kannst du beim Trading eine Menge lernen.
+BODY · GLEICH FÜR A UND B
+Ein Roulette-Kessel hat 37 Felder, aber ausgezahlt wird so, als wären es nur 36, und dieses eine grüne Feld,
+die Null, ist der komplette Vorteil, rechnerisch sind das 2,7 Prozent. Das Casino verliert jeden Abend
+unzählige Spiele, aber über Tausende Spiele gewinnt die Mathematik. Genau so trade ich seit 9 Jahren: Ich
+nehme nur Trades, bei denen mein Ziel deutlich weiter weg ist als mein Stop, und riskiere pro Trade nur
+einen kleinen Teil. Ich verliere trotzdem Trades, genau wie das Casino Spiele verliert, aber ich verhalte mich
+wie das Casino und nicht wie der Zocker, der auf den einen großen Treffer hofft. Dafür brauchst du kein
+Mathestudium und keine 8 Stunden am Tag, sondern ein paar klare Regeln. Welche das sind, zeig ich dir in
+meinem kostenlosen Videokurs, mit den Grundlagen, einer einfachen Strategie und einem Plan für deine
+ersten 60 Tage, und eigentlich könnte ich dafür locker 500 Euro nehmen. Klick unter dem Video auf
+„Mehr dazu“. Und beim nächsten Casinobesuch weißt du wenigstens, wer am Tisch wirklich gewinnt.
+Bildschirm-Ablauf
+ STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+ANFANG A
+Wie hoch ist eigentlich der Vorteil vom Casino
+beim Roulette?
+Laufender Kessel, schnelles Ranzoomen, Cursor kreist um den Kessel.
+Gerade mal 2,7 Prozent …
+„2,7 %“ knallt groß ins Bild.
+… beim Trading eine Menge lernen.
+Zurück zum Kessel, langsamer Zoom.
+ANFANG B
+Siehst du diese kleine grüne Null?
+Close-up auf die Null, roter Kreis zieht sich in 0,5 Sekunden drum.
+Wegen ihr gewinnt das Casino am Ende jedes
+Jahres …
+Rauszoomen auf den ganzen Kessel.
+
+
+===== Seite 9 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 9
+STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+BODY
+Ein Roulette-Kessel hat 37 Felder … nur 36
+Kessel mit den Labels „37 Felder“ und „Auszahlung wie bei 36“. Die
+Null pulsiert grün.
+… rechnerisch sind das 2,7 Prozent.
+„1 von 37“ in 90 px, darunter groß „2,7 %“.
+Das Casino verliert jeden Abend unzählige
+Spiele …
+Zurück zum Kessel, du zoomst langsam raus.
+… über Tausende Spiele gewinnt die
+Mathematik.
+„1.000 Spiele“ erscheint, danach „Mathematik gewinnt“.
+Genau so trade ich seit 9 Jahren …
+Harter Schnitt auf einen schlichten Gold-Chart (bereinigt wie in Ad 3).
+… Ziel deutlich weiter weg ist als mein Stop …
+Balken „Stop 1“ (rot) und „Ziel 2“ (grün) einblenden, unterstreichen.
+Ich verliere trotzdem Trades …
+Eine Reihe aus grünen Haken und roten X, ohne Beträge.
+… wie das Casino und nicht wie der Zocker …
+Split: Croupier-Tisch mit „Casino: Regeln“ und eine Person, die sich die
+Haare rauft, mit „Zocker: Hoffnung“. „Regeln“ einkreisen.
+… kein Mathestudium und keine 8 Stunden am
+Tag …
+Doktorhut und Uhr mit „8 h“, beide rot durchgestrichen.
+… sondern ein paar klare Regeln.
+„Klare Regeln ✓“.
+Welche das sind, zeig ich dir in meinem
+kostenlosen Videokurs …
+Kurs-Mockup, daneben 3 Haken: Grundlagen · Strategie ·
+60-Tage-Plan.
+Klick unter dem Video auf „Mehr dazu“.
+CTA-Bild: „Mehr dazu“ mit Pfeil nach unten.
+… wer am Tisch wirklich gewinnt.
+Zurück zum Kessel: Die Kugel landet auf der Null. Ende.
+
+
+===== Seite 10 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 10
+AD 2 VON 6
+Trader A und B
+STIL
+LÄNGE
+TEMPO
+Whiteboard mit 2 gezeichneten Strichmännchen
+ca. 65 Sek.
+1,05×
+Das erste Bild
+ANFANG A
+Hook-Text: „Gleiche Verluste. Anderes Ende.“
+!
+ ?
+Gleiche Verluste. Anderes Ende.
+BeideBeide
+TraderTrader
+verlierenverlieren
+blinkt rot
+B nippt sichtbar am Kaffee
+Das Ende vorweg: A sitzt am Boden, sein Akku ist fast
+leer und blinkt rot, die Hosentaschen sind nach außen
+gestülpt. B steht entspannt da und nippt sichtbar am
+Kaffee, sein Akku ist fast voll und grün. Zwischen beiden
+ein großes „?“.
+ ANFANG B
+Hook-Text: „Gleiche Verluste. Anderes Ende.“
+100 %
+Gleiche Verluste. Anderes Ende.
+WasWas
+passiertpassiert
+eigentlicheigentlich
+3 Blitze in Sekunde 1
+Akku wackelt
+Ein großer voller Akku (100 %) wird in Sekunde 1 von 3
+roten Blitzen hintereinander getroffen und wackelt. Erst
+beim Body teilt sich das Bild in A und B.
+Skizze im 4:5-Layout, Maße wie in den Specs. Orange = Bewegung oder Hinweis, kommt nicht ins Video. Grauer Kreis = Kilian. Gelbes Wort
+im Untertitel = das Wort, das gerade gesprochen wird.
+Figuren
+ Trader A: nervös, Schweißtropfen, Krawatte schief. Trader B: ruhig, mit Kaffeetasse.
+ Über jedem Kopf ein Akku als Konto, mit Füllstand in Prozent.
+ Dicke Striche (8 bis 12 px) und übertriebene Gesichter, bewusst krakelig, wie selbst gezeichnet. Schwarz auf
+Weiß, Rot und Grün nur als Akzente.
+ Felsen und Stufe sind einfache Zeichnungen, die per Klick erscheinen. Keine echte Animation nötig.
+
+
+===== Seite 11 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 11
+Achtung
+ B nicht als reich zeigen: keine Geldsäcke, keine Scheine, kein Luxus. Im Skript wird B nicht reich, er behält
+nur sein Konto.
+ Wörter wie „pleite“ nicht ins Bild schreiben.
+Assets vorbereiten
+ Figuren A und B in mehreren Posen: stehend, am Boden, mit Kaffee
+ Akku-Grafik, Blitz, Felsen mit Berg, Stufe, Taschenrechner-Icon
+ Kurs-Mockup
+Skript
+ANFANG A
+Beide Trader verlieren 10 Mal hintereinander, aber nur einer hat danach noch fast sein ganzes Konto. Und
+der Unterschied ist eine einzige Zahl.
+ANFANG B
+Was passiert eigentlich mit einem Trading-Konto nach 10 Verlusten hintereinander? Entweder fast nichts,
+oder zwei Drittel sind weg, und der Unterschied ist eine einzige Zahl.
+BODY · GLEICH FÜR A UND B
+Trader A riskiert bei jedem Trade 10 Prozent seines Kontos, Trader B nur 1 Prozent. 10 Verluste am Stück
+klingen extrem, aber das passiert jedem Trader irgendwann, mir in 9 Jahren auch. Schau, was danach übrig
+ist: Bei Trader A sind fast zwei Drittel weg, bei Trader B nicht mal 10 Prozent. Und jetzt der Teil, den kaum
+einer kennt: Trader A muss sein Restkonto fast verdreifachen, nur um wieder auf den Startwert zu
+kommen. Trader B reicht ein kleines Plus von gut 10 Prozent. Deshalb ist die wichtigste Zahl beim Trading
+nicht, wie viel du gewinnen kannst, sondern wie viel du pro Trade maximal riskierst. Dafür musst du weder
+rechnen können wie ein Mathematiker noch viel Geld haben, sondern nur diese eine Regel kennen und
+dich dran halten. Genau diese Regel, eine einfache Strategie und einen Plan für deine ersten 60 Tage
+bekommst du in meinem kostenlosen Videokurs, für den ich ohne Probleme 500 Euro verlangen könnte.
+Klick unter dem Video auf „Mehr dazu“, am besten bevor du deinen nächsten Trade setzt.
+Bildschirm-Ablauf
+ STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+ANFANG A
+Beide Trader verlieren 10 Mal hintereinander …
+Ende-vorweg-Bild (siehe Skizze).
+Und der Unterschied ist eine einzige Zahl.
+Das „?“ pulsiert.
+ANFANG B
+Was passiert eigentlich mit einem
+Trading-Konto …
+Akku, 3 Blitze schlagen ein.
+Entweder fast nichts, oder zwei Drittel sind weg
+…
+Auf dem Akku erscheint ein „?“.
+BODY
+
+
+===== Seite 12 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 12
+STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+Trader A riskiert … 10 Prozent …, Trader B nur 1
+Prozent.
+Zurückspulen: Beide stehen, Akkus voll (100 %). Über A „10 % pro
+Trade“, über B „1 % pro Trade“.
+10 Verluste am Stück klingen extrem …
+Du klickst 10 Mal im Takt, jedes Mal trifft ein roter Blitz beide. As Akku
+sackt stark ab, Bs Akku kaum. A schwitzt immer mehr.
+Schau, was danach übrig ist …
+Endstand über den Figuren: A „34,9 %“, B „90,4 %“, je 120 px.
+Trader A muss sein Restkonto fast
+verdreifachen …
+Zeichnung per Klick: A schiebt einen riesigen Felsen den Berg hoch,
+Label „× 2,87“.
+Trader B reicht ein kleines Plus …
+Zeichnung: B steigt eine kleine Stufe hoch, Label „× 1,11“.
+… wie viel du pro Trade maximal riskierst.
+Großes „1 %“ im Kreis.
+Dafür musst du weder rechnen können wie ein
+Mathematiker …
+Taschenrechner, rot durchgestrichen.
+Genau diese Regel, eine einfache Strategie und
+einen Plan …
+Kurs-Mockup, daneben 3 Haken: 1-%-Regel · Strategie · 60-Tage-Plan.
+Klick unter dem Video auf „Mehr dazu“ …
+CTA-Bild: „Mehr dazu“ mit Pfeil nach unten.
+… bevor du deinen nächsten Trade setzt.
+B hebt die Kaffeetasse in Richtung Kamera. Ende.
+Akku-Werte nach jedem Verlust (falls du sie einblendest)
+ Verlust
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+A (10 %)
+90
+81
+72,9
+65,6
+59
+53,1
+47,8
+43
+38,7
+34,9
+B (1 %)
+99
+98
+97
+96,1
+95,1
+94,1
+93,2
+92,3
+91,4
+90,4
+
+
+===== Seite 13 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 13
+AD 3 VON 6
+Würdest du hier einsteigen?
+STIL
+LÄNGE
+TEMPO
+Echte Chart-Aufnahme (Loom pur)
+ca. 85 Sek.
+1,1×
+Das erste Bild
+ANFANG A
+Hook-Text: „Würdest du hier einsteigen?“
+JA
+NEIN
+Würdest du hier einsteigen?
+WürdestWürdest
+dudu
+hierhier
+Cursor pendelt
+dicke Ausbruchskerze, reingezoomt
+Reingezoomt auf die dicke grüne Ausbruchskerze.
+Darunter 2 große Buttons „JA“ und „NEIN“, beide gleich:
+weiß mit Navy-Rand, damit sie nicht wie Kaufen- und
+Verkaufen-Buttons aussehen. Der Cursor pendelt
+zwischen beiden.
+ ANFANG B
+Hook-Text: „Perfekter Trade? Trotzdem nein.“
+Perfekter Trade? Trotzdem nein.
+DieserDieser
+TradeTrade
+siehtsieht
+erst perfekt, nach 0,5 s knallt das X drauf
+Dieselbe Kerze sieht erst perfekt aus, mit grünem Pfeil
+und Haken. Nach 0,5 Sekunden knallt ein riesiges rotes X
+drauf, groß genug für das halbe Bild.
+Skizze im 4:5-Layout, Maße wie in den Specs. Orange = Bewegung oder Hinweis, kommt nicht ins Video. Grauer Kreis = Kilian. Gelbes Wort
+im Untertitel = das Wort, das gerade gesprochen wird.
+Chart vorbereiten
+ Gold (XAUUSD), zum Beispiel 4h. Such einen Abschnitt mit klarem Ausbruch und Signal, über dem aber nah ein
+Widerstand liegt, sodass das Ziel nur so weit weg ist wie der Stop. Genau das erzählt das Skript.
+ Bereinigen: kein Börsenname, keine Indikator-Titel, keine Buy/Sell-Buttons, Gitter und Volumen aus, heller
+Hintergrund.
+ Nur die letzten 30 bis 40 Kerzen zeigen, so gezoomt, dass jede Kerze dick ist.
+ Das Chart-Logo unten links beim Zuschneiden wegschneiden.
+ Alle Zeichnungen vorher anlegen und ausblenden: Signal-Pfeil, rote Stop-Linie, Linie am nächsten Widerstand,
+Long-Position-Box. Während der Aufnahme blendest du sie über das Auge-Symbol im Object Tree ein.
+
+
+===== Seite 14 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 14
+ Bei der Long-Position-Box die Beträge ausblenden. Geht das nicht, nimm 2 einfache Rechtecke: rot für den
+Stop-Abstand, grün für den Ziel-Abstand.
+Achtung
+ Keine Gewinnbeträge, keine Kontostände, kein Krypto im Chart, nur Gold.
+ Kein Börsen- oder Plattformname im Bild.
+Assets vorbereiten
+ Bereinigter Gold-Chart mit vorbereiteten, ausgeblendeten Zeichnungen
+ JA/NEIN-Buttons als Overlay (weiß mit Navy-Rand), rotes X, Labels 1/3 bis 3/3
+ Kurs-Mockup
+Skript
+ANFANG A
+Würdest du hier einen Trade setzen? Bevor ich das beantworte, stell ich mir immer genau 3 Fragen, und an
+der dritten scheitern die meisten.
+ANFANG B
+Dieser Trade sieht auf den ersten Blick perfekt aus, und trotzdem lass ich ihn liegen. Warum, zeig ich dir mit
+den 3 Fragen, die ich mir vor jedem Trade stelle.
+BODY · GLEICH FÜR A UND B
+Frage 1 von 3: Gibt's hier überhaupt ein klares Signal, oder will ich einfach nur traden? Hier ja, mein
+Indikator zeigt einen Einstieg, und ohne den passiert bei mir gar nichts, egal wie sehr es mich juckt. Frage 2
+von 3: Wo weiß ich, dass ich falsch liege? Genau da kommt mein Stop hin, und zwar bevor ich einsteige und
+nicht erst, wenn's schon wehtut. Wenn du sehen willst, wie ich das Schritt für Schritt mache, klick unter
+dem Video auf „Mehr dazu“. Aber bleib noch kurz, denn jetzt kommt die wichtigste Frage. Frage 3 von 3:
+Lohnt sich der Trade überhaupt? Ich nehme nur Trades, bei denen mein Ziel mindestens doppelt so weit
+weg ist wie mein Stop. Und hier? Das nächste Ziel liegt gerade mal so weit weg wie der Stop. Also lass ich
+den Trade weg, obwohl das Signal da war. Genau diese Disziplin hat mir in 9 Jahren mehr Geld gespart als
+jede neue Strategie. Das dauert keine 2 Minuten, und du brauchst dafür kein Wirtschaftsstudium. Wie du
+mit genau dieser Denkweise startest, zeig ich dir in meinem kostenlosen Videokurs, mit einer einfachen
+Strategie und einem Plan für deine ersten 60 Tage, und der ist mindestens 500 Euro wert. Klick unter dem
+Video auf „Mehr dazu“.
+Bildschirm-Ablauf
+ STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+ANFANG A
+Würdest du hier einen Trade setzen?
+JA/NEIN-Bild, Cursor pendelt.
+Bevor ich das beantworte, stell ich mir immer
+genau 3 Fragen …
+Buttons ausblenden, Einblendung „3 Fragen“.
+… und an der dritten scheitern die meisten.
+Die „3“ einkreisen.
+ANFANG B
+
+
+===== Seite 15 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 15
+STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+Dieser Trade sieht auf den ersten Blick perfekt
+aus …
+Perfekter Setup mit grünem Pfeil und Haken.
+… und trotzdem lass ich ihn liegen.
+Rotes X knallt drauf.
+Warum, zeig ich dir mit den 3 Fragen …
+X ausblenden, Einblendung „3 Fragen“.
+BODY
+Frage 1 von 3: Gibt's hier überhaupt ein klares
+Signal …
+Label „1/3 Signal?“.
+Hier ja, mein Indikator zeigt einen Einstieg …
+Signal-Pfeil einblenden, Haken ✓.
+Frage 2 von 3: Wo weiß ich, dass ich falsch
+liege?
+Label „2/3 Stop?“.
+Genau da kommt mein Stop hin …
+Rote Stop-Linie einblenden, Haken ✓.
+Wenn du sehen willst, wie ich das Schritt für
+Schritt mache …
+Kleines Banner „Mehr dazu ↓“ am unteren Rand der Motiv-Zone, 3
+Sekunden lang.
+Frage 3 von 3: Lohnt sich der Trade überhaupt?
+Label „3/3 Lohnt sich's?“.
+… mindestens doppelt so weit weg wie mein
+Stop.
+Long-Position-Box aufziehen und auf 150 % reinzoomen, damit das
+Verhältnis gut lesbar ist.
+Und hier? Das nächste Ziel liegt gerade mal so
+weit weg wie der Stop.
+Widerstands-Linie einblenden, die Box zeigt ca. 1 zu 1, rotes ✗.
+Also lass ich den Trade weg, obwohl das Signal
+da war.
+Großes rotes X über dem Chart.
+Genau diese Disziplin hat mir in 9 Jahren …
+Leicht rauszoomen, das X bleibt stehen.
+Wie du mit genau dieser Denkweise startest …
+Kurs-Mockup, daneben 3 Haken: 3 Fragen · Strategie · 60-Tage-Plan.
+Klick unter dem Video auf „Mehr dazu“.
+CTA-Bild: „Mehr dazu“ mit Pfeil nach unten. Ende.
+
+
+===== Seite 16 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 16
+AD 4 VON 6
+Die 3 Typen
+STIL
+LÄNGE
+TEMPO
+Spielkarten im Quartett-Look
+ca. 65 Sek.
+1,05×
+Das erste Bild
+1
+2
+3
+?
+Welcher bist du?
+WelcherWelcher
+vonvon
+diesendiesen
+Karten werden in 0,5 s ausgeteilt
+„?“-Karte wackelt
+ANFANG A UND B
+Hook-Text: „Welcher bist du?“
+In den ersten 0,5 Sekunden werden die Karten in ein
+2 × 2-Raster ausgeteilt: 3 Karten offen mit den großen
+Ziffern 1, 2 und 3 (noch ohne Namen), rechts unten die
+verdeckte Karte mit „?“, die leicht wackelt. So nimmt jede
+Karte ein Viertel der Motiv-Zone ein.
+Gleiches erstes Bild für Anfang A und B, nur die Untertitel
+unterscheiden sich. In der Skizze steht der Untertitel von
+Anfang A.
+Skizze im 4:5-Layout, Maße wie in den Specs. Orange = Bewegung oder Hinweis, kommt nicht ins Video. Grauer Kreis = Kilian. Gelbes Wort
+im Untertitel = das Wort, das gerade gesprochen wird.
+Karten-Design
+ Pro Karte ein großes Foto: Blick direkt in die Kamera, natürlich wirkend, keine Stockfoto-Grimasse.
+ Im Raster ist jede Karte 480 × 336 px groß, mit einer Ziffer in 190 px. Name (96 px) und genau 2 Werte (72 px)
+erscheinen erst, wenn die Karte groß nach vorn fliegt.
+ Nicht 4 Karten nebeneinander legen, das ist auf dem Handy viel zu klein. Immer das 2 × 2-Raster nehmen.
+Achtung
+ Keine bekannten Personen und keine KI-Gesichter, die wie echte Personen aussehen.
+ Die Werte auf den Karten sind Spaß-Werte, niemals Euro-Beträge.
+Assets vorbereiten
+ 4 lizenzierte Stockfotos unbekannter Personen: (1) aufgerissene Augen, Handy in der Hand, (2) unter Notizen
+begraben, (3) genervter Blick auf die Uhr, (4) ruhig mit Kaffee und leichtem Lächeln
+ Kartenrückseite mit „?“, Zettelstapel, tickende Uhr
+ Kurs-Mockup
+
+
+===== Seite 17 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 17
+Skript
+ANFANG A
+Welcher von diesen 3 Trading-Anfängern bist du? Alle 3 geben meistens nach ein paar Wochen auf, aber es
+gibt noch einen 4., und zu dem kommen wir gleich.
+ANFANG B
+Es gibt 3 Typen von Trading-Anfängern, die meistens nach ein paar Wochen aufgeben, und ich wette, du
+erkennst dich in einem davon wieder.
+BODY · GLEICH FÜR A UND B
+Typ 1 ist der Zocker. Der setzt alles auf einen Trade, hat keinen Stop und hofft auf den großen Wurf, und
+meistens ist er als Erster wieder raus. Typ 2 ist der Dauerlerner. Der hat 50 Videos geschaut und 20
+Strategien gespeichert, aber noch keinen einzigen Trade gesetzt, weil er erst alles verstehen will. Typ 3 ist
+der Ungeduldige. Der will nach 2 Wochen Ergebnisse sehen, und wenn's nicht klappt, macht er aus Frust
+einen Rache-Trade nach dem anderen. Und dann gibt's noch einen 4. Typ: Von über 2.000 Leuten in
+meinem Coaching sind das die, die dranbleiben. Das sind keine Genies und keine Zocker, sondern ganz
+normale Leute mit Job, die eine einzige Strategie mit festen Regeln haben, wenig riskieren und geduldig
+sind. Dafür musst du kein Profi sein und keine 8 Stunden am Tag Zeit haben. Wie du zu diesem 4. Typ wirst,
+zeig ich dir in meinem kostenlosen Videokurs, und der ist locker 500 Euro wert. Klick unter dem Video auf
+„Mehr dazu“, und schreib mir ehrlich in die Kommentare, welcher Typ du bisher warst.
+Bildschirm-Ablauf
+ STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+ANFANG A
+Welcher von diesen 3 Trading-Anfängern bist
+du?
+Raster, der Cursor kreist über die 3 offenen Karten.
+… aber es gibt noch einen 4., und zu dem
+kommen wir gleich.
+Verdeckte Karte einkreisen.
+ANFANG B
+Es gibt 3 Typen von Trading-Anfängern …
+Raster.
+… du erkennst dich in einem davon wieder.
+Cursor kreist über die 3 offenen Karten.
+BODY
+Typ 1 ist der Zocker.
+Karte 1 fliegt groß nach vorn: „Der Zocker“, Werte „Risiko 10 · Plan 0“.
+… hat keinen Stop und hofft auf den großen
+Wurf …
+„Plan 0“ einkreisen.
+Typ 2 ist der Dauerlerner.
+Karte 2 groß: „Der Dauerlerner“, „Wissen 9 · Trades 0“.
+… 50 Videos geschaut und 20 Strategien
+gespeichert …
+Dahinter ein Stapel Zettel „Strategie 1 … 20“.
+Typ 3 ist der Ungeduldige.
+Karte 3 groß: „Der Ungeduldige“, „Geduld 0 · Frust 10“.
+… nach 2 Wochen Ergebnisse sehen …
+Kleine tickende Uhr.
+Und dann gibt's noch einen 4. Typ:
+Zurück zum Raster, die verdeckte Karte dreht sich um.
+
+
+===== Seite 18 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 18
+STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+Von über 2.000 Leuten in meinem Coaching …
+Karte 4 groß: „Der, der dranbleibt“, „Plan 10 · Geduld 9“. Einblendung
+„2.000+ im Coaching“.
+… eine einzige Strategie mit festen Regeln …
+wenig riskieren … geduldig
+3 Haken auf Karte 4.
+Wie du zu diesem 4. Typ wirst …
+Kurs-Mockup.
+Klick unter dem Video auf „Mehr dazu“ …
+CTA-Bild: „Mehr dazu“ mit Pfeil nach unten.
+… welcher Typ du bisher warst.
+Raster mit allen 4 Karten offen, Text „Welcher warst du? Kommentar
+↓“. Ende.
+
+
+===== Seite 19 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 19
+AD 5 VON 6
+Platz im Kalender
+STIL
+LÄNGE
+TEMPO
+Selbstgebaute, neutrale Kalender-Oberfläche
+ca. 65 Sek.
+1,05×
+Das erste Bild
+ANFANG A
+Hook-Text: „Wo ist hier Platz?“
+Mo
+Di
+Mi
+Do
+Fr
+AUSGEBUCHT
+Wo ist hier Platz?
+SiehstSiehst
+dudu
+inin
+Blöcke fliegen in 1 s rein
+dann knallt der Stempel drauf
+Lupe sucht
+Die Woche Montag bis Freitag füllt sich per Klick in 1
+Sekunde mit reinfliegenden Blöcken, ohne Beschriftung,
+nur Farben. Dann knallt ein roter Stempel
+„AUSGEBUCHT“ drauf. Der Cursor sucht mit einer Lupe.
+ ANFANG B
+Hook-Text: „40 h Job + Trading?“
+Job: 40 h
+Trading: ?
+40 h Job + Trading?
+WieWie
+vielviel
+ZeitZeit
+„?“ wird bei „30 Minuten“ zu „30 Min.“
+Kein Kalender, sondern 2 Balken: ein riesiger grauer
+Balken „Job: 40 h“ und ein winziger grüner „Trading: ?“.
+Skizze im 4:5-Layout, Maße wie in den Specs. Orange = Bewegung oder Hinweis, kommt nicht ins Video. Grauer Kreis = Kilian. Gelbes Wort
+im Untertitel = das Wort, das gerade gesprochen wird.
+Kalender-Design
+ Nur Montag bis Freitag: 5 Spalten à 200 px über die ganze Folienbreite, oben die Wochentage in 40 px.
+ Blockfarben: grau = Arbeit, blau = Sport, gelb = Freunde, grün = Trading. Im ersten Bild steht auf den Blöcken
+nichts.
+ Beschriftet wird jede Farbe nur einmal und erst, wenn das Skript sie nennt: als weißes Schild mit Navy-Text in
+40 px, das am Montag aufploppt und über den Block hinausragen darf.
+ Keine Uhrzeiten in Kleinschrift. Kein App-Logo und keine Optik, die einer bekannten Kalender-App gleicht.
+
+
+===== Seite 20 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 20
+Achtung
+ Keine echte Kalender-App und kein App-Logo im Bild.
+ In der Push-Nachricht nie einen Betrag zeigen.
+Assets vorbereiten
+ Kalender-Layout Montag bis Freitag mit allen Blöcken
+ Stempel „AUSGEBUCHT“, Lupen-Cursor, 2 Balken für Job und Trading
+ Schlichter Chart mit einem Trade über 3 Tage
+ Handy-Mockup mit Push-Nachricht
+ Foto einer gähnenden Person vor vielen Bildschirmen (lizenziert)
+ Kurs-Mockup
+Skript
+ANFANG A
+Siehst du in diesem Kalender noch Platz für Trading? Ich schon, und es sind gerade mal 30 Minuten am Tag.
+ANFANG B
+Wie viel Zeit braucht Trading eigentlich neben einem 40-Stunden-Job? Gerade mal 30 Minuten am Tag,
+und ich zeig's dir direkt hier im Kalender.
+BODY · GLEICH FÜR A UND B
+Das ist eine ganz normale Woche mit 40-Stunden-Job: Montag bis Freitag wird von 8 bis 17 Uhr gearbeitet,
+abends ist mal Sport oder Freunde, und das Wochenende bleibt frei. Und jetzt schau mal hier: morgens 15
+Minuten vor der Arbeit und abends 15 Minuten nach Feierabend, mehr ist es nicht. Das klappt, weil ich
+kein Daytrading mache, sondern ruhige Swing-Trades auf höheren Zeiteinheiten. Die laufen oft mehrere
+Tage, und ein Indikator schickt mir eine Push-Nachricht, wenn's wirklich was zu tun gibt. Den ganzen Tag
+vor dem Chart zu sitzen ist nämlich nicht nur stressig, es macht dich auch zum schlechteren Trader, weil du
+irgendwann aus Langeweile tradest. Und du brauchst dafür weder ein großes Startkapital noch Vorwissen,
+sondern einen klaren Plan. Genau den Plan für deine ersten 60 Tage bekommst du in meinem kostenlosen
+Videokurs, und der ist mindestens 500 Euro wert. Klick unter dem Video auf „Mehr dazu“, und trag dir die
+ersten 15 Minuten gleich für morgen früh in den Kalender ein.
+Bildschirm-Ablauf
+ STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+ANFANG A
+Siehst du in diesem Kalender noch Platz für
+Trading?
+Blöcke fliegen rein, Stempel „AUSGEBUCHT“, Lupen-Cursor sucht.
+Ich schon …
+Der Stempel verschwindet.
+… und es sind gerade mal 30 Minuten am Tag.
+Einblendung „30 Min.“.
+ANFANG B
+Wie viel Zeit braucht Trading eigentlich neben
+einem 40-Stunden-Job?
+Balken-Bild.
+
+
+===== Seite 21 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 21
+STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+Gerade mal 30 Minuten am Tag …
+Aus dem „?“ wird „30 Min.“.
+… und ich zeig's dir direkt hier im Kalender.
+Schnitt auf den vollen Kalender.
+BODY
+Das ist eine ganz normale Woche mit
+40-Stunden-Job …
+Der Cursor fährt über die grauen Blöcke, am Montag ploppt das Schild
+„Arbeit“ auf.
+… abends ist mal Sport oder Freunde …
+Cursor über Blau und Gelb, die Schilder „Sport“ und „Freunde“
+ploppen auf.
+… und das Wochenende bleibt frei.
+Kleines Schild „Sa + So frei“.
+Und jetzt schau mal hier: morgens 15 Minuten
+… abends 15 Minuten …
+Grüne Blöcke ploppen an jedem Tag direkt vor und direkt nach dem
+grauen Block rein, am Montag das Schild „Trading · 15 Min“. Auf einen
+Tag zoomen.
+… mehr ist es nicht.
+Der Zoom hält.
+… ruhige Swing-Trades auf höheren
+Zeiteinheiten. Die laufen oft mehrere Tage …
+Schlichter Chart mit einem Trade, der über 3 Tage läuft, die Tage
+markiert.
+… ein Indikator schickt mir eine Push-Nachricht
+…
+Handy-Mockup schiebt sich rein: „Gold: Einstieg · Stop · Ziel“, ohne
+Gewinnbetrag und ohne App-Logo.
+Den ganzen Tag vor dem Chart zu sitzen …
+Foto: gähnende Person vor vielen Bildschirmen, rot durchgestrichen.
+… weder ein großes Startkapital noch
+Vorwissen, sondern einen klaren Plan.
+„Plan ✓“.
+Genau den Plan für deine ersten 60 Tage …
+Kurs-Mockup.
+Klick unter dem Video auf „Mehr dazu“ …
+CTA-Bild: „Mehr dazu“ mit Pfeil nach unten.
+… trag dir die ersten 15 Minuten gleich für
+morgen früh in den Kalender ein.
+Zurück zum Kalender, der erste grüne Morgen-Block blinkt, dazu das
+Schild „Morgen 7:30“. Ende.
+
+
+===== Seite 22 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 22
+AD 6 VON 6
+Der Stuhl mit einem Bein
+STIL
+LÄNGE
+TEMPO
+Bunte, flache Illustration mit einer Figur
+ca. 65 Sek.
+1,05×
+Das erste Bild
+ANFANG A
+Hook-Text: „1 Bein oder 2?“
+1 Bein oder 2?
+WürdestWürdest
+dudu
+dichdich
+wackelt ±6° ab Frame 1
+Die Figur balanciert auf einem einbeinigen Hocker und
+wackelt ab dem ersten Frame, rudert mit den Armen,
+ein Schweißtropfen fliegt.
+ ANFANG B
+Hook-Text: „Merkst du’s?“
+Merkst du’s?
+DieDie
+meistenmeisten
+AngestelltenAngestellten
+Hocker wackelt, Figur merkt nichts
+Dieselbe Szene, aber die Figur sitzt entspannt am Handy
+und merkt nicht, dass der Hocker gefährlich wackelt.
+Skizze im 4:5-Layout, Maße wie in den Specs. Orange = Bewegung oder Hinweis, kommt nicht ins Video. Grauer Kreis = Kilian. Gelbes Wort
+im Untertitel = das Wort, das gerade gesprochen wird.
+Figur und Effekte
+ Ein Angestellter im Hemd, freundliche und einfache Form. Farbig und flach gezeichnet, damit es sich klar vom
+Schwarz-Weiß-Whiteboard in Ad 2 unterscheidet.
+ Alle Bewegungen als einfache Keynote-Effekte: Wackeln heißt hin und her drehen, Kippen heißt um 90 Grad
+drehen, Säge und Labels werden eingeblendet. Werte stehen in den Specs unter Animationen. Keine aufwendige
+Animation.
+Achtung
+ Das Wackeln muss schon im allerersten Frame laufen, nicht erst nach einer Sekunde.
+ Keine Geld-Symbole im Bild.
+
+
+===== Seite 23 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 23
+Assets vorbereiten
+ Figur in 4 Posen: wackelnd, am Handy, fallend, entspannt sitzend
+ Hocker mit 1 Bein und mit 2 Beinen, Säge, Sanduhr, Labels
+ Kurs-Mockup
+Skript
+ANFANG A
+Würdest du dich auf einen Stuhl mit nur einem Bein setzen? Genau so sieht das Einkommen der meisten
+Angestellten aus, und mit Trading kannst du dir ein zweites Bein bauen.
+ANFANG B
+Die meisten Angestellten sitzen auf so einem Stuhl, ohne es zu merken: Ihr ganzes Einkommen steht auf
+einem einzigen Bein. Mit Trading kannst du dir ein zweites bauen.
+BODY · GLEICH FÜR A UND B
+Das erste Bein ist das Gehalt. Das hängt an einem einzigen Arbeitgeber und an der eigenen Arbeitszeit, und
+solange keiner dran sägt, steht der Stuhl. Aber wenn doch, kippt alles auf einmal. Ein zweites Standbein
+heißt nicht, dass du morgen kündigst. Es heißt, dass nicht mehr alles an einer einzigen Unterschrift hängt.
+Und nach 9 Jahren ist Trading für mich das sinnvollste zweite Bein, weil du keine Kunden brauchst, nichts
+verkaufen musst und es nicht nach Stunden läuft: Ein Trade kostet dich gleich viel Zeit, egal wie groß das
+Konto später mal ist. Klar, das baut sich nicht über Nacht auf. Am Anfang lernst du, riskierst wenig und
+machst auch Fehler, das gehört dazu. Dafür brauchst du 30 Minuten am Tag, aber weder ein
+Wirtschaftsstudium noch ein großes Startkapital. In meinem kostenlosen Videokurs bekommst du die
+Grundlagen von 0 auf 100, eine einfache Strategie und einen Plan für deine ersten 60 Tage, und der ist
+locker 500 Euro wert. Klick unter dem Video auf „Mehr dazu“, und fang an, dein zweites Bein zu bauen,
+solange das erste noch fest steht.
+Bildschirm-Ablauf
+ STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+ANFANG A
+Würdest du dich auf einen Stuhl mit nur einem
+Bein setzen?
+Wackel-Bild.
+Genau so sieht das Einkommen der meisten
+Angestellten aus …
+Das Wackeln hält an.
+… mit Trading kannst du dir ein zweites Bein
+bauen.
+Kurz ein gestricheltes zweites Bein als Andeutung.
+ANFANG B
+Die meisten Angestellten sitzen auf so einem
+Stuhl, ohne es zu merken:
+Figur entspannt am Handy, der Hocker wackelt.
+Ihr ganzes Einkommen steht auf einem einzigen
+Bein.
+Das Bein einkreisen.
+Mit Trading kannst du dir ein zweites bauen.
+Gestricheltes zweites Bein.
+BODY
+
+
+===== Seite 24 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 24
+STICHWORT IM TON
+WAS AUF DEM BILDSCHIRM PASSIERT
+Das erste Bein ist das Gehalt.
+Label „Gehalt“ am Bein.
+Das hängt an einem einzigen Arbeitgeber …
+Label „1 Arbeitgeber“, einkreisen.
+… solange keiner dran sägt, steht der Stuhl.
+Eine Säge erscheint am Bein.
+Aber wenn doch, kippt alles auf einmal.
+Der Hocker kippt um 90 Grad, die Figur fällt.
+Ein zweites Standbein heißt nicht, dass du
+morgen kündigst.
+Die Figur steht wieder auf.
+… nicht mehr alles an einer einzigen
+Unterschrift hängt.
+Das zweite Bein „Trading“ wird angeschraubt, der Hocker steht stabil.
+… keine Kunden brauchst, nichts verkaufen
+musst und es nicht nach Stunden läuft
+3 Haken nacheinander: „keine Kunden“, „nichts verkaufen“, „nicht
+nach Stunden“.
+Klar, das baut sich nicht über Nacht auf.
+Eine Sanduhr läuft.
+Dafür brauchst du 30 Minuten am Tag …
+„30 Min. am Tag ✓“.
+In meinem kostenlosen Videokurs …
+Kurs-Mockup, daneben 3 Haken: Grundlagen · Strategie ·
+60-Tage-Plan.
+Klick unter dem Video auf „Mehr dazu“ …
+CTA-Bild: „Mehr dazu“ mit Pfeil nach unten.
+… solange das erste noch fest steht.
+Die Figur sitzt entspannt auf dem stabilen Hocker und nickt. Ende.
+
+
+===== Seite 25 =====
+Loom-Ads Finanzcode · Briefing für Kaan · Version 2
+Seite 25
+Dateinamen und Checkliste
+Formate
+ 4:5 (1080 × 1350) für den Feed, 9:16 (1080 × 1920) für Reels und Stories. Layout, freie Bereiche und
+Export-Einstellungen stehen in den Specs.
+ 12 Versionen in 2 Formaten ergeben 24 Dateien.
+Dateinamen
+Schema: FC_Loom_[Nr]_[Name]_[A oder B]_[Format].mp4
+Beispiel: FC_Loom_01_Casino_A_4x5.mp4 und FC_Loom_01_Casino_A_9x16.mp4
+Kürzel: 01_Casino · 02_TraderAB · 03_Chart · 04_Typen · 05_Kalender · 06_Stuhl
+Reihenfolge
+Wenn nicht alles auf einmal geht: zuerst Ad 6 und Ad 1, die haben die stärksten ersten Bilder. Danach Ad 4, Ad 2, Ad
+3 und Ad 5.
+Checkliste vor jedem Export
+☐ Das erste Bild hat Bewegung ab Frame 1 und sieht aus wie die Skizze.
+☐ Der Handy-Test ist bestanden.
+☐ Der Kreis ist 0–2 s Ø 360 px, danach Ø 240 px (9:16: 280 und 220 px) und verdeckt nie das Motiv.
+☐ Der Hook-Text hat höchstens 5 Wörter, steht in 1 Zeile und von 0 bis 3,5 s. Im Motiv stehen höchstens 2
+Text-Elemente.
+☐ Die Untertitel haben höchstens 3 Wörter pro Einblendung, Zahlen stehen als Ziffern.
+☐ Die Stimme liegt bei −14 LUFS, die Musik etwa 20 dB darunter.
+☐ Keine Logos, keine bekannten Personen, kein Geld, kein Krypto.
+☐ Am Ende kommt das CTA-Bild mit „Mehr dazu“.
+☐ Das Tempo stimmt: Ad 3 auf 1,1×, alle anderen auf 1,05×.
+☐ In 9:16 sind oben 270 px und unten 672 px frei.
+☐ A und B sind in beiden Formaten exportiert.

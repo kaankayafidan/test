@@ -1,0 +1,44 @@
+/* Shared motif styles (injected into every scene). Tokens from the briefing (Farben, Schrift). */
+.fx-cursor { position: absolute; left: 0; top: 0; width: 46px; height: 66px; z-index: 90; pointer-events: none; }
+.fx-cursor svg { position: absolute; left: -3px; top: -3px; width: 46px; height: 66px; overflow: visible; }
+.fx-ring { position: absolute; left: -32px; top: -32px; width: 64px; height: 64px; border-radius: 50%; background: #FACC15; z-index: 89; pointer-events: none; }
+.fx-stroke { fill: none; stroke: #DC2626; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.fx-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; pointer-events: none; }
+.fx-num { font-family: 'Poppins'; font-weight: 700; color: #0E1A2B; line-height: 1; white-space: nowrap; }
+.fx-word { font-family: 'Poppins'; font-weight: 700; color: #0E1A2B; line-height: 1.05; white-space: nowrap; }
+.fx-label { font-family: 'Poppins'; font-weight: 700; font-size: 44px; color: #0E1A2B; background: #F3F4F6; border-radius: 14px; padding: 6px 18px; white-space: nowrap; line-height: 1.2; }
+/* Laptop mockup with the course start page */
+.fx-laptop { position: absolute; }
+.fx-laptop .lid { position: absolute; left: 6%; right: 6%; top: 0; bottom: 7%; background: #0E1A2B; border-radius: 22px 22px 6px 6px; padding: 14px 14px 18px; }
+.fx-laptop .screen { position: absolute; inset: 14px 14px 18px; background: #fff; border-radius: 8px; overflow: hidden; }
+.fx-laptop .base { position: absolute; left: 0; right: 0; bottom: 0; height: 7%; background: linear-gradient(#D1D5DB, #9CA3AF); border-radius: 4px 4px 18px 18px; }
+.fx-laptop .base::after { content: ""; position: absolute; left: 42%; right: 42%; top: 0; height: 38%; background: #6B7280; border-radius: 0 0 8px 8px; }
+.fx-page { position: absolute; inset: 0; font-family: 'Poppins'; color: #0E1A2B; }
+.fx-page .bar { position: absolute; left: 0; right: 0; top: 0; height: 7%; background: #F3F4F6; border-bottom: 1px solid #E5E7EB; }
+.fx-page .bar i { position: absolute; top: 34%; width: 1.4%; aspect-ratio: 1; border-radius: 50%; background: #D1D5DB; }
+.fx-page .bar i:nth-child(1) { left: 2%; } .fx-page .bar i:nth-child(2) { left: 4.4%; } .fx-page .bar i:nth-child(3) { left: 6.8%; }
+.fx-page .bar b { position: absolute; left: 30%; right: 30%; top: 24%; height: 52%; background: #fff; border-radius: 999px; }
+.fx-page .badge { position: absolute; left: 6%; top: 14%; font-weight: 700; font-size: var(--fs-s); color: #fff; background: #16A34A; border-radius: 999px; padding: 0.25em 0.8em; letter-spacing: 0.02em; }
+.fx-page h3 { position: absolute; left: 6%; top: 24%; width: 46%; font-weight: 700; font-size: var(--fs-l); line-height: 1.12; }
+.fx-page p { position: absolute; left: 6%; top: 57%; width: 44%; font-weight: 600; font-size: var(--fs-s); line-height: 1.5; color: #374151; }
+.fx-page .btn { position: absolute; left: 6%; top: 76%; font-weight: 700; font-size: var(--fs-m); color: #fff; background: #0E1A2B; border-radius: 0.5em; padding: 0.45em 1em; }
+.fx-page .video { position: absolute; right: 6%; top: 16%; width: 38%; aspect-ratio: 16 / 10; border-radius: 3%; background: linear-gradient(135deg, #1F3A5F, #0E1A2B); overflow: hidden; }
+.fx-page .video .play { position: absolute; left: 50%; top: 50%; width: 22%; aspect-ratio: 1; margin: -11% 0 0 -11%; border-radius: 50%; background: #fff; }
+.fx-page .video .play::after { content: ""; position: absolute; left: 40%; top: 30%; border-style: solid; border-width: 0 0 0 0; border-color: transparent; width: 0; height: 0; border-top: 0.55em solid transparent; border-bottom: 0.55em solid transparent; border-left: 0.9em solid #0E1A2B; font-size: var(--fs-m); }
+.fx-page .video .line { position: absolute; left: 8%; bottom: 10%; width: 84%; height: 4%; background: rgba(255,255,255,.35); border-radius: 99px; }
+.fx-page .video .line::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 18%; background: #16A34A; border-radius: 99px; }
+.fx-page .mods { position: absolute; right: 6%; top: 68%; width: 38%; display: flex; gap: 4%; }
+.fx-page .mods span { flex: 1; height: 0; padding-bottom: 14%; border-radius: 6px; background: #F3F4F6; }
+/* Course block: laptop left, 3 ticks right */
+.fx-course { position: absolute; inset: 0; }
+.fx-ticks { position: absolute; left: 610px; top: 0; bottom: 0; width: 450px; display: flex; flex-direction: column; justify-content: center; gap: 34px; list-style: none; }
+.fx-ticks li { display: flex; align-items: center; gap: 22px; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
+.fx-ticks li svg { flex: none; width: 58px; height: 58px; }
+/* CTA */
+.fx-cta { position: absolute; inset: 0; }
+.fx-more { position: absolute; left: 0; right: 0; bottom: 18px; height: 120px; display: flex; align-items: center; justify-content: center; gap: 26px; }
+.fx-more span { font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 1; color: #0E1A2B; }
+.fx-more svg { width: 86px; height: 120px; }
+.fx-banner { position: absolute; left: 50%; bottom: 22px; height: 84px; margin-left: -190px; width: 380px; border-radius: 42px; background: #0E1A2B; display: flex; align-items: center; justify-content: center; gap: 16px; z-index: 80; }
+.fx-banner span { font-family: 'Poppins'; font-weight: 700; font-size: 48px; color: #fff; line-height: 1; }
+.fx-banner svg { width: 34px; height: 48px; }

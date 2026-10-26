@@ -1,0 +1,11 @@
+{
+  "cues": {
+    "stuhl": "Würdest du dich auf einen Stuhl mit nur einem Bein setzen?",
+    "genau": "Genau so sieht das Einkommen der meisten Angestellten aus",
+    "trading": "und mit Trading kannst du dir ein zweites Bein bauen.",
+    "zweites": { "phrase": "ein zweites Bein bauen.", "word": 1 }
+  },
+  "sfx": [
+    { "at": "zweites", "type": "pop" }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+ "pop": {
+  "takes": [
+   {
+    "file": "pop-1.wav",
+    "peak": 0.124,
+    "dur": 0.5,
+    "momentary": -26.0
+   },
+   {
+    "file": "pop-2.wav",
+    "peak": 0.111,
+    "dur": 0.446,
+    "momentary": -26.0
+   }
+  ],
+  "vol": 1,
+  "gainDb": 0
+ },
+ "whoosh": {
+  "takes": [
+   {
+    "file": "whoosh-1.wav",
+    "peak": 0.166,
+    "dur": 0.575,
+    "momentary": -26.0
+   },
+   {
+    "file": "whoosh-2.wav",
+    "peak": 0.184,
+    "dur": 0.639,
+    "momentary": -26.0
+   }
+  ],
+  "vol": 1,
+  "gainDb": 0
+ },
+ "stamp": {
+  "takes": [
+   {
+    "file": "stamp-1.wav",
+    "peak": 0.078,
+    "dur": 0.7,
+    "momentary": -26.0
+   }
+  ],
+  "vol": 1,
+  "gainDb": 0
+ },
+ "blitz": {
+  "takes": [
+   {
+    "file": "blitz-1.wav",
+    "peak": 0.262,
+    "dur": 0.45,
+    "momentary": -26.0
+   }
+  ],
+  "vol": 1,
+  "gainDb": 0
+ },
+ "tick": {
+  "takes": [
+   {
+    "file": "tick-1.wav",
+    "peak": 0.056,
+    "dur": 0.25,
+    "momentary": -26.0
+   }
+  ],
+  "vol": 1,
+  "gainDb": -4
+ }
+}
