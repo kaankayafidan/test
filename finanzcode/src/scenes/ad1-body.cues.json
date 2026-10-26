@@ -16,7 +16,7 @@
     "riskiere": { "phrase": "und riskiere pro Trade nur einen kleinen Teil.", "word": 1 },
     "proTrade": "pro Trade nur einen kleinen Teil.",
     "klein": { "phrase": "nur einen kleinen Teil.", "word": 2 },
-    "verliere": "Ich verliere auch Trades,",
+    "verliere": { "phrase": "Ich verliere auch Trades,", "word": 1 },
     "casinoVerliert": "genau wie das Casino auch Spiele verliert,",
     "casino": { "phrase": "aber ich verhalte mich wie das Casino", "word": 6 },
     "zocker": { "phrase": "und nicht wie ein Zocker,", "word": 4 },
@@ -35,7 +35,7 @@
   },
   "sfx": [
     {
-      "t": "(() => { const lo = C.rechnerisch + 0.2, hi = C.verliert - 1.45; return hi < lo ? lo : Math.min(hi, Math.max(lo, C.p27 - 0.2)); })()",
+      "t": "(() => { const lo = C.rechnerisch + 0.2, hi = C.verliert - 1.1; return hi < lo ? lo : Math.min(hi, Math.max(lo, C.p27 - 0.1)); })()",
       "type": "stamp",
       "_beat": "2,7 % (t27s)"
     },

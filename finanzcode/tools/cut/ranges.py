@@ -52,7 +52,14 @@ def main():
     seg_def = {f"{a['key']}-{'body' if p == 'body' else 'hook' + p}": a for a in json.loads((ROOT / "src/segments.json").read_text())["ads"] for p in ("A", "B", "body")}
     report = ["# Schnitt (Zeitbereiche)\n"]
     for seg, s in spec.items():
-        if seg.startswith("_") or (only and seg not in only):
+        if seg.startswith("_"):
+            continue
+        ad = seg_def[seg]
+        if only and seg not in only:  # keep the other segments in edit.md as they are on disk
+            old = out / f"{seg}.edl.json"
+            if old.exists():
+                dur = sum(y - x for x, y in json.loads(old.read_text())["edl"])
+                report.append(f"## {seg}  ({len(json.loads(old.read_text())['edl'])} Stücke, {dur / ad['tempo']:.1f} s nach Tempo {ad['tempo']}×)\n\n{s['text']}\n")
             continue
         edl = []
         for a, b in s["ranges"]:
@@ -63,7 +70,6 @@ def main():
                 s0, e0 = pieces.pop()
                 pieces += [[s0, ra + KEEP_PAUSE / 2], [rb - KEEP_PAUSE / 2, e0]]  # keep KEEP_PAUSE of the pause
             edl += [[round(x, 3), round(y, 3)] for x, y in pieces if y - x > 0.05]
-        ad = seg_def[seg]
         (out / f"{seg}.edl.json").write_text(json.dumps({"segment": seg, "tempo": ad["tempo"], "edl": edl, "words": [], "text": s["text"]}, ensure_ascii=False, indent=1))
         dur = sum(y - x for x, y in edl)
         report.append(f"## {seg}  ({len(edl)} Stücke, {dur / ad['tempo']:.1f} s nach Tempo {ad['tempo']}×)\n\n{s['text']}\n")

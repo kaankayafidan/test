@@ -308,18 +308,20 @@
     const tV = C.verliert - 0.05;              // "Das Casino verliert also jeden Abend ...": zurück zum Kessel
     const tT = C.tausende - 0.05;              // "über Tausende Spiele": "1.000 Spiele"
     const tG = C.genau9 - 0.05;                // "Und genau so trade ich ...": harter Schnitt auf den Chart
-    const tRk = Math.max(C.riskiere - 0.05, C.stop + 0.45); // "und riskiere pro Trade ...": Schnitt auf den Kreis mit kleinem Stück
-    const tR = Math.max(C.verliere - 0.05, tRk + 1.2);      // "Ich verliere auch Trades": Haken und X
+    const tE = Math.max(tG + 0.4, C.nehme + 0.15);                             // Einstiegslinie
+    const tZ = Math.max(tE + 0.4, C.ziel - 0.05);                              // "Ziel 2"
+    const tU = Math.max(C.weiter - 0.05, tZ + 0.35);                           // "Ziel 2" unterstreichen auf "weiter weg"
+    const tS = Math.max(C.stop - 0.2, tU + 0.35);                              // "Stop 1" (auf "mein Stop-Loss")
+    const tRk = Math.max(C.riskiere - 0.05, tS + 1.0);      // "und riskiere pro Trade ...": Schnitt auf den Kreis; "Stop 1" steht davor mind. 1 s
+    const tR = Math.max(C.verliere - 0.05, tRk + 1.2);      // "Ich verliere auch Trades" (auf "verliere"): Haken und X
     const tC = C.casino - 0.1;                 // "... wie das Casino": Split
     const tK = C.kein - 0.05;                  // "kein Mathematikstudium": Doktorhut + Uhr
     const tKR = C.klare - 0.05;                // "... kleine, klare Regeln": "Klare Regeln"
     const tKu = Math.max(C.kurs - 0.05, tKR + 1.6); // "das zeige ich dir in meinem kostenfreien Trading-Videokurs": Kurs-Mockup
     const tCTA = C.klick - 0.05;               // "Deswegen klick unter dem Video ...": CTA-Bild bis zum Ende
     // Gleiche Formeln stehen für die Soundeffekte in ad1-body.cues.json ("t").
-    const t27s = clamp(C.p27 - 0.2, t27 + 0.25, tV - 1.4);                      // "2,7 %" steht 1,4 s (bei ganz knapper Zeit: 0,25 s nach "1 von 37")
+    const t27s = clamp(C.p27 - 0.1, t27 + 0.25, tV - 1.05);                     // "2,7 %" auf "2,7", steht mind. 1 s (bei ganz knapper Zeit: 0,25 s nach "1 von 37")
     const tWins = Math.max(tT + 0.25, Math.min(Math.max(tT + 0.5, C.mathe - 0.05), tG - 1.2)); // "Mathematik gewinnt" mind. 1,2 s
-    const tE = Math.max(tG + 0.4, C.nehme + 0.15);                             // Einstiegslinie
-    const tZ = Math.max(tE + 0.4, C.ziel - 0.05);                              // "Ziel 2"
 
     // ---------------------------------------------------------------- Ebenen (harte Schnitte)
     ["#a1b-s27", "#a1b-s1000", "#a1b-chart", "#a1b-risk", "#a1b-trades", "#a1b-split", "#a1b-icons", "#a1b-rules"].forEach((s) => FX.init(tl, s, { opacity: 0 }));
@@ -418,9 +420,7 @@
     FX.fadeIn(tl, "#a1b-entry", tE);
     FX.fadeIn(tl, "#a1b-zbar", tZ);
     FX.fadeIn(tl, "#a1b-zlab", tZ);
-    const tU = clamp(C.weiter - 0.05, tZ + 0.35, tRk - 1.0);
     FX.drawLine(tl, "#a1b-uline", tU);
-    const tS = clamp(C.stop - 0.05, tU + 0.35, tRk - 0.4);
     FX.fadeIn(tl, "#a1b-sbar", tS);
     FX.fadeIn(tl, "#a1b-slab", tS);
 
@@ -431,7 +431,7 @@
     FX.pop(tl, "#a1b-rpie", tRk, { svgOrigin: "400 375" });
     const tPT = clamp(C.proTrade - 0.05, tRk + 0.2, tR - 0.9);
     FX.tween(tl, "#a1b-rslice", { x: 0, y: 0 }, { x: 24, y: -29, duration: 0.25, ease: "power2.out" }, tPT);  // Stück schiebt sich heraus
-    const tKl = clamp(C.klein - 0.05, tPT + 0.36, tR - 0.5);
+    const tKl = clamp(C.klein - 0.2, tPT + 0.36, tR - 0.95);        // "kleiner Teil" steht bis zum Schnitt mind. 1 s
     FX.pop(tl, "#a1b-klab", tKl);
 
     // ---------------------------------------------------------------- Bild 6: Reihe aus Haken und X, nacheinander
@@ -478,14 +478,14 @@
     FX.drawLine(tl, "#a1b-urules", clamp(C.wichtig - 0.05, tRc + 0.4, tKu - 0.5));
 
     // ---------------------------------------------------------------- Kurs: "für diesen Kurs könnte ich locker ...": Detail-Zoom auf "Kostenlos starten", auf "locker" einkreisen (kein Betrag im Bild)
-    // "reinzoomen auf ein Detail": 200 % in 0,5 s auf die linke Spalte der Kursseite ("Kostenloser Videokurs" oben,
-    // "Kostenlos starten" unten); Zoom-Mitte im Mockup bei 200/318 -> Bildmitte. Der Button (Mockup 99–254 × 380–414) liegt dann
-    // bei x 338–648, y 479–547.
-    const ZC = [200, 318];
+    // "reinzoomen auf ein Detail": 185 % in 0,5 s auf die Kursseite; Zoom-Mitte = Mitte des Laptops (Mockup 24–584 × 150–490)
+    // -> Bildmitte, so bleibt der ganze Laptop im Bild (x 22–1058, y 40–670; in 9:16 nichts abgeschnitten). Der Button
+    // "Kostenlos starten" (Mockup 99–254 × 380–414) liegt dann bei x 162–448, y 466–529.
+    const ZC = [304, 320], ZS = 1.85;
     const tZi = clamp(C.diesen - 0.05, tk2 + 0.6, tCTA - 1.6);
     FX.init(tl, "#a1b-course", { scale: 1, x: 0, y: 0, transformOrigin: `${ZC[0]}px ${ZC[1]}px` });
-    FX.zoomIn(tl, "#a1b-course", tZi, { origin: `${ZC[0]}px ${ZC[1]}px`, to: 2, x: 540 - ZC[0], y: 355 - ZC[1] });
-    const ringK = pathOf("a1b-ckost", FX.handCircle(493, 513, 196, 64, 11));
+    FX.zoomIn(tl, "#a1b-course", tZi, { origin: `${ZC[0]}px ${ZC[1]}px`, to: ZS, x: 540 - ZC[0], y: 355 - ZC[1] });
+    const ringK = pathOf("a1b-ckost", FX.handCircle(305, 498, 182, 60, 11));
     const tLo = clamp(C.locker - 0.05, tZi + 0.55, tCTA - 1.0);   // Kreis steht mindestens 0,5 s
     FX.init(tl, "#a1b-kfx", { opacity: 1 });
     FX.drawCircle(tl, "#a1b-ckost", tLo);
@@ -533,7 +533,7 @@
     const kp = ptsOf(ringK);
     move(tLo - 0.35, kp[0], 0.3);
     trace(kp, tLo, 0.5);
-    move(busy + 0.05, [712, 524], 0.25);
+    move(busy + 0.05, [512, 512], 0.25);
     move(tCTA + 0.25, [818, 628], 0.5);
     FX.cursor(tl, "#a1b-cur", "#a1b-ring", REST, steps);
 
