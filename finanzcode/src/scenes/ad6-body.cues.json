@@ -1,116 +1,40 @@
 {
   "cues": {
-    "erste": "Das erste Bein ist das Gehalt.",
-    "gehalt": {
-      "phrase": "ist das Gehalt.",
-      "word": 2
-    },
-    "haengt": "Das hängt an einem einzigen Arbeitgeber",
-    "einzigen": {
-      "phrase": "an einem einzigen Arbeitgeber",
-      "word": 2
-    },
-    "arbeitgeber": {
-      "phrase": "einzigen Arbeitgeber",
-      "word": 1
-    },
-    "solange": "und solange keiner dran sägt, steht der Stuhl.",
-    "saegt": {
-      "phrase": "keiner dran sägt",
-      "word": 2
-    },
-    "aber": "Aber wenn doch, kippt alles auf einmal.",
-    "kippt": {
-      "phrase": "kippt alles auf einmal.",
-      "word": 0
-    },
-    "standbein": "Ein zweites Standbein heißt nicht, dass du morgen kündigst.",
-    "nicht": "nicht mehr alles an einer einzigen Unterschrift hängt.",
-    "unterschrift": {
-      "phrase": "einzigen Unterschrift hängt.",
-      "word": 1
-    },
-    "trading": {
-      "phrase": "Und nach 9 Jahren ist Trading für mich das sinnvollste zweite Bein",
-      "word": 5
-    },
-    "kunden": "keine Kunden brauchst",
-    "verkaufen": "nichts verkaufen musst",
-    "stunden": {
-      "phrase": "es nicht nach Stunden läuft",
-      "word": 1
-    },
-    "trade": "Ein Trade kostet dich gleich viel Zeit, egal wie groß das Konto später mal ist.",
-    "gleich": {
-      "phrase": "Ein Trade kostet dich gleich viel Zeit",
-      "word": 4
-    },
-    "klar": "Klar, das baut sich nicht über Nacht auf.",
-    "anfang": "Am Anfang lernst du, riskierst wenig und machst auch Fehler, das gehört dazu.",
-    "min30": {
-      "phrase": "Dafür brauchst du 30 Minuten am Tag",
-      "word": 3
-    },
-    "tag": {
-      "phrase": "30 Minuten am Tag",
-      "word": 3
-    },
-    "kurs": "In meinem kostenlosen Videokurs",
-    "grund": {
-      "phrase": "die Grundlagen von 0 auf 100",
-      "word": 1
-    },
-    "strategie": {
-      "phrase": "eine einfache Strategie",
-      "word": 2
-    },
-    "plan": {
-      "phrase": "einen Plan für deine ersten 60 Tage",
-      "word": 1
-    },
-    "klick": "Klick unter dem Video auf „Mehr dazu“",
-    "ende": "solange das erste noch fest steht."
+    "gehalt": { "phrase": "Das erste Bein ist dein Gehalt.", "word": 5 },
+    "einzigen": { "phrase": "Das hängt an deinem einzigen Arbeitgeber", "word": 4 },
+    "arbeitgeber": { "phrase": "einzigen Arbeitgeber", "word": 1 },
+    "arbeitszeit": { "phrase": "und deiner eigenen Arbeitszeit,", "word": 3 },
+    "saegt": { "phrase": "und solange keiner dran sägt, steht der Stuhl.", "word": 4 },
+    "aber": "Aber wenn doch,",
+    "kippt": { "phrase": "dann kippt alles auf einmal.", "word": 1 },
+    "standbein": { "phrase": "Und ein zweites Standbein heißt nicht, dass du morgen kündigst,", "word": 1 },
+    "nicht": { "phrase": "aber es heißt, dass nicht mehr alles von einem Arbeitgeber abhängig ist.", "word": 4 },
+    "neun": { "phrase": "Nach über 9 Jahren Trading-Erfahrung", "word": 2 },
+    "erfahrung": { "phrase": "Jahren Trading-Erfahrung", "word": 1 },
+    "angestellt": { "phrase": "als eine Person, die selber angestellt war:", "word": 4 },
+    "sinnvoll": { "phrase": "Es ist das Sinnvollste für die meisten Angestellten,", "word": 3 },
+    "meisten": { "phrase": "für die meisten Angestellten,", "word": 2 },
+    "standbein2": { "phrase": "sich ein zweites Standbein aufzubauen.", "word": 2 },
+    "trading": { "phrase": "Und Trading ist die perfekte Lösung,", "word": 1 },
+    "job": { "phrase": "neben deinem Job", "word": 2 },
+    "minuten": { "phrase": "mit 30 bis 60 Minuten am Tag", "word": 1 },
+    "standbein3": { "phrase": "ein zweites Standbein mit Trading aufbauen kannst,", "word": 1 },
+    "zeit": "zeiteffizient,",
+    "anfaenger": "anfängerfreundlich,",
+    "vorerf": "ohne Vorerfahrung",
+    "fach": { "phrase": "und ohne Fachchinesisch.", "word": 1 },
+    "zeige": "das zeige ich dir in meinem kostenlosen Videokurs.",
+    "kostenlos": "kostenlosen Videokurs.",
+    "klick": "Klick gerne auf den Button unter dem Video."
   },
   "sfx": [
-    {
-      "at": "gehalt",
-      "type": "pop"
-    },
-    {
-      "at": "einzigen",
-      "type": "pop"
-    },
-    {
-      "at": "kippt",
-      "type": "whoosh"
-    },
-    {
-      "at": "standbein",
-      "type": "pop"
-    },
-    {
-      "at": "nicht",
-      "type": "whoosh"
-    },
-    {
-      "at": "kunden",
-      "type": "pop"
-    },
-    {
-      "at": "klar",
-      "type": "pop"
-    },
-    {
-      "at": "min30",
-      "type": "pop"
-    },
-    {
-      "at": "kurs",
-      "type": "whoosh"
-    },
-    {
-      "at": "klick",
-      "type": "pop"
-    }
+    { "at": "gehalt", "type": "pop" },
+    { "at": "einzigen", "type": "pop" },
+    { "at": "kippt", "type": "whoosh" },
+    { "at": "nicht", "type": "whoosh" },
+    { "at": "neun", "type": "pop" },
+    { "at": "zeit", "type": "pop" },
+    { "at": "zeige", "type": "whoosh" },
+    { "at": "klick", "type": "pop" }
   ]
 }

@@ -1,9 +1,9 @@
 {
   "cues": {
     "stuhl": "Würdest du dich auf einen Stuhl mit nur einem Bein setzen?",
-    "genau": "Genau so sieht das Einkommen der meisten Angestellten aus",
-    "trading": "und mit Trading kannst du dir ein zweites Bein bauen.",
-    "zweites": { "phrase": "ein zweites Bein bauen.", "word": 1 }
+    "genau": { "phrase": "Weil genau so sieht das Einkommen der meisten Angestellten aus,", "word": 1 },
+    "trading": "und mit Trading kannst du dir ein zweites Standbein aufbauen.",
+    "zweites": { "phrase": "ein zweites Standbein aufbauen.", "word": 1 }
   },
   "sfx": [
     { "at": "trading", "t": "Math.max(Math.max(0.6, C.genau - 0.15) + 0.9, C.trading - 0.1) + 0.05", "type": "pop" }

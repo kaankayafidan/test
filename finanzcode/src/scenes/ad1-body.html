@@ -25,13 +25,17 @@
     .a1b-ill { position: absolute; left: 0; top: 0; width: 495px; height: 540px; }
     .a1b-ill svg { position: absolute; left: 0; top: 0; width: 495px; height: 540px; }
     .a1b-clabel { position: absolute; left: 0; top: 552px; width: 495px; height: 72px; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 72px; text-align: center; color: #0E1A2B; white-space: nowrap; word-spacing: 8px; }
+    /* Kleiner Teil: grauer Kreis mit kleinem rotem Stück */
+    #a1b-klab { left: 668px; top: 96px; }
+    /* Kurs-Mockup: Unterzeile der Kursseite ausblenden (nennt Inhalte, die nicht gesagt werden; wird beim Detail-Zoom lesbar) */
+    #a1b-course .fx-page p { display: none; }
     /* Klare Regeln */
     #a1b-rtext { left: 115px; top: 300px; font-size: 110px; }
   </style>
   <div id="root" data-composition-id="ad1-body" data-width="1080" data-height="710">
     <div id="a1b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
 
-      <!-- Kessel (Bild 1, 3 und Schlussbild). Platzhalter für Foto / Stock-Loop des Kessels von oben. -->
+      <!-- Kessel (Bild 1 und 3). Platzhalter für Foto / Stock-Loop des Kessels von oben. -->
       <div id="a1b-wheel" class="a1b-slide photo-slot" data-asset="roulette-wheel-top">
         <svg class="a1b-art" viewBox="0 0 1080 710">
           <g id="a1b-wpan">
@@ -127,6 +131,17 @@
 <div id="a1b-slab" class="a1b-clab" style="left: 880px; top: 328px;">Stop 1</div>
 <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a1b-uline" class="fx-stroke" pathLength="1" d="M878 254 Q954 260 1030 251"/></svg>
 <!--/ad1-chart:labels-->
+      </div>
+
+      <!-- Bild 5b: "und riskiere pro Trade nur einen kleinen Teil": grauer Kreis (das Ganze), ein kleines rotes Stück schiebt sich heraus, ohne Zahlen und Beträge -->
+      <div id="a1b-risk" class="a1b-slide">
+        <svg class="a1b-art" viewBox="0 0 1080 710">
+          <g id="a1b-rpie">
+            <path d="M400 375 L576.2 227.2 A230 230 0 1 1 515 175.8 Z" fill="#9CA3AF" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" />
+            <path id="a1b-rslice" d="M400 375 L515 175.8 A230 230 0 0 1 576.2 227.2 Z" fill="#DC2626" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round" />
+          </g>
+        </svg>
+        <div id="a1b-klab" class="a1b-pill">kleiner Teil</div>
       </div>
 
       <!-- Bild 6: Reihe aus grünen Haken und roten X, ohne Beträge -->
@@ -260,16 +275,15 @@
             <path d="M884 357 L902 375 L937 337" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
           </g>
         </svg>
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a1b-urules" class="fx-stroke" pathLength="1" d="" /></svg>
       </div>
 
-      <!-- Kurs-Mockup mit 3 Haken -->
-      <!--@include course p="a1b-course" items="Grundlagen|Strategie|60-Tage-Plan"-->
-      <!-- roter Kreis um "Kostenlos starten" (auf "locker 500 Euro") -->
+      <!-- Kurs-Mockup mit 3 Haken (nur Gesagtes: "klare Regeln", "kostenfreien", "Trading-Videokurs") -->
+      <!--@include course p="a1b-course" items="Klare Regeln|Kostenlos|Videokurs"-->
+      <!-- roter Kreis um "Kostenlos starten" (auf "locker"; kein Betrag im Bild) -->
       <svg id="a1b-kfx" class="fx-svg" viewBox="0 0 1080 710"><path id="a1b-ckost" class="fx-stroke" pathLength="1" d="" /></svg>
-      <!-- CTA-Bild -->
+      <!-- CTA-Bild: steht von "Deswegen klick ..." bis zum Ende -->
       <!--@include cta p="a1b-cta"-->
-      <!-- kleines Banner "Mehr dazu ↓" bleibt im Schlussbild bis zum Ende -->
-      <!--@include more p="a1b-more"-->
       <!--@include cursor p="a1b"-->
     </div>
   </div>
@@ -289,18 +303,18 @@
     };
     const ptsOf = (d) => [...d.matchAll(/[ML]([-\d.]+) ([-\d.]+)/g)].map((m) => [+m[1], +m[2]]);
 
-    // ---------------------------------------------------------------- Zeitpunkte (alle aus den Cues)
-    const t27 = C.rechnerisch - 0.05;          // Schnitt auf "1 von 37"
-    const tV = C.verliert - 0.05;              // zurück zum Kessel
-    const tT = C.tausende - 0.05;              // "1.000 Spiele"
-    const tG = C.genau9 - 0.05;                // harter Schnitt auf den Chart
-    const tR = C.verliere - 0.05;              // Haken und X
-    const tC = C.casino - 0.1;                 // Split
-    const tK = C.kein - 0.05;                  // Doktorhut + Uhr
-    const tKR = C.klare - 0.05;                // "Klare Regeln" (bleibt über "Welche das sind" stehen)
-    const tKu = Math.max(C.kostenlosen - 0.05, tKR + 1.6); // Kurs-Mockup
-    const tCTA = C.klick - 0.05;               // CTA-Bild
-    const tW = C.wer - 0.05;                   // zurück zum Kessel, Kugel landet auf der Null
+    // ---------------------------------------------------------------- Zeitpunkte (alle aus den Cues, gesprochener Text)
+    const t27 = C.rechnerisch - 0.05;          // "Rechnerisch sind das 2,7 Prozent": Schnitt auf "1 von 37"
+    const tV = C.verliert - 0.05;              // "Das Casino verliert also jeden Abend ...": zurück zum Kessel
+    const tT = C.tausende - 0.05;              // "über Tausende Spiele": "1.000 Spiele"
+    const tG = C.genau9 - 0.05;                // "Und genau so trade ich ...": harter Schnitt auf den Chart
+    const tRk = Math.max(C.riskiere - 0.05, C.stop + 0.45); // "und riskiere pro Trade ...": Schnitt auf den Kreis mit kleinem Stück
+    const tR = Math.max(C.verliere - 0.05, tRk + 1.2);      // "Ich verliere auch Trades": Haken und X
+    const tC = C.casino - 0.1;                 // "... wie das Casino": Split
+    const tK = C.kein - 0.05;                  // "kein Mathematikstudium": Doktorhut + Uhr
+    const tKR = C.klare - 0.05;                // "... kleine, klare Regeln": "Klare Regeln"
+    const tKu = Math.max(C.kurs - 0.05, tKR + 1.6); // "das zeige ich dir in meinem kostenfreien Trading-Videokurs": Kurs-Mockup
+    const tCTA = C.klick - 0.05;               // "Deswegen klick unter dem Video ...": CTA-Bild bis zum Ende
     // Gleiche Formeln stehen für die Soundeffekte in ad1-body.cues.json ("t").
     const t27s = clamp(C.p27 - 0.2, t27 + 0.25, tV - 1.4);                      // "2,7 %" steht 1,4 s (bei ganz knapper Zeit: 0,25 s nach "1 von 37")
     const tWins = Math.max(tT + 0.25, Math.min(Math.max(tT + 0.5, C.mathe - 0.05), tG - 1.2)); // "Mathematik gewinnt" mind. 1,2 s
@@ -308,25 +322,39 @@
     const tZ = Math.max(tE + 0.4, C.ziel - 0.05);                              // "Ziel 2"
 
     // ---------------------------------------------------------------- Ebenen (harte Schnitte)
-    ["#a1b-s27", "#a1b-s1000", "#a1b-chart", "#a1b-trades", "#a1b-split", "#a1b-icons", "#a1b-rules"].forEach((s) => FX.init(tl, s, { opacity: 0 }));
+    ["#a1b-s27", "#a1b-s1000", "#a1b-chart", "#a1b-risk", "#a1b-trades", "#a1b-split", "#a1b-icons", "#a1b-rules"].forEach((s) => FX.init(tl, s, { opacity: 0 }));
     FX.cut(tl, "#a1b-wheel", "#a1b-s27", t27);
     tl.set("#a1b-labs", { opacity: 0 }, t27);
     FX.cut(tl, "#a1b-s27", "#a1b-wheel", tV);
     FX.cut(tl, "#a1b-wheel", "#a1b-s1000", tT);
     FX.cut(tl, "#a1b-s1000", "#a1b-chart", tG);
-    FX.cut(tl, "#a1b-chart", "#a1b-trades", tR);
+    FX.cut(tl, "#a1b-chart", "#a1b-risk", tRk);
+    FX.cut(tl, "#a1b-risk", "#a1b-trades", tR);
     FX.cut(tl, "#a1b-trades", "#a1b-split", tC);
     FX.cut(tl, "#a1b-split", "#a1b-icons", tK);
     FX.cut(tl, "#a1b-icons", "#a1b-rules", tKR);
     tl.set("#a1b-rules", { opacity: 0 }, tKu);
-    const tk0 = Math.max(C.grundlagen - 0.05, tKu + 0.4);
-    const tk1 = Math.max(C.strategie - 0.05, tk0 + 0.3);
-    const tk2 = Math.max(C.plan - 0.05, tk1 + 0.3);
+    // Haken neben dem Kurs folgen dem Gesagten: "Klare Regeln" (gleich), "Kostenlos" (auf "kostenfreien"), "Videokurs".
+    const tk0 = tKu + 0.35;
+    const tk1 = Math.max(C.kostenfrei - 0.05, tk0 + 0.36);
+    const tk2 = Math.max(C.videokurs - 0.05, tk1 + 0.36);
     FX.course(tl, "a1b-course", tKu, [tk0, tk1, tk2]);
     tl.set("#a1b-course", { opacity: 0 }, tCTA);
-    FX.cta(tl, "a1b-cta", tCTA);
-    FX.cut(tl, "#a1b-cta", "#a1b-wheel", tW);
-    FX.more(tl, "a1b-more", tW + 0.15);
+    // CTA-Bild (wie FX.cta), aber der Pfeil hüpft nur so oft, dass er spätestens 0,35 s vor Schluss still steht.
+    const ctaLocal = (p, t) => {
+      tl.set(`#${p}`, { opacity: 0 }, 0);
+      tl.set(`#${p}-laptop`, { opacity: 0 }, 0);
+      tl.set(`#${p}-more`, { opacity: 0 }, 0);
+      tl.set(`#${p}`, { opacity: 1 }, t);
+      FX.tween(tl, `#${p}-laptop`, { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.15, ease: "power2.out" }, t);
+      FX.tween(tl, `#${p}-more`, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, t + 0.2);
+      const room = DUR - 0.35 - (t + 0.5);
+      if (room >= 0.8) {
+        const n = Math.min(3, Math.floor(room / 0.8));
+        FX.tween(tl, `#${p}-arrow`, { y: 0 }, { y: 14, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: n * 2 - 1 }, t + 0.5);
+      }
+    };
+    ctaLocal("a1b-cta", tCTA);
 
     // ---------------------------------------------------------------- Kessel: Position, Zoom, Drehung, Kugel
     // Übergabe von beiden Hooks: Kessel mittig, Radius 275 px, steht still (Null oben), keine Kugel.
@@ -350,7 +378,7 @@
     FX.pop(tl, "#a1b-l37", tL37);
     FX.pop(tl, "#a1b-l36", tL36);
 
-    // "... dieses eine grüne Feld, die Null": grüner Lichthof ploppt um die Null, Null und Lichthof pulsieren bis zum Schnitt.
+    // "Und dieses eine grüne Feld, die Null, ist der komplette Vorteil": grüner Lichthof ploppt um die Null, Null und Lichthof pulsieren bis zum Schnitt.
     const tP = Math.max(C.gruen - 0.05, tL36 + 0.4);
     const ZO = { svgOrigin: "0 -203" };
     FX.pop(tl, "#a1b-zh", tP, ZO);
@@ -363,7 +391,7 @@
     tl.set("#a1b-zp", { opacity: 0 }, t27);
     tl.set("#a1b-zh", { opacity: 0 }, t27);
 
-    // Bild 3: "Das Casino verliert jeden Abend unzählige Spiele": Kessel mittig, läuft, du zoomst langsam raus.
+    // Bild 3: "Das Casino verliert also jeden Abend unzählige Spiele": Kessel mittig, läuft, du zoomst langsam raus.
     tl.set("#a1b-wpan", { x: 540, y: 355 }, tV);
     tl.set("#a1b-wzoom", { scale: 1.08, ...O }, tV);
     FX.slowZoom(tl, "#a1b-wzoom", tV, { from: 1.08, to: 1, d: Math.max(1, Math.min(3, tT - tV)), ...O });
@@ -372,27 +400,6 @@
     tl.set("#a1b-bdrop", { opacity: 1 }, tV);
     FX.tween(tl, "#a1b-borb", { rotation: 130, ...O }, { rotation: 130 - 420 * d3, duration: d3, ease: "none", ...O }, tV);
     tl.set("#a1b-bdrop", { opacity: 0 }, tT);
-
-    // Schlussbild: "... wer am Tisch wirklich gewinnt." Kessel mittig (Platz für das Banner), Kugel läuft und landet auf der Null.
-    const tStop = DUR - 0.35;
-    const tLand = clamp(E.wer - 0.1, tW + 1.2, DUR - 0.9);
-    const thA = 188, thC = 380;                       // Kessel dreht von 188° auf 380° und läuft aus
-    const pOut = (p) => 1 - (1 - p) * (1 - p);        // = GSAP "power1.out"
-    const thLand = thA + (thC - thA) * pOut((tLand - tW) / (tStop - tW));
-    const phL = thLand - 360 * 2, ph0 = phL + 720;    // Kugel: 2 Runden gegen den Uhrzeigersinn, endet genau über der Null
-    tl.set("#a1b-wpan", { x: 540, y: 312 }, tW);
-    tl.set("#a1b-wzoom", { scale: 0.85, ...O }, tW);
-    tl.set("#a1b-spin", { rotation: thA, ...O }, tW);
-    FX.tween(tl, "#a1b-spin", { rotation: thA, ...O }, { rotation: thC, duration: tStop - tW, ease: "power1.out", ...O }, tW);
-    tl.set("#a1b-borb", { rotation: ph0, ...O }, tW);
-    FX.tween(tl, "#a1b-borb", { rotation: ph0, ...O }, { rotation: phL, duration: tLand - tW, ease: "power1.out", ...O }, tW);
-    tl.set("#a1b-bdrop", { opacity: 1 }, tW);
-    FX.tween(tl, "#a1b-bdrop", { y: 0 }, { y: 277 - 182, duration: 0.35, ease: "power2.in" }, tLand - 0.35);
-    FX.cut(tl, "#a1b-bdrop", "#a1b-bin", tLand);
-    if (tLand + 0.9 <= DUR - 0.3) {
-      tl.set("#a1b-zp", { opacity: 1 }, tLand + 0.05);
-      FX.pulse(tl, "#a1b-zp", tLand + 0.05, 0.8, ZO);
-    }
 
     // ---------------------------------------------------------------- Bild 2: "1 von 37", dann "2,7 %"
     FX.init(tl, "#a1b-n137", { opacity: 0 });
@@ -406,16 +413,26 @@
     FX.pop(tl, "#a1b-n1000", tT);
     FX.pop(tl, "#a1b-wins", tWins);
 
-    // ---------------------------------------------------------------- Bild 5: Chart, Einstieg, Ziel 2 / Stop 1, unterstreichen
+    // ---------------------------------------------------------------- Bild 5: Chart, Einstieg, "Ziel 2" (unterstreichen auf "weiter weg"), "Stop 1"
     ["#a1b-entry", "#a1b-zbar", "#a1b-sbar", "#a1b-zlab", "#a1b-slab"].forEach((s) => FX.init(tl, s, { opacity: 0 }));
     FX.fadeIn(tl, "#a1b-entry", tE);
     FX.fadeIn(tl, "#a1b-zbar", tZ);
     FX.fadeIn(tl, "#a1b-zlab", tZ);
-    const tS = Math.max(tZ + 0.5, C.stop - 0.05);
+    const tU = clamp(C.weiter - 0.05, tZ + 0.35, tRk - 1.0);
+    FX.drawLine(tl, "#a1b-uline", tU);
+    const tS = clamp(C.stop - 0.05, tU + 0.35, tRk - 0.4);
     FX.fadeIn(tl, "#a1b-sbar", tS);
     FX.fadeIn(tl, "#a1b-slab", tS);
-    const tU = clamp(E.stop + 0.15, tS + 0.35, tR - 0.6);
-    FX.drawLine(tl, "#a1b-uline", tU);
+
+    // ---------------------------------------------------------------- Bild 5b: "riskiere pro Trade nur einen kleinen Teil": grauer Kreis, kleines rotes Stück
+    FX.init(tl, "#a1b-rpie", { opacity: 0 });
+    FX.init(tl, "#a1b-rslice", { x: 0, y: 0 });
+    FX.init(tl, "#a1b-klab", { opacity: 0 });
+    FX.pop(tl, "#a1b-rpie", tRk, { svgOrigin: "400 375" });
+    const tPT = clamp(C.proTrade - 0.05, tRk + 0.2, tR - 0.9);
+    FX.tween(tl, "#a1b-rslice", { x: 0, y: 0 }, { x: 24, y: -29, duration: 0.25, ease: "power2.out" }, tPT);  // Stück schiebt sich heraus
+    const tKl = clamp(C.klein - 0.05, tPT + 0.36, tR - 0.5);
+    FX.pop(tl, "#a1b-klab", tKl);
 
     // ---------------------------------------------------------------- Bild 6: Reihe aus Haken und X, nacheinander
     const nT = 8;
@@ -451,19 +468,21 @@
     FX.pop(tl, "#a1b-clock", tSt, { svgOrigin: "790 330" });
     FX.drawLine(tl, "#a1b-xclock", clamp(E.stunden, tSt + 0.25, tKR - 0.35));
 
-    // ---------------------------------------------------------------- Bild 9: "Klare Regeln ✓" (Haken auf "Regeln", steht bis zum Kurs)
+    // ---------------------------------------------------------------- Bild 9: "Klare Regeln ✓" (Haken auf "Regeln"), "Regeln" unterstreichen auf "welche Regeln wirklich wichtig sind"
     FX.init(tl, "#a1b-rtext", { opacity: 0 });
     FX.init(tl, "#a1b-rcheck", { opacity: 0 });
     FX.pop(tl, "#a1b-rtext", tKR);
     const tRc = clamp(C.regeln - 0.05, tKR + 0.36, tKu - 1.0);
     FX.pop(tl, "#a1b-rcheck", tRc, { svgOrigin: "910 355" });
+    pathOf("a1b-urules", FX.handLine(436, 440, 830, 436, 4));
+    FX.drawLine(tl, "#a1b-urules", clamp(C.wichtig - 0.05, tRc + 0.4, tKu - 0.5));
 
-    // ---------------------------------------------------------------- Kurs: "und eigentlich ... locker 500 Euro": Detail-Zoom auf "Kostenlos starten", auf "locker" einkreisen
+    // ---------------------------------------------------------------- Kurs: "für diesen Kurs könnte ich locker ...": Detail-Zoom auf "Kostenlos starten", auf "locker" einkreisen (kein Betrag im Bild)
     // "reinzoomen auf ein Detail": 200 % in 0,5 s auf die linke Spalte der Kursseite ("Kostenloser Videokurs" oben,
     // "Kostenlos starten" unten); Zoom-Mitte im Mockup bei 200/318 -> Bildmitte. Der Button (Mockup 99–254 × 380–414) liegt dann
     // bei x 338–648, y 479–547.
     const ZC = [200, 318];
-    const tZi = clamp(C.eigentlich - 0.05, tk2 + 0.6, tCTA - 1.6);
+    const tZi = clamp(C.diesen - 0.05, tk2 + 0.6, tCTA - 1.6);
     FX.init(tl, "#a1b-course", { scale: 1, x: 0, y: 0, transformOrigin: `${ZC[0]}px ${ZC[1]}px` });
     FX.zoomIn(tl, "#a1b-course", tZi, { origin: `${ZC[0]}px ${ZC[1]}px`, to: 2, x: 540 - ZC[0], y: 355 - ZC[1] });
     const ringK = pathOf("a1b-ckost", FX.handCircle(493, 513, 196, 64, 11));
@@ -476,7 +495,7 @@
     // Jede Bewegung beginnt frühestens, wenn die vorige fertig ist; Klicks liegen mindestens 0,36 s auseinander (Klick-Ring 0,35 s).
     const REST = [960, 640];
     const ZPARK = [402, 60];                       // knapp außerhalb des Rands, rechts über der Null
-    const CHART = [827, 435];              // unter dem Stop-Balken
+    const CHART = [827, 435];                      // unter dem Stop-Balken; im Kreis-Bild rechts unten frei
     const GUTTER = [530, 470];                     // Spalt zwischen den Karten, unter der Haken-Reihe (über beide Bilder hinweg frei)
     const steps = [];
     let busy = 0, lastClick = -1;
@@ -497,6 +516,8 @@
     click(tE);
     click(tZ);
     click(tS);
+    click(tRk);
+    click(tKl);
     move(tR + 0.05, GUTTER, 0.5);
     const rp = ptsOf(ringR);
     move(tCi - 0.35, rp[0], 0.3);
@@ -506,12 +527,14 @@
     click(tSt);
     click(tKR);
     click(tRc);
+    click(tk0);
+    click(tk1);
+    click(tk2);
     const kp = ptsOf(ringK);
     move(tLo - 0.35, kp[0], 0.3);
     trace(kp, tLo, 0.5);
     move(busy + 0.05, [712, 524], 0.25);
     move(tCTA + 0.25, [818, 628], 0.5);
-    move(tW + 0.1, REST, 0.5);
     FX.cursor(tl, "#a1b-cur", "#a1b-ring", REST, steps);
 
     window.__timelines["ad1-body"] = tl;

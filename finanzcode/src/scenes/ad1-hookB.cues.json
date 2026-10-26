@@ -1,10 +1,13 @@
 {
   "cues": {
     "null": "Siehst du diese kleine grüne Null?",
-    "wegen": "Wegen ihr gewinnt das Casino am Ende jedes Jahres",
+    "wegen": "Wegen ihr gewinnt das Casino am Ende des Jahres,",
     "genau": "und genau davon kannst du beim Trading eine Menge lernen."
   },
   "sfx": [
-    { "t": "Math.max(0.9, C.wegen - 0.05)", "type": "whoosh" }
+    {
+      "t": "Math.max(0.9, C.wegen - 0.05)",
+      "type": "whoosh"
+    }
   ]
 }

@@ -9,7 +9,7 @@
     <div id="a6ha-scene" class="clip" data-start="0" data-duration="{{DUR}}">
       <svg id="a6ha-art" viewBox="60 60 960 631">
         <line x1="250" y1="652" x2="830" y2="652" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" />
-        <!-- gestricheltes zweites Bein (Andeutung), erscheint erst auf "ein zweites Bein bauen" -->
+        <!-- gestricheltes zweites Bein (Andeutung), erscheint auf "und mit Trading kannst du dir ein zweites Standbein aufbauen" -->
         <g id="a6ha-leg2">
           <path d="M640 480 L712 646" fill="none" stroke="#16A34A" stroke-width="12" stroke-linecap="round" stroke-dasharray="22 16" />
           <ellipse cx="716" cy="650" rx="30" ry="7" fill="none" stroke="#16A34A" stroke-width="6" stroke-dasharray="10 8" />
@@ -95,7 +95,7 @@
     });
     tl.set("#a6ha-drop", { x: 0, y: 0, opacity: 0 }, Math.min(tStop, 1.9));
 
-    // "... und mit Trading kannst du dir ein zweites Bein bauen.": kurz ein gestricheltes zweites Bein
+    // "... und mit Trading kannst du dir ein zweites Standbein aufbauen.": kurz ein gestricheltes zweites Bein
     // als Andeutung (ploppt zum Satzanfang auf, pulsiert einmal auf "zweites").
     // Same formula as the pop sfx "t" in ad6-hookA.cues.json.
     const tLeg = Math.max(tStop + 0.9, C.trading - 0.1);

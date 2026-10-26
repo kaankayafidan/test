@@ -4,6 +4,8 @@
     #a2b-scene { position: absolute; inset: 0; }
     .a2b-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
     .a2b-slide { position: absolute; inset: 0; }
+    /* course laptop at 86 % (not animated itself), leaves room for "Kostenlos" below */
+    #a2b-cw-sc { position: absolute; inset: 0; transform: scale(0.86); transform-origin: 540px 30px; }
   </style>
   <div id="root" data-composition-id="ad2-body" data-width="1080" data-height="710">
     <!-- One clip spans the whole scene; everything inside is animated, never the clip itself. -->
@@ -268,53 +270,15 @@
         <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a2b-strike" class="fx-stroke" d="M0 0"/></svg>
       </div>
 
-      <!-- Folie 5: Kurs-Mockup mit 3 Haken -->
+      <!-- Folie 5: Kurs-Mockup (Laptop allein, etwas kleiner), darunter "Kostenlos" (rot unterstrichen) -->
       <div id="a2b-cw" class="a2b-slide">
-        <!--@include course p="a2b-course" items="1-%-Regel|Strategie|60-Tage-Plan"-->
-        <svg class="a2b-svg" viewBox="0 0 1080 710"><text id="a2b-kfree" x="304" y="584" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="72" fill="#0E1A2B">Kostenlos</text></svg>
+        <div id="a2b-cw-sc"><!--@include course p="a2b-course"--></div>
+        <svg class="a2b-svg" viewBox="0 0 1080 710"><text id="a2b-kfree" x="540" y="622" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="72" fill="#0E1A2B">Kostenlos</text></svg>
         <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a2b-kline" class="fx-stroke" d="M0 0"/></svg>
       </div>
       <!-- Folie 6: CTA-Bild -->
       <!--@include cta p="a2b-cta"-->
 
-      <!-- Schlussbild: B hebt die Kaffeetasse in Richtung Kamera; "Mehr dazu ↓" bleibt bis zum Ende. -->
-      <div id="a2b-s5" class="a2b-slide">
-        <!-- viewBox maps the drawing (battery top y 92, ground y 592) to y 40 … 556, centred on x 540 -->
-        <svg class="a2b-svg" viewBox="-6.3 53.2 1046.5 688">
-          <path d="M330 592 C340 592.2 370 593.7 390 593.4 C410 593.2 430 590.5 450 590.3 C470 590.1 490 592 510 592.1 C530 592.2 550 590.8 570 591 C590 591.2 610 593.4 630 593.3 C650 593.2 670 590.5 690 590.3 C710 590.1 740 591.7 750 592" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <g id="a2b-batF">
-          <rect x="376" y="92" width="260" height="110" rx="16" fill="#FFFFFF"/>
-          <rect id="a2b-batF-fill" x="389" y="105" width="211.5" height="84" rx="7" fill="#16A34A"/>
-          <path d="M454 90.8 C463.2 91 490.9 91.9 509.3 92.2 C527.8 92.5 546.2 92.7 564.7 92.6 C583.1 92.6 609.4 91.7 620 92 C630.6 92.3 625.7 92.8 628 94.1 C630.3 95.5 632.5 97.7 633.9 100 C635.2 102.3 635.5 100.2 636 108 C636.5 115.8 637 134 637 147 C637 160 636.5 178.2 636 186 C635.5 193.8 635.2 191.7 633.9 194 C632.5 196.3 630.3 198.5 628 199.9 C625.7 201.2 628.9 201.7 620 202 C611.1 202.3 589.6 201.9 574.4 201.8 C559.2 201.7 544 201.3 528.8 201.4 C513.6 201.5 498.4 202.5 483.2 202.4 C468 202.3 452.8 200.9 437.6 200.9 C422.4 200.8 400.9 202.2 392 202 C383.1 201.8 386.3 201.2 384 199.9 C381.7 198.5 379.5 196.3 378.1 194 C376.8 191.7 376.5 193.8 376 186 C375.5 178.2 375.2 160 375.2 147 C375.2 134 375.5 115.8 376 108 C376.5 100.2 376.8 102.3 378.1 100 C379.5 97.7 381.7 95.5 384 94.1 C386.3 92.8 380.3 92.2 392 92 C403.7 91.8 439.3 92.4 454 92.8 C468.7 93.2 475.7 94 480 94.2" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="640" y="125" width="18" height="44" rx="6" fill="#111827"/>
-          
-          
-        </g>
-          <g id="a2b-F">
-        <path d="M509 464 C507 469.3 500.6 484.9 497.2 495.6 C493.8 506.3 491.7 517.7 488.7 528.2 C485.6 538.7 482.3 548.6 478.9 558.8 C475.4 568.9 469.8 584 468 589" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M509 464 C510.8 469.3 516.4 485.2 519.9 495.9 C523.4 506.5 526.9 517.5 530.1 528 C533.2 538.5 535.5 548.7 538.8 558.9 C542.1 569.1 548.1 584 550 589" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M468 589 L446 591" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M550 589 L572 591" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M507 309 C507.2 315.5 507.8 335 508.2 348 C508.5 361 509 374.1 509.3 387 C509.6 399.9 510.2 412.7 510.2 425.5 C510.1 438.3 509.2 457.6 509 464" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M508 346 Q485.6 371.7 470 402 Q467.4 430.7 458 458" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <g id="a2b-F-head">
-          <path d="M553.5 260 C552.9 262.7 552 271.1 550 276 C548 281 545 285.8 541.5 289.8 C538 293.8 533.7 297.4 529.2 300.1 C524.6 302.8 519.3 305 514.1 306 C508.9 307 503.1 307.2 497.8 306.4 C492.5 305.6 487 303.6 482.4 300.9 C477.7 298.3 473.3 294.5 469.8 290.4 C466.3 286.2 463.5 281.2 461.6 276.2 C459.8 271.1 458.7 265.4 458.7 260 C458.7 254.6 459.7 248.9 461.6 243.8 C463.5 238.8 466.5 233.8 470 229.8 C473.5 225.8 478.1 222.2 482.7 219.7 C487.4 217.1 492.7 215.3 498 214.4 C503.2 213.5 508.8 213.5 514.1 214.3 C519.3 215.1 524.8 216.8 529.5 219.3 C534.3 221.8 538.9 225.3 542.5 229.4 C546.1 233.4 549.2 238.5 551 243.6 C552.8 248.7 553.7 254.6 553.5 260 C553.3 265.4 550.6 273.3 550 276 Z" fill="#FFFFFF"/>
-        <path d="M496.6 212 C500.4 212.3 512.3 211.7 519.6 213.7 C526.9 215.7 534.6 219.2 540.5 224.2 C546.3 229.2 551.9 236.4 554.5 243.7 C557.2 251 557.8 260.3 556.5 268 C555.1 275.6 551 283.6 546.3 289.8 C541.5 295.9 534.7 301.3 527.8 304.6 C520.8 307.9 512.3 309.8 504.7 309.6 C497.1 309.4 488.7 306.9 482 303.2 C475.4 299.5 469.2 293.6 464.8 287.2 C460.4 280.9 457 272.9 455.9 265.2 C454.8 257.5 455.3 248.4 458.1 241.1 C460.9 233.8 466.5 226.2 472.6 221.5 C478.7 216.8 487.3 213.9 494.7 212.8 C502.2 211.7 513.6 214.6 517.3 214.9" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-          <g id="a2b-F-f0"><circle cx="489" cy="255" r="6.5" fill="#111827"/><circle cx="522" cy="255" r="6.5" fill="#111827"/>
-        <path d="M484 277 Q504 298 527 275" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
-          <g id="a2b-F-f1"><path d="M479 257 Q488 247 497 257 M513 257 Q522 247 531 257" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M490 278 Q504 290 519 277" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
-        </g>
-        <path id="a2b-F-arm" d="M508 346 Q536.4 377.5 558 414 Q576 395.6 590 374" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-        <g id="a2b-F-cup"><path d="M631 352 C656 352 656 382 631 382" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M587 342 L633 342 L630 392 Q629 399 622 399 L596 399 Q589 399 589 392 Z" fill="#FFFFFF"/>
-          <path d="M587 342 C590.8 341.9 602.3 341.4 610 341.4 C617.7 341.5 629.3 339.4 633 342.4 C636.7 345.4 632.5 353.6 632.3 359.3 C632.1 365.1 632.2 370.9 631.9 376.7 C631.6 382.5 632 390.2 630.4 394 C628.8 397.8 628.2 398.6 622.3 399.4 C616.4 400.3 600.6 400.2 595 399.2 C589.4 398.2 589.9 398.4 588.7 393.3 C587.5 388.2 588.3 376.7 587.9 368.5 C587.4 360.3 586.3 348.1 586 344" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <g id="a2b-F-st1"><path d="M600 328 Q592 318 600 308 Q608 298 600 288" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/></g>
-          <g id="a2b-F-st2"><path d="M620 328 Q612 318 620 308 Q628 298 620 288" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/></g></g>
-      </g>
-        </svg>
-      </div>
-      <!--@include more p="a2b-more"-->
     </div>
   </div>
   <script>
@@ -339,8 +303,6 @@
     const SPLIT_Y = 470 - (278 - 55 * SPLIT.scaleY), SPLIT_SW = 12 / 2.5;
     const ARM_REST = "M792 422 Q820.4 453.5 842 490 Q860 471.6 874 450", ARM_SIP = "M792 422 Q833.4 421.9 874 430 Q856.6 402 834 378";
     const CUP = "874 450", CUP_SIP = { x: -40, y: -72 }, NECK_B = "791 385";
-    const ARM5_REST = "M508 346 Q536.4 377.5 558 414 Q576 395.6 590 374", ARM5_TOAST = "M508 346 Q540 380 566 392 Q582 352 582 306";
-    const CUP5 = "590 374", CUP5_T = { x: -8, y: -68 };
     const C_LA = "290 64", C_LB = "790 64", C_CL = "540 84";
     const C_BA = "474 172", C_BB = "616 172";
     const C_NA = "290 92", C_NB = "790 92", C_Q1 = "540 476";
@@ -348,7 +310,7 @@
 
     document.querySelector("#a2b-ring").setAttribute("d", FX.handCircle(540, 362, 300, 182, 5));
     document.querySelector("#a2b-strike").setAttribute("d", FX.handLine(300, 640, 780, 80, 3));
-    document.querySelector("#a2b-kline").setAttribute("d", FX.handLine(112, 606, 496, 604, 7));
+    document.querySelector("#a2b-kline").setAttribute("d", FX.handLine(346, 648, 734, 645, 7));
     // Local stand-in for FX.drawCircle / FX.drawLine (same 0,5 s / 0,3 s and ease): with pathLength="1"
     // the dash offset only renders whole units, so the stroke popped in at ~55 % instead of drawing.
     // Here the dash runs in real path units, so the line visibly draws itself. Hidden until it draws.
@@ -359,8 +321,8 @@
     }
 
     // ---------------------------------------------------------------- initial states (t = 0)
-    FX.init(tl, ["#a2b-s2", "#a2b-s3", "#a2b-s4", "#a2b-s5", "#a2b-stepG", "#a2b-kfree", "#a2b-kline"], { opacity: 0 });
-    FX.init(tl, ["#a2b-A", "#a2b-Amid", "#a2b-A-f1", "#a2b-A-f2", "#a2b-B-f1", "#a2b-F-f1", "#a2b-flash"], { opacity: 0 });
+    FX.init(tl, ["#a2b-s2", "#a2b-s3", "#a2b-s4", "#a2b-stepG", "#a2b-kfree", "#a2b-kline", "#a2b-course"], { opacity: 0 });
+    FX.init(tl, ["#a2b-A", "#a2b-Amid", "#a2b-A-f1", "#a2b-A-f2", "#a2b-B-f1", "#a2b-flash"], { opacity: 0 });
     FX.init(tl, [0, 1, 2, 3, 4].map((i) => "#a2b-A-d" + i), { opacity: 0 });
     FX.init(tl, VA.map((_, i) => "#a2b-batA-t" + i).concat(VB.map((_, i) => "#a2b-batB-t" + i)), { opacity: 0 });
     pv("#a2b-labA", { svgOrigin: C_LA, opacity: 0 });
@@ -377,12 +339,10 @@
     pv("#a2b-x287", { svgOrigin: "214 118", opacity: 0 });
     pv("#a2b-x111", { svgOrigin: "840 118", opacity: 0 });
     pv("#a2b-flagA", { svgOrigin: "584 290", opacity: 0 });
+    pv("#a2b-flagB", { svgOrigin: "984 594", opacity: 0 });
     pv("#a2b-one", { svgOrigin: C_ONE, opacity: 0 });
     pv("#a2b-qz", { svgOrigin: C_ONE, opacity: 0 });
     pv("#a2b-calc", { svgOrigin: "540 359" });
-    pv("#a2b-F-cup", { svgOrigin: CUP5, x: 0, y: 0, rotation: 0, scale: 1 });
-    // FX.course pops the 3 course ticks but does not hide them before their cue: hide them here.
-    FX.init(tl, ["#a2b-course-i0", "#a2b-course-i1", "#a2b-course-i2"], { opacity: 0 });
 
     if (!HOOK_B) {
       // ---------------------------------------------------------------- nach Anfang A: Zurückspulen (0,5 s)
@@ -433,7 +393,8 @@
     }
     FX.fadeIn(tl, ["#a2b-batA-t0", "#a2b-batB-t0"], 0.42, 0.15);
 
-    // "... 10 Prozent ..., Trader B nur 1 Prozent.": über A "10 % pro Trade", über B "1 % pro Trade".
+    // "... 10 Prozent ...": über A "10 % pro Trade"; "und Trader B nur 1 Prozent.": über B "1 % pro Trade"
+    // (pops when B is named, so it is readable before the cloud takes the top row on "10 Verluste").
     const tLA = Math.max(0.7, C.a10 - 0.1);
     FX.pop(tl, "#a2b-labA", tLA, { svgOrigin: C_LA });
     const tLB = Math.max(tLA + 0.4, C.b1 - 0.1);
@@ -529,66 +490,60 @@
     const tX2 = Math.max(tStep + 0.4, C.plus - 0.1);
     FX.pop(tl, "#a2b-x111", tX2, { svgOrigin: "840 118" });
 
+    // "... bis er wieder am Startwert ist.": Bs Ziel-Fahne oben auf der Stufe.
+    const tFB = Math.max(tX2 + 0.6, C.startB - 0.1);
+    FX.pop(tl, "#a2b-flagB", tFB, { svgOrigin: "984 594" });
+
     // ---------------------------------------------------------------- 1 %
-    // "Deshalb ist die wichtigste Zahl beim Trading nicht ...": erst ein großes "?" (die eine Zahl aus dem Anfang),
-    // es pulsiert bei "... wie viel du gewinnen kannst".
-    const tQz = Math.max(tX2 + 0.6, C.deshalb - 0.1);
+    // "Und genau deshalb ist das die wichtigste Zahl beim Trading.": ein großes "?" (die eine Zahl aus dem Anfang).
+    const tQz = Math.max(tFB + 0.5, C.deshalb - 0.1);
     FX.cut(tl, "#a2b-s2", "#a2b-s3", tQz);
     FX.pop(tl, "#a2b-qz", tQz, { svgOrigin: C_ONE });
+    // "Es ist nicht das, was du maximal gewinnen kannst": das "?" pulsiert.
     const t1 = Math.max(tQz + 0.6, C.riskierst - 0.1);
     const tQp = Math.max(tQz + 0.3, C.gewinnen - 0.1);
     const dQp = Math.min(1.6, t1 - 0.1 - tQp);
     if (dQp >= 0.8) FX.pulse(tl, "#a2b-qz", tQp, dQp, { svgOrigin: C_ONE });
-    // "... sondern wie viel du pro Trade maximal riskierst.": aus dem "?" wird das große "1 %", dann der Kreis.
+    // "... sondern das, wie viel du maximal pro Trade riskierst": aus dem "?" wird das große "1 %", auf "riskierst" der Kreis.
     FX.set(tl, "#a2b-qz", { opacity: 0 }, t1);
     FX.pop(tl, "#a2b-one", t1, { svgOrigin: C_ONE });
-    const tRing = Math.max(t1 + 0.3, C.maximal - 0.1);
+    const tRing = Math.max(t1 + 0.3, C.ring - 0.1);
     drawStroke("#a2b-ring", tRing, 0.5);
+    // "... und verlieren kannst, theoretisch.": das "1 %" im Kreis pulsiert einmal.
+    const tVer = Math.max(tRing + 0.55, C.verlieren - 0.1);
+    FX.pulse(tl, "#a2b-one", tVer, 0.8, { svgOrigin: C_ONE });
 
-    // "Dafür musst du weder rechnen können wie ein Mathematiker ...": Taschenrechner, rot durchgestrichen.
-    const t2 = Math.max(tRing + 0.7, C.rechnen - 0.1);
+    // "Und dafür musst du weder rechnen können noch irgendwie Mathematik studiert haben": Taschenrechner,
+    // auf "Mathematik" rot durchgestrichen.
+    const t2 = Math.max(tVer + 0.9, C.rechnen - 0.1);
     FX.cut(tl, "#a2b-s3", "#a2b-s4", t2);
     FX.pop(tl, "#a2b-calc", t2, { svgOrigin: "540 359" });
     const tStrike = Math.max(t2 + 0.3, C.mathe - 0.05);
     drawStroke("#a2b-strike", tStrike, 0.3);
-    // "... sondern nur diese eine Regel kennen": zurück zum "1 %" im Kreis.
+    // "... sondern musst nur die Regeln im Trading kennen.": zurück zum "1 %" im Kreis.
     const t3 = Math.max(tStrike + 0.6, C.regel - 0.1);
     FX.cut(tl, "#a2b-s4", "#a2b-s3", t3);
     FX.pulse(tl, "#a2b-one", t3 + 0.1, 0.8, { svgOrigin: C_ONE });
 
     // ---------------------------------------------------------------- Kurs-Mockup + CTA
-    // "Genau diese Regel, eine einfache Strategie und einen Plan ...": Kurs-Mockup, 3 Haken.
-    const tK = Math.max(t3 + 1.0, C.genau);
+    // "Und wie das funktioniert, das zeige ich dir in meinem kostenlosen Videokurs.": Kurs-Mockup (Laptop allein)
+    // schiebt sich rein. Local version of FX.course for the laptop without ticks (FX.course always drives 3 ticks).
+    const tK = Math.max(t3 + 1.0, C.kurs - 0.05);
     FX.set(tl, "#a2b-s3", { opacity: 0 }, tK);
-    const tc1 = Math.max(tK + 0.35, C.regel2 - 0.05), tc2 = Math.max(tc1 + 0.4, C.strategie - 0.05), tc3 = Math.max(tc2 + 0.4, C.plan - 0.05);
-    FX.course(tl, "a2b-course", tK, [tc1, tc2, tc3]);
-    // "Klick unter dem Video auf „Mehr dazu“": CTA-Bild.
-    const tCTA = Math.max(tc3 + 0.6, C.klick);
-    // "... in meinem kostenlosen Videokurs": unter dem Laptop ploppt "Kostenlos" auf und wird rot unterstrichen
-    // (only if there is time for it before the CTA; otherwise both stay hidden).
-    const tKr = Math.max(tc3 + 0.5, C.kostenlos - 0.1);
-    if (tKr + 0.9 < tCTA) {
-      FX.pop(tl, "#a2b-kfree", tKr);
-      drawStroke("#a2b-kline", tKr + 0.25, 0.3);
-    }
+    FX.set(tl, "#a2b-course", { opacity: 1 }, tK);
+    FX.tween(tl, "#a2b-course-laptop", { opacity: 0, x: -1100 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tK);
+    // "... kostenlosen ...": darunter ploppt "Kostenlos" auf.
+    const tKr = Math.max(tK + 0.5, C.kostenlos - 0.1);
+    FX.pop(tl, "#a2b-kfree", tKr);
+    // "Und ich sage es dir ganz ehrlich, für diesen Videokurs ...": "Kostenlos" wird rot unterstrichen
+    // (no amount, no price on screen).
+    const tKl = Math.max(tKr + 0.6, C.diesen - 0.1);
+    drawStroke("#a2b-kline", tKl, 0.3);
+    // "Deswegen klick auf den Link unter dem Video auf „Mehr dazu“.": CTA-Bild, bleibt bis zum Ende.
+    // FX.cta's arrow bounces until tCTA + 2.9 s: keep that clear of the last 0.3 s (lands at most 0.2 s early).
+    const tCTA = Math.max(tKl + 0.6, Math.min(C.klick, DUR - 3.3));
     FX.set(tl, "#a2b-cw", { opacity: 0 }, tCTA);
     FX.cta(tl, "a2b-cta", tCTA);
-
-    // ---------------------------------------------------------------- Schlussbild
-    // "... bevor du deinen nächsten Trade setzt.": B hebt die Kaffeetasse in Richtung Kamera. Ende.
-    // Das kleine Banner "Mehr dazu ↓" bleibt bis zum Ende stehen.
-    const tE = Math.max(tCTA + 1.2, C.bevor - 0.05);
-    FX.set(tl, "#a2b-cta", { opacity: 0 }, tE);
-    FX.set(tl, "#a2b-s5", { opacity: 1 }, tE);
-    FX.more(tl, "a2b-more", tE);
-    const tT = tE + 0.15;
-    // Prost: the cup comes up in front of B, next to his face, a bit bigger (closer to the camera).
-    // The steam stops while it is raised so it never runs into the battery above his head.
-    FX.tween(tl, "#a2b-F-arm", { attr: { d: ARM5_REST } }, { attr: { d: ARM5_TOAST }, duration: 0.5, ease: "power2.inOut" }, tT);
-    FX.tween(tl, "#a2b-F-cup", { x: 0, y: 0, rotation: 0, scale: 1 }, { ...CUP5_T, rotation: -6, scale: 1.4, duration: 0.5, ease: "power2.inOut", svgOrigin: CUP5 }, tT);
-    FX.fadeOut(tl, ["#a2b-F-st1", "#a2b-F-st2"], tT, 0.2);
-    FX.set(tl, "#a2b-F-f0", { opacity: 0 }, tT + 0.3);
-    FX.set(tl, "#a2b-F-f1", { opacity: 1 }, tT + 0.3);
 
     window.__timelines["ad2-body"] = tl;
   </script>

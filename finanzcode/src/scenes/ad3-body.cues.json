@@ -1,57 +1,73 @@
 {
   "cues": {
-    "f1": "Frage 1 von 3: Gibt's hier überhaupt ein klares Signal",
-    "hier": "Hier ja, mein Indikator zeigt einen Einstieg",
+    "f1": "Frage 1 von 3: Gibt es überhaupt ein klares Signal,",
+    "hier": "Hier gibt es einen klaren Einstieg,",
     "einstieg": {
-      "phrase": "zeigt einen Einstieg",
-      "word": 2
+      "phrase": "mein Indikator sagt Einstieg,",
+      "word": 3
     },
-    "f2": "Frage 2 von 3: Wo weiß ich, dass ich falsch liege?",
-    "stop": "Genau da kommt mein Stop hin",
+    "ohne": {
+      "phrase": "und ohne den passiert gar nichts,",
+      "word": 1
+    },
+    "f2": "Frage 2: Wo weiß ich, dass ich falsch liege?",
+    "stop": "genau da kommt mein Stop-Loss hin,",
     "stopW": {
-      "phrase": "kommt mein Stop hin",
+      "phrase": "kommt mein Stop-Loss hin,",
       "word": 2
     },
     "bevor": {
       "phrase": "und zwar bevor ich einsteige",
       "word": 2
     },
-    "mehr": "Wenn du sehen willst, wie ich das Schritt für Schritt mache",
-    "mehrDazu": "klick unter dem Video auf „Mehr dazu“.",
-    "bleib": "Aber bleib noch kurz",
-    "f3": "Frage 3 von 3: Lohnt sich der Trade überhaupt?",
-    "nehme": "Ich nehme nur Trades",
-    "doppelt": {
-      "phrase": "mein Ziel mindestens doppelt so weit weg ist wie mein Stop.",
-      "word": 2
-    },
-    "undhier": "Und hier?",
-    "ziel": {
-      "phrase": "Das nächste Ziel liegt",
-      "word": 2
-    },
-    "gerade": "gerade mal so weit weg wie der Stop.",
-    "also": "Also lass ich den Trade weg, obwohl das Signal da war.",
-    "disziplin": "Genau diese Disziplin hat mir in 9 Jahren",
-    "dauert": "Das dauert keine 2 Minuten",
-    "wie": "Wie du mit genau dieser Denkweise startest",
-    "denkweise": {
-      "phrase": "mit genau dieser Denkweise startest",
-      "word": 3
-    },
-    "videokurs": {
-      "phrase": "in meinem kostenlosen Videokurs",
-      "word": 3
-    },
-    "strategie": {
-      "phrase": "mit einer einfachen Strategie",
-      "word": 3
-    },
-    "plan": {
-      "phrase": "einem Plan für deine ersten 60 Tage",
+    "mid": "Und wenn du jetzt auch ein Trading-Anfänger bist",
+    "anf": {
+      "phrase": "ein Trading-Anfänger bist",
       "word": 1
     },
-    "klick": "Klick unter dem Video auf „Mehr dazu“."
+    "standbein": {
+      "phrase": "ein zweites Standbein aufbauen kannst,",
+      "word": 1
+    },
+    "gratis": {
+      "phrase": "einen kostenlosen Videokurs.",
+      "word": 1
+    },
+    "button": "Klick unter dem Video auf den Button.",
+    "f3": "Aber jetzt zu Frage Nummer 3:",
+    "f3L": "Frage Nummer 3: Lohnt sich der Trade überhaupt?",
+    "nehme": "Denn ich nehme nur Trades,",
+    "doppelt": {
+      "phrase": "mein Ziel mindestens doppelt so weit weg ist wie mein Stop-Loss.",
+      "word": 2
+    },
+    "undhier": "Und hier siehst du,",
+    "ziel": {
+      "phrase": "das Ziel liegt",
+      "word": 1
+    },
+    "gerade": "gerade mal so weit weg wie der Stop-Loss.",
+    "also": "Also lasse ich den Trade weg,",
+    "signal": {
+      "phrase": "egal ob das Signal da ist.",
+      "word": 3
+    },
+    "disziplin": {
+      "phrase": "Und genau diese Disziplin",
+      "word": 3
+    },
+    "jahre": {
+      "phrase": "in 9 Jahren Trading-Erfahrung gelernt,",
+      "word": 1
+    },
+    "geld": "habe eine Menge Geld verloren,",
+    "fehler": "habe alle Fehler gemacht,",
+    "damit": "und damit du das nicht machen musst,",
+    "videokurs": {
+      "phrase": "einen kostenlosen Videokurs zusammengefasst.",
+      "word": 1
+    },
+    "klick": "Deswegen klick gerne auf den Button unter dem Video,"
   },
   "sfx": [
     {
@@ -67,7 +83,15 @@
       "type": "whoosh"
     },
     {
-      "at": "mehr",
+      "at": "stop",
+      "type": "pop"
+    },
+    {
+      "at": "mid",
+      "type": "whoosh"
+    },
+    {
+      "at": "button",
       "type": "pop"
     },
     {
@@ -83,7 +107,7 @@
       "type": "stamp"
     },
     {
-      "at": "wie",
+      "at": "damit",
       "type": "whoosh"
     },
     {

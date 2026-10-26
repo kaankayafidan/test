@@ -2,7 +2,7 @@
   "cues": {
     "was": "Was passiert eigentlich mit einem Trading-Konto",
     "verlusten": { "phrase": "nach 10 Verlusten hintereinander?", "word": 1 },
-    "entweder": "Entweder fast nichts, oder zwei Drittel sind weg",
+    "entweder": "Entweder fast nichts oder zwei Drittel des Kontos sind weg",
     "unterschied": "und der Unterschied ist eine einzige Zahl."
   },
   "sfx": [

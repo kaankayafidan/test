@@ -137,9 +137,10 @@
     // "Und der Unterschied ist eine einzige Zahl.": das "?" pulsiert bis zum Ende.
     const tQ = Math.max(1.0, C.unterschied - 0.1);
 
-    // "... nur einer hat danach noch fast sein ganzes Konto": B's Akku pulsiert einmal (nur wenn Zeit ist).
-    const tK = Math.max(0.9, C.ganzes - 0.1);
-    if (tK + 0.85 <= tQ) FX.pulse(tl, "#a2ha-batB", tK, 0.8, { svgOrigin: "790 223" });
+    // "... aber nur einer davon hat noch fast sein ganzes Konto": B's Akku pulsiert (1–2 Schläge, endet vor dem "?").
+    const tK = Math.max(0.9, C.einer - 0.1);
+    const dK = Math.min(1.6, tQ - 0.05 - tK);
+    if (dK >= 0.8) FX.pulse(tl, "#a2ha-batB", tK, dK, { svgOrigin: "790 223" });
 
     FX.pulse(tl, "#a2ha-q", tQ, Math.max(0.8, END - tQ), { svgOrigin: "556 471" });
 

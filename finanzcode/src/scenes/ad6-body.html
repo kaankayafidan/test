@@ -5,24 +5,27 @@
     .a6b-slide { position: absolute; inset: 0; }
     #a6b-art { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
     .a6b-lab { font-family: 'Poppins'; font-weight: 700; font-size: 60px; fill: #0E1A2B; }
+    .a6b-labS { font-family: 'Poppins'; font-weight: 700; font-size: 48px; fill: #0E1A2B; }
+    /* Folie "9 Jahre" */
+    #a6b-yrs { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+    #a6b-yBig { font-family: 'Poppins'; font-weight: 700; font-size: 200px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    #a6b-yExp { font-family: 'Poppins'; font-weight: 700; font-size: 64px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
+    #a6b-yAng { margin-top: 34px; display: flex; align-items: center; gap: 22px; padding: 12px 34px 12px 22px; border-radius: 22px; background: #F3F4F6;
+      font-family: 'Poppins'; font-weight: 700; font-size: 60px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
+    #a6b-yAng svg { flex: none; width: 92px; height: 92px; }
     /* Haken-Folie */
-    #a6b-tList { position: absolute; left: 130px; top: 0; height: 710px; display: flex; flex-direction: column; justify-content: center; gap: 46px; }
-    .a6b-row { display: flex; align-items: center; gap: 28px; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
-    .a6b-row svg { flex: none; width: 76px; height: 76px; }
-    /* Sanduhr-Folie */
-    #a6b-hg { position: absolute; inset: 0; }
-    #a6b-hg svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
-    /* 30-Min-Folie */
-    #a6b-m30 { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-    #a6b-mBig { font-family: 'Poppins'; font-weight: 700; font-size: 180px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
-    #a6b-mRow { display: flex; align-items: center; gap: 28px; font-family: 'Poppins'; font-weight: 700; font-size: 96px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
-    #a6b-mTick { flex: none; width: 96px; height: 96px; }
+    #a6b-tList { position: absolute; left: 140px; top: 0; height: 710px; display: flex; flex-direction: column; justify-content: center; gap: 40px; }
+    .a6b-row { display: flex; align-items: center; gap: 28px; font-family: 'Poppins'; font-weight: 700; font-size: 64px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
+    .a6b-row svg { flex: none; width: 72px; height: 72px; }
+    /* Kurs-Folie: "Kostenlos" unter dem Laptop */
+    #a6b-free { position: absolute; left: 50%; top: 604px; width: 340px; margin-left: -170px; height: 88px; border-radius: 44px; background: #16A34A;
+      display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 56px; line-height: 1; color: #FFFFFF; }
   </style>
   <div id="root" data-composition-id="ad6-body" data-width="1080" data-height="710">
     <!-- One clip spans the whole scene; slides inside are switched by opacity, never the clip itself. -->
     <div id="a6b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
 
-      <!-- Folie 1: Hocker + Figur (Anfang, Kippen, Aufstehen, zweites Bein, Schlussbild).
+      <!-- Folie 1: Hocker + Figur (Anfang, Kippen, Aufstehen, zweites Bein; später "Sinnvollste": Figur sitzt auf dem stabilen Hocker).
            Same figure/stool drawing as the hooks (same user units). Shown at 1:1 and shifted right
            (viewBox x -100) to leave room for the labels on the left; #a6b-world starts at the hooks'
            framing (1.125x, centred) and moves there before "Gehalt". -->
@@ -162,11 +165,15 @@
               </g>
             </g>
 
-            <!-- Label "1 Arbeitgeber" (oben links, auf Kopfhöhe), "Gehalt" hängt daran und zeigt aufs Bein -->
+            <!-- Label "1 Arbeitgeber" (oben links), darunter "Arbeitszeit"; die Linie führt zu "Gehalt" am Bein -->
             <g id="a6b-lAG">
-              <line x1="290" y1="270" x2="290" y2="548" stroke="#0E1A2B" stroke-width="5" />
-              <rect x="-17" y="194" width="434" height="76" rx="16" fill="#F3F4F6" />
-              <text class="a6b-lab" x="200" y="253" text-anchor="middle">1 Arbeitgeber</text>
+              <line x1="290" y1="172" x2="290" y2="548" stroke="#0E1A2B" stroke-width="5" />
+              <rect x="-17" y="96" width="434" height="76" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="200" y="155" text-anchor="middle">1 Arbeitgeber</text>
+            </g>
+            <g id="a6b-lAZ">
+              <rect x="10" y="238" width="380" height="76" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="200" y="297" text-anchor="middle">Arbeitszeit</text>
             </g>
             <g id="a6b-lGehalt">
               <line x1="392" y1="584" x2="516" y2="584" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" />
@@ -186,56 +193,59 @@
               <circle cx="257" cy="10" r="5" fill="#F3F4F6" />
             </g></g>
 
-            <!-- Label "Trading" oben rechts am zweiten Bein -->
+            <!-- Stabiler Hocker ("Sinnvollste" ...): Label "Trading" oben rechts, Linie zum zweiten Bein;
+                 darunter, bündig angesetzt, "30–60 Min. am Tag" (deckt das Mittelstück der Linie ab); links "Job" am ersten Bein. -->
             <g id="a6b-lTrading">
-              <line x1="718" y1="436" x2="693" y2="582" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" />
-              <circle cx="692" cy="588" r="7" fill="#0E1A2B" />
-              <rect x="670" y="360" width="270" height="76" rx="16" fill="#F3F4F6" />
-              <text class="a6b-lab" x="805" y="419" text-anchor="middle">Trading</text>
+              <line x1="780" y1="276" x2="678" y2="566" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" />
+              <circle cx="677" cy="569" r="7" fill="#0E1A2B" />
+              <rect x="700" y="200" width="290" height="76" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="845" y="259" text-anchor="middle">Trading</text>
+            </g>
+            <g id="a6b-lMin">
+              <rect x="700" y="276" width="290" height="140" rx="16" fill="#F3F4F6" />
+              <text class="a6b-labS" x="845" y="340" text-anchor="middle">30–60 Min.</text>
+              <text class="a6b-labS" x="845" y="396" text-anchor="middle">am Tag</text>
+            </g>
+            <g id="a6b-lJob">
+              <line x1="392" y1="584" x2="516" y2="584" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" />
+              <circle cx="523" cy="584" r="6" fill="#0E1A2B" />
+              <rect x="222" y="546" width="172" height="76" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="308" y="605" text-anchor="middle">Job</text>
             </g>
           </g>
         </svg>
       </div>
 
-      <!-- Folie 2: 3 Haken nacheinander -->
+      <!-- Folie 2: "9 Jahre" / Trading-Erfahrung / selber angestellt -->
       <div id="a6b-s2" class="a6b-slide">
-        <div id="a6b-tList">
-          <div id="a6b-t0" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>keine Kunden</span></div>
-          <div id="a6b-t1" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>nichts verkaufen</span></div>
-          <div id="a6b-t2" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>nicht nach Stunden</span></div>
+        <div id="a6b-yrs">
+          <div id="a6b-yBig">9 Jahre</div>
+          <div id="a6b-yExp">Trading-Erfahrung</div>
+          <div id="a6b-yAng">
+            <!-- kleine Angestellten-Büste (gleiche Figur wie im Hocker-Bild) -->
+            <svg viewBox="0 0 92 92"><path d="M14 92 Q14 62 34 60 L58 60 Q78 62 78 92 Z" fill="#2563EB" /><path d="M39 60 L46 72 L53 60 Z" fill="#FFFFFF" /><rect x="39" y="50" width="14" height="12" rx="4" fill="#F2C29B" /><circle cx="46" cy="34" r="22" fill="#F2C29B" /><path d="M24 31 Q25 10 46 10 Q68 10 68 30 Q62 20 51 19 Q38 19 30 27 Z" fill="#5B3A1E" /><circle cx="38" cy="36" r="3.2" fill="#111827" /><circle cx="54" cy="36" r="3.2" fill="#111827" /><path d="M38 45 Q46 51 54 45" fill="none" stroke="#111827" stroke-width="2.6" stroke-linecap="round" /></svg>
+            <span>selber angestellt</span>
+          </div>
         </div>
       </div>
 
-      <!-- Folie 3: Sanduhr läuft -->
+      <!-- Folie 3: 4 Haken nacheinander -->
       <div id="a6b-s3" class="a6b-slide">
-        <div id="a6b-hg">
-          <svg viewBox="0 0 1080 710"><g id="a6b-hgRot">
-            <rect x="404" y="104" width="16" height="500" rx="6" fill="#0E1A2B" />
-            <rect x="660" y="104" width="16" height="500" rx="6" fill="#0E1A2B" />
-            <path d="M436 110 L644 110 C644 230 600 300 556 342 Q546 355 556 368 C600 410 644 480 644 600 L436 600 C436 480 480 410 524 368 Q534 355 524 342 C480 300 436 230 436 110 Z" fill="#F3F4F6" stroke="#0E1A2B" stroke-width="8" stroke-linejoin="round" />
-            <path id="a6b-sandTop" d="M462 178 L618 178 C612 246 584 296 550 333 L530 333 C496 296 468 246 462 178 Z" fill="#9CA3AF" />
-            <rect id="a6b-stream" x="535" y="336" width="10" height="236" fill="#9CA3AF" />
-            <path id="a6b-sandBot" d="M448 594 C468 516 612 516 632 594 Z" fill="#9CA3AF" />
-            <rect x="390" y="74" width="300" height="38" rx="14" fill="#0E1A2B" />
-            <rect x="390" y="598" width="300" height="38" rx="14" fill="#0E1A2B" />
-          </g></svg>
+        <div id="a6b-tList">
+          <div id="a6b-t0" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>zeiteffizient</span></div>
+          <div id="a6b-t1" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>anfängerfreundlich</span></div>
+          <div id="a6b-t2" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>ohne Vorerfahrung</span></div>
+          <div id="a6b-t3" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>ohne Fachchinesisch</span></div>
         </div>
       </div>
 
-      <!-- Folie 4: "30 Min. am Tag ✓" -->
+      <!-- Folie 4: Kurs-Mockup (Laptop allein, mittig), darunter "Kostenlos" -->
       <div id="a6b-s4" class="a6b-slide">
-        <div id="a6b-m30">
-          <div id="a6b-mBig">30 Min.</div>
-          <div id="a6b-mRow"><span>am Tag</span><svg id="a6b-mTick" viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
-        </div>
+        <!--@include course p="a6b-course"-->
+        <div id="a6b-free">Kostenlos</div>
       </div>
-
-      <!-- Folie 5: Kurs-Mockup mit 3 Haken -->
-      <!--@include course p="a6b-course" items="Grundlagen|Strategie|60-Tage-Plan"-->
-      <!-- Folie 6: CTA-Bild -->
+      <!-- Folie 5: CTA-Bild, bleibt bis zum Ende -->
       <!--@include cta p="a6b-cta"-->
-      <!-- Schlussbild: kleines Banner "Mehr dazu ↓" bleibt bis zum Ende -->
-      <!--@include more p="a6b-more"-->
     </div>
   </div>
   <script>
@@ -243,14 +253,34 @@
     const PIV = "540 650";    // Fußpunkt (Wackeln)
     const TIP = "478 588";    // Kipp-Drehpunkt: nach -90° liegt der Sitzrand auf dem Boden
     const REST = "364 650";   // Sitzrand am Boden: darum fällt der liegende Hocker auf seinen Fuß
-    const HG = "540 355";     // Mitte der Sanduhr (Umdrehen)
+    const LEG2 = "676 563";   // Mitte des zweiten Beins (Pulsieren)
     // Hook framing: the hooks draw the same user units at 1.125x with viewBox x/y 60. In this viewBox
     // (-100 -4, 1:1) that is world scale 1.125 + offset (-167.5, -71.5).
     const HOOK = { scale: 1.125, x: -167.5, y: -71.5 };
     // Pivot of every transformed SVG element is set once at t = 0 (no smoothOrigin offsets on seek).
     const pv = (el, o) => FX.init(tl, el, { ...o, smoothOrigin: false });
 
-    document.querySelector("#a6b-circ").setAttribute("d", FX.handCircle(200, 232, 240, 64, 7));
+    document.querySelector("#a6b-circ").setAttribute("d", FX.handCircle(200, 134, 240, 58, 7));
+
+    // Local helpers (same look and values as FX.course / FX.cta):
+    // - course without tick items: FX.course would address the missing tick ids.
+    // - CTA: FX.cta's arrow bounces 2.4 s; here the number of bounces is clamped so that nothing moves
+    //   in the last 0.3 s of the scene.
+    function courseLocal(p, t) {
+      tl.set(`#${p}`, { opacity: 0 }, 0);
+      tl.set(`#${p}`, { opacity: 1 }, t);
+      FX.tween(tl, `#${p}-laptop`, { opacity: 0, x: -1100 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, t);
+    }
+    function ctaLocal(p, t) {
+      tl.set(`#${p}`, { opacity: 0 }, 0);
+      tl.set(`#${p}-laptop`, { opacity: 0 }, 0);
+      tl.set(`#${p}-more`, { opacity: 0 }, 0);
+      tl.set(`#${p}`, { opacity: 1 }, t);
+      FX.tween(tl, `#${p}-laptop`, { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.15, ease: "power2.out" }, t);
+      FX.tween(tl, `#${p}-more`, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, t + 0.2);
+      const bounces = Math.min(3, Math.floor((DUR - 0.3 - (t + 0.5)) / 0.8));
+      if (bounces >= 1) FX.tween(tl, `#${p}-arrow`, { y: 0 }, { y: 14, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: bounces * 2 - 1 }, t + 0.5);
+    }
 
     // ---------------------------------------------------------------- initial states (t = 0)
     pv("#a6b-world", { svgOrigin: "0 0", ...HOOK });
@@ -258,22 +288,16 @@
     pv("#a6b-restG", { svgOrigin: REST });
     pv("#a6b-tipG", { svgOrigin: TIP });
     pv("#a6b-rig", { svgOrigin: PIV });
+    pv("#a6b-leg2", { svgOrigin: LEG2, opacity: 0 });
     pv("#a6b-screw", { transformOrigin: "50% 50%", opacity: 0 });
     pv("#a6b-stand", { transformOrigin: "50% 100%", opacity: 0 });
     pv("#a6b-fallen", { svgOrigin: "0 0", opacity: 0 });
-    pv("#a6b-lGehalt", { transformOrigin: "50% 50%", opacity: 0 });
-    pv("#a6b-lAG", { transformOrigin: "50% 50%", opacity: 0 });
-    pv("#a6b-lTrading", { transformOrigin: "50% 50%", opacity: 0 });
-    pv("#a6b-sandTop", { transformOrigin: "50% 100%" });
-    pv("#a6b-sandBot", { transformOrigin: "50% 100%" });
-    pv("#a6b-hgRot", { svgOrigin: HG });
-    FX.init(tl, "#a6b-hg", { transformOrigin: "50% 50%" });
-    FX.init(tl, ["#a6b-leg2", "#a6b-saw", "#a6b-armsFall", "#a6b-faceFall"], { opacity: 0 });
+    ["#a6b-lGehalt", "#a6b-lAG", "#a6b-lAZ", "#a6b-lTrading", "#a6b-lMin", "#a6b-lJob"].forEach((el) => pv(el, { transformOrigin: "50% 50%", opacity: 0 }));
+    FX.init(tl, ["#a6b-saw", "#a6b-armsFall", "#a6b-faceFall"], { opacity: 0 });
     FX.init(tl, ["#a6b-s2", "#a6b-s3", "#a6b-s4"], { opacity: 0 });
-    FX.init(tl, ["#a6b-t0", "#a6b-t1", "#a6b-t2", "#a6b-m30", "#a6b-mTick"], { opacity: 0 });
-    // (The course ticks #a6b-course-i0..2 are hidden at t = 0 by FX.course itself.)
+    FX.init(tl, ["#a6b-yBig", "#a6b-yExp", "#a6b-yAng", "#a6b-t0", "#a6b-t1", "#a6b-t2", "#a6b-t3", "#a6b-free"], { opacity: 0 });
 
-    // ---------------------------------------------------------------- Folie 1
+    // ---------------------------------------------------------------- Folie 1: Hocker
     // Anschluss an den Hook: gleicher Bildausschnitt und das gestrichelte Bein vom Hook-Ende. Das
     // gestrichelte Bein blendet aus, das Bild rückt nach rechts (Platz für die Labels), dann "Gehalt".
     const tGeh = Math.max(0.6, C.gehalt - 0.05);
@@ -282,26 +306,29 @@
     FX.tween(tl, "#a6b-world", { ...HOOK, svgOrigin: "0 0" }, { scale: 1, x: 0, y: 0, duration: 0.4, ease: "power2.inOut", svgOrigin: "0 0" }, tMove);
     FX.tween(tl, "#a6b-floor", { attr: { x1: 250, x2: 830 } }, { attr: { x1: -20, x2: 880 }, duration: 0.4, ease: "power2.inOut" }, tMove);
 
-    // "Das erste Bein ist das Gehalt." -> Label "Gehalt" am Bein.
+    // "Das erste Bein ist dein Gehalt." -> Label "Gehalt" am Bein.
     FX.pop(tl, "#a6b-lGehalt", tGeh);
 
-    // "Das hängt an einem einzigen Arbeitgeber ..." -> Label "1 Arbeitgeber", einkreisen.
+    // "Das hängt an deinem einzigen Arbeitgeber ..." -> Label "1 Arbeitgeber", einkreisen.
     const tAG = Math.max(tGeh + 0.4, C.einzigen - 0.05);
     FX.pop(tl, "#a6b-lAG", tAG);
     const tCirc = Math.max(tAG + 0.25, C.arbeitgeber - 0.1);
     FX.drawCircle(tl, "#a6b-circ", tCirc);
+    // "... und deiner eigenen Arbeitszeit" -> Label "Arbeitszeit" darunter.
+    const tAZ = Math.max(tCirc + 0.55, C.arbeitszeit - 0.15);
+    FX.pop(tl, "#a6b-lAZ", tAZ);
 
     // "... solange keiner dran sägt, steht der Stuhl." -> eine Säge erscheint am Bein.
-    const tSaw = Math.max(tCirc + 0.6, C.saegt - 0.1);
+    const tSaw = Math.max(tAZ + 0.4, C.saegt - 0.1);
     FX.fadeIn(tl, "#a6b-saw", tSaw);
     // "Aber wenn doch," -> die Säge sägt (hin und her, endet vor dem Kippen).
     const sawFrom = Math.max(tSaw + 0.3, C.aber);
     const strokes = 2 * Math.floor((C.kippt - 0.05 - sawFrom) / 0.5);
     if (strokes >= 2) FX.tween(tl, "#a6b-saw", { x: 0 }, { x: 30, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: strokes - 1 }, sawFrom);
 
-    // "... kippt alles auf einmal." -> der Hocker kippt um 90°, die Figur fällt.
+    // "... dann kippt alles auf einmal." -> der Hocker kippt um 90°, die Figur fällt.
     const tTip = Math.max(C.kippt, tSaw + 0.4);
-    FX.fadeOut(tl, ["#a6b-lGehalt", "#a6b-lAG", "#a6b-circG", "#a6b-saw"], tTip - 0.1);
+    FX.fadeOut(tl, ["#a6b-lGehalt", "#a6b-lAG", "#a6b-lAZ", "#a6b-circG", "#a6b-saw"], tTip - 0.1);
     FX.set(tl, ["#a6b-armsRelax", "#a6b-faceRelax"], { opacity: 0 }, tTip);
     FX.set(tl, ["#a6b-armsFall", "#a6b-faceFall"], { opacity: 1 }, tTip);
     FX.tip(tl, "#a6b-tipG", tTip, { from: 0, to: -90, svgOrigin: TIP });
@@ -311,7 +338,7 @@
     FX.set(tl, "#a6b-sit", { opacity: 0 }, tLand);
     FX.tween(tl, "#a6b-fallen", { opacity: 1, x: 30, y: -40 }, { opacity: 1, x: 0, y: 0, duration: 0.15, ease: "power2.in" }, tLand);
 
-    // "Ein zweites Standbein heißt nicht, dass du morgen kündigst." -> die Figur steht wieder auf
+    // "Und ein zweites Standbein heißt nicht, dass du morgen kündigst," -> die Figur steht wieder auf
     // (und stellt den Hocker wieder hin; der steht wieder nur auf einem Bein und wackelt).
     const tUp = Math.max(C.standbein - 0.05, tLand + 0.4);
     FX.set(tl, "#a6b-fallen", { opacity: 0 }, tUp);
@@ -329,89 +356,74 @@
       FX.settle(tl, "#a6b-rig", tSettle, -6, { svgOrigin: PIV });
     }
 
-    // "... nicht mehr alles an einer einzigen Unterschrift hängt." -> das zweite Bein "Trading" wird
-    // angeschraubt (schiebt sich rein, Schraube dreht sich), der Hocker steht stabil.
+    // "... aber es heißt, dass nicht mehr alles von einem Arbeitgeber abhängig ist." -> das zweite Bein
+    // wird angeschraubt (schiebt sich rein, Schraube dreht sich), der Hocker steht stabil.
     const tLeg = tSettle + 0.05;
     FX.flyIn(tl, "#a6b-leg2", tLeg, { from: "right", dist: 560 });
     FX.pop(tl, "#a6b-screw", tLeg + 0.27);
     FX.tween(tl, "#a6b-screw", { rotation: 0 }, { rotation: 720, duration: 0.5, ease: "power1.inOut", transformOrigin: "50% 50%" }, tLeg + 0.42);
-    const tLab = Math.min(Math.max(tLeg + 0.95, C.unterschrift), Math.max(tLeg + 0.5, E.nicht - 0.15));
-    FX.pop(tl, "#a6b-lTrading", tLab);
-    // "... ist Trading für mich das sinnvollste zweite Bein" -> das Label pulsiert.
-    const tPulse = Math.max(C.trading - 0.1, tLab + 0.4);
-    if (tPulse + 1.6 < C.kunden) FX.pulse(tl, "#a6b-lTrading", tPulse, 1.6);
 
-    // ---------------------------------------------------------------- Folie 2: 3 Haken
-    // "... keine Kunden brauchst, nichts verkaufen musst und es nicht nach Stunden läuft"
-    FX.cut(tl, "#a6b-s1", "#a6b-s2", C.kunden);
-    const tk1 = C.kunden, tk2 = Math.max(tk1 + 0.4, C.verkaufen - 0.05), tk3 = Math.max(tk2 + 0.4, C.stunden - 0.05);
-    FX.pop(tl, "#a6b-t0", tk1, { origin: "0% 50%" });
-    FX.pop(tl, "#a6b-t1", tk2, { origin: "0% 50%" });
-    FX.pop(tl, "#a6b-t2", tk3, { origin: "0% 50%" });
-    // "Ein Trade kostet dich gleich viel Zeit ..." (keine eigene Zeile): "nicht nach Stunden" pulsiert
-    // einmal auf "gleich viel Zeit", dazu ein langsamer Zoom auf die Liste.
-    const tZ1 = Math.max(C.trade, tk3 + 0.4);
-    const dZ1 = Math.min(3, C.klar - 0.05 - tZ1);
-    if (dZ1 > 1) FX.slowZoom(tl, "#a6b-tList", tZ1, { d: dZ1, to: 1 + 0.08 * dZ1 / 3 });
-    const tRow = Math.max(C.gleich - 0.1, tk3 + 0.3);
-    if (tRow + 0.8 <= C.klar - 0.1) FX.pulse(tl, "#a6b-t2", tRow, 0.8, { origin: "0% 50%" });
+    // ---------------------------------------------------------------- Folie 2: 9 Jahre
+    // "Nach über 9 Jahren Trading-Erfahrung kann ich dir sagen, als eine Person, die selber angestellt war:"
+    const tYrs = Math.max(tLeg + 1.2, C.neun - 0.15);
+    FX.cut(tl, "#a6b-s1", "#a6b-s2", tYrs);
+    FX.pop(tl, "#a6b-yBig", tYrs);
+    const tExp = Math.max(tYrs + 0.4, C.erfahrung - 0.1);
+    FX.pop(tl, "#a6b-yExp", tExp);
+    const tAng = Math.max(tExp + 0.6, C.angestellt - 0.1);
+    FX.pop(tl, "#a6b-yAng", tAng);
 
-    // ---------------------------------------------------------------- Folie 3: Sanduhr
-    // "Klar, das baut sich nicht über Nacht auf." -> eine Sanduhr ploppt auf und läuft.
-    FX.cut(tl, "#a6b-s2", "#a6b-s3", C.klar);
-    FX.pop(tl, "#a6b-hg", C.klar);
-    // "Am Anfang lernst du ..." (keine eigene Zeile): die Sanduhr wird umgedreht (180° in 0,35 s)
-    // und läuft neu bis zur nächsten Folie; dazu ein langsamer Zoom.
-    const tFlip = Math.min(Math.max(C.klar + 1.2, C.anfang - 0.1), C.min30 - 2);
-    const flip = tFlip - C.klar >= 1.2;
-    const tRun2 = tFlip + 0.35;
-    const tEndDrain = Math.max(flip ? tRun2 + 1.2 : C.klar + 1.5, C.min30 - 0.2);
-    if (flip) {
-      FX.tween(tl, "#a6b-sandTop", { scale: 1 }, { scale: 0.14, duration: tFlip - C.klar, ease: "none", transformOrigin: "50% 100%" }, C.klar);
-      FX.tween(tl, "#a6b-sandBot", { scale: 0.3 }, { scale: 1, duration: tFlip - C.klar, ease: "none", transformOrigin: "50% 100%" }, C.klar);
-      FX.set(tl, "#a6b-stream", { opacity: 0 }, tFlip);
-      FX.tween(tl, "#a6b-hgRot", { rotation: 0, svgOrigin: HG }, { rotation: 180, duration: 0.35, ease: "power2.inOut", svgOrigin: HG }, tFlip);
-      // The glass is symmetric: after the half turn it is reset to 0° with the sand swapped (top full again).
-      FX.set(tl, "#a6b-hgRot", { rotation: 0 }, tRun2);
-      FX.set(tl, "#a6b-stream", { opacity: 1 }, tRun2);
-      FX.tween(tl, "#a6b-sandTop", { scale: 1 }, { scale: 0.14, duration: tEndDrain - tRun2, ease: "none", transformOrigin: "50% 100%" }, tRun2);
-      FX.tween(tl, "#a6b-sandBot", { scale: 0.3 }, { scale: 1, duration: tEndDrain - tRun2, ease: "none", transformOrigin: "50% 100%" }, tRun2);
-    } else {
-      FX.tween(tl, "#a6b-sandTop", { scale: 1 }, { scale: 0.14, duration: tEndDrain - C.klar, ease: "none", transformOrigin: "50% 100%" }, C.klar);
-      FX.tween(tl, "#a6b-sandBot", { scale: 0.3 }, { scale: 1, duration: tEndDrain - C.klar, ease: "none", transformOrigin: "50% 100%" }, C.klar);
-    }
-    const tZ2 = Math.max(C.anfang, C.klar + 0.6);
-    const dZ2 = Math.min(3, C.min30 - 0.05 - tZ2);
-    if (dZ2 > 1) FX.slowZoom(tl, "#a6b-hg", tZ2, { d: dZ2, to: 1 + 0.08 * dZ2 / 3 });
+    // ---------------------------------------------------------------- Folie 1 again: stabiler Hocker
+    // "Es ist das Sinnvollste für die meisten Angestellten, sich ein zweites Standbein aufzubauen."
+    // -> zurück zum Hocker: die Figur sitzt entspannt auf dem Hocker mit 2 Beinen (Bild mittig).
+    const tSit = Math.max(tAng + 0.8, C.sinnvoll - 0.1);
+    FX.cut(tl, "#a6b-s2", "#a6b-s1", tSit);
+    FX.set(tl, "#a6b-world", { x: -100, y: 0 }, tSit);
+    FX.set(tl, "#a6b-floor", { attr: { x1: 30, x2: 1050 } }, tSit);
+    FX.set(tl, "#a6b-stand", { opacity: 0 }, tSit);
+    FX.set(tl, ["#a6b-sit", "#a6b-armsRelax", "#a6b-faceRelax"], { opacity: 1 }, tSit);
+    FX.set(tl, ["#a6b-armsFall", "#a6b-faceFall"], { opacity: 0 }, tSit);
+    // "... für die meisten Angestellten" -> die Figur nickt zweimal.
+    const tNod = Math.max(tSit + 0.3, C.meisten - 0.1);
+    FX.tween(tl, "#a6b-head", { y: 0 }, { y: 10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: 3 }, tNod);
+    // "... sich ein zweites Standbein aufzubauen." -> das zweite Bein pulsiert.
+    const tP1 = Math.max(tSit + 0.5, C.standbein2 - 0.05);
+    FX.pulse(tl, "#a6b-leg2", tP1, 0.8, { svgOrigin: LEG2 });
+    // "Und Trading ist die perfekte Lösung," -> Label "Trading" am zweiten Bein.
+    const tTr = Math.max(tP1 + 0.85, C.trading - 0.1);
+    FX.pop(tl, "#a6b-lTrading", tTr);
+    // "... neben deinem Job" -> Label "Job" am ersten Bein.
+    const tJob = Math.max(tTr + 0.6, C.job - 0.15);
+    FX.pop(tl, "#a6b-lJob", tJob);
+    // "... mit 30 bis 60 Minuten am Tag" -> "30–60 Min. am Tag" unter "Trading".
+    const tMin = Math.max(tJob + 0.35, C.minuten - 0.1);
+    FX.pop(tl, "#a6b-lMin", tMin);
+    // "... ein zweites Standbein mit Trading aufbauen kannst," -> das zweite Bein pulsiert noch einmal.
+    const tTicks = Math.max(tMin + 1.2, C.zeit - 0.05);
+    const tP2 = Math.max(tMin + 0.5, C.standbein3 - 0.05);
+    if (tP2 + 0.8 <= tTicks - 0.1) FX.pulse(tl, "#a6b-leg2", tP2, 0.8, { svgOrigin: LEG2 });
 
-    // ---------------------------------------------------------------- Folie 4: 30 Min. am Tag ✓
-    FX.cut(tl, "#a6b-s3", "#a6b-s4", C.min30);
-    FX.pop(tl, "#a6b-m30", C.min30);
-    FX.pop(tl, "#a6b-mTick", Math.max(C.min30 + 0.3, C.tag - 0.05));
+    // ---------------------------------------------------------------- Folie 3: 4 Haken
+    // "zeiteffizient, anfängerfreundlich, ohne Vorerfahrung und ohne Fachchinesisch."
+    FX.cut(tl, "#a6b-s1", "#a6b-s3", tTicks);
+    const tk = [tTicks];
+    tk.push(Math.max(tk[0] + 0.3, C.anfaenger - 0.05));
+    tk.push(Math.max(tk[1] + 0.3, C.vorerf - 0.05));
+    tk.push(Math.max(tk[2] + 0.3, C.fach - 0.05));
+    tk.forEach((t, i) => FX.pop(tl, `#a6b-t${i}`, t, { origin: "0% 50%" }));
 
-    // ---------------------------------------------------------------- Folie 5: Kurs-Mockup
-    FX.set(tl, "#a6b-s4", { opacity: 0 }, C.kurs);
-    const tc1 = Math.max(C.kurs + 0.35, C.grund - 0.05), tc2 = Math.max(tc1 + 0.4, C.strategie - 0.05), tc3 = Math.max(tc2 + 0.4, C.plan - 0.05);
-    FX.course(tl, "a6b-course", C.kurs, [tc1, tc2, tc3]);
-    FX.set(tl, "#a6b-course", { opacity: 0 }, C.klick);
+    // ---------------------------------------------------------------- Folie 4: Kurs-Mockup
+    // "Und wie das Ganze funktioniert, das zeige ich dir in meinem kostenlosen Videokurs."
+    const tKurs = Math.max(tk[3] + 1.0, C.zeige - 0.1);
+    FX.cut(tl, "#a6b-s3", "#a6b-s4", tKurs);
+    courseLocal("a6b-course", tKurs);
+    FX.pop(tl, "#a6b-free", Math.max(tKurs + 0.4, C.kostenlos - 0.1));
 
-    // ---------------------------------------------------------------- Folie 6: CTA
-    FX.cta(tl, "a6b-cta", C.klick);
-
-    // ---------------------------------------------------------------- Schlussbild
-    // "... solange das erste noch fest steht." -> die Figur sitzt entspannt auf dem stabilen Hocker und nickt.
-    const tEnd = Math.max(C.ende, C.klick + 1.2);
-    FX.set(tl, "#a6b-cta", { opacity: 0 }, tEnd);
-    FX.set(tl, "#a6b-s1", { opacity: 1 }, tEnd);
-    FX.set(tl, "#a6b-world", { x: -141, y: -70 }, tEnd);
-    FX.set(tl, "#a6b-floor", { attr: { x1: 281, x2: 881 } }, tEnd);
-    FX.set(tl, ["#a6b-stand", "#a6b-lTrading", "#a6b-fallen"], { opacity: 0 }, tEnd);
-    FX.set(tl, "#a6b-sit", { opacity: 1 }, tEnd);
-    FX.set(tl, ["#a6b-armsRelax", "#a6b-faceRelax"], { opacity: 1 }, tEnd);
-    FX.set(tl, ["#a6b-armsFall", "#a6b-faceFall"], { opacity: 0 }, tEnd);
-    const nods = Math.max(1, Math.min(3, Math.floor((DUR - 0.5 - (tEnd + 0.3)) / 0.6)));
-    FX.tween(tl, "#a6b-head", { y: 0 }, { y: 10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: nods * 2 - 1 }, tEnd + 0.3);
-    FX.more(tl, "a6b-more", tEnd);
+    // ---------------------------------------------------------------- Folie 5: CTA-Bild (bis zum Ende)
+    // "Klick gerne auf den Button unter dem Video."
+    const tCTA = Math.max(tKurs + 1.0, C.klick - 0.1);
+    FX.set(tl, "#a6b-s4", { opacity: 0 }, tCTA);
+    ctaLocal("a6b-cta", tCTA);
 
     window.__timelines["ad6-body"] = tl;
   </script>

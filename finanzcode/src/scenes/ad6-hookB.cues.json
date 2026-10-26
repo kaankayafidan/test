@@ -1,10 +1,10 @@
 {
   "cues": {
-    "meisten": "Die meisten Angestellten sitzen auf so einem Stuhl, ohne es zu merken:",
-    "ihr": "Ihr ganzes Einkommen steht auf einem einzigen Bein.",
-    "einzigen": { "phrase": "auf einem einzigen Bein.", "word": 2 },
-    "trading": "Mit Trading kannst du dir ein zweites bauen.",
-    "zweites": { "phrase": "ein zweites bauen.", "word": 1 }
+    "meisten": "Die meisten Angestellten sitzen auf so einem Stuhl, ohne es zu merken.",
+    "ihr": "Ihr ganzes Einkommen steht auf einem einzigen Bein,",
+    "einzigen": { "phrase": "auf einem einzigen Bein,", "word": 2 },
+    "trading": "und mit Trading kannst du dir ein zweites Standbein aufbauen.",
+    "zweites": { "phrase": "ein zweites Standbein aufbauen.", "word": 1 }
   },
   "sfx": [
     { "at": "zweites", "type": "pop" }

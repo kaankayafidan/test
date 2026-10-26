@@ -7,13 +7,13 @@
     },
     "b1": {
       "phrase": "Trader B nur 1 Prozent.",
-      "word": 3
+      "word": 0
     },
     "verluste": "10 Verluste am Stück klingen extrem",
-    "schau": "Schau, was danach übrig ist",
+    "schau": "schau, was danach noch übrig ist",
     "drittel": {
-      "phrase": "Bei Trader A sind fast zwei Drittel weg",
-      "word": 5
+      "phrase": "Bei Trader A sind zwei Drittel weg",
+      "word": 4
     },
     "nichtmal": {
       "phrase": "bei Trader B nicht mal 10 Prozent.",
@@ -29,55 +29,54 @@
       "phrase": "auf den Startwert zu kommen.",
       "word": 2
     },
-    "trB": "Trader B reicht ein kleines Plus von gut 10 Prozent.",
+    "trB": "Bei Trader B reicht ein kleines Plus von 10 Prozent",
     "plus": {
-      "phrase": "ein kleines Plus von gut 10 Prozent.",
+      "phrase": "ein kleines Plus von 10 Prozent",
       "word": 2
     },
-    "deshalb": "Deshalb ist die wichtigste Zahl beim Trading nicht",
-    "gewinnen": {
-      "phrase": "wie viel du gewinnen kannst",
-      "word": 3
-    },
-    "riskierst": {
-      "phrase": "sondern wie viel du pro Trade maximal riskierst.",
-      "word": 1
-    },
-    "maximal": {
-      "phrase": "pro Trade maximal riskierst.",
-      "word": 2
-    },
-    "rechnen": {
-      "phrase": "Dafür musst du weder rechnen können wie ein Mathematiker",
+    "startB": {
+      "phrase": "bis er wieder am Startwert ist.",
       "word": 4
     },
+    "deshalb": {
+      "phrase": "Und genau deshalb ist das die wichtigste Zahl beim Trading.",
+      "word": 2
+    },
+    "gewinnen": {
+      "phrase": "Es ist nicht das, was du maximal gewinnen kannst",
+      "word": 2
+    },
+    "riskierst": {
+      "phrase": "sondern das, wie viel du maximal pro Trade riskierst",
+      "word": 2
+    },
+    "ring": {
+      "phrase": "pro Trade riskierst",
+      "word": 2
+    },
+    "verlieren": {
+      "phrase": "und verlieren kannst, theoretisch.",
+      "word": 1
+    },
+    "rechnen": {
+      "phrase": "Und dafür musst du weder rechnen können",
+      "word": 5
+    },
     "mathe": {
-      "phrase": "wie ein Mathematiker",
+      "phrase": "noch irgendwie Mathematik studiert haben",
       "word": 2
     },
     "regel": {
-      "phrase": "sondern nur diese eine Regel kennen",
-      "word": 2
+      "phrase": "sondern musst nur die Regeln im Trading kennen.",
+      "word": 4
     },
-    "genau": "Genau diese Regel, eine einfache Strategie und einen Plan",
-    "regel2": {
-      "phrase": "Genau diese Regel",
-      "word": 2
-    },
-    "strategie": {
-      "phrase": "eine einfache Strategie",
-      "word": 2
-    },
-    "plan": {
-      "phrase": "einen Plan für deine ersten 60 Tage",
-      "word": 1
-    },
+    "kurs": "Und wie das funktioniert, das zeige ich dir",
     "kostenlos": {
-      "phrase": "in meinem kostenlosen Videokurs",
+      "phrase": "in meinem kostenlosen Videokurs.",
       "word": 2
     },
-    "klick": "Klick unter dem Video auf „Mehr dazu“",
-    "bevor": "bevor du deinen nächsten Trade setzt."
+    "diesen": "für diesen Videokurs könnte ich locker",
+    "klick": "Deswegen klick auf den Link unter dem Video auf „Mehr dazu“."
   },
   "sfx": [
     {
@@ -155,7 +154,7 @@
       "type": "pop"
     },
     {
-      "at": "genau",
+      "at": "kurs",
       "type": "whoosh"
     },
     {
