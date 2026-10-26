@@ -83,6 +83,11 @@ def measure(wav, af=None):
     return i, tp
 
 
+def shift_trims(graph, ss):
+    """Move every atrim/trim window by -ss (the input is opened with -ss)."""
+    return re.sub(r"(a?trim=)([\d.]+):([\d.]+)", lambda m: f"{m.group(1)}{float(m.group(2)) - ss:.3f}:{float(m.group(3)) - ss:.3f}", graph)
+
+
 def render(seg, raw, edl_doc, crop, do_video, vinfo):
     tempo = edl_doc["tempo"]
     edl = edl_doc["edl"]
@@ -103,10 +108,14 @@ def render(seg, raw, edl_doc, crop, do_video, vinfo):
             fv.append(f"[0:v]trim={a:.3f}:{vb:.3f},setpts=PTS-STARTPTS,tpad=stop_mode=clone:stop_duration={vtail if i == len(edl) - 1 else 0:.3f}[v{i}]")
             lv.append(f"[v{i}]")
     n = len(edl)
-    graph_a = ";".join(fa) + ";" + "".join(la) + f"concat=n={n}:v=0:a=1[ac]"
     graph_v = (";".join(fv) + ";" + "".join(lv) + f"concat=n={n}:v=1:a=0[vc]") if do_video else ""
+    graph_a = ";".join(fa) + ";" + "".join(la) + f"concat=n={n}:v=0:a=1[ac]"
+    # every trim decodes from the start of its input: open the input just before the first piece instead
+    ss = max(0.0, min(a for a, _ in edl) - 2.0)
+    graph_a = shift_trims(graph_a, ss)
+    graph_v = shift_trims(graph_v, ss) if do_video else graph_v
     cut_wav = work / "cut.wav"
-    cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", str(raw), "-filter_complex", graph_a + f";[ac]aresample=48000,atempo={tempo}[aout]", "-map", "[aout]", "-ac", "1", "-c:a", "pcm_s24le", str(cut_wav)]
+    cmd = ["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-ss", f"{ss:.3f}", "-i", str(raw), "-filter_complex", graph_a + f";[ac]aresample=48000,atempo={tempo}[aout]", "-map", "[aout]", "-ac", "1", "-c:a", "pcm_s24le", str(cut_wav)]
     sh(cmd)
     # 2. voice chain + two-pass loudness
     chain = "highpass=f=80,afftdn=nr=10:nf=-42:tn=1,acompressor=threshold=-21dB:ratio=3:attack=8:release=120:knee=4:makeup=2"
@@ -128,9 +137,9 @@ def render(seg, raw, edl_doc, crop, do_video, vinfo):
     if do_video:
         x, y, s, found = crop
         cam = media_dir / f"{seg}.cam.mp4"
-        out = min(720, s)
+        out = 360 if s < 360 else min(720, s)  # upscale small Loom bubbles with lanczos, not in the browser
         vf = f"[vc]crop={s}:{s}:{x}:{y},scale={out}:{out}:flags=lanczos,setpts=PTS/{tempo},fps={FPS},format=yuv420p[vo]"
-        sh(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", str(raw), "-filter_complex", graph_v + ";" + vf, "-map", "[vo]", "-an",
+        sh(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-ss", f"{ss:.3f}", "-i", str(raw), "-filter_complex", graph_v + ";" + vf, "-map", "[vo]", "-an",
             "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-g", "15", "-keyint_min", "15", "-sc_threshold", "0", "-t", f"{dur + vtail / tempo:.3f}", str(cam)])
     # 4. timeline mapping of kept words and cut times
     cum, offs = 0.0, []

@@ -146,3 +146,20 @@ npx hyperframes snapshot --at 0,0.25,0.5,<cue times…> --no-end    # read the P
   — is it understood in 1 s?
 - Do not edit anything outside your own scene files and `assets/img/adN/`. If a shared helper is
   missing, write a local one in your scene and say so in the report.
+
+## Real voice (cut from the Loom recording)
+
+The cut voice now exists: `data/timing/<seg>.words.json` (every spoken word with its time in the cut,
+already sped up), `data/edl/edit.md` / `data/edit/ranges.json` (the spoken text per segment),
+`assets/media/<seg>.voice.wav` + `.cam.mp4` (Kilian's voice and circle). `node tools/build.mjs` uses them
+automatically (no `--placeholder`).
+
+Kilian did **not** read the briefing scripts verbatim. The spoken text is what counts:
+- The builder looks up every cue phrase in the spoken words first (exact word match). A phrase that is
+  not spoken verbatim prints `⚠ … not spoken verbatim` and only gets an approximate time — fix every such
+  warning by copying the phrase from `words.json` (or `data/edl/edit.md`), or drop/replace the beat.
+- A beat whose content is not said must not stay as if it were (no pictures for sentences that were cut).
+  Replace it with a visual for what IS said at that moment, in the same style.
+- New spoken passages without a beat need visuals too: something new every 2–4 s.
+- Never visualise profit promises or scarcity, never show a price or amount (no "500 €", no crossed-out
+  price — the course is only ever "Kostenlos"), and nothing from the forbidden list.

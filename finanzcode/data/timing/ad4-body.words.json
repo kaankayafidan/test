@@ -1,0 +1,927 @@
+[
+{
+"text": "Typ",
+"start": 0.0,
+"end": 0.2
+},
+{
+"text": "1",
+"start": 0.2,
+"end": 0.42
+},
+{
+"text": "ist",
+"start": 0.42,
+"end": 0.58
+},
+{
+"text": "der",
+"start": 0.58,
+"end": 0.74
+},
+{
+"text": "Zocker.",
+"start": 0.74,
+"end": 1.06
+},
+{
+"text": "Der",
+"start": 1.2,
+"end": 1.34
+},
+{
+"text": "setzt",
+"start": 1.34,
+"end": 1.48
+},
+{
+"text": "alles",
+"start": 1.48,
+"end": 1.84
+},
+{
+"text": "auf",
+"start": 1.84,
+"end": 2.02
+},
+{
+"text": "einen",
+"start": 2.02,
+"end": 2.24
+},
+{
+"text": "Trade,",
+"start": 2.24,
+"end": 2.54
+},
+{
+"text": "hat",
+"start": 2.68,
+"end": 2.8
+},
+{
+"text": "keinen",
+"start": 2.8,
+"end": 3.08
+},
+{
+"text": "Stop-Loss",
+"start": 3.08,
+"end": 3.26
+},
+{
+"text": "und",
+"start": 3.5,
+"end": 3.62
+},
+{
+"text": "hofft",
+"start": 3.62,
+"end": 3.94
+},
+{
+"text": "auf",
+"start": 3.94,
+"end": 4.06
+},
+{
+"text": "den",
+"start": 4.06,
+"end": 4.2
+},
+{
+"text": "großen",
+"start": 4.2,
+"end": 4.56
+},
+{
+"text": "Wurf,",
+"start": 4.56,
+"end": 4.88
+},
+{
+"text": "und",
+"start": 5.02,
+"end": 5.18
+},
+{
+"text": "meistens",
+"start": 5.18,
+"end": 5.62
+},
+{
+"text": "ist",
+"start": 5.62,
+"end": 5.8
+},
+{
+"text": "er",
+"start": 5.8,
+"end": 5.9
+},
+{
+"text": "als",
+"start": 5.9,
+"end": 6.02
+},
+{
+"text": "Erster",
+"start": 6.02,
+"end": 6.5
+},
+{
+"text": "der,",
+"start": 6.62,
+"end": 6.67
+},
+{
+"text": "der",
+"start": 6.64,
+"end": 6.6899999999999995
+},
+{
+"text": "wieder",
+"start": 6.659999999999999,
+"end": 6.78
+},
+{
+"text": "raus",
+"start": 6.78,
+"end": 7.06
+},
+{
+"text": "ist.",
+"start": 7.06,
+"end": 7.24
+},
+{
+"text": "Typ",
+"start": 7.48,
+"end": 7.66
+},
+{
+"text": "2",
+"start": 7.66,
+"end": 7.92
+},
+{
+"text": "ist",
+"start": 7.92,
+"end": 8.22
+},
+{
+"text": "der",
+"start": 8.22,
+"end": 8.42
+},
+{
+"text": "Dauerlerner.",
+"start": 8.42,
+"end": 9.08
+},
+{
+"text": "Der",
+"start": 9.22,
+"end": 9.4
+},
+{
+"text": "hat",
+"start": 9.4,
+"end": 9.52
+},
+{
+"text": "50",
+"start": 9.52,
+"end": 9.9
+},
+{
+"text": "Videos",
+"start": 9.9,
+"end": 10.22
+},
+{
+"text": "geschaut",
+"start": 10.22,
+"end": 10.56
+},
+{
+"text": "und",
+"start": 10.56,
+"end": 10.72
+},
+{
+"text": "20",
+"start": 10.72,
+"end": 11.06
+},
+{
+"text": "Strategien",
+"start": 11.06,
+"end": 11.52
+},
+{
+"text": "gespeichert,",
+"start": 11.52,
+"end": 12.08
+},
+{
+"text": "aber",
+"start": 12.24,
+"end": 12.4
+},
+{
+"text": "noch",
+"start": 12.4,
+"end": 12.54
+},
+{
+"text": "keinen",
+"start": 12.54,
+"end": 12.78
+},
+{
+"text": "einzigen",
+"start": 12.78,
+"end": 13.12
+},
+{
+"text": "Trade",
+"start": 13.12,
+"end": 13.34
+},
+{
+"text": "gesetzt,",
+"start": 13.34,
+"end": 13.7
+},
+{
+"text": "weil",
+"start": 13.78,
+"end": 13.88
+},
+{
+"text": "er",
+"start": 13.88,
+"end": 14.0
+},
+{
+"text": "alles",
+"start": 14.0,
+"end": 14.34
+},
+{
+"text": "verstehen",
+"start": 14.34,
+"end": 14.78
+},
+{
+"text": "will,",
+"start": 14.78,
+"end": 15.0
+},
+{
+"text": "bevor",
+"start": 15.14,
+"end": 15.36
+},
+{
+"text": "er",
+"start": 15.36,
+"end": 15.54
+},
+{
+"text": "irgendetwas",
+"start": 15.54,
+"end": 15.84
+},
+{
+"text": "macht.",
+"start": 15.84,
+"end": 16.16
+},
+{
+"text": "Und",
+"start": 16.38,
+"end": 16.48
+},
+{
+"text": "Typ",
+"start": 16.48,
+"end": 16.66
+},
+{
+"text": "3",
+"start": 16.66,
+"end": 16.88
+},
+{
+"text": "ist",
+"start": 16.88,
+"end": 17.08
+},
+{
+"text": "der",
+"start": 17.08,
+"end": 17.18
+},
+{
+"text": "Ungeduldige.",
+"start": 17.18,
+"end": 17.78
+},
+{
+"text": "Der",
+"start": 17.86,
+"end": 17.96
+},
+{
+"text": "will",
+"start": 17.96,
+"end": 18.04
+},
+{
+"text": "nach",
+"start": 18.04,
+"end": 18.2
+},
+{
+"text": "2",
+"start": 18.2,
+"end": 18.44
+},
+{
+"text": "Wochen",
+"start": 18.44,
+"end": 18.74
+},
+{
+"text": "Ergebnisse",
+"start": 18.74,
+"end": 19.14
+},
+{
+"text": "sehen,",
+"start": 19.14,
+"end": 19.38
+},
+{
+"text": "und",
+"start": 19.4,
+"end": 19.48
+},
+{
+"text": "wenn",
+"start": 19.48,
+"end": 19.56
+},
+{
+"text": "es",
+"start": 19.56,
+"end": 19.66
+},
+{
+"text": "nicht",
+"start": 19.66,
+"end": 19.82
+},
+{
+"text": "klappt,",
+"start": 19.82,
+"end": 20.14
+},
+{
+"text": "macht",
+"start": 20.3,
+"end": 20.48
+},
+{
+"text": "er",
+"start": 20.48,
+"end": 20.58
+},
+{
+"text": "aus",
+"start": 20.58,
+"end": 20.74
+},
+{
+"text": "Frust",
+"start": 20.88,
+"end": 21.28
+},
+{
+"text": "einen",
+"start": 21.28,
+"end": 21.54
+},
+{
+"text": "Rache-Trade.",
+"start": 21.54,
+"end": 21.98
+},
+{
+"text": "Und",
+"start": 22.26,
+"end": 22.6
+},
+{
+"text": "jetzt",
+"start": 22.6,
+"end": 22.8
+},
+{
+"text": "zum",
+"start": 22.8,
+"end": 22.98
+},
+{
+"text": "Typ",
+"start": 22.98,
+"end": 23.16
+},
+{
+"text": "Nummer",
+"start": 23.16,
+"end": 23.38
+},
+{
+"text": "4:",
+"start": 23.38,
+"end": 23.74
+},
+{
+"text": "Von",
+"start": 23.9,
+"end": 24.0
+},
+{
+"text": "über",
+"start": 24.0,
+"end": 24.18
+},
+{
+"text": "2.000",
+"start": 24.18,
+"end": 24.62
+},
+{
+"text": "Leuten",
+"start": 24.62,
+"end": 24.92
+},
+{
+"text": "in",
+"start": 24.92,
+"end": 25.06
+},
+{
+"text": "meinem",
+"start": 25.06,
+"end": 25.28
+},
+{
+"text": "Coaching",
+"start": 25.28,
+"end": 25.72
+},
+{
+"text": "sind",
+"start": 25.72,
+"end": 25.88
+},
+{
+"text": "das",
+"start": 25.88,
+"end": 26.18
+},
+{
+"text": "die,",
+"start": 26.18,
+"end": 26.36
+},
+{
+"text": "die",
+"start": 26.44,
+"end": 26.5
+},
+{
+"text": "wirklich",
+"start": 26.5,
+"end": 26.78
+},
+{
+"text": "dranbleiben.",
+"start": 26.78,
+"end": 27.36
+},
+{
+"text": "Das",
+"start": 27.5,
+"end": 27.6
+},
+{
+"text": "sind",
+"start": 27.6,
+"end": 27.72
+},
+{
+"text": "keine",
+"start": 27.72,
+"end": 27.94
+},
+{
+"text": "Genies",
+"start": 27.94,
+"end": 28.26
+},
+{
+"text": "und",
+"start": 28.26,
+"end": 28.38
+},
+{
+"text": "keine",
+"start": 28.38,
+"end": 28.58
+},
+{
+"text": "Zocker,",
+"start": 28.58,
+"end": 28.94
+},
+{
+"text": "sondern",
+"start": 29.06,
+"end": 29.22
+},
+{
+"text": "ganz",
+"start": 29.22,
+"end": 29.48
+},
+{
+"text": "normale",
+"start": 29.48,
+"end": 29.7
+},
+{
+"text": "Leute,",
+"start": 29.7,
+"end": 30.02
+},
+{
+"text": "die",
+"start": 30.1,
+"end": 30.22
+},
+{
+"text": "in",
+"start": 30.22,
+"end": 30.36
+},
+{
+"text": "einem",
+"start": 30.36,
+"end": 30.42
+},
+{
+"text": "Vollzeitjob",
+"start": 30.42,
+"end": 30.94
+},
+{
+"text": "sind,",
+"start": 30.94,
+"end": 31.22
+},
+{
+"text": "die",
+"start": 31.4,
+"end": 31.5
+},
+{
+"text": "mit",
+"start": 31.5,
+"end": 31.62
+},
+{
+"text": "einer",
+"start": 31.62,
+"end": 31.74
+},
+{
+"text": "einzigen",
+"start": 31.74,
+"end": 32.12
+},
+{
+"text": "Strategie",
+"start": 32.12,
+"end": 32.6
+},
+{
+"text": "und",
+"start": 32.6,
+"end": 32.74
+},
+{
+"text": "festen",
+"start": 32.74,
+"end": 33.14
+},
+{
+"text": "Regeln",
+"start": 33.14,
+"end": 33.42
+},
+{
+"text": "auch",
+"start": 33.42,
+"end": 33.74
+},
+{
+"text": "mit",
+"start": 33.74,
+"end": 33.86
+},
+{
+"text": "wenig",
+"start": 33.86,
+"end": 34.2
+},
+{
+"text": "Zeit",
+"start": 34.2,
+"end": 34.52
+},
+{
+"text": "wenig",
+"start": 34.52,
+"end": 34.9
+},
+{
+"text": "riskieren,",
+"start": 34.9,
+"end": 35.5
+},
+{
+"text": "weil",
+"start": 35.56,
+"end": 35.64
+},
+{
+"text": "sie",
+"start": 35.64,
+"end": 35.78
+},
+{
+"text": "geduldig",
+"start": 35.78,
+"end": 36.22
+},
+{
+"text": "sind",
+"start": 36.22,
+"end": 36.42
+},
+{
+"text": "und",
+"start": 36.42,
+"end": 36.58
+},
+{
+"text": "Disziplin",
+"start": 36.58,
+"end": 37.14
+},
+{
+"text": "haben.",
+"start": 37.14,
+"end": 37.44
+},
+{
+"text": "Und",
+"start": 38.08,
+"end": 38.46
+},
+{
+"text": "wenn",
+"start": 39.84,
+"end": 39.94
+},
+{
+"text": "du",
+"start": 39.94,
+"end": 40.02
+},
+{
+"text": "zu",
+"start": 40.02,
+"end": 40.12
+},
+{
+"text": "den",
+"start": 40.12,
+"end": 40.24
+},
+{
+"text": "vierten",
+"start": 40.24,
+"end": 40.42
+},
+{
+"text": "Typen",
+"start": 40.5,
+"end": 40.74
+},
+{
+"text": "passen",
+"start": 40.74,
+"end": 41.08
+},
+{
+"text": "möchtest,",
+"start": 41.08,
+"end": 41.36
+},
+{
+"text": "dann",
+"start": 41.44,
+"end": 41.58
+},
+{
+"text": "kannst",
+"start": 41.58,
+"end": 41.82
+},
+{
+"text": "du",
+"start": 41.82,
+"end": 41.92
+},
+{
+"text": "dir",
+"start": 41.92,
+"end": 42.0
+},
+{
+"text": "jetzt",
+"start": 42.0,
+"end": 42.14
+},
+{
+"text": "gerne",
+"start": 42.14,
+"end": 42.34
+},
+{
+"text": "mal",
+"start": 42.34,
+"end": 42.39
+},
+{
+"text": "einen",
+"start": 42.36000000000001,
+"end": 42.54
+},
+{
+"text": "kostenfreien",
+"start": 42.54,
+"end": 43.1
+},
+{
+"text": "Videokurs",
+"start": 43.1,
+"end": 43.44
+},
+{
+"text": "anschauen.",
+"start": 43.44,
+"end": 43.86
+},
+{
+"text": "Dort",
+"start": 44.02,
+"end": 44.18
+},
+{
+"text": "zeige",
+"start": 44.18,
+"end": 44.42
+},
+{
+"text": "ich",
+"start": 44.42,
+"end": 44.5
+},
+{
+"text": "dir",
+"start": 44.5,
+"end": 44.62
+},
+{
+"text": "alles,",
+"start": 44.62,
+"end": 44.88
+},
+{
+"text": "was",
+"start": 45.02,
+"end": 45.1
+},
+{
+"text": "du",
+"start": 45.1,
+"end": 45.24
+},
+{
+"text": "brauchst,",
+"start": 45.24,
+"end": 45.62
+},
+{
+"text": "um",
+"start": 45.72,
+"end": 45.88
+},
+{
+"text": "zum",
+"start": 45.88,
+"end": 46.24
+},
+{
+"text": "vierten",
+"start": 46.24,
+"end": 46.44
+},
+{
+"text": "Typ",
+"start": 46.56,
+"end": 46.74
+},
+{
+"text": "dazuzugehören.",
+"start": 46.74,
+"end": 47.54
+},
+{
+"text": "Deswegen",
+"start": 47.58,
+"end": 47.82
+},
+{
+"text": "klicke",
+"start": 47.82,
+"end": 48.0
+},
+{
+"text": "auf",
+"start": 48.0,
+"end": 48.1
+},
+{
+"text": "den",
+"start": 48.1,
+"end": 48.2
+},
+{
+"text": "Button,",
+"start": 48.2,
+"end": 48.44
+},
+{
+"text": "und",
+"start": 48.44,
+"end": 48.78
+},
+{
+"text": "ich",
+"start": 48.78,
+"end": 48.88
+},
+{
+"text": "wünsche",
+"start": 48.88,
+"end": 49.04
+},
+{
+"text": "dir",
+"start": 49.04,
+"end": 49.12
+},
+{
+"text": "ganz",
+"start": 49.12,
+"end": 49.3
+},
+{
+"text": "viel",
+"start": 49.3,
+"end": 49.44
+},
+{
+"text": "Erfolg.",
+"start": 49.44,
+"end": 49.62
+}
+]

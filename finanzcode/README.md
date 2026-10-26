@@ -7,11 +7,12 @@ der Ton bearbeitet, die „Bildschirmaufnahmen“ sind gerenderte Folien mit Cur
 ## Ablauf
 
 ```
-data/edit/edit.json      redaktioneller Schnitt: welche Takes/Wortbereiche pro Segment (18 Segmente)
-data/cache/              Insel-Transkription der Aufnahme (spart lokal ~30 Min. Whisper)
-tools/cut/pieces.py      → data/edl/<seg>.edl.json   Schnittlisten (Füllwörter, Pausen raus, Schnitte in Pausen)
-tools/cut/render_seg.py  → assets/media/<seg>.voice.wav / .cam.mp4, data/timing, data/media
+data/cache/              Insel-Transkription der Aufnahme (Grundlage für die Schnittauswahl)
+data/edit/ranges.json    redaktioneller Schnitt: Zeitbereiche der Aufnahme + gesprochener Text pro Segment (18 Segmente)
+tools/cut/ranges.py      → data/edl/<seg>.edl.json   Schnittlisten (Schnitte in Pausen, lange Pausen auf 0,22 s)
+tools/cut/render_seg.py  → assets/media/<seg>.voice.wav / .cam.mp4, data/media
                            (Tempo 1,05× / Ad 3 1,1×, Entrauschen, Kompressor 3:1, −14 LUFS, ≤ −1 dBTP, Kreis-Ausschnitt)
+tools/cut/voice_words.py → data/timing/<seg>.words.json  Untertitel-Zeiten aus dem geschnittenen Ton
 tools/cut/verify.py      prüft jeden geschnittenen Ton gegen den geplanten Text
 src/scenes/<seg>.html    Folien (Motiv-Zone 1080×710) + <seg>.cues.json (Stichwörter → Zeitpunkte)
 tools/build.mjs          → build/<Variante>/       24 HyperFrames-Projekte (Layout, Kreis, Hook, Untertitel, Ton)

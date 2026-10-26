@@ -1,0 +1,24 @@
+{
+ "duration": 47.22,
+ "voice": "assets/media/ad3-body.voice.wav",
+ "voiceWav": "assets/media/ad3-body.voice.wav",
+ "cam": "assets/media/ad3-body.cam.mp4",
+ "cuts": [
+  9.236,
+  16.145,
+  26.473,
+  29.955,
+  35.645,
+  44.527
+ ],
+ "tempo": 1.1,
+ "crop": {
+  "x": 452,
+  "y": 42,
+  "size": 236,
+  "faces": -1
+ },
+ "loudness_in": -34.6,
+ "loudness_out": -14.3,
+ "true_peak": -4.6
+}

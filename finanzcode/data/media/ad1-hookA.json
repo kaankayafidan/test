@@ -1,0 +1,17 @@
+{
+ "duration": 6.241,
+ "voice": "assets/media/ad1-hookA.voice.wav",
+ "voiceWav": "assets/media/ad1-hookA.voice.wav",
+ "cam": "assets/media/ad1-hookA.cam.mp4",
+ "cuts": [],
+ "tempo": 1.05,
+ "crop": {
+  "x": 452,
+  "y": 42,
+  "size": 236,
+  "faces": -1
+ },
+ "loudness_in": -39.3,
+ "loudness_out": -14.1,
+ "true_peak": -4.6
+}

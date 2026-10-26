@@ -1,0 +1,17 @@
+{
+ "duration": 6.403,
+ "voice": "assets/media/ad3-hookB.voice.wav",
+ "voiceWav": "assets/media/ad3-hookB.voice.wav",
+ "cam": "assets/media/ad3-hookB.cam.mp4",
+ "cuts": [],
+ "tempo": 1.1,
+ "crop": {
+  "x": 452,
+  "y": 42,
+  "size": 236,
+  "faces": -1
+ },
+ "loudness_in": -34.0,
+ "loudness_out": -14.3,
+ "true_peak": -4.6
+}

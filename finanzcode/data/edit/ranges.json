@@ -1,0 +1,333 @@
+{
+ "_note": "Raw time ranges (s) in 'Trading wie beim Roulette denken.mp4', chosen from the island transcript (data/cache). Edges snap to the quietest 10 ms within ±0.08 s; pauses > 0.42 s inside a range are shortened to 0.22 s. 'text' = what is said (caption spelling).",
+ "ad1-hookA": {
+  "ranges": [
+   [
+    15.1,
+    21.7
+   ]
+  ],
+  "text": "Wie hoch ist eigentlich der Vorteil vom Casino beim Roulette? Gerade mal 2,7 Prozent, und genau davon kannst du beim Trading eine Menge lernen."
+ },
+ "ad1-hookB": {
+  "ranges": [
+   [
+    23.15,
+    27.05
+   ],
+   [
+    32.5,
+    35.4
+   ]
+  ],
+  "text": "Siehst du diese kleine grüne Null? Wegen ihr gewinnt das Casino am Ende des Jahres, und genau davon kannst du beim Trading eine Menge lernen."
+ },
+ "ad1-body": {
+  "ranges": [
+   [
+    43.4,
+    53.48
+   ],
+   [
+    62.25,
+    76.75
+   ],
+   [
+    112.75,
+    119.62
+   ],
+   [
+    131.55,
+    137.55
+   ],
+   [
+    155.25,
+    159.6
+   ],
+   [
+    167.55,
+    170.95
+   ],
+   [
+    182.28,
+    184.45
+   ]
+  ],
+  "text": "Denn ein Roulette-Kessel hat genau 37 Felder, aber ausgezahlt wird so, als wären es nur 36. Und dieses eine grüne Feld, die Null, ist der komplette Vorteil. Rechnerisch sind das 2,7 Prozent. Das Casino verliert also jeden Abend unzählige Spiele, aber über Tausende Spiele hinweg gewinnt die Mathematik. Und genau so trade ich seit über 9 Jahren. Ich nehme nur Trades, bei denen mein Ziel deutlich weiter weg ist als mein Stop-Loss, und riskiere pro Trade nur einen kleinen Teil. Ich verliere auch Trades, genau wie das Casino auch Spiele verliert, aber ich verhalte mich wie das Casino und nicht wie ein Zocker, der auf einen großen Treffer hofft. Und genau dafür brauchst du auch kein Mathematikstudium und auch keine 8 Stunden Zeit am Tag, sondern nur ein paar kleine, klare Regeln. Und welche Regeln wirklich wichtig sind im Trading, das zeige ich dir in meinem kostenfreien Trading-Videokurs. Und ich sage dir ganz ehrlich, für diesen Kurs könnte ich locker 500 Euro nehmen. Deswegen klick unter dem Video auf „Mehr dazu“."
+ },
+ "ad2-hookA": {
+  "ranges": [
+   [
+    221.65,
+    228.15
+   ]
+  ],
+  "text": "Beide dieser Trader verlieren 10 Mal hintereinander, aber nur einer davon hat noch fast sein ganzes Konto. Und der Unterschied ist eine einzige Zahl."
+ },
+ "ad2-hookB": {
+  "ranges": [
+   [
+    229.05,
+    237.65
+   ]
+  ],
+  "text": "Was passiert eigentlich mit einem Trading-Konto nach 10 Verlusten hintereinander? Entweder fast nichts oder zwei Drittel des Kontos sind weg, und der Unterschied ist eine einzige Zahl."
+ },
+ "ad2-body": {
+  "ranges": [
+   [
+    244.7,
+    256.4
+   ],
+   [
+    258.05,
+    261.42
+   ],
+   [
+    297.72,
+    316.95
+   ],
+   [
+    317.28,
+    320.95
+   ],
+   [
+    321.8,
+    323.78
+   ],
+   [
+    327.95,
+    329.62
+   ],
+   [
+    334.9,
+    336.8
+   ],
+   [
+    338.9,
+    342.68
+   ],
+   [
+    352.0,
+    354.25
+   ]
+  ],
+  "text": "Trader A riskiert bei jedem Trade 10 Prozent seines Kontos und Trader B nur 1 Prozent. 10 Verluste am Stück klingen extrem, aber das passiert jedem Trader irgendwann mal, mir in 9 Jahren Trading-Erfahrung auch. Aber schau, was danach noch übrig ist: Bei Trader A sind zwei Drittel weg, bei Trader B nicht mal 10 Prozent. Und jetzt der Teil, den kaum einer kennt: Trader A muss sein Restkonto fast verdreifachen, nur um wieder auf den Startwert zu kommen. Bei Trader B reicht ein kleines Plus von 10 Prozent, bis er wieder am Startwert ist. Und genau deshalb ist das die wichtigste Zahl beim Trading. Es ist nicht das, was du maximal gewinnen kannst, sondern das, wie viel du maximal pro Trade riskierst und verlieren kannst, theoretisch. Und dafür musst du weder rechnen können noch irgendwie Mathematik studiert haben, sondern musst nur die Regeln im Trading kennen. Und wie das funktioniert, das zeige ich dir in meinem kostenlosen Videokurs. Und ich sage es dir ganz ehrlich, für diesen Videokurs könnte ich locker 500 Euro verlangen. Deswegen klick auf den Link unter dem Video auf „Mehr dazu“."
+ },
+ "ad3-hookA": {
+  "ranges": [
+   [
+    381.0,
+    386.7
+   ]
+  ],
+  "text": "Würdest du hier einen Trade setzen? Bevor ich das beantworte, stelle ich mir immer genau 3 Fragen, und an der dritten scheitern die meisten."
+ },
+ "ad3-hookB": {
+  "ranges": [
+   [
+    404.35,
+    411.25
+   ]
+  ],
+  "text": "Dieser Trade sieht auf den ersten Blick perfekt aus, und trotzdem lasse ich ihn liegen. Warum, zeige ich dir mit 3 Fragen, die ich mir vor jedem Trade stelle."
+ },
+ "ad3-body": {
+  "ranges": [
+   [
+    437.5,
+    447.7
+   ],
+   [
+    474.0,
+    481.45
+   ],
+   [
+    498.6,
+    509.95
+   ],
+   [
+    573.3,
+    577.15
+   ],
+   [
+    584.6,
+    590.95
+   ],
+   [
+    614.08,
+    623.9
+   ],
+   [
+    639.65,
+    642.55
+   ]
+  ],
+  "text": "Frage 1 von 3: Gibt es überhaupt ein klares Signal, oder bin ich einfach gelangweilt und möchte traden? Hier gibt es einen klaren Einstieg, mein Indikator sagt Einstieg, und ohne den passiert gar nichts, egal wie sehr es mich juckt. Frage 2: Wo weiß ich, dass ich falsch liege? Und genau da kommt mein Stop-Loss hin, und zwar bevor ich einsteige und nicht erst, wenn ich schon im Verlust bin. Und wenn du jetzt auch ein Trading-Anfänger bist und lernen möchtest, wie du im Trading ein zweites Standbein aufbauen kannst, dann sichere dir jetzt mal einen kostenlosen Videokurs. Klick unter dem Video auf den Button. Aber jetzt zu Frage Nummer 3: Lohnt sich der Trade überhaupt? Denn ich nehme nur Trades, bei denen mein Ziel mindestens doppelt so weit weg ist wie mein Stop-Loss. Und hier siehst du, das Ziel liegt gerade mal so weit weg wie der Stop-Loss. Also lasse ich den Trade weg, egal ob das Signal da ist. Und genau diese Disziplin habe ich in 9 Jahren Trading-Erfahrung gelernt, habe eine Menge Geld verloren, habe alle Fehler gemacht, und damit du das nicht machen musst, habe ich einen kostenlosen Videokurs zusammengefasst. Deswegen klick gerne auf den Button unter dem Video, auf „Mehr dazu“."
+ },
+ "ad4-hookA": {
+  "ranges": [
+   [
+    664.2,
+    671.3
+   ]
+  ],
+  "text": "Welcher dieser 3 Trading-Anfänger-Typen bist du? Alle 3 geben nach mindestens ein paar Wochen auf, aber es gibt noch einen 4., und zu dem kommen wir gleich."
+ },
+ "ad4-hookB": {
+  "ranges": [
+   [
+    678.3,
+    684.12
+   ]
+  ],
+  "text": "Es gibt 3 Typen von Trading-Anfängern, und die meisten geben nach ein paar Wochen auf, und ich wette, du erkennst dich in einem davon wieder."
+ },
+ "ad4-body": {
+  "ranges": [
+   [
+    684.2,
+    689.3
+   ],
+   [
+    690.5,
+    693.12
+   ],
+   [
+    693.15,
+    702.55
+   ],
+   [
+    709.88,
+    716.15
+   ],
+   [
+    738.1,
+    751.85
+   ],
+   [
+    754.95,
+    756.92
+   ],
+   [
+    797.2,
+    801.4
+   ],
+   [
+    787.7,
+    790.28
+   ],
+   [
+    805.8,
+    809.55
+   ],
+   [
+    812.05,
+    814.4
+   ]
+  ],
+  "text": "Typ 1 ist der Zocker. Der setzt alles auf einen Trade, hat keinen Stop-Loss und hofft auf den großen Wurf, und meistens ist er als Erster der, der wieder raus ist. Typ 2 ist der Dauerlerner. Der hat 50 Videos geschaut und 20 Strategien gespeichert, aber noch keinen einzigen Trade gesetzt, weil er alles verstehen will, bevor er irgendetwas macht. Und Typ 3 ist der Ungeduldige. Der will nach 2 Wochen Ergebnisse sehen, und wenn es nicht klappt, macht er aus Frust einen Rache-Trade. Und jetzt zum Typ Nummer 4: Von über 2.000 Leuten in meinem Coaching sind das die, die wirklich dranbleiben. Das sind keine Genies und keine Zocker, sondern ganz normale Leute, die in einem Vollzeitjob sind, die mit einer einzigen Strategie und festen Regeln auch mit wenig Zeit wenig riskieren, weil sie geduldig sind und Disziplin haben. Und wenn du zu den vierten Typen passen möchtest, dann kannst du dir jetzt gerne mal einen kostenfreien Videokurs anschauen. Dort zeige ich dir alles, was du brauchst, um zum vierten Typ dazuzugehören. Deswegen klicke auf den Button, und ich wünsche dir ganz viel Erfolg."
+ },
+ "ad5-hookA": {
+  "ranges": [
+   [
+    866.0,
+    871.4
+   ]
+  ],
+  "text": "Siehst du in diesem Kalender noch Platz für Trading? Ich schon, und es sind gerade mal 30 Minuten am Tag."
+ },
+ "ad5-hookB": {
+  "ranges": [
+   [
+    878.65,
+    884.55
+   ]
+  ],
+  "text": "Wie viel Zeit braucht Trading eigentlich neben einem 40-Stunden-Job? Gerade mal 30 Minuten am Tag, und ich zeige es dir in diesem Kalender."
+ },
+ "ad5-body": {
+  "ranges": [
+   [
+    895.7,
+    901.92
+   ],
+   [
+    902.65,
+    910.78
+   ],
+   [
+    920.45,
+    928.35
+   ],
+   [
+    930.1,
+    937.45
+   ],
+   [
+    941.05,
+    947.3
+   ],
+   [
+    951.85,
+    956.8
+   ],
+   [
+    958.8,
+    967.32
+   ],
+   [
+    977.2,
+    979.1
+   ]
+  ],
+  "text": "Das hier ist eine ganz normale Woche mit einem 40-Stunden-Job. Montag bis Freitag wird von 8 bis 17 Uhr gearbeitet. Abends ist mal Sport oder Freunde. Das Wochenende bleibt frei, und jetzt schau mal hier: morgens 15 Minuten vor der Arbeit und abends 15 Minuten nach Feierabend. Mehr ist es nicht. Und das funktioniert, weil ich eben kein Daytrading mache, sondern wirklich ruhige Swing-Trades, die ich einfach laufen lasse, wo ich nicht 8 Stunden am Tag vor dem Bildschirm sitzen muss. Die meisten Trader denken, sie müssen so viel Zeit investieren, verbringen 8 Stunden am Tag irgendwie nebenbei neben der Arbeit am Bildschirm, und das ist genau der Fehler. Du tradest aus Langeweile, du hast keine richtige Strategie, keine Disziplin, und schon passieren die ersten Fehler. Und genau deswegen rate ich dir auch im Trading, wirklich auch weniger anfangs zu investieren, Zeit als auch Kapital. Und wenn du wissen möchtest, wie das Ganze funktioniert, dann sichere dir gerne mal einen kostenfreien Videokurs. Ich könnte dafür locker 500 Euro verlangen, aber du bekommst den komplett umsonst. Klick einfach unter dem Video auf den Link."
+ },
+ "ad6-hookA": {
+  "ranges": [
+   [
+    1016.25,
+    1024.08
+   ]
+  ],
+  "text": "Würdest du dich auf einen Stuhl mit nur einem Bein setzen? Weil genau so sieht das Einkommen der meisten Angestellten aus, und mit Trading kannst du dir ein zweites Standbein aufbauen."
+ },
+ "ad6-hookB": {
+  "ranges": [
+   [
+    1075.75,
+    1083.55
+   ]
+  ],
+  "text": "Die meisten Angestellten sitzen auf so einem Stuhl, ohne es zu merken. Ihr ganzes Einkommen steht auf einem einzigen Bein, und mit Trading kannst du dir ein zweites Standbein aufbauen."
+ },
+ "ad6-body": {
+  "ranges": [
+   [
+    1130.68,
+    1139.95
+   ],
+   [
+    1159.15,
+    1165.85
+   ],
+   [
+    1171.25,
+    1179.05
+   ],
+   [
+    1183.38,
+    1194.25
+   ],
+   [
+    1194.65,
+    1198.45
+   ],
+   [
+    1216.65,
+    1218.25
+   ]
+  ],
+  "text": "Das erste Bein ist dein Gehalt. Das hängt an deinem einzigen Arbeitgeber und deiner eigenen Arbeitszeit, und solange keiner dran sägt, steht der Stuhl. Aber wenn doch, dann kippt alles auf einmal. Und ein zweites Standbein heißt nicht, dass du morgen kündigst, aber es heißt, dass nicht mehr alles von einem Arbeitgeber abhängig ist. Nach über 9 Jahren Trading-Erfahrung kann ich dir sagen, als eine Person, die selber angestellt war: Es ist das Sinnvollste für die meisten Angestellten, sich ein zweites Standbein aufzubauen. Und Trading ist die perfekte Lösung, weil du auch realistisch neben deinem Job mit 30 bis 60 Minuten am Tag ein zweites Standbein mit Trading aufbauen kannst, zeiteffizient, anfängerfreundlich, ohne Vorerfahrung und ohne Fachchinesisch. Und wie das Ganze funktioniert, das zeige ich dir in meinem kostenlosen Videokurs. Klick gerne auf den Button unter dem Video."
+ }
+}

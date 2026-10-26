@@ -1,0 +1,27 @@
+{
+ "duration": 49.785,
+ "voice": "assets/media/ad4-body.voice.wav",
+ "voiceWav": "assets/media/ad4-body.voice.wav",
+ "cam": "assets/media/ad4-body.cam.mp4",
+ "cuts": [
+  4.857,
+  7.314,
+  16.257,
+  22.295,
+  35.505,
+  37.438,
+  41.324,
+  43.886,
+  47.562
+ ],
+ "tempo": 1.05,
+ "crop": {
+  "x": 452,
+  "y": 42,
+  "size": 236,
+  "faces": -1
+ },
+ "loudness_in": -34.2,
+ "loudness_out": -14.3,
+ "true_peak": -4.6
+}

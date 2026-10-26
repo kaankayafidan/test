@@ -1,0 +1,917 @@
+[
+{
+"text": "Das",
+"start": 0.0,
+"end": 0.2
+},
+{
+"text": "hier",
+"start": 0.2,
+"end": 0.3
+},
+{
+"text": "ist",
+"start": 0.3,
+"end": 0.4
+},
+{
+"text": "eine",
+"start": 0.4,
+"end": 0.5
+},
+{
+"text": "ganz",
+"start": 0.5,
+"end": 0.68
+},
+{
+"text": "normale",
+"start": 0.68,
+"end": 0.84
+},
+{
+"text": "Woche",
+"start": 0.84,
+"end": 1.08
+},
+{
+"text": "mit",
+"start": 1.08,
+"end": 1.24
+},
+{
+"text": "einem",
+"start": 1.24,
+"end": 1.34
+},
+{
+"text": "40-Stunden-Job.",
+"start": 1.6,
+"end": 1.98
+},
+{
+"text": "Montag",
+"start": 2.32,
+"end": 2.56
+},
+{
+"text": "bis",
+"start": 2.56,
+"end": 2.72
+},
+{
+"text": "Freitag",
+"start": 2.72,
+"end": 3.06
+},
+{
+"text": "wird",
+"start": 3.06,
+"end": 3.2
+},
+{
+"text": "von",
+"start": 3.2,
+"end": 3.34
+},
+{
+"text": "8",
+"start": 3.34,
+"end": 3.5
+},
+{
+"text": "bis",
+"start": 3.5,
+"end": 3.6
+},
+{
+"text": "17",
+"start": 3.6,
+"end": 3.84
+},
+{
+"text": "Uhr",
+"start": 3.84,
+"end": 3.96
+},
+{
+"text": "gearbeitet.",
+"start": 3.96,
+"end": 4.36
+},
+{
+"text": "Abends",
+"start": 4.54,
+"end": 4.78
+},
+{
+"text": "ist",
+"start": 4.78,
+"end": 4.9
+},
+{
+"text": "mal",
+"start": 4.9,
+"end": 5.02
+},
+{
+"text": "Sport",
+"start": 5.02,
+"end": 5.34
+},
+{
+"text": "oder",
+"start": 5.34,
+"end": 5.52
+},
+{
+"text": "Freunde.",
+"start": 5.52,
+"end": 5.88
+},
+{
+"text": "Das",
+"start": 6.52,
+"end": 6.62
+},
+{
+"text": "Wochenende",
+"start": 6.62,
+"end": 6.96
+},
+{
+"text": "bleibt",
+"start": 6.96,
+"end": 7.14
+},
+{
+"text": "frei,",
+"start": 7.14,
+"end": 7.42
+},
+{
+"text": "und",
+"start": 7.6,
+"end": 7.78
+},
+{
+"text": "jetzt",
+"start": 7.78,
+"end": 7.94
+},
+{
+"text": "schau",
+"start": 7.94,
+"end": 8.16
+},
+{
+"text": "mal",
+"start": 8.16,
+"end": 8.3
+},
+{
+"text": "hier:",
+"start": 8.3,
+"end": 8.56
+},
+{
+"text": "morgens",
+"start": 8.94,
+"end": 9.3
+},
+{
+"text": "15",
+"start": 9.3,
+"end": 9.62
+},
+{
+"text": "Minuten",
+"start": 9.62,
+"end": 9.92
+},
+{
+"text": "vor",
+"start": 9.92,
+"end": 10.18
+},
+{
+"text": "der",
+"start": 10.18,
+"end": 10.32
+},
+{
+"text": "Arbeit",
+"start": 10.32,
+"end": 10.64
+},
+{
+"text": "und",
+"start": 10.64,
+"end": 10.92
+},
+{
+"text": "abends",
+"start": 10.92,
+"end": 11.3
+},
+{
+"text": "15",
+"start": 11.3,
+"end": 11.6
+},
+{
+"text": "Minuten",
+"start": 11.6,
+"end": 11.94
+},
+{
+"text": "nach",
+"start": 11.94,
+"end": 12.24
+},
+{
+"text": "Feierabend.",
+"start": 12.24,
+"end": 12.86
+},
+{
+"text": "Mehr",
+"start": 12.98,
+"end": 13.34
+},
+{
+"text": "ist",
+"start": 13.34,
+"end": 13.54
+},
+{
+"text": "es",
+"start": 13.54,
+"end": 13.64
+},
+{
+"text": "nicht.",
+"start": 13.64,
+"end": 13.76
+},
+{
+"text": "Und",
+"start": 13.84,
+"end": 13.89
+},
+{
+"text": "das",
+"start": 13.88,
+"end": 14.02
+},
+{
+"text": "funktioniert,",
+"start": 14.02,
+"end": 14.46
+},
+{
+"text": "weil",
+"start": 14.6,
+"end": 14.7
+},
+{
+"text": "ich",
+"start": 14.7,
+"end": 14.84
+},
+{
+"text": "eben",
+"start": 14.84,
+"end": 14.98
+},
+{
+"text": "kein",
+"start": 14.98,
+"end": 15.22
+},
+{
+"text": "Daytrading",
+"start": 15.22,
+"end": 15.74
+},
+{
+"text": "mache,",
+"start": 15.74,
+"end": 15.96
+},
+{
+"text": "sondern",
+"start": 16.02,
+"end": 16.16
+},
+{
+"text": "wirklich",
+"start": 16.16,
+"end": 16.44
+},
+{
+"text": "ruhige",
+"start": 16.44,
+"end": 16.94
+},
+{
+"text": "Swing-Trades,",
+"start": 17.3,
+"end": 17.64
+},
+{
+"text": "die",
+"start": 17.74,
+"end": 17.9
+},
+{
+"text": "ich",
+"start": 17.9,
+"end": 17.98
+},
+{
+"text": "einfach",
+"start": 17.98,
+"end": 18.18
+},
+{
+"text": "laufen",
+"start": 18.18,
+"end": 18.54
+},
+{
+"text": "lasse,",
+"start": 18.54,
+"end": 18.82
+},
+{
+"text": "wo",
+"start": 18.88,
+"end": 19.0
+},
+{
+"text": "ich",
+"start": 19.0,
+"end": 19.12
+},
+{
+"text": "nicht",
+"start": 19.12,
+"end": 19.34
+},
+{
+"text": "8",
+"start": 19.34,
+"end": 19.58
+},
+{
+"text": "Stunden",
+"start": 19.58,
+"end": 19.82
+},
+{
+"text": "am",
+"start": 19.82,
+"end": 20.0
+},
+{
+"text": "Tag",
+"start": 20.0,
+"end": 20.24
+},
+{
+"text": "vor",
+"start": 20.24,
+"end": 20.56
+},
+{
+"text": "dem",
+"start": 20.56,
+"end": 20.68
+},
+{
+"text": "Bildschirm",
+"start": 20.68,
+"end": 21.04
+},
+{
+"text": "sitzen",
+"start": 21.04,
+"end": 21.28
+},
+{
+"text": "muss.",
+"start": 21.28,
+"end": 21.42
+},
+{
+"text": "Die",
+"start": 21.42,
+"end": 21.58
+},
+{
+"text": "meisten",
+"start": 21.58,
+"end": 21.86
+},
+{
+"text": "Trader",
+"start": 21.86,
+"end": 22.24
+},
+{
+"text": "denken,",
+"start": 22.24,
+"end": 22.5
+},
+{
+"text": "sie",
+"start": 22.62,
+"end": 22.67
+},
+{
+"text": "müssen",
+"start": 22.66,
+"end": 22.86
+},
+{
+"text": "so",
+"start": 22.86,
+"end": 23.04
+},
+{
+"text": "viel",
+"start": 23.04,
+"end": 23.24
+},
+{
+"text": "Zeit",
+"start": 23.24,
+"end": 23.48
+},
+{
+"text": "investieren,",
+"start": 23.48,
+"end": 24.0
+},
+{
+"text": "verbringen",
+"start": 24.24,
+"end": 24.5
+},
+{
+"text": "8",
+"start": 24.5,
+"end": 24.8
+},
+{
+"text": "Stunden",
+"start": 24.8,
+"end": 24.96
+},
+{
+"text": "am",
+"start": 24.96,
+"end": 25.14
+},
+{
+"text": "Tag",
+"start": 25.14,
+"end": 25.32
+},
+{
+"text": "irgendwie",
+"start": 25.36,
+"end": 25.48
+},
+{
+"text": "nebenbei",
+"start": 25.58,
+"end": 26.02
+},
+{
+"text": "neben",
+"start": 26.08,
+"end": 26.2
+},
+{
+"text": "der",
+"start": 26.2,
+"end": 26.36
+},
+{
+"text": "Arbeit",
+"start": 26.36,
+"end": 26.6
+},
+{
+"text": "am",
+"start": 26.68,
+"end": 26.73
+},
+{
+"text": "Bildschirm,",
+"start": 26.72,
+"end": 27.2
+},
+{
+"text": "und",
+"start": 27.44,
+"end": 27.52
+},
+{
+"text": "das",
+"start": 27.52,
+"end": 27.66
+},
+{
+"text": "ist",
+"start": 27.66,
+"end": 27.76
+},
+{
+"text": "genau",
+"start": 27.76,
+"end": 27.88
+},
+{
+"text": "der",
+"start": 27.88,
+"end": 28.02
+},
+{
+"text": "Fehler.",
+"start": 28.02,
+"end": 28.24
+},
+{
+"text": "Du",
+"start": 28.88,
+"end": 29.16
+},
+{
+"text": "tradest",
+"start": 29.16,
+"end": 29.5
+},
+{
+"text": "aus",
+"start": 29.5,
+"end": 29.7
+},
+{
+"text": "Langeweile,",
+"start": 29.7,
+"end": 30.22
+},
+{
+"text": "du",
+"start": 30.34,
+"end": 30.39
+},
+{
+"text": "hast",
+"start": 30.38,
+"end": 30.5
+},
+{
+"text": "keine",
+"start": 30.5,
+"end": 30.76
+},
+{
+"text": "richtige",
+"start": 30.76,
+"end": 31.12
+},
+{
+"text": "Strategie,",
+"start": 31.12,
+"end": 31.7
+},
+{
+"text": "keine",
+"start": 31.92,
+"end": 32.12
+},
+{
+"text": "Disziplin,",
+"start": 32.12,
+"end": 32.7
+},
+{
+"text": "und",
+"start": 32.7,
+"end": 33.02
+},
+{
+"text": "schon",
+"start": 33.02,
+"end": 33.2
+},
+{
+"text": "passieren",
+"start": 33.2,
+"end": 33.52
+},
+{
+"text": "die",
+"start": 33.52,
+"end": 33.64
+},
+{
+"text": "ersten",
+"start": 33.64,
+"end": 33.86
+},
+{
+"text": "Fehler.",
+"start": 33.86,
+"end": 34.14
+},
+{
+"text": "Und",
+"start": 34.34,
+"end": 34.42
+},
+{
+"text": "genau",
+"start": 34.42,
+"end": 34.56
+},
+{
+"text": "deswegen",
+"start": 34.56,
+"end": 34.8
+},
+{
+"text": "rate",
+"start": 34.8,
+"end": 35.04
+},
+{
+"text": "ich",
+"start": 35.04,
+"end": 35.14
+},
+{
+"text": "dir",
+"start": 35.14,
+"end": 35.24
+},
+{
+"text": "auch",
+"start": 35.24,
+"end": 35.38
+},
+{
+"text": "im",
+"start": 35.38,
+"end": 35.48
+},
+{
+"text": "Trading,",
+"start": 35.48,
+"end": 35.74
+},
+{
+"text": "wirklich",
+"start": 35.98,
+"end": 36.06
+},
+{
+"text": "auch",
+"start": 36.06,
+"end": 36.26
+},
+{
+"text": "weniger",
+"start": 36.26,
+"end": 36.64
+},
+{
+"text": "anfangs",
+"start": 36.64,
+"end": 37.16
+},
+{
+"text": "zu",
+"start": 37.16,
+"end": 37.28
+},
+{
+"text": "investieren,",
+"start": 37.28,
+"end": 37.8
+},
+{
+"text": "Zeit",
+"start": 37.94,
+"end": 38.22
+},
+{
+"text": "als",
+"start": 38.22,
+"end": 38.4
+},
+{
+"text": "auch",
+"start": 38.4,
+"end": 38.52
+},
+{
+"text": "Kapital.",
+"start": 38.52,
+"end": 38.98
+},
+{
+"text": "Und",
+"start": 39.62,
+"end": 39.74
+},
+{
+"text": "wenn",
+"start": 39.74,
+"end": 39.84
+},
+{
+"text": "du",
+"start": 39.84,
+"end": 39.92
+},
+{
+"text": "wissen",
+"start": 39.92,
+"end": 40.12
+},
+{
+"text": "möchtest,",
+"start": 40.12,
+"end": 40.38
+},
+{
+"text": "wie",
+"start": 40.38,
+"end": 40.48
+},
+{
+"text": "das",
+"start": 40.48,
+"end": 40.6
+},
+{
+"text": "Ganze",
+"start": 40.6,
+"end": 40.76
+},
+{
+"text": "funktioniert,",
+"start": 40.76,
+"end": 41.32
+},
+{
+"text": "dann",
+"start": 41.6,
+"end": 41.7
+},
+{
+"text": "sichere",
+"start": 41.7,
+"end": 41.94
+},
+{
+"text": "dir",
+"start": 41.94,
+"end": 42.02
+},
+{
+"text": "gerne",
+"start": 42.02,
+"end": 42.2
+},
+{
+"text": "mal",
+"start": 42.2,
+"end": 42.32
+},
+{
+"text": "einen",
+"start": 42.32,
+"end": 42.4
+},
+{
+"text": "kostenfreien",
+"start": 42.4,
+"end": 42.92
+},
+{
+"text": "Videokurs.",
+"start": 42.92,
+"end": 43.48
+},
+{
+"text": "Ich",
+"start": 43.64,
+"end": 43.84
+},
+{
+"text": "könnte",
+"start": 43.84,
+"end": 44.02
+},
+{
+"text": "dafür",
+"start": 44.02,
+"end": 44.18
+},
+{
+"text": "locker",
+"start": 44.18,
+"end": 44.46
+},
+{
+"text": "500",
+"start": 44.46,
+"end": 44.86
+},
+{
+"text": "Euro",
+"start": 44.86,
+"end": 45.08
+},
+{
+"text": "verlangen,",
+"start": 45.08,
+"end": 45.5
+},
+{
+"text": "aber",
+"start": 45.62,
+"end": 45.98
+},
+{
+"text": "du",
+"start": 45.98,
+"end": 46.1
+},
+{
+"text": "bekommst",
+"start": 46.1,
+"end": 46.38
+},
+{
+"text": "den",
+"start": 46.38,
+"end": 46.46
+},
+{
+"text": "komplett",
+"start": 46.46,
+"end": 46.68
+},
+{
+"text": "umsonst.",
+"start": 46.68,
+"end": 47.1
+},
+{
+"text": "Klick",
+"start": 47.18,
+"end": 47.34
+},
+{
+"text": "einfach",
+"start": 47.34,
+"end": 47.52
+},
+{
+"text": "unter",
+"start": 47.52,
+"end": 47.82
+},
+{
+"text": "dem",
+"start": 47.82,
+"end": 47.98
+},
+{
+"text": "Video",
+"start": 47.98,
+"end": 48.16
+},
+{
+"text": "auf",
+"start": 48.16,
+"end": 48.34
+},
+{
+"text": "den",
+"start": 48.34,
+"end": 48.44
+},
+{
+"text": "Link.",
+"start": 48.44,
+"end": 48.68
+}
+]

@@ -1,0 +1,857 @@
+[
+{
+"text": "Denn",
+"start": 0.0,
+"end": 0.3
+},
+{
+"text": "ein",
+"start": 0.3,
+"end": 0.4
+},
+{
+"text": "Roulette-Kessel",
+"start": 0.4,
+"end": 0.68
+},
+{
+"text": "hat",
+"start": 0.96,
+"end": 1.12
+},
+{
+"text": "genau",
+"start": 1.12,
+"end": 1.3
+},
+{
+"text": "37",
+"start": 1.3,
+"end": 1.76
+},
+{
+"text": "Felder,",
+"start": 1.76,
+"end": 2.16
+},
+{
+"text": "aber",
+"start": 2.24,
+"end": 2.32
+},
+{
+"text": "ausgezahlt",
+"start": 2.32,
+"end": 2.9
+},
+{
+"text": "wird",
+"start": 2.9,
+"end": 3.04
+},
+{
+"text": "so,",
+"start": 3.04,
+"end": 3.24
+},
+{
+"text": "als",
+"start": 3.32,
+"end": 3.46
+},
+{
+"text": "wären",
+"start": 3.46,
+"end": 3.66
+},
+{
+"text": "es",
+"start": 3.66,
+"end": 3.76
+},
+{
+"text": "nur",
+"start": 3.76,
+"end": 3.88
+},
+{
+"text": "36.",
+"start": 3.88,
+"end": 4.28
+},
+{
+"text": "Und",
+"start": 4.6,
+"end": 4.68
+},
+{
+"text": "dieses",
+"start": 4.68,
+"end": 4.88
+},
+{
+"text": "eine",
+"start": 4.88,
+"end": 5.2
+},
+{
+"text": "grüne",
+"start": 5.2,
+"end": 5.48
+},
+{
+"text": "Feld,",
+"start": 5.48,
+"end": 5.74
+},
+{
+"text": "die",
+"start": 5.92,
+"end": 6.1
+},
+{
+"text": "Null,",
+"start": 6.1,
+"end": 6.34
+},
+{
+"text": "ist",
+"start": 6.42,
+"end": 6.64
+},
+{
+"text": "der",
+"start": 6.64,
+"end": 6.76
+},
+{
+"text": "komplette",
+"start": 6.76,
+"end": 7.22
+},
+{
+"text": "Vorteil.",
+"start": 7.22,
+"end": 7.7
+},
+{
+"text": "Rechnerisch",
+"start": 7.92,
+"end": 8.36
+},
+{
+"text": "sind",
+"start": 8.36,
+"end": 8.5
+},
+{
+"text": "das",
+"start": 8.5,
+"end": 8.6
+},
+{
+"text": "2,7",
+"start": 8.6,
+"end": 8.84
+},
+{
+"text": "Prozent.",
+"start": 9.3,
+"end": 9.54
+},
+{
+"text": "Das",
+"start": 9.76,
+"end": 9.92
+},
+{
+"text": "Casino",
+"start": 9.92,
+"end": 10.28
+},
+{
+"text": "verliert",
+"start": 10.28,
+"end": 10.58
+},
+{
+"text": "also",
+"start": 10.58,
+"end": 10.74
+},
+{
+"text": "jeden",
+"start": 10.74,
+"end": 11.04
+},
+{
+"text": "Abend",
+"start": 11.04,
+"end": 11.28
+},
+{
+"text": "unzählige",
+"start": 11.28,
+"end": 11.86
+},
+{
+"text": "Spiele,",
+"start": 11.86,
+"end": 12.14
+},
+{
+"text": "aber",
+"start": 12.28,
+"end": 12.42
+},
+{
+"text": "über",
+"start": 12.42,
+"end": 12.66
+},
+{
+"text": "Tausende",
+"start": 12.66,
+"end": 13.06
+},
+{
+"text": "Spiele",
+"start": 13.06,
+"end": 13.38
+},
+{
+"text": "hinweg",
+"start": 13.38,
+"end": 13.74
+},
+{
+"text": "gewinnt",
+"start": 13.74,
+"end": 14.14
+},
+{
+"text": "die",
+"start": 14.14,
+"end": 14.22
+},
+{
+"text": "Mathematik.",
+"start": 14.22,
+"end": 14.78
+},
+{
+"text": "Und",
+"start": 14.94,
+"end": 15.1
+},
+{
+"text": "genau",
+"start": 15.1,
+"end": 15.3
+},
+{
+"text": "so",
+"start": 15.3,
+"end": 15.58
+},
+{
+"text": "trade",
+"start": 15.58,
+"end": 15.9
+},
+{
+"text": "ich",
+"start": 15.9,
+"end": 16.06
+},
+{
+"text": "seit",
+"start": 16.06,
+"end": 16.18
+},
+{
+"text": "über",
+"start": 16.18,
+"end": 16.36
+},
+{
+"text": "9",
+"start": 16.36,
+"end": 16.6
+},
+{
+"text": "Jahren.",
+"start": 16.6,
+"end": 16.88
+},
+{
+"text": "Ich",
+"start": 17.08,
+"end": 17.24
+},
+{
+"text": "nehme",
+"start": 17.24,
+"end": 17.38
+},
+{
+"text": "nur",
+"start": 17.5,
+"end": 17.68
+},
+{
+"text": "Trades,",
+"start": 17.68,
+"end": 18.12
+},
+{
+"text": "bei",
+"start": 18.24,
+"end": 18.46
+},
+{
+"text": "denen",
+"start": 18.46,
+"end": 18.58
+},
+{
+"text": "mein",
+"start": 18.58,
+"end": 18.78
+},
+{
+"text": "Ziel",
+"start": 18.78,
+"end": 19.04
+},
+{
+"text": "deutlich",
+"start": 19.04,
+"end": 19.38
+},
+{
+"text": "weiter",
+"start": 19.38,
+"end": 19.7
+},
+{
+"text": "weg",
+"start": 19.7,
+"end": 19.98
+},
+{
+"text": "ist",
+"start": 19.98,
+"end": 20.22
+},
+{
+"text": "als",
+"start": 20.32,
+"end": 20.56
+},
+{
+"text": "mein",
+"start": 20.56,
+"end": 20.76
+},
+{
+"text": "Stop-Loss,",
+"start": 20.76,
+"end": 21.0
+},
+{
+"text": "und",
+"start": 21.28,
+"end": 21.42
+},
+{
+"text": "riskiere",
+"start": 21.42,
+"end": 21.9
+},
+{
+"text": "pro",
+"start": 21.9,
+"end": 22.14
+},
+{
+"text": "Trade",
+"start": 22.14,
+"end": 22.4
+},
+{
+"text": "nur",
+"start": 22.4,
+"end": 22.6
+},
+{
+"text": "einen",
+"start": 22.6,
+"end": 22.78
+},
+{
+"text": "kleinen",
+"start": 22.78,
+"end": 23.14
+},
+{
+"text": "Teil.",
+"start": 23.14,
+"end": 23.44
+},
+{
+"text": "Ich",
+"start": 23.44,
+"end": 23.66
+},
+{
+"text": "verliere",
+"start": 23.66,
+"end": 23.84
+},
+{
+"text": "auch",
+"start": 23.84,
+"end": 24.02
+},
+{
+"text": "Trades,",
+"start": 24.02,
+"end": 24.36
+},
+{
+"text": "genau",
+"start": 24.48,
+"end": 24.58
+},
+{
+"text": "wie",
+"start": 24.58,
+"end": 24.72
+},
+{
+"text": "das",
+"start": 24.72,
+"end": 24.86
+},
+{
+"text": "Casino",
+"start": 24.86,
+"end": 25.22
+},
+{
+"text": "auch",
+"start": 25.22,
+"end": 25.36
+},
+{
+"text": "Spiele",
+"start": 25.36,
+"end": 25.62
+},
+{
+"text": "verliert,",
+"start": 25.62,
+"end": 26.08
+},
+{
+"text": "aber",
+"start": 26.14,
+"end": 26.42
+},
+{
+"text": "ich",
+"start": 26.42,
+"end": 26.54
+},
+{
+"text": "verhalte",
+"start": 26.54,
+"end": 26.94
+},
+{
+"text": "mich",
+"start": 26.94,
+"end": 27.16
+},
+{
+"text": "wie",
+"start": 27.16,
+"end": 27.34
+},
+{
+"text": "das",
+"start": 27.34,
+"end": 27.5
+},
+{
+"text": "Casino",
+"start": 27.5,
+"end": 27.92
+},
+{
+"text": "und",
+"start": 27.92,
+"end": 28.08
+},
+{
+"text": "nicht",
+"start": 28.08,
+"end": 28.26
+},
+{
+"text": "wie",
+"start": 28.26,
+"end": 28.4
+},
+{
+"text": "ein",
+"start": 28.4,
+"end": 28.56
+},
+{
+"text": "Zocker,",
+"start": 28.56,
+"end": 28.94
+},
+{
+"text": "der",
+"start": 29.0,
+"end": 29.24
+},
+{
+"text": "auf",
+"start": 29.24,
+"end": 29.4
+},
+{
+"text": "einen",
+"start": 29.4,
+"end": 29.5
+},
+{
+"text": "großen",
+"start": 29.5,
+"end": 30.06
+},
+{
+"text": "Treffer",
+"start": 30.06,
+"end": 30.11
+},
+{
+"text": "hofft.",
+"start": 30.11,
+"end": 30.16
+},
+{
+"text": "Und",
+"start": 30.13,
+"end": 30.2
+},
+{
+"text": "genau",
+"start": 30.2,
+"end": 30.36
+},
+{
+"text": "dafür",
+"start": 30.36,
+"end": 30.72
+},
+{
+"text": "brauchst",
+"start": 30.72,
+"end": 31.04
+},
+{
+"text": "du",
+"start": 31.04,
+"end": 31.1
+},
+{
+"text": "auch",
+"start": 31.1,
+"end": 31.2
+},
+{
+"text": "kein",
+"start": 31.2,
+"end": 31.34
+},
+{
+"text": "Mathematikstudium",
+"start": 31.34,
+"end": 32.18
+},
+{
+"text": "und",
+"start": 32.18,
+"end": 32.32
+},
+{
+"text": "auch",
+"start": 32.32,
+"end": 32.46
+},
+{
+"text": "keine",
+"start": 32.46,
+"end": 32.66
+},
+{
+"text": "8",
+"start": 32.66,
+"end": 32.86
+},
+{
+"text": "Stunden",
+"start": 32.86,
+"end": 33.1
+},
+{
+"text": "Zeit",
+"start": 33.1,
+"end": 33.36
+},
+{
+"text": "am",
+"start": 33.36,
+"end": 33.54
+},
+{
+"text": "Tag,",
+"start": 33.54,
+"end": 33.7
+},
+{
+"text": "sondern",
+"start": 33.8,
+"end": 33.9
+},
+{
+"text": "nur",
+"start": 33.9,
+"end": 34.02
+},
+{
+"text": "ein",
+"start": 34.02,
+"end": 34.18
+},
+{
+"text": "paar",
+"start": 34.18,
+"end": 34.34
+},
+{
+"text": "kleine,",
+"start": 34.34,
+"end": 34.86
+},
+{
+"text": "klare",
+"start": 34.86,
+"end": 35.32
+},
+{
+"text": "Regeln.",
+"start": 35.32,
+"end": 35.66
+},
+{
+"text": "Und",
+"start": 35.78,
+"end": 35.88
+},
+{
+"text": "welche",
+"start": 35.88,
+"end": 36.1
+},
+{
+"text": "Regeln",
+"start": 36.1,
+"end": 36.4
+},
+{
+"text": "wirklich",
+"start": 36.4,
+"end": 36.68
+},
+{
+"text": "wichtig",
+"start": 36.68,
+"end": 36.98
+},
+{
+"text": "sind",
+"start": 36.98,
+"end": 37.18
+},
+{
+"text": "im",
+"start": 37.18,
+"end": 37.32
+},
+{
+"text": "Trading,",
+"start": 37.32,
+"end": 37.56
+},
+{
+"text": "das",
+"start": 37.62,
+"end": 37.78
+},
+{
+"text": "zeige",
+"start": 37.78,
+"end": 38.0
+},
+{
+"text": "ich",
+"start": 38.0,
+"end": 38.08
+},
+{
+"text": "dir",
+"start": 38.08,
+"end": 38.26
+},
+{
+"text": "in",
+"start": 38.26,
+"end": 38.38
+},
+{
+"text": "meinem",
+"start": 38.38,
+"end": 38.52
+},
+{
+"text": "kostenfreien",
+"start": 38.52,
+"end": 39.16
+},
+{
+"text": "Trading-Videokurs.",
+"start": 39.36,
+"end": 39.86
+},
+{
+"text": "Und",
+"start": 40.02,
+"end": 40.32
+},
+{
+"text": "ich",
+"start": 40.32,
+"end": 40.42
+},
+{
+"text": "sage",
+"start": 40.42,
+"end": 40.52
+},
+{
+"text": "dir",
+"start": 40.52,
+"end": 40.6
+},
+{
+"text": "ganz",
+"start": 40.6,
+"end": 40.72
+},
+{
+"text": "ehrlich,",
+"start": 40.72,
+"end": 40.94
+},
+{
+"text": "für",
+"start": 41.06,
+"end": 41.12
+},
+{
+"text": "diesen",
+"start": 41.12,
+"end": 41.26
+},
+{
+"text": "Kurs",
+"start": 41.26,
+"end": 41.54
+},
+{
+"text": "könnte",
+"start": 41.54,
+"end": 41.74
+},
+{
+"text": "ich",
+"start": 41.74,
+"end": 41.86
+},
+{
+"text": "locker",
+"start": 41.86,
+"end": 42.04
+},
+{
+"text": "500",
+"start": 42.04,
+"end": 42.44
+},
+{
+"text": "Euro",
+"start": 42.44,
+"end": 42.72
+},
+{
+"text": "nehmen.",
+"start": 42.72,
+"end": 42.98
+},
+{
+"text": "Deswegen",
+"start": 43.34,
+"end": 43.7
+},
+{
+"text": "klick",
+"start": 43.7,
+"end": 43.9
+},
+{
+"text": "unter",
+"start": 43.9,
+"end": 44.1
+},
+{
+"text": "dem",
+"start": 44.1,
+"end": 44.2
+},
+{
+"text": "Video",
+"start": 44.2,
+"end": 44.42
+},
+{
+"text": "auf",
+"start": 44.42,
+"end": 44.64
+},
+{
+"text": "„Mehr",
+"start": 44.64,
+"end": 44.86
+},
+{
+"text": "dazu“.",
+"start": 44.86,
+"end": 45.18
+}
+]
