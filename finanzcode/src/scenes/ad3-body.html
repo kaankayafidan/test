@@ -85,7 +85,7 @@
       <div id="a3b-x"><svg viewBox="0 0 520 520"><path d="M40 40 L480 480 M480 40 L40 480" fill="none" stroke="#DC2626" stroke-width="64" stroke-linecap="round" /></svg></div>
 
       <!-- Kurs-Hinweis mitten im Body: kleines Kurs-Mockup mit 3 Haken = was gesagt wird -->
-      <!--@include course p="a3b-mid" items="Für Anfänger|2. Standbein|Kostenlos"-->
+      <!--@include course p="a3b-mid" items="Für Anfänger|Trading lernen|Kostenlos"-->
       <!--@include more p="a3b-more"-->
       <!-- Ende: Kurs-Mockup allein (mittig); "kostenlosen Videokurs" -> Badge "Kostenloser Videokurs" rot einkreisen -->
       <!--@include course p="a3b-course"-->
@@ -124,9 +124,9 @@
     // Kurs-Hinweis mitten im Body: kleines Kurs-Mockup, 3 Haken auf die gesagten Wörter, dann Banner, dann zurück zum Chart
     const tMid = Math.max(tBlink + 0.9, C.mid - 0.05);                     // "Und wenn du jetzt auch ein Trading-Anfänger bist": Schnitt auf Kurs-Mockup
     const k1 = Math.max(tMid + 0.45, C.anf - 0.05);                        // "Trading-Anfänger": Haken "Für Anfänger"
-    const k2 = Math.max(k1 + 0.4, C.standbein - 0.05);                     // "zweites Standbein": Haken "2. Standbein"
+    const k2 = Math.max(k1 + 0.4, C.lernen - 0.05);                        // "lernen möchtest, wie du im Trading": Haken "Trading lernen" (kein "2. Standbein": klingt nach Einkommensversprechen)
     const k3 = Math.max(k2 + 0.4, C.gratis - 0.05);                        // "kostenlosen Videokurs": Haken "Kostenlos"
-    const tBtn = Math.max(k3 + 0.5, C.button - 0.05);                      // "Klick unter dem Video auf den Button": Banner "Mehr dazu ↓", 3 s
+    const tBtn = Math.max(k3 + 0.5, C.button - 0.05);                      // "Klick unter dem Video auf den Button": Banner "Mehr dazu ↓" bis zum Schnitt zurück
     const tBack = Math.max(tBtn + 0.9, C.f3 - 0.05);                       // "Aber jetzt zu Frage Nummer 3": Schnitt zurück auf den Chart, langsamer Zoom
     // Frage 3
     const tL3 = Math.max(tBack + 0.3, C.f3L - 0.05);                       // "Frage Nummer 3: Lohnt sich der Trade überhaupt?": Label "3/3 Lohnt sich's?"
@@ -174,11 +174,12 @@
     FX.pop(tl, "#a3b-t2", tT2);
     FX.blink(tl, "#a3b-stop", tBlink, 0.8);
 
-    // Kurs-Hinweis: harter Schnitt auf das kleine Kurs-Mockup, 3 Haken auf "Anfänger" / "zweites Standbein" / "kostenlosen";
-    // "Klick unter dem Video auf den Button" -> Banner "Mehr dazu ↓" (3 s, pulsiert 1x); "Aber jetzt zu Frage Nummer 3" -> zurück.
+    // Kurs-Hinweis: harter Schnitt auf das kleine Kurs-Mockup, 3 Haken auf "Anfänger" / "im Trading" / "kostenlosen";
+    // "Klick unter dem Video auf den Button" -> Banner "Mehr dazu ↓" (pulsiert 1x, blendet bis zum Schnitt aus, damit Frage 3
+    // sauber ohne CTA auf dem Chart beginnt); "Aber jetzt zu Frage Nummer 3" -> zurück.
     FX.cut(tl, ["#a3b-chart", "#a3b-r2"], null, tMid);
     FX.course(tl, "a3b-mid", tMid, [k1, k2, k3]);
-    FX.more(tl, "a3b-more", tBtn, 3);
+    FX.more(tl, "a3b-more", tBtn, clamp(tBack - tBtn - 0.2, 1.0, 3));
     FX.pulse(tl, "#a3b-more", tBtn + 0.3, 0.8);
     FX.cut(tl, "#a3b-mid", "#a3b-chart", tBack);
 

@@ -1,0 +1,4 @@
+{
+ "_": "Hand-checked word times (s in the cut voice) where Whisper could not hear a word; applied by tools/cut/voice_words.py",
+ "ad6-body": {"zeiteffizient,": [29.66, 30.4], "anfängerfreundlich,": [30.42, 30.76]}
+}

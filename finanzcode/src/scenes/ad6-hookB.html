@@ -32,32 +32,51 @@
           <path d="M486 330 Q486 304 512 302 L568 302 Q594 304 594 330 L590 452 L490 452 Z" fill="#2563EB" />
           <path d="M528 302 L540 330 L552 302 Z" fill="#FFFFFF" />
           <rect x="522" y="282" width="36" height="26" rx="8" fill="#F2C29B" />
-          <!-- Oberarme an der Seite -->
-          <path d="M497 326 L480 384" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
-          <path d="M583 326 L600 384" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
-          <!-- Handy mit beiden Händen vor der Brust -->
-          <rect x="512" y="328" width="56" height="88" rx="10" fill="#0E1A2B" />
-          <rect x="519" y="337" width="42" height="66" rx="5" fill="#F3F4F6" />
-          <!-- Feed auf dem Display (scrollt auf "Ihr ganzes Einkommen ..." einmal nach oben) -->
           <clipPath id="a6hb-clip"><rect x="519" y="337" width="42" height="66" rx="5" /></clipPath>
-          <g clip-path="url(#a6hb-clip)">
-            <g id="a6hb-feed">
-              <path d="M526 348 L554 348 M526 360 L546 360 M526 376 L554 376 M526 388 L542 388 M526 404 L554 404 M526 416 L548 416" stroke="#9CA3AF" stroke-width="5" stroke-linecap="round" />
+          <g id="a6hb-phonePose">
+            <!-- Oberarme an der Seite -->
+            <path d="M497 326 L480 384" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+            <path d="M583 326 L600 384" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+            <!-- Handy mit beiden Händen vor der Brust -->
+            <rect x="512" y="328" width="56" height="88" rx="10" fill="#0E1A2B" />
+            <rect x="519" y="337" width="42" height="66" rx="5" fill="#F3F4F6" />
+            <!-- Feed auf dem Display (scrollt auf "Ihr ganzes Einkommen ..." einmal nach oben) -->
+            <g clip-path="url(#a6hb-clip)">
+              <g id="a6hb-feed">
+                <path d="M526 348 L554 348 M526 360 L546 360 M526 376 L554 376 M526 388 L542 388 M526 404 L554 404 M526 416 L548 416" stroke="#9CA3AF" stroke-width="5" stroke-linecap="round" />
+              </g>
             </g>
+            <!-- Unterarme (hochgekrempelt) + Hände halten das Handy -->
+            <path d="M480 384 L510 396" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+            <path d="M600 384 L570 396" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+            <circle cx="512" cy="394" r="15" fill="#F2C29B" />
+            <circle cx="568" cy="394" r="15" fill="#F2C29B" />
+            <!-- Daumen der rechten Hand (wischt einmal übers Display) -->
+            <ellipse id="a6hb-thumb" cx="556" cy="386" rx="6" ry="10" fill="#F2C29B" stroke="#E0A57C" stroke-width="2" />
           </g>
-          <!-- Unterarme (hochgekrempelt) + Hände halten das Handy -->
-          <path d="M480 384 L510 396" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
-          <path d="M600 384 L570 396" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
-          <circle cx="512" cy="394" r="15" fill="#F2C29B" />
-          <circle cx="568" cy="394" r="15" fill="#F2C29B" />
-          <!-- Daumen der rechten Hand (wischt einmal übers Display) -->
-          <ellipse id="a6hb-thumb" cx="556" cy="386" rx="6" ry="10" fill="#F2C29B" stroke="#E0A57C" stroke-width="2" />
+          <!-- Auf "zweites": Handy weg, Hände auf den Oberschenkeln, Blick nach vorn. Exakt die Pose und das
+               Gesicht, mit denen der Body beginnt, damit der Schnitt Hook -> Body nahtlos ist. -->
+          <g id="a6hb-armsRelax">
+            <path d="M497 326 L483 390" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+            <path d="M583 326 L597 390" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+            <path d="M483 390 L503 438" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+            <path d="M597 390 L577 438" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+            <circle cx="505" cy="443" r="15" fill="#F2C29B" />
+            <circle cx="575" cy="443" r="15" fill="#F2C29B" />
+          </g>
           <!-- Kopf: entspannt, schaut aufs Handy, lächelt -->
           <circle cx="540" cy="240" r="54" fill="#F2C29B" />
           <path d="M488 232 Q490 180 540 180 Q594 180 594 230 Q580 206 552 204 Q520 204 500 222 Z" fill="#5B3A1E" />
-          <circle cx="522" cy="251" r="7" fill="#111827" />
-          <circle cx="558" cy="251" r="7" fill="#111827" />
-          <path d="M524 270 Q540 284 556 270" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          <g id="a6hb-facePhone">
+            <circle cx="522" cy="251" r="7" fill="#111827" />
+            <circle cx="558" cy="251" r="7" fill="#111827" />
+            <path d="M524 270 Q540 284 556 270" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <g id="a6hb-faceRelax">
+            <circle cx="522" cy="248" r="7" fill="#111827" />
+            <circle cx="558" cy="248" r="7" fill="#111827" />
+            <path d="M522 268 Q540 284 558 268" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          </g>
           <!-- "... auf einem einzigen Bein": das freie Stück Hocker-Bein zwischen den Schuhen und dem Boden
                einkreisen (rot, 10 px, 0,5 s). Im Rig, damit der Kreis mit dem Bein mitwackelt. -->
           <path id="a6hb-circ" class="fx-stroke" pathLength="1" d="M0 0" />
@@ -76,6 +95,7 @@
     FX.init(tl, "#a6hb-rig", { svgOrigin: PIVOT, smoothOrigin: false });
     FX.init(tl, "#a6hb-leg2", { svgOrigin: "676 563", smoothOrigin: false, opacity: 0 });
     FX.init(tl, ["#a6hb-feed", "#a6hb-thumb"], { x: 0, y: 0 });
+    FX.init(tl, ["#a6hb-armsRelax", "#a6hb-faceRelax"], { opacity: 0 });
 
     // Frame 1: der Hocker wackelt ±6° um den Fußpunkt, die Figur merkt nichts.
     // Wackelt weiter bis kurz vor "zweites", dann steht er (das gestrichelte Bein kommt dazu).
@@ -91,10 +111,18 @@
     FX.tween(tl, "#a6hb-feed", { y: 0 }, { y: -28, duration: 0.35, ease: "power2.out" }, tSwipe);
 
     // "Ihr ganzes Einkommen steht auf einem einzigen Bein,": das Bein einkreisen.
-    FX.drawCircle(tl, "#a6hb-circ", Math.max(0.6, C.einzigen - 0.1));
+    const tCirc = Math.max(0.6, C.einzigen - 0.1);
+    FX.drawCircle(tl, "#a6hb-circ", tCirc);
 
     // "... und mit Trading kannst du dir ein zweites Standbein aufbauen.": gestricheltes zweites Bein.
-    FX.pop(tl, "#a6hb-leg2", Math.max(w.end + 0.3, C.zweites), { svgOrigin: "676 563" });
+    const tLeg2 = Math.max(w.end + 0.3, C.zweites);
+    FX.pop(tl, "#a6hb-leg2", tLeg2, { svgOrigin: "676 563" });
+    // Mit dem zweiten Bein legt die Figur das Handy weg (Hände auf die Oberschenkel, Blick nach vorn) und
+    // der rote Kreis blendet aus: das letzte Bild des Hooks ist genau das erste Bild des Bodys.
+    const tRelax = Math.min(tLeg2, DUR - 0.5);
+    FX.set(tl, ["#a6hb-phonePose", "#a6hb-facePhone"], { opacity: 0 }, tRelax);
+    FX.set(tl, ["#a6hb-armsRelax", "#a6hb-faceRelax"], { opacity: 1 }, tRelax);
+    FX.fadeOut(tl, "#a6hb-circ", Math.min(Math.max(tRelax, tCirc + 1.3), DUR - 0.5));
 
     window.__timelines["ad6-hookB"] = tl;
   </script>

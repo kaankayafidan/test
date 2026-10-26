@@ -41,12 +41,29 @@
           <path d="M486 330 Q486 304 512 302 L568 302 Q594 304 594 330 L590 452 L490 452 Z" fill="#2563EB" />
           <path d="M528 302 L540 330 L552 302 Z" fill="#FFFFFF" />
           <rect x="522" y="282" width="36" height="26" rx="8" fill="#F2C29B" />
+          <!-- Erleichtert (ab "zweites"): Arme entspannt, Hände auf den Oberschenkeln. Exakt die Pose und das
+               Gesicht, mit denen der Body beginnt, damit der Schnitt Hook -> Body nahtlos ist. -->
+          <g id="a6ha-armsRelax">
+            <path d="M497 326 L483 390" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+            <path d="M583 326 L597 390" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+            <path d="M483 390 L503 438" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+            <path d="M597 390 L577 438" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+            <circle cx="505" cy="443" r="15" fill="#F2C29B" />
+            <circle cx="575" cy="443" r="15" fill="#F2C29B" />
+          </g>
           <!-- Kopf -->
           <circle cx="540" cy="240" r="54" fill="#F2C29B" />
           <path d="M488 232 Q490 180 540 180 Q594 180 594 230 Q580 206 552 204 Q520 204 500 222 Z" fill="#5B3A1E" />
-          <circle cx="521" cy="246" r="7" fill="#111827" />
-          <circle cx="559" cy="246" r="7" fill="#111827" />
-          <path d="M507 232 L529 224 M573 232 L551 224" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          <g id="a6ha-faceNerv">
+            <circle cx="521" cy="246" r="7" fill="#111827" />
+            <circle cx="559" cy="246" r="7" fill="#111827" />
+            <path d="M507 232 L529 224 M573 232 L551 224" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          </g>
+          <g id="a6ha-faceRelax">
+            <circle cx="522" cy="248" r="7" fill="#111827" />
+            <circle cx="558" cy="248" r="7" fill="#111827" />
+            <path d="M522 268 Q540 284 558 268" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+          </g>
           <!-- Mund: offen (Panik), nach dem Anhalten ein nervöser Wellenmund -->
           <ellipse id="a6ha-mouthO" cx="540" cy="274" rx="11" ry="14" fill="#7F1D1D" />
           <path id="a6ha-mouthN" d="M524 276 Q532 268 540 276 Q548 284 556 276" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
@@ -68,7 +85,7 @@
     FX.init(tl, "#a6ha-armR", { svgOrigin: SH_R, smoothOrigin: false });
     FX.init(tl, "#a6ha-leg2", { svgOrigin: "676 563", smoothOrigin: false, opacity: 0 });
     FX.init(tl, "#a6ha-drop", { opacity: 1, x: 0, y: 0 });
-    FX.init(tl, "#a6ha-mouthN", { opacity: 0 });
+    FX.init(tl, ["#a6ha-mouthN", "#a6ha-armsRelax", "#a6ha-faceRelax"], { opacity: 0 });
 
     // Frame 1: der Hocker wackelt ±6° um den Fußpunkt. Die Schwünge werden so gestreckt, dass das
     // Anhalten (0,3 s) 0,15 s vor "Genau" beginnt und kurz nach dem Wort steht (~0,6 s pro Schwung).
@@ -102,6 +119,11 @@
     FX.pop(tl, "#a6ha-leg2", tLeg, { svgOrigin: "676 563" });
     const tPulse = Math.max(tLeg + 0.3, C.zweites - 0.05);
     if (tPulse + 0.8 <= DUR - 0.3) FX.pulse(tl, "#a6ha-leg2", tPulse, 0.8, { svgOrigin: "676 563" });
+    // Auf "zweites": die Figur ist erleichtert (Arme runter auf die Oberschenkel, Lächeln). Das ist genau
+    // das erste Bild des Bodys, so läuft der Schnitt Hook -> Body ohne Sprung in Pose oder Gesicht.
+    const tRelax = Math.min(tPulse, DUR - 0.5);
+    FX.set(tl, ["#a6ha-armL", "#a6ha-armR", "#a6ha-faceNerv", "#a6ha-mouthO", "#a6ha-mouthN"], { opacity: 0 }, tRelax);
+    FX.set(tl, ["#a6ha-armsRelax", "#a6ha-faceRelax"], { opacity: 1 }, tRelax);
 
     window.__timelines["ad6-hookA"] = tl;
   </script>

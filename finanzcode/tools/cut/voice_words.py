@@ -47,6 +47,8 @@ def main():
     only = args[args.index("--only") + 1].split(",") if "--only" in args else None
     from faster_whisper import WhisperModel
     model = WhisperModel(MODEL, device="cpu", compute_type="int8", cpu_threads=4)
+    fx_path = ROOT / "data/edit/word_fixes.json"
+    fixes = {k: v for k, v in json.loads(fx_path.read_text()).items() if not k.startswith("_")} if fx_path.exists() else {}
     for e in sorted((ROOT / "data/edl").glob("*.edl.json")):
         seg = e.name.replace(".edl.json", "")
         if only and seg not in only:
@@ -82,6 +84,10 @@ def main():
             for k in range(j - i):
                 out[i + k]["start"], out[i + k]["end"] = round(t0 + k * step, 3), round(t0 + (k + 1) * step, 3)
             i = j
+        for k, (a0, b0) in fixes.get(seg, {}).items():  # hand-checked times (data/edit/word_fixes.json)
+            for x in out:
+                if x["text"] == k:
+                    x["start"], x["end"] = a0, b0
         for k in range(1, len(out)):  # monotonic, no overlaps
             out[k]["start"] = max(out[k]["start"], out[k - 1]["start"] + 0.02)
             out[k]["end"] = max(out[k]["end"], out[k]["start"] + 0.05)
