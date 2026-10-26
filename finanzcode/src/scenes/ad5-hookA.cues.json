@@ -1,12 +1,12 @@
 {
   "cues": {
-    "siehst": "Siehst du in diesem Kalender noch Platz für Trading?",
+    "siehst": "Siehst du in diesem Kalender",
     "platz": { "phrase": "noch Platz für Trading?", "word": 1 },
-    "ich": "Ich schon",
+    "ich": "Ich schon,",
     "min30": { "phrase": "und es sind gerade mal 30 Minuten am Tag.", "word": 5 }
   },
   "sfx": [
-    { "t": "Math.min(0.75, Math.max(0.62, C.ich - 1.0))", "type": "stamp" },
-    { "at": "min30", "type": "pop" }
+    { "t": 0, "type": "stamp" },
+    { "at": "min30", "type": "pop", "offset": -0.05 }
   ]
 }

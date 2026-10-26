@@ -116,7 +116,7 @@
 
     // Cursor kreist ab Frame 1 über die 3 offenen Karten (1 Runde ≈ 1,6 s, wie in Anfang A), danach ruhig.
     path(0, LOOP, 1.6);
-    // "… die meistens nach ein paar Wochen aufgeben" -> der Cursor sinkt ruhig in die Lücke in der Mitte des Rasters.
+    // "… und die meisten geben nach ein paar Wochen auf" -> der Cursor sinkt ruhig in die Lücke in der Mitte des Rasters.
     const tAuf = Math.max(busy + 0.1, C.aufgeben);
     const tLoop = Math.max(tAuf + 0.9, C.erkennst);
     mv(tAuf, MID, Math.max(0.45, Math.min(1.1, tLoop - 0.45 - tAuf)), "sine.inOut");
@@ -126,6 +126,14 @@
     mv(tLoop - 0.35, LOOP2[0], 0.33);
     const dLoop = Math.max(1.0, Math.min(1.6, DUR - 0.6 - tLoop));
     path(tLoop, LOOP2, dLoop);
+    // "… und die meisten geben nach ein paar Wochen auf" -> die 3 offenen Karten werden blass (0,2 s);
+    // auf "… du erkennst dich in einem davon wieder." sind sie wieder voll da, der Cursor kreist über sie.
+    const tDim = Math.min(tLoop - 0.7, Math.max(tAuf + 0.5, C.auf - 0.1));
+    const tUndim = Math.max(tDim + 0.6, tLoop + 0.2);
+    ["#a4hb-c1", "#a4hb-c2", "#a4hb-c3"].forEach(function (el) {
+      FX.tween(tl, el, { opacity: 1 }, { opacity: 0.35, duration: 0.2, ease: "none" }, tDim);
+      FX.tween(tl, el, { opacity: 0.35 }, { opacity: 1, duration: 0.2, ease: "none" }, tUndim);
+    });
     // danach ruhig auf Karte 1 (Startpunkt des Body).
     const tBack = Math.max(busy + 0.05, DUR - 0.8);
     mv(tBack, R, Math.max(0.25, Math.min(0.6, DUR - 0.1 - tBack)));

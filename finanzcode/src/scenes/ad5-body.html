@@ -1,7 +1,8 @@
 <template>
   <!-- Ad 5 "Platz im Kalender", Body. Kalender-Markup = Endbild beider Anfänge (pixelgleicher Übergang).
        Kalender: Mo–Fr, 5 Spalten à 200 px, Blöcke grau = Arbeit, blau = Sport, gelb = Freunde, grün = Trading.
-       Jede Farbe wird genau einmal beschriftet (weißes Schild, Navy, 40 px), wenn das Skript sie nennt. -->
+       Jede Farbe wird genau einmal beschriftet (weißes Schild, Navy, 40 px), wenn Kilian sie nennt.
+       Die Bilder folgen dem gesprochenen Text (data/edl/edit.md), nicht dem Briefing-Skript. -->
   <style>
     #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
     #a5b-scene { position: absolute; inset: 0; }
@@ -19,32 +20,37 @@
     .a5b-ge { top: 326px; height: 40px; border-radius: 12px; background: #16A34A; }
     .a5b-sign { position: absolute; height: 64px; padding: 0 18px; border-radius: 14px; background: #FFFFFF; box-shadow: 0 6px 18px rgba(14, 26, 43, 0.3); font-family: 'Poppins'; font-weight: 700; font-size: 40px; line-height: 64px; color: #0E1A2B; white-space: nowrap; z-index: 5; }
     .a5b-nub { position: absolute; left: 26px; top: -13px; width: 0; height: 0; border-left: 13px solid transparent; border-right: 13px solid transparent; border-bottom: 14px solid #FFFFFF; }
-    /* ---------- Chart mit einem Trade über 3 Tage ---------- */
-    #a5b-chart { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; background: #FFFFFF; }
-    #a5b-chart svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+    /* ---------- gemeinsame Bausteine ---------- */
+    .a5b-pane { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; background: #FFFFFF; }
+    .a5b-pane > svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+    .a5b-word { position: absolute; left: 0; width: 1080px; text-align: center; font-family: 'Poppins'; font-weight: 700; color: #0E1A2B; white-space: nowrap; }
+    /* ---------- "kein Daytrading" ---------- */
+    #a5b-dtw { top: 334px; height: 120px; font-size: 110px; line-height: 120px; }
+    /* ---------- Chart: ein ruhiger Swing-Trade über mehrere Tage ---------- */
     .a5b-cday { position: absolute; top: 592px; width: 120px; height: 64px; margin-left: -60px; border-radius: 14px; background: #F3F4F6; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 44px; line-height: 64px; color: #0E1A2B; }
-    #a5b-3t { position: absolute; left: 447px; top: 8px; width: 200px; height: 64px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 64px; color: #0E1A2B; white-space: nowrap; }
-    /* ---------- Handy-Mockup mit Push-Nachricht ---------- */
-    #a5b-phone { position: absolute; left: 270px; top: 96px; width: 540px; height: 840px; border-radius: 78px; background: #111827; box-shadow: 0 24px 60px rgba(14, 26, 43, 0.35); }
-    .a5b-scr { position: absolute; left: 16px; top: 16px; width: 508px; height: 808px; border-radius: 64px; background: linear-gradient(165deg, #2F5683 0%, #16304F 45%, #0E1A2B 100%); overflow: hidden; }
-    .a5b-cam { position: absolute; left: 179px; top: 22px; width: 150px; height: 40px; border-radius: 20px; background: #111827; }
-    #a5b-push { position: absolute; left: 20px; top: 98px; width: 468px; box-sizing: border-box; padding: 22px 26px 26px; border-radius: 34px; background: #F3F4F6; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35); }
-    .a5b-prow { display: flex; align-items: center; gap: 18px; font-family: 'Poppins'; font-weight: 700; font-size: 40px; line-height: 48px; color: #0E1A2B; white-space: nowrap; }
-    .a5b-pico { width: 60px; height: 60px; border-radius: 16px; background: #16A34A; display: flex; align-items: center; justify-content: center; flex: none; }
-    .a5b-pico svg { width: 36px; height: 36px; }
-    .a5b-ptxt { margin-top: 14px; font-family: 'Poppins'; font-weight: 700; font-size: 40px; line-height: 48px; color: #0E1A2B; white-space: nowrap; }
+    /* ---------- "8 h vor dem Bildschirm" ---------- */
+    #a5b-8h { position: absolute; left: 274px; top: 84px; width: 532px; height: 332px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 210px; line-height: 332px; color: #0E1A2B; white-space: nowrap; }
     /* ---------- Foto-Platzhalter: gähnende Person vor vielen Bildschirmen ---------- */
     #a5b-photo { position: absolute; left: 40px; top: 24px; width: 1000px; height: 640px; border-radius: 28px; overflow: hidden; background: #CBD5E1; }
     #a5b-photoz { position: absolute; left: 0; top: 0; width: 1000px; height: 640px; }
     #a5b-photoz svg { position: absolute; left: 0; top: 0; width: 1000px; height: 640px; }
-    /* ---------- "Plan ✓" ---------- */
-    #a5b-plan { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; background: #FFFFFF; }
-    #a5b-plant { position: absolute; left: 219px; top: 245px; width: 420px; height: 210px; font-family: 'Poppins'; font-weight: 700; font-size: 180px; line-height: 210px; color: #0E1A2B; white-space: nowrap; }
-    #a5b-pc0, #a5b-pc1 { position: absolute; left: 685px; top: 265px; width: 180px; height: 180px; overflow: visible; }
+    /* ---------- "keine Strategie, keine Disziplin" + Stempel "FEHLER" ---------- */
+    #a5b-lcard { position: absolute; left: 190px; top: 56px; width: 700px; height: 420px; border-radius: 32px; background: #F3F4F6; }
+    .a5b-row { position: absolute; left: 72px; height: 120px; display: flex; align-items: center; gap: 34px; font-family: 'Poppins'; font-weight: 700; font-size: 96px; line-height: 120px; color: #0E1A2B; white-space: nowrap; }
+    .a5b-row svg { flex: none; width: 84px; height: 84px; }
+    #a5b-fe { position: absolute; left: 300px; top: 462px; width: 520px; height: 160px; box-sizing: border-box; border: 12px solid #DC2626; border-radius: 26px; background: rgba(255, 255, 255, 0.92); box-shadow: inset 0 0 0 8px #FFFFFF, inset 0 0 0 13px #DC2626; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 100px; line-height: 1; letter-spacing: 3px; color: #DC2626; white-space: nowrap; z-index: 10; }
+    /* ---------- "weniger: Zeit, Kapital" ---------- */
+    #a5b-lw { top: 36px; height: 140px; font-size: 110px; line-height: 140px; }
+    .a5b-lc { position: absolute; top: 222px; width: 400px; height: 340px; border-radius: 32px; background: #F3F4F6; }
+    .a5b-lc svg { position: absolute; left: 157px; top: 34px; width: 86px; height: 120px; }
+    .a5b-lc div { position: absolute; left: 0; top: 190px; width: 400px; height: 110px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 90px; line-height: 110px; color: #0E1A2B; white-space: nowrap; }
+    /* ---------- Kurs + "Kostenlos" ---------- */
+    #a5b-cw { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    #a5b-free { position: absolute; left: 330px; top: 562px; width: 420px; height: 112px; border-radius: 56px; background: #16A34A; box-shadow: 0 10px 26px rgba(14, 26, 43, 0.25); text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 112px; color: #FFFFFF; white-space: nowrap; z-index: 30; }
   </style>
   <div id="root" data-composition-id="ad5-body" data-width="1080" data-height="710">
     <div id="a5b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
-      <!-- Bild 1: der Kalender (Endbild der Anfänge), später Zoom auf Montag; am Ende wieder ganz -->
+      <!-- Bild 1: der Kalender (Endbild der Anfänge), später Zoom auf Montag -->
       <div id="a5b-zoom">
         <div id="a5b-d0" class="a5b-day" style="left: 40px;"><div class="a5b-dl">Mo</div><div class="a5b-card"><div id="a5b-gm0" class="a5b-b a5b-gm"></div><div class="a5b-b a5b-grey"></div><div id="a5b-ge0" class="a5b-b a5b-ge"></div><div class="a5b-b a5b-ev a5b-blue"></div></div></div>
         <div id="a5b-d1" class="a5b-day" style="left: 240px;"><div class="a5b-dl">Di</div><div class="a5b-card"><div id="a5b-gm1" class="a5b-b a5b-gm"></div><div class="a5b-b a5b-grey"></div><div id="a5b-ge1" class="a5b-b a5b-ge"></div><div class="a5b-b a5b-ev a5b-yellow"></div></div></div>
@@ -57,11 +63,17 @@
         <div id="a5b-sFr" class="a5b-sign" style="left: 237px; top: 472px;">Freunde</div>
         <div id="a5b-sSa" class="a5b-sign" style="left: 772px; top: 592px;">Sa + So frei</div>
         <div id="a5b-sTr" class="a5b-sign" style="left: 58px; top: 154px;"><i class="a5b-nub"></i>Trading · 15 Min</div>
-        <div id="a5b-sMo" class="a5b-sign" style="left: 58px; top: 154px;"><i class="a5b-nub"></i>Morgen 7:30</div>
       </div>
 
-      <!-- Bild 2: schlichter Chart, ein Trade läuft über 3 Tage (keine Namen, keine Preise) -->
-      <div id="a5b-chart">
+      <!-- Bild 2: "kein Daytrading": hektische Zickzack-Linie, das Wort, rot durchgestrichen -->
+      <div id="a5b-dt" class="a5b-pane">
+        <svg viewBox="0 0 1080 710"><polyline id="a5b-zz" points="" fill="none" stroke="#0E1A2B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <div id="a5b-dtw" class="a5b-word">Daytrading</div>
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a5b-dtx" class="fx-stroke" pathLength="1" d="" /></svg>
+      </div>
+
+      <!-- Bild 3: schlichter Chart, ein ruhiger Trade läuft über mehrere Tage (keine Namen, keine Preise) -->
+      <div id="a5b-chart" class="a5b-pane">
         <svg viewBox="0 0 1080 710">
           <rect x="40" y="120" width="1000" height="460" rx="24" fill="#F3F4F6" />
           <path d="M373 132 V568 M707 132 V568" stroke="#9CA3AF" stroke-width="4" stroke-dasharray="14 12" fill="none" />
@@ -73,26 +85,51 @@
           <path id="a5b-line" d="M60 402 L100 384 L140 420 L190 450 L240 408 L285 428 L330 380 L373 396 L420 342 L470 362 L520 302 L570 322 L620 272 L670 292 L707 252 L752 270 L800 224 L850 238 L905 190 L950 214 L1000 202 L1020 208" fill="none" stroke="#0E1A2B" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1 1.2" stroke-dashoffset="1.1" />
           <g id="a5b-entry"><circle cx="190" cy="450" r="20" fill="#16A34A" stroke="#FFFFFF" stroke-width="6" /></g>
           <g id="a5b-exit"><circle cx="905" cy="190" r="28" fill="#16A34A" stroke="#FFFFFF" stroke-width="6" /><path d="M892 191 L901 200 L919 181" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></g>
-          <path id="a5b-brk" d="M190 106 V88 H905 V106" fill="none" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
         <div id="a5b-c0" class="a5b-cday" style="left: 207px;">Mo</div>
         <div id="a5b-c1" class="a5b-cday" style="left: 540px;">Di</div>
         <div id="a5b-c2" class="a5b-cday" style="left: 873px;">Mi</div>
-        <div id="a5b-3t">3 Tage</div>
       </div>
 
-      <!-- Bild 3: Handy-Mockup schiebt sich rein, Push-Nachricht ohne Betrag und ohne App-Logo -->
-      <div id="a5b-phone">
-        <div class="a5b-scr">
-          <div class="a5b-cam"></div>
-          <div id="a5b-push">
-            <div class="a5b-prow"><div class="a5b-pico"><svg viewBox="0 0 36 36"><path d="M18 4 C11.5 4 8 9 8 15 V22 L5 26 V28 H31 V26 L28 22 V15 C28 9 24.5 4 18 4 Z" fill="#FFFFFF" /><path d="M14 30 Q18 35 22 30 Z" fill="#FFFFFF" /></svg></div><span>Gold:</span></div>
-            <div class="a5b-ptxt">Einstieg · Stop · Ziel</div>
-          </div>
-        </div>
+      <!-- Bild 4: "nicht 8 Stunden am Tag vor dem Bildschirm": Bildschirm mit "8 h", rot durchgestrichen -->
+      <div id="a5b-mon" class="a5b-pane">
+        <svg viewBox="0 0 1080 710">
+          <rect x="250" y="60" width="580" height="380" rx="30" fill="#0E1A2B" />
+          <rect x="274" y="84" width="532" height="332" rx="14" fill="#F3F4F6" />
+          <rect x="505" y="440" width="70" height="74" fill="#9CA3AF" />
+          <rect x="400" y="510" width="280" height="30" rx="15" fill="#9CA3AF" />
+        </svg>
+        <div id="a5b-8h">8 h</div>
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a5b-monx" class="fx-stroke" pathLength="1" d="" /></svg>
       </div>
 
-      <!-- Bild 4: Foto-Platzhalter (lizenziertes Foto ersetzt die Illustration): gähnende Person vor vielen Bildschirmen, rot durchgestrichen -->
+      <!-- Bild 5: "Die meisten Trader denken, sie müssen so viel Zeit investieren": Denkblase, darin eine Uhr, die rast -->
+      <div id="a5b-think" class="a5b-pane">
+        <svg viewBox="0 0 1080 710">
+          <g id="a5b-bub">
+            <g fill="#F3F4F6" stroke="#9CA3AF" stroke-width="14">
+              <circle cx="420" cy="300" r="120" /><circle cx="545" cy="215" r="132" /><circle cx="695" cy="250" r="122" /><circle cx="770" cy="365" r="98" />
+              <circle cx="645" cy="420" r="112" /><circle cx="480" cy="418" r="108" /><circle cx="355" cy="385" r="84" />
+              <circle cx="292" cy="566" r="32" /><circle cx="230" cy="628" r="20" />
+            </g>
+            <g fill="#F3F4F6">
+              <circle cx="420" cy="300" r="120" /><circle cx="545" cy="215" r="132" /><circle cx="695" cy="250" r="122" /><circle cx="770" cy="365" r="98" />
+              <circle cx="645" cy="420" r="112" /><circle cx="480" cy="418" r="108" /><circle cx="355" cy="385" r="84" />
+              <rect x="420" y="260" width="300" height="160" />
+            </g>
+          </g>
+          <g id="a5b-dots" fill="#0E1A2B"><circle cx="480" cy="320" r="20" /><circle cx="560" cy="320" r="20" /><circle cx="640" cy="320" r="20" /></g>
+          <g id="a5b-clock">
+            <circle cx="560" cy="318" r="128" fill="#FFFFFF" stroke="#0E1A2B" stroke-width="16" />
+            <path d="M560 206 V228 M672 318 H650 M560 430 V408 M448 318 H470" stroke="#0E1A2B" stroke-width="12" stroke-linecap="round" />
+            <line id="a5b-hh" x1="560" y1="318" x2="618" y2="318" stroke="#0E1A2B" stroke-width="16" stroke-linecap="round" />
+            <line id="a5b-mh" x1="560" y1="318" x2="560" y2="224" stroke="#0E1A2B" stroke-width="11" stroke-linecap="round" />
+            <circle cx="560" cy="318" r="14" fill="#0E1A2B" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Bild 6: Foto-Platzhalter (lizenziertes Foto ersetzt die Illustration): gähnende Person vor vielen Bildschirmen, rot durchgestrichen -->
       <div id="a5b-photo" class="photo-slot" data-asset="yawning-person-many-screens">
         <div id="a5b-photoz">
           <svg viewBox="0 0 1000 640">
@@ -150,18 +187,31 @@
       </div>
       <svg id="a5b-strike" class="fx-svg" viewBox="0 0 1080 710"><path id="a5b-strk" class="fx-stroke" pathLength="1" d="M90 640 Q560 368 1000 60" /></svg>
 
-      <!-- Bild 5: "Plan ✓" -->
-      <div id="a5b-plan">
-        <div id="a5b-plant">Plan</div>
-        <svg id="a5b-pc0" viewBox="0 0 180 180"><circle cx="90" cy="90" r="78" fill="none" stroke="#9CA3AF" stroke-width="12" /></svg>
-        <svg id="a5b-pc1" viewBox="0 0 180 180"><circle cx="90" cy="90" r="88" fill="#16A34A" /><path d="M50 92 L78 120 L132 64" fill="none" stroke="#FFFFFF" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" /></svg>
+      <!-- Bild 7: "keine richtige Strategie, keine Disziplin" -> "die ersten Fehler": Stempel "FEHLER" -->
+      <div id="a5b-list" class="a5b-pane">
+        <div id="a5b-lcard">
+          <div id="a5b-r0" class="a5b-row" style="top: 70px;"><svg viewBox="0 0 84 84"><path d="M14 14 L70 70 M70 14 L14 70" fill="none" stroke="#DC2626" stroke-width="14" stroke-linecap="round" /></svg><span>Strategie</span></div>
+          <div id="a5b-r1" class="a5b-row" style="top: 236px;"><svg viewBox="0 0 84 84"><path d="M14 14 L70 70 M70 14 L14 70" fill="none" stroke="#DC2626" stroke-width="14" stroke-linecap="round" /></svg><span>Disziplin</span></div>
+        </div>
+        <div id="a5b-fe">FEHLER</div>
       </div>
 
-      <!-- Bild 6: Kurs-Mockup (ohne Punkte), Bild 7: CTA-Bild -->
-      <!--@include course p="a5b-course"-->
+      <!-- Bild 8: "weniger anfangs zu investieren, Zeit als auch Kapital" (Kapital nur als Wort, kein Geld-Bild) -->
+      <div id="a5b-less" class="a5b-pane">
+        <div id="a5b-lw" class="a5b-word">weniger</div>
+        <div id="a5b-lz" class="a5b-lc" style="left: 110px;"><svg viewBox="0 0 86 120"><path d="M28 0 H58 V66 H86 L43 120 L0 66 H28 Z" fill="#16A34A" /></svg><div>Zeit</div></div>
+        <div id="a5b-lk" class="a5b-lc" style="left: 570px;"><svg viewBox="0 0 86 120"><path d="M28 0 H58 V66 H86 L43 120 L0 66 H28 Z" fill="#16A34A" /></svg><div>Kapital</div></div>
+      </div>
+
+      <!-- Bild 9: Kurs-Mockup (Laptop allein), "kostenfreien Videokurs" rot eingekreist; dann "Kostenlos" -->
+      <div id="a5b-cw">
+        <!--@include course p="a5b-course"-->
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a5b-bc" class="fx-stroke" pathLength="1" d="" /></svg>
+      </div>
+      <div id="a5b-free">Kostenlos</div>
+
+      <!-- Bild 10: CTA-Bild, bleibt bis zum Ende -->
       <!--@include cta p="a5b-cta"-->
-      <!-- Schlussbild: kleines Banner "Mehr dazu ↓" bleibt bis zum Ende -->
-      <!--@include more p="a5b-more"-->
       <!--@include cursor p="a5b"-->
     </div>
   </div>
@@ -170,8 +220,16 @@
     const DAYS = [0, 1, 2, 3, 4];
     const GM = DAYS.map(function (d) { return "#a5b-gm" + d; });
     const GE = DAYS.map(function (d) { return "#a5b-ge" + d; });
-    const SIGNS = ["#a5b-sArb", "#a5b-sSp", "#a5b-sFr", "#a5b-sSa", "#a5b-sTr", "#a5b-sMo"];
-    const ZO = "140px 322px";                       // Zoom auf Montag: Pivot = Montag-Mitte
+    const SIGNS = ["#a5b-sArb", "#a5b-sSp", "#a5b-sFr", "#a5b-sSa", "#a5b-sTr"];
+    const PANES = ["#a5b-dt", "#a5b-chart", "#a5b-mon", "#a5b-think", "#a5b-photo", "#a5b-list", "#a5b-less", "#a5b-cw", "#a5b-free"];
+
+    // Handgezeichnete Linien (leicht krakelig, immer gleich).
+    document.getElementById("a5b-dtx").setAttribute("d", FX.handLine(196, 404, 884, 388, 7));
+    document.getElementById("a5b-monx").setAttribute("d", FX.handLine(214, 566, 866, 54, 9));
+    document.getElementById("a5b-bc").setAttribute("d", FX.handCircle(320, 160, 124, 28, 3));
+    // Hektische Zickzack-Linie über "Daytrading" (feste Werte, kein Zufall).
+    const ZZ = [0, -40, 25, -30, 40, -45, 10, -35, 30, -20, 45, -40, 15, -45, 35, -25, 40, -35, 20, -45, 30, -10, 40, -30, 25, -40, 10, -45, 35, -20, 30, -35];
+    document.getElementById("a5b-zz").setAttribute("points", ZZ.map(function (v, i) { return (230 + i * 20) + "," + (210 + v); }).join(" "));
 
     // Cursor-Hilfen: ruhige Bewegungen, nie zwei Cursor-Tweens gleichzeitig.
     const steps = [];
@@ -179,33 +237,41 @@
     function mv(t, to, d, ease) { t = Math.max(t, busy + 0.02); steps.push({ t: t, to: to, d: d, ease: ease || "power2.inOut" }); busy = t + d; return busy; }
     function arrive(tAt, to, dMax, dMin) { const d = Math.max(dMin || 0.3, Math.min(dMax, tAt - busy - 0.05)); return mv(tAt - d, to, d); }
     function click(t) { steps.push({ t: t, click: true }); }
+    function hide(t) { steps.push({ t: t, hide: true }); }
+    function show(t, at) { steps.push({ t: t, show: true, at: at }); busy = Math.max(busy, t); }
+    // Bildwechsel: harter Schnitt vom alten auf das neue Bild.
+    function cutTo(from, to, t) { if (from) tl.set(from, { opacity: 0 }, t); if (to) tl.set(to, { opacity: 1 }, t); }
 
     // ---------------------------------------------------------------- Anfangszustand (t = 0)
+    const ZO = "140px 322px";                       // Zoom-Pivot: Montag
     FX.init(tl, GM.concat(GE), { opacity: 0 });
     FX.init(tl, SIGNS, { opacity: 0 });
     FX.init(tl, "#a5b-zoom", { scale: 1, x: 0, y: 0, transformOrigin: ZO, opacity: 1 });
-    FX.init(tl, ["#a5b-chart", "#a5b-phone", "#a5b-photo", "#a5b-plan", "#a5b-course"], { opacity: 0 });
-    FX.init(tl, "#a5b-phone", { y: 780 });
-    FX.init(tl, ["#a5b-band", "#a5b-entry", "#a5b-exit", "#a5b-brk", "#a5b-3t", "#a5b-c0", "#a5b-c1", "#a5b-c2", "#a5b-push", "#a5b-pc1"], { opacity: 0 });
+    FX.init(tl, PANES, { opacity: 0 });
+    FX.init(tl, ["#a5b-dtw", "#a5b-band", "#a5b-entry", "#a5b-exit", "#a5b-c0", "#a5b-c1", "#a5b-c2", "#a5b-8h", "#a5b-bub", "#a5b-dots", "#a5b-clock", "#a5b-r0", "#a5b-r1", "#a5b-fe", "#a5b-lw", "#a5b-lz", "#a5b-lk"], { opacity: 0 });
+    FX.init(tl, ["#a5b-dtx", "#a5b-monx", "#a5b-strk", "#a5b-bc"], { opacity: 0 });
     FX.init(tl, "#a5b-line", { strokeDashoffset: 1.1 });
-    FX.init(tl, "#a5b-strk", { opacity: 0 });
     FX.init(tl, "#a5b-photoz", { scale: 1, transformOrigin: "500px 290px" });
+    FX.init(tl, "#a5b-fe", { opacity: 0, rotation: -8, transformOrigin: "50% 50%" });
+    FX.init(tl, "#a5b-free", { opacity: 0, rotation: -4, transformOrigin: "50% 50%" });
+    FX.init(tl, "#a5b-cw", { scale: 1, transformOrigin: "540px 330px" });
+    FX.init(tl, "#a5b-mh", { rotation: 0, svgOrigin: "560 318", smoothOrigin: false });
+    FX.init(tl, "#a5b-hh", { rotation: 0, svgOrigin: "560 318", smoothOrigin: false });
 
     // ---------------------------------------------------------------- Woche mit 40-Stunden-Job
-    // "Das ist eine ganz normale Woche mit 40-Stunden-Job …" -> Cursor zum Montag, Klick: Schild "Arbeit".
+    // "… eine ganz normale Woche mit einem 40-Stunden-Job." -> Cursor zum Montag, Klick: Schild "Arbeit".
     const ARB = [212, 330];
     const tArb = Math.max(0.9, C.job - 0.05);
     arrive(tArb - 0.03, ARB, 1.0);
     click(tArb);
     FX.pop(tl, "#a5b-sArb", tArb);
-    // "… Montag bis Freitag wird … gearbeitet" -> der Cursor fährt über die grauen Blöcke bis Freitag.
+    // "Montag bis Freitag wird von 8 bis 17 Uhr gearbeitet." -> der Cursor fährt über die grauen Blöcke bis Freitag.
     const tSw = Math.max(tArb + 0.45, C.montag);
     const dSw = Math.max(0.6, Math.min(1.8, C.abends - 0.7 - tSw));
     mv(tSw, [950, 330], dSw, "sine.inOut");
 
-    // "… abends ist mal Sport oder Freunde …" -> Cursor über Blau und Gelb, Schilder "Sport" und "Freunde".
+    // "Abends ist mal Sport oder Freunde." -> Cursor über Blau und Gelb, Schilder "Sport" und "Freunde".
     const SP = [202, 532], FR = [432, 532];
-    // Weg: vom Freitag nach unten in die Abend-Reihe und über Blau und Gelb nach links bis Montag.
     const tSp = Math.max(busy + 0.5, C.sport - 0.05);
     const t0Ev = Math.max(busy + 0.02, Math.min(C.abends - 0.15, tSp - 0.75));
     const dEv = tSp - 0.03 - t0Ev;
@@ -218,7 +284,7 @@
     click(tFr);
     FX.pop(tl, "#a5b-sFr", tFr);
 
-    // "… und das Wochenende bleibt frei." -> kleines Schild "Sa + So frei" (unten rechts, nach dem Freitag).
+    // "Das Wochenende bleibt frei, …" -> kleines Schild "Sa + So frei" (unten rechts, nach dem Freitag).
     const SA = [1016, 650];
     const tSa = Math.max(tFr + 0.6, C.wochenende - 0.05);
     arrive(tSa - 0.03, SA, 0.7);
@@ -226,7 +292,7 @@
     FX.pop(tl, "#a5b-sSa", tSa);
 
     // ---------------------------------------------------------------- Trading-Blöcke
-    // "Und jetzt schau mal hier:" -> Cursor zeigt auf die Lücke vor der Arbeit (Montag früh).
+    // "… und jetzt schau mal hier:" -> Cursor zeigt auf die Lücke vor der Arbeit (Montag früh).
     const MORN = [206, 128], EVE = [206, 440];
     const tSchau = Math.max(tSa + 0.5, C.schau);
     mv(tSchau, MORN, Math.max(0.5, Math.min(0.85, C.morgens - 0.15 - tSchau)));
@@ -235,118 +301,148 @@
     click(tMorn);
     GM.forEach(function (el, i) { FX.pop(tl, el, tMorn + i * 0.08); });
     // am Montag das Schild "Trading · 15 Min" (auf "15 Minuten")
-    const tTr = Math.max(tMorn + 0.3, C.m15 - 0.05);
+    const tTr = Math.max(tMorn + 0.45, C.m15 - 0.05);
     FX.pop(tl, "#a5b-sTr", tTr, { origin: "10% 0%" });
-    // "… und abends 15 Minuten nach Feierabend" -> Klick, direkt nach dem grauen Block ploppt der zweite grüne Block rein.
+    // "… und abends 15 Minuten nach Feierabend." -> Klick, direkt nach dem grauen Block ploppt der zweite grüne Block rein.
+    // Der Cursor fährt gleich nach dem Klick in die Lücke nach der Arbeit weiter (so verdeckt er das Schild nicht).
     const tEve = Math.max(tTr + 0.6, C.abends2 - 0.05);
-    mv(tTr - 0.05, EVE, Math.max(0.4, Math.min(0.6, tEve - tTr - 0.1)));
+    mv(tMorn + 0.1, EVE, Math.max(0.4, Math.min(0.5, tEve - tMorn - 0.3)));
     click(tEve);
     GE.forEach(function (el, i) { FX.pop(tl, el, tEve + i * 0.08); });
 
-    // Auf einen Tag zoomen (Montag, 150 % in 0,5 s, weich); die anderen Tage treten zurück.
-    // "… mehr ist es nicht." -> der Zoom hält.
-    const tZoom = Math.max(tEve + 0.5, C.mehr - 0.6);
-    FX.zoomIn(tl, "#a5b-zoom", tZoom, { origin: ZO, to: 1.5, x: 100, y: 33 });
-    ["#a5b-d1", "#a5b-d2"].forEach(function (el) {
-      FX.tween(tl, el, { opacity: 1 }, { opacity: 0.3, duration: 0.4, ease: "none" }, tZoom);
-    });
-    ["#a5b-d3", "#a5b-d4", "#a5b-sFr", "#a5b-sSa"].forEach(function (el) {
+    // Auf einen Tag zoomen (Montag, 150 % in 0,5 s, weich): Montag rückt in die Mitte, "Mo" bleibt lesbar,
+    // die anderen Tage und die Schilder, die nicht mehr ins Bild passen, blenden aus. "Mehr ist es nicht." -> der Zoom hält.
+    const ZX = 400, ZY = 152, ZS = 1.5;
+    const tZoom = Math.max(tEve + 0.6, C.mehr - 0.55);
+    FX.zoomIn(tl, "#a5b-zoom", tZoom, { origin: ZO, to: ZS, x: ZX, y: ZY });
+    ["#a5b-d1", "#a5b-d2", "#a5b-d3", "#a5b-d4", "#a5b-sFr", "#a5b-sSa", "#a5b-sSp"].forEach(function (el) {
       FX.tween(tl, el, { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "none" }, tZoom);
     });
-    const Z = function (p) { return [140 + 1.5 * (p[0] - 140) + 100, 322 + 1.5 * (p[1] - 322) + 33]; };
+    const Z = function (p) { return [140 + ZS * (p[0] - 140) + ZX, 322 + ZS * (p[1] - 322) + ZY]; };
     mv(tZoom, Z(EVE), 0.5);
-    // "Das klappt, weil ich kein Daytrading mache …" -> eine ruhige Bewegung vom Abend- zum Morgen-Block.
-    const tKl = Math.max(busy + 0.6, C.klappt);
-    mv(tKl, Z(MORN), 0.7);
+    // "Und das funktioniert, …" -> eine ruhige Bewegung vom Abend- zum Morgen-Block.
+    const tFk = Math.max(busy + 0.3, C.funkt);
+    mv(tFk, Z(MORN), 0.6);
 
-    // ---------------------------------------------------------------- Chart: ein Trade über 3 Tage
-    // "… ruhige Swing-Trades auf höheren Zeiteinheiten." -> Schnitt auf den schlichten Chart, die Kurslinie zeichnet sich.
-    const tChart = Math.max(tZoom + 1.2, C.swing - 0.05);
-    tl.set("#a5b-zoom", { opacity: 0 }, tChart);
-    tl.set("#a5b-chart", { opacity: 1 }, tChart);
-    FX.tween(tl, "#a5b-line", { strokeDashoffset: 1.1 }, { strokeDashoffset: 0, duration: 0.7, ease: "power1.inOut", autoRound: false }, tChart);
-    // "Die laufen oft mehrere Tage …" -> der Trade (Einstieg bis Ziel) erscheint, die Tage werden markiert.
-    const tBand = Math.max(tChart + 0.85, C.laufen - 0.05);
-    FX.fadeIn(tl, "#a5b-band", tBand);
-    FX.pop(tl, "#a5b-entry", tBand, { svgOrigin: "190 450" });
-    FX.pop(tl, "#a5b-exit", tBand + 0.12, { svgOrigin: "905 190" });
-    ["#a5b-c0", "#a5b-c1", "#a5b-c2"].forEach(function (el, i) { FX.pop(tl, el, tBand + 0.2 + i * 0.12); });
-    const t3T = Math.max(tBand + 0.6, C.tage - 0.05);
-    FX.pop(tl, "#a5b-brk", t3T, { svgOrigin: "547 97" });
-    FX.pop(tl, "#a5b-3t", t3T);
-    // Cursor fährt den Trade entlang (Einstieg Mo -> Ziel Mi).
-    arrive(tBand - 0.02, [196, 492], 0.6);
-    mv(tBand + 0.05, [905, 492], Math.max(0.6, Math.min(1.2, t3T - tBand)), "sine.inOut");
+    // ---------------------------------------------------------------- "… weil ich eben kein Daytrading mache, …"
+    // Schnitt: hektische Zickzack-Linie + "Daytrading" ploppt; auf "mache" rot durchgestrichen.
+    const tDt = Math.max(busy + 0.3, C.kein - 0.05);
+    hide(tDt);
+    cutTo("#a5b-zoom", "#a5b-dt", tDt);
+    FX.pop(tl, "#a5b-dtw", tDt);
+    const tDtX = Math.max(tDt + 0.4, C.mache - 0.05);
+    FX.drawLine(tl, "#a5b-dtx", tDtX);
 
-    // ---------------------------------------------------------------- Push-Nachricht
-    // "… ein Indikator schickt mir eine Push-Nachricht …" -> Handy-Mockup schiebt sich von unten rein (0,25 s),
-    // der Chart tritt zurück; die Nachricht ploppt auf "Push-Nachricht" auf.
-    const tPh = Math.max(t3T + 0.4, C.indikator - 0.05);
-    tl.set("#a5b-phone", { opacity: 1 }, tPh);
-    FX.tween(tl, "#a5b-phone", { y: 780 }, { y: 0, duration: 0.25, ease: "power2.out" }, tPh);
-    FX.tween(tl, "#a5b-chart", { opacity: 1 }, { opacity: 0.15, duration: 0.25, ease: "none" }, tPh);
-    FX.fadeOut(tl, ["#a5b-brk", "#a5b-3t", "#a5b-c0", "#a5b-c1", "#a5b-c2"], tPh, 0.15);
-    const tPush = Math.max(tPh + 0.4, C.push - 0.05);
-    FX.pop(tl, "#a5b-push", tPush, { origin: "50% 0%" });
+    // ---------------------------------------------------------------- "… sondern wirklich ruhige Swing-Trades, die ich einfach laufen lasse, …"
+    // Schnitt auf den schlichten Chart, die Kurslinie zeichnet sich ruhig (1 s).
+    const tChart = Math.max(tDtX + 0.5, C.ruhige - 0.05);
+    cutTo("#a5b-dt", "#a5b-chart", tChart);
+    FX.tween(tl, "#a5b-line", { strokeDashoffset: 1.1 }, { strokeDashoffset: 0, duration: 1.0, ease: "power1.inOut", autoRound: false }, tChart);
+    show(tChart, [620, 650]);
+    // "Swing-Trades" -> der Trade erscheint (Einstieg, Ziel- und Stop-Zone).
+    const tSet = Math.max(tChart + 0.6, C.swing - 0.05);
+    FX.fadeIn(tl, "#a5b-band", tSet);
+    FX.pop(tl, "#a5b-entry", tSet, { svgOrigin: "190 450" });
+    arrive(tSet - 0.03, [196, 492], 0.6);
+    // "laufen lasse" -> der Cursor fährt den Trade entlang, die Tage ploppen nacheinander auf, am Ende das Ziel.
+    const tRun = Math.max(tSet + 0.5, C.laufen - 0.05);
+    const dRun = Math.max(0.6, Math.min(1.0, C.acht - 0.35 - tRun));
+    mv(tRun, [905, 492], dRun, "sine.inOut");
+    ["#a5b-c0", "#a5b-c1", "#a5b-c2"].forEach(function (el, i) { FX.pop(tl, el, tRun + i * dRun * 0.45); });
+    FX.pop(tl, "#a5b-exit", tRun + dRun, { svgOrigin: "905 190" });
 
-    // ---------------------------------------------------------------- Den ganzen Tag vor dem Chart
-    // Schnitt auf das Foto (Platzhalter): gähnende Person vor vielen Bildschirmen, langsamer Zoom;
-    // "… nicht nur stressig …" -> rot durchgestrichen; "… aus Langeweile …" -> reinzoomen auf das Gähnen.
-    const tPhoto = Math.max(tPush + 1.0, C.ganzen - 0.05);
-    tl.set(["#a5b-chart", "#a5b-phone"], { opacity: 0 }, tPhoto);
-    tl.set("#a5b-photo", { opacity: 1 }, tPhoto);
-    const tStrk = Math.max(tPhoto + 0.8, C.stressig - 0.1);
+    // ---------------------------------------------------------------- "… wo ich nicht 8 Stunden am Tag vor dem Bildschirm sitzen muss."
+    // Schnitt: Bildschirm, "8 h" ploppt; auf "Bildschirm" rot durchgestrichen.
+    const tMon = Math.max(tRun + dRun + 0.3, C.acht - 0.05);
+    hide(tMon);
+    cutTo("#a5b-chart", "#a5b-mon", tMon);
+    FX.pop(tl, "#a5b-8h", tMon);
+    const tMonX = Math.max(tMon + 0.5, C.bildschirm - 0.05);
+    FX.drawLine(tl, "#a5b-monx", tMonX);
+
+    // ---------------------------------------------------------------- "Die meisten Trader denken, sie müssen so viel Zeit investieren, …"
+    // Schnitt: Denkblase mit drei Punkten; auf "so viel Zeit" ploppt eine Uhr hinein, ihre Zeiger rasen (2 Runden).
+    const tTh = Math.max(tMonX + 0.5, C.meisten - 0.05);
+    cutTo("#a5b-mon", "#a5b-think", tTh);
+    FX.pop(tl, "#a5b-bub", tTh, { svgOrigin: "560 330" });
+    FX.pop(tl, "#a5b-dots", tTh + 0.12, { svgOrigin: "560 320" });
+    const tClk = Math.max(tTh + 0.6, C.zeit - 0.05);
+    tl.set("#a5b-dots", { opacity: 0 }, tClk);
+    FX.pop(tl, "#a5b-clock", tClk, { svgOrigin: "560 318" });
+    const dSpin = Math.max(0.6, Math.min(1.2, C.verbringen - 0.3 - (tClk + 0.2)));
+    FX.tween(tl, "#a5b-mh", { rotation: 0, svgOrigin: "560 318", smoothOrigin: false }, { rotation: 720, svgOrigin: "560 318", smoothOrigin: false, duration: dSpin, ease: "power1.inOut" }, tClk + 0.2);
+    FX.tween(tl, "#a5b-hh", { rotation: 0, svgOrigin: "560 318", smoothOrigin: false }, { rotation: 60, svgOrigin: "560 318", smoothOrigin: false, duration: dSpin, ease: "power1.inOut" }, tClk + 0.2);
+
+    // ---------------------------------------------------------------- "… verbringen 8 Stunden am Tag … neben der Arbeit am Bildschirm, und das ist genau der Fehler."
+    // Schnitt auf das Foto (Platzhalter): gähnende Person vor vielen Bildschirmen, langsamer Zoom (3 s);
+    // auf "Fehler" rot durchgestrichen. "Du tradest aus Langeweile" -> Strich weg, reinzoomen auf das Gähnen.
+    const tPh = Math.max(tClk + 0.2 + dSpin + 0.1, C.verbringen - 0.05);
+    cutTo("#a5b-think", "#a5b-photo", tPh);
+    const tStrk = Math.max(tPh + 0.8, C.fehler - 0.05);
     FX.drawLine(tl, "#a5b-strk", tStrk);
-    const tFace = Math.max(tStrk + 1.0, C.langeweile - 0.1);
-    const dSlow = Math.max(0.5, Math.min(3, tFace - tPhoto - 0.1));
+    const tFace = Math.max(tStrk + 0.6, C.langeweile - 0.1);
+    const dSlow = Math.max(0.5, Math.min(3, tFace - tPh - 0.1));
     const sSlow = 1 + 0.08 * dSlow / 3;
-    FX.slowZoom(tl, "#a5b-photoz", tPhoto, { origin: "500px 290px", to: sSlow, d: dSlow });
+    FX.slowZoom(tl, "#a5b-photoz", tPh, { origin: "500px 290px", to: sSlow, d: dSlow });
+    FX.fadeOut(tl, "#a5b-strk", tFace);
     FX.zoomIn(tl, "#a5b-photoz", tFace, { origin: "500px 290px", from: sSlow, to: 1.5 });
 
-    // ---------------------------------------------------------------- "Plan ✓"
-    // "… weder ein großes Startkapital noch Vorwissen …" -> Schnitt: "Plan" mit leerem Kreis;
-    // "… sondern einen klaren Plan." -> der grüne Haken ploppt in den Kreis.
-    const tPlan = Math.max(tFace + 0.8, C.weder - 0.05);
-    tl.set(["#a5b-photo", "#a5b-strk"], { opacity: 0 }, tPlan);
-    tl.set("#a5b-plan", { opacity: 1 }, tPlan);
-    const tChk = Math.max(tPlan + 0.6, C.plan - 0.05);
-    FX.pop(tl, "#a5b-pc1", tChk);
+    // ---------------------------------------------------------------- "… du hast keine richtige Strategie, keine Disziplin, und schon passieren die ersten Fehler."
+    // Schnitt: Karte, "✗ Strategie" ploppt; "✗ Disziplin" ploppt; auf "Fehler" knallt der rote Stempel "FEHLER" drauf (8° schräg).
+    const tLi = Math.max(tFace + 0.6, C.strategie - 0.05);
+    cutTo(["#a5b-photo", "#a5b-strk"], "#a5b-list", tLi);
+    FX.pop(tl, "#a5b-r0", tLi, { origin: "0% 50%" });
+    const tDi = Math.max(tLi + 0.5, C.disziplin - 0.05);
+    FX.pop(tl, "#a5b-r1", tDi, { origin: "0% 50%" });
+    const tFe = Math.max(tDi + 0.6, C.fehler2 - 0.05);
+    FX.slam(tl, "#a5b-fe", tFe, { rotation: -8 });
 
-    // ---------------------------------------------------------------- Kurs-Mockup (ohne Punkte) und CTA
-    // "Genau den Plan für deine ersten 60 Tage …" -> der Laptop schiebt sich rein (0,25 s).
-    const tCourse = Math.max(tChk + 0.45, C.genau - 0.05);
-    tl.set("#a5b-plan", { opacity: 0 }, tCourse);
-    tl.set("#a5b-course", { opacity: 1 }, tCourse);
-    FX.tween(tl, "#a5b-course-laptop", { opacity: 0, x: -1100 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tCourse);
-    // "… in meinem kostenlosen Videokurs" -> Cursor zeigt auf "Kostenloser Videokurs".
-    const tKurs = Math.max(tCourse + 0.6, C.kurs - 0.3);
-    mv(tKurs, [426, 166], 0.6);
-    // "Klick unter dem Video auf „Mehr dazu“ …" -> CTA-Bild.
-    const tCTA = Math.max(C.klick - 0.05, tCourse + 1.2, busy + 0.1);
-    tl.set("#a5b-course", { opacity: 0 }, tCTA);
-    FX.cta(tl, "a5b-cta", tCTA);
-    steps.push({ t: tCTA, hide: true });
+    // ---------------------------------------------------------------- "… wirklich auch weniger anfangs zu investieren, Zeit als auch Kapital."
+    // Schnitt: "weniger" ploppt; dann die Karten "Zeit" und "Kapital", je mit grünem Pfeil nach unten.
+    const tLe = Math.max(tFe + 0.8, C.weniger - 0.05);
+    cutTo("#a5b-list", "#a5b-less", tLe);
+    FX.pop(tl, "#a5b-lw", tLe);
+    const tZe = Math.max(tLe + 0.4, C.zeit2 - 0.05);
+    FX.pop(tl, "#a5b-lz", tZe);
+    const tKa = Math.max(tZe + 0.3, C.kapital - 0.05);
+    FX.pop(tl, "#a5b-lk", tKa);
 
-    // ---------------------------------------------------------------- Schlussbild
-    // "… trag dir die ersten 15 Minuten gleich für morgen früh in den Kalender ein." -> zurück zum Kalender
-    // (ganz, ohne die alten Schilder), der erste grüne Morgen-Block blinkt, Schild "Morgen 7:30". Banner "Mehr dazu ↓" bleibt.
-    const tEnd = Math.max(C.trag - 0.05, tCTA + 1.2);
-    tl.set("#a5b-cta", { opacity: 0 }, tEnd);
-    tl.set("#a5b-zoom", { scale: 1, x: 0, y: 0, transformOrigin: ZO, opacity: 1 }, tEnd);
-    tl.set(["#a5b-d1", "#a5b-d2", "#a5b-d3", "#a5b-d4"], { opacity: 1 }, tEnd);
-    tl.set(["#a5b-sArb", "#a5b-sSp", "#a5b-sFr", "#a5b-sSa", "#a5b-sTr"], { opacity: 0 }, tEnd);
-    FX.more(tl, "a5b-more", tEnd + 0.15);
-    const tBlink = tEnd + 0.3;
-    FX.blink(tl, "#a5b-gm0", tBlink, Math.max(0.8, DUR - 0.35 - tBlink));
-    steps.push({ t: tEnd, show: true, at: [620, 520] });
-    busy = tEnd;
-    const tMo = Math.max(tEnd + 0.7, C.morgen - 0.05);
-    arrive(tMo - 0.03, MORN, 0.7);
-    click(tMo);
-    FX.pop(tl, "#a5b-sMo", tMo, { origin: "10% 0%" });
-    mv(tMo + 0.25, [452, 300], Math.max(0.3, Math.min(0.6, DUR - 0.4 - (tMo + 0.25))));
+    // ---------------------------------------------------------------- Kurs-Mockup: "Und wenn du wissen möchtest, … einen kostenfreien Videokurs."
+    // Der Laptop schiebt sich rein (0,25 s). Auf "kostenfreien" zeigt der Cursor auf "Kostenloser Videokurs", rot eingekreist.
+    const tCo = Math.max(tKa + 0.6, C.wissen - 0.05);
+    cutTo("#a5b-less", ["#a5b-cw", "#a5b-course"], tCo);
+    FX.tween(tl, "#a5b-course-laptop", { opacity: 0, x: -1100 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tCo);
+    show(tCo + 0.3, [880, 650]);
+    const tKu = Math.max(tCo + 1.0, C.kurs - 0.05);
+    arrive(tKu - 0.03, [462, 142], 0.7);
+    FX.drawCircle(tl, "#a5b-bc", tKu);
+    // "Ich könnte dafür locker … verlangen, aber du bekommst den komplett umsonst." -> kein Betrag im Bild:
+    // langsamer Zoom auf den Laptop, dann Klick: "Kostenlos" ploppt auf.
+    const tCTA = Math.max(C.klick - 0.05, tKu + 1.6);
+    const tZc = Math.max(tKu + 0.6, C.koennte - 0.05);
+    FX.slowZoom(tl, "#a5b-cw", tZc, { origin: "540px 330px", d: Math.max(0.5, Math.min(3, tCTA - tZc - 0.05)) });
+    const tFree = Math.max(tZc + 0.5, Math.min(C.bekommst - 0.05, tCTA - 0.5));
+    arrive(tFree - 0.03, [724, 642], 0.7);
+    click(tFree);
+    FX.pop(tl, "#a5b-free", tFree);
 
-    FX.cursor(tl, "#a5b-cur", "#a5b-ring", [620, 640], steps);
+    // ---------------------------------------------------------------- CTA-Bild: "Klick einfach unter dem Video auf den Link."
+    // CTA-Bild ("Mehr dazu" + Pfeil) bis zum Ende. Lokale Variante von FX.cta: der Pfeil wippt nur so oft,
+    // dass er vor DUR - 0,35 s ruhig steht (in den letzten 0,3 s bewegt sich nichts).
+    cutTo(["#a5b-cw", "#a5b-free"], null, tCTA);
+    hide(tCTA);
+    (function cta(p, t, endBy) {
+      tl.set("#" + p, { opacity: 0 }, 0);
+      tl.set("#" + p + "-laptop", { opacity: 0 }, 0);
+      tl.set("#" + p + "-more", { opacity: 0 }, 0);
+      tl.set("#" + p, { opacity: 1 }, t);
+      FX.tween(tl, "#" + p + "-laptop", { scale: 1.2, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.15, ease: "power2.out" }, t);
+      FX.tween(tl, "#" + p + "-more", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, t + 0.2);
+      const legs = 2 * Math.floor((endBy - (t + 0.5)) / 0.8);
+      if (legs >= 2) FX.tween(tl, "#" + p + "-arrow", { y: 0 }, { y: 14, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: Math.min(6, legs) - 1 }, t + 0.5);
+    })("a5b-cta", tCTA, DUR - 0.35);
+
+    FX.cursor(tl, "#a5b-cur", "#a5b-ring", [1000, 640], steps);
     window.__timelines["ad5-body"] = tl;
   </script>
 </template>

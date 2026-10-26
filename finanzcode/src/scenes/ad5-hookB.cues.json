@@ -1,12 +1,13 @@
 {
   "cues": {
-    "wie": "Wie viel Zeit braucht Trading eigentlich neben einem 40-Stunden-Job?",
-    "gerade": "Gerade mal 30 Minuten am Tag",
-    "min30": { "phrase": "Gerade mal 30 Minuten am Tag", "word": 2 },
-    "zeig": { "phrase": "und ich zeig's dir direkt hier im Kalender.", "word": 2 },
-    "kalender": { "phrase": "direkt hier im Kalender.", "word": 3 }
+    "wie": "Wie viel Zeit braucht Trading eigentlich",
+    "job": { "phrase": "neben einem 40-Stunden-Job?", "word": 2 },
+    "gerade": "Gerade mal 30 Minuten am Tag,",
+    "min30": { "phrase": "Gerade mal 30 Minuten am Tag,", "word": 2 },
+    "zeig": { "phrase": "und ich zeige es dir in diesem Kalender.", "word": 2 },
+    "kalender": { "phrase": "in diesem Kalender.", "word": 2 }
   },
   "sfx": [
-    { "at": "min30", "type": "pop" }
+    { "at": "min30", "type": "pop", "offset": -0.05 }
   ]
 }

@@ -20,9 +20,11 @@
     .a4b-note { position: absolute; width: 380px; height: 230px; border-radius: 14px; background: #FFFFFF; border: 5px solid #9CA3AF; box-sizing: border-box; }
     .a4b-nl { position: absolute; right: 14px; top: 14px; font-family: 'Poppins'; font-weight: 700; font-size: 42px; line-height: 52px; color: #0E1A2B; white-space: nowrap; }
     .a4b-ln { position: absolute; right: 26px; height: 8px; border-radius: 4px; background: #9CA3AF; }
-    #a4b-q { position: absolute; left: 640px; top: 128px; width: 420px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 86px; color: #0E1A2B; white-space: nowrap; }
-    #a4b-k { position: absolute; left: 652px; top: 336px; width: 396px; height: 84px; border-radius: 18px; background: #F3F4F6; display: flex; align-items: center; justify-content: center; gap: 14px; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
-    #a4b-k svg { width: 30px; height: 44px; }
+    .a4b-stamp { position: absolute; left: 446px; top: 438px; height: 120px; padding: 0 26px; border: 10px solid #DC2626; border-radius: 18px; background: #FFFFFF; box-sizing: border-box; display: flex; align-items: center; font-family: 'Poppins'; font-weight: 700; font-size: 84px; line-height: 1; color: #DC2626; white-space: nowrap; }
+    #a4b-job { position: absolute; left: 578px; top: 44px; width: 306px; height: 120px; border-radius: 26px; background: #9CA3AF; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    #a4b-vid { position: absolute; left: 764px; top: 168px; width: 296px; height: 300px; }
+    .a4b-vt { position: absolute; border-radius: 14px; background: #F3F4F6; border: 5px solid #9CA3AF; box-sizing: border-box; }
+    #a4b-vidl { position: absolute; left: 0; top: 226px; width: 296px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
   </style>
   <div id="root" data-composition-id="ad4-body" data-width="1080" data-height="710">
     <div id="a4b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
@@ -33,6 +35,13 @@
         <div id="a4b-nt3" class="a4b-note" style="left:692px;top:214px;width:356px;"><div class="a4b-ln" style="top:26px;width:150px;"></div><div class="a4b-ln" style="top:72px;width:250px;"></div><div class="a4b-ln" style="top:108px;width:300px;"></div><div class="a4b-ln" style="top:144px;width:200px;"></div></div>
         <div id="a4b-nt4" class="a4b-note" style="left:704px;top:290px;width:348px;"><div class="a4b-ln" style="top:26px;width:150px;"></div><div class="a4b-ln" style="top:72px;width:250px;"></div><div class="a4b-ln" style="top:108px;width:300px;"></div><div class="a4b-ln" style="top:144px;width:200px;"></div></div>
         <div id="a4b-nt5" class="a4b-note" style="left:700px;top:366px;width:350px;"><div class="a4b-nl">Strategie 20</div><div class="a4b-ln" style="top:104px;width:250px;"></div><div class="a4b-ln" style="top:140px;width:300px;"></div><div class="a4b-ln" style="top:176px;width:200px;"></div></div>
+        <!-- "50 Videos": kleiner Stapel Video-Kacheln rechts neben Karte 2 -->
+        <div id="a4b-vid">
+          <div class="a4b-vt" style="left:34px;top:0;width:236px;height:150px;"></div>
+          <div class="a4b-vt" style="left:18px;top:16px;width:254px;height:160px;"></div>
+          <div class="a4b-vt" style="left:0;top:34px;width:280px;height:176px;background:#FFFFFF;"><svg viewBox="0 0 84 84" style="position:absolute;left:93px;top:41px;width:84px;height:84px;"><circle cx="42" cy="42" r="42" fill="#0E1A2B"/><path d="M33 25 L61 42 L33 59 Z" fill="#FFFFFF"/></svg></div>
+          <div id="a4b-vidl">50 Videos</div>
+        </div>
         <!-- 2 x 2 Raster wie am Ende der Anfänge; jede Karte fliegt groß nach vorn (90 % der Motiv-Zone). -->
       <div id="a4b-s1" class="a4b-layer">
         <div id="a4b-w1" class="a4b-layer">
@@ -43,6 +52,7 @@
               <div id="a4b-n1" class="a4b-name">Der Zocker</div>
               <div id="a4b-va1" class="a4b-val" style="top:150px"><span>Risiko</span><span>10</span></div>
               <div id="a4b-vb1" class="a4b-val" style="top:280px"><span>Plan</span><span>0</span></div>
+              <div id="a4b-stamp1" class="a4b-stamp">Raus</div>
               <div class="a4b-rim"></div>
             </div>
             <svg class="a4b-ov fx-svg" viewBox="0 0 912 638" style="width:912px;height:638px;"><!-- FX.handCircle(664, 330, 220, 68, 60): oberer Bogen in der Lücke zwischen den beiden Werten --><path id="a4b-o1" class="fx-stroke" pathLength="1" d="M605.5 267.9 L634.8 266.1 L664.4 265.2 L694.5 265.3 L724.8 266.4 L754.9 268.7 L784.0 272.5 L811.3 277.6 L835.8 284.1 L856.5 291.9 L872.7 300.6 L884.0 310.1 L890.3 320.0 L891.6 330.0 L888.2 340.0 L880.5 349.7 L868.7 358.9 L853.0 367.5 L833.7 375.4 L811.0 382.4 L785.3 388.3 L757.1 392.9 L727.1 396.1 L695.9 397.9 L664.3 398.3 L633.0 397.3 L602.6 395.0 L573.4 391.6 L545.7 387.2 L519.6 381.7 L495.5 375.3 L473.8 368.0 L455.1 359.7 L440.2 350.5 L430.0 340.6 L425.3 330.2 L426.5 319.7 L434.0 309.4 L447.3 299.7 L465.7 290.9 L488.4 283.3 L514.2 277.0 L542.0 271.9 L571.2 267.9 L601.3 265.0 L631.9 263.1 L663.0 262.1 L694.5 262.1 L726.2 263.3"/></svg>
@@ -60,6 +70,7 @@
               <div id="a4b-vb2" class="a4b-val" style="top:280px"><span>Trades</span><span>0</span></div>
               <div class="a4b-rim"></div>
             </div>
+            <svg class="a4b-ov fx-svg" viewBox="0 0 912 638" style="width:912px;height:638px;"><!-- FX.handCircle(664, 330, 220, 68, 61) um "Trades 0"; FX.handLine unter "Wissen 9". Strich 13 px = 10 px bei 78 % --><path id="a4b-o2" class="fx-stroke" pathLength="1" style="stroke-width:13" d="M616.7 262.3 L649.1 260.7 L681.9 260.6 L714.4 262.1 L745.6 265.3 L774.5 270.0 L800.4 276.1 L822.5 283.3 L840.8 291.4 L855.1 300.1 L865.7 309.1 L872.8 318.4 L876.7 327.9 L877.4 337.6 L874.6 347.4 L867.8 357.1 L856.5 366.7 L840.3 375.8 L819.1 384.0 L793.2 391.0 L763.5 396.4 L731.0 399.9 L697.1 401.6 L663.1 401.4 L630.0 399.5 L598.7 396.2 L569.5 391.7 L542.7 386.2 L518.3 379.9 L496.3 372.8 L477.0 365.0 L460.8 356.5 L448.3 347.2 L440.1 337.4 L436.8 327.2 L438.8 316.9 L446.1 306.8 L458.7 297.2 L476.0 288.2 L497.5 280.1 L522.5 273.1 L550.6 267.2 L581.1 262.6 L613.5 259.4 L647.3 257.7 L681.5 257.5 L715.5 259.1 L748.1 262.3 L778.4 267.2"/><path id="a4b-u2" class="fx-stroke" pathLength="1" style="stroke-width:13" d="M468 240 Q661.9 245.1 860 242"/></svg>
           </div>
         </div>
       </div>
@@ -83,6 +94,7 @@
               </svg>
               <div class="a4b-rim"></div>
             </div>
+            <svg class="a4b-ov fx-svg" viewBox="0 0 912 638" style="width:912px;height:638px;"><!-- FX.handCircle(664, 330, 220, 68, 62) um "Frust 10" --><path id="a4b-o3" class="fx-stroke" pathLength="1" d="M631.7 265.2 L661.9 265.2 L691.5 266.1 L720.7 267.9 L749.4 270.5 L777.4 274.1 L804.3 278.8 L829.4 284.7 L851.8 291.8 L870.4 300.0 L884.3 309.2 L892.9 319.0 L895.8 329.2 L893.1 339.3 L885.0 349.2 L872.2 358.5 L855.4 367.0 L835.1 374.7 L812.0 381.5 L786.4 387.3 L758.7 392.0 L729.2 395.5 L698.5 397.8 L666.9 398.7 L635.3 398.1 L604.3 396.2 L574.5 392.8 L546.7 388.2 L521.1 382.4 L498.2 375.7 L478.1 368.1 L461.1 359.7 L447.4 350.7 L437.4 341.1 L431.8 331.1 L430.9 320.7 L435.4 310.4 L445.5 300.4 L461.1 291.0 L481.8 282.7 L506.8 275.7 L535.1 270.1 L565.5 266.1 L597.0 263.5 L628.8 262.2 L660.4 262.1 L691.5 263.0 L722.2 264.8 L752.2 267.5"/></svg>
           </div>
         </div>
       </div>
@@ -100,19 +112,19 @@
               <svg id="a4b-t1" viewBox="0 0 96 96" style="position:absolute;left:444px;top:496px;width:96px;height:96px;overflow:visible;"><circle cx="48" cy="48" r="48" fill="#16A34A"/><path d="M26 50 L41 65 L71 33" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <svg id="a4b-t2" viewBox="0 0 96 96" style="position:absolute;left:614px;top:496px;width:96px;height:96px;overflow:visible;"><circle cx="48" cy="48" r="48" fill="#16A34A"/><path d="M26 50 L41 65 L71 33" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
               <svg id="a4b-t3" viewBox="0 0 96 96" style="position:absolute;left:784px;top:496px;width:96px;height:96px;overflow:visible;"><circle cx="48" cy="48" r="48" fill="#16A34A"/><path d="M26 50 L41 65 L71 33" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div id="a4b-job">Vollzeitjob</div>
               <div class="a4b-rim"></div>
             </div>
+            <svg class="a4b-ov fx-svg" viewBox="0 0 912 638" style="width:912px;height:638px;"><!-- FX.handLine unter "dranbleibt" --><path id="a4b-u4" class="fx-stroke" pathLength="1" d="M40 236 Q282.9 232.9 530 238"/></svg>
             </div>
             <div id="a4b-back4" class="a4b-back"><div class="a4b-backin"></div><div class="a4b-qm">?</div></div>
           </div>
         </div>
       </div>
+        <svg class="fx-svg" viewBox="0 0 1080 710" style="z-index:6"><!-- FX.handCircle(901, 532, 108, 112, 64): um die Ziffer 4 im Raster --><path id="a4b-c4o" class="fx-stroke" pathLength="1" d="M887.4 418.1 L903.3 417.4 L919.1 419.2 L934.5 423.3 L949.1 429.6 L962.8 437.9 L975.2 448.0 L986.1 459.9 L995.1 473.4 L1002.1 488.1 L1006.8 503.7 L1009.1 519.8 L1008.9 536.0 L1006.4 551.9 L1001.8 567.1 L995.4 581.5 L987.4 594.9 L978.0 607.4 L967.2 618.7 L955.2 628.8 L941.8 637.5 L927.2 644.4 L911.6 649.1 L895.2 651.1 L878.5 650.2 L862.2 646.1 L846.9 639.0 L833.1 629.1 L821.4 616.9 L811.8 603.0 L804.5 588.1 L799.4 572.5 L796.1 556.6 L794.6 540.7 L794.7 524.7 L796.3 508.9 L799.7 493.2 L805.0 477.8 L812.2 463.1 L821.6 449.5 L833.1 437.5 L846.5 427.4 L861.3 419.8 L877.2 414.8 L893.7 412.4 L910.3 412.8 L926.7 415.7 L942.4 420.9 L957.3 428.4"/></svg>
       </div>
       <!--@include course p="a4b-course"-->
       <!--@include cta p="a4b-cta"-->
-      <div id="a4b-q">Welcher<br>warst du?</div>
-      <div id="a4b-k"><span>Kommentar</span><svg viewBox="0 0 30 44"><path d="M9 0 H21 V25 H30 L15 44 L0 25 H9 Z" fill="#0E1A2B"/></svg></div>
-      <!--@include more p="a4b-more"-->
       <!--@include cursor p="a4b"-->
     </div>
   </div>
@@ -131,6 +143,7 @@
     function zone(n, nx, ny) { const s = st[n]; return [540 + s.x + (nx - 456) * s.scale, 355 + s.y + (ny - 319) * s.scale]; }
     const DIG = { x: 138, y: 191 };                        // Ziffer wandert in der großen Karte nach rechts unten (190 px)
     const PH = { 1: [156, 450, -50], 2: [156, 450, -50], 3: [156, 450, -50], 4: [256, 350, -75] }; // Bildausschnitt groß
+    const NOTES = ["#a4b-nt1", "#a4b-nt2", "#a4b-nt3", "#a4b-nt4", "#a4b-nt5"];
 
     // ---------------------------------------------------------------- Anfangszustand = letztes Bild der Anfänge
     [1, 2, 3, 4].forEach(function (n) {
@@ -139,13 +152,13 @@
       FX.init(tl, "#a4b-d" + n, { x: 0, y: 0, scale: 1.9, transformOrigin: "50% 50%", opacity: 1 });
       FX.init(tl, ["#a4b-n" + n, "#a4b-va" + n, "#a4b-vb" + n], { opacity: 0 });
     });
-    FX.init(tl, ["#a4b-clock", "#a4b-badge", "#a4b-t1", "#a4b-t2", "#a4b-t3"], { opacity: 0 });
-    FX.init(tl, "#a4b-badge", { rotation: -4, transformOrigin: "50% 50%" });
+    FX.init(tl, ["#a4b-clock", "#a4b-badge", "#a4b-job", "#a4b-t1", "#a4b-t2", "#a4b-t3", "#a4b-stamp1", "#a4b-vid"], { opacity: 0 });
+    FX.init(tl, ["#a4b-badge", "#a4b-job"], { rotation: -4, transformOrigin: "50% 50%" });
     FX.init(tl, "#a4b-sec", { rotation: 0, svgOrigin: "0 0" });
-    [1, 2, 3, 4, 5].forEach(function (k) { FX.init(tl, "#a4b-nt" + k, { opacity: 0, x: -300, rotation: [-3, 3, -2, 3, -3][k - 1], transformOrigin: "50% 50%" }); });
+    NOTES.forEach(function (el, k) { FX.init(tl, el, { opacity: 0, x: -300, rotation: [-3, 3, -2, 3, -3][k], transformOrigin: "50% 50%" }); });
     FX.init(tl, "#a4b-front4", { rotationY: -90, opacity: 0, transformPerspective: 2400, transformOrigin: "50% 50%" });
     FX.init(tl, "#a4b-back4", { rotationY: 0, opacity: 1, transformPerspective: 2400, transformOrigin: "50% 50%" });
-    FX.init(tl, ["#a4b-q", "#a4b-k", "#a4b-cta-more"], { opacity: 0 });
+    FX.init(tl, "#a4b-cta-more", { opacity: 0 });
 
     // Karte fliegt groß nach vorn: wächst in 0,4 s (ease-out) auf 90 % der Motiv-Zone, die anderen blenden aus.
     // Name (96 px) und genau 2 Werte (72 px) erscheinen erst jetzt.
@@ -162,19 +175,22 @@
       FX.pop(tl, "#a4b-vb" + n, t + 0.45);
     }
     // Karte zurück ins Raster (0,4 s), Namen/Werte/Extras blenden aus, die anderen Karten blenden wieder ein.
+    // extras: nur Elemente, die zu diesem Zeitpunkt sichtbar sind (fadeOut startet bei Deckkraft 1).
     function back(n, t, extras) {
       ["#a4b-n" + n, "#a4b-va" + n, "#a4b-vb" + n].concat(extras || []).forEach(function (el) { FX.fadeOut(tl, el, t, 0.15); });
       moveCard(n, grid(n), t, 0.4, "power2.inOut");
       others(n).forEach(function (el) { FX.fadeIn(tl, el, t); });
       FX.tween(tl, "#a4b-p" + n, { top: PH[n][0], height: PH[n][1] }, { top: 32, height: 574, duration: 0.4, ease: "power2.inOut" }, t);
       FX.tween(tl, "#a4b-pi" + n, { y: PH[n][2] }, { y: 0, duration: 0.4, ease: "power2.inOut" }, t);
-      FX.tween(tl, "#a4b-d" + n, { x: DIG.x, y: DIG.y, scale: 1 }, { x: 0, y: 0, scale: 1.9, duration: 0.4, ease: "power2.inOut" }, t);
+      if (n < 4) FX.tween(tl, "#a4b-d" + n, { x: DIG.x, y: DIG.y, scale: 1 }, { x: 0, y: 0, scale: 1.9, duration: 0.4, ease: "power2.inOut" }, t);
+      else FX.fadeIn(tl, "#a4b-d4", t + 0.25, 0.15);
       tl.set(card(n), { zIndex: 1 }, t + 0.4);
     }
     const zooms = { 1: [], 2: [], 3: [], 4: [] };          // langsame Zooms je Karte (für Cursor-Ziele während des Zooms)
     function slow(n, t, d, zoomOut) {   // langsamer Zoom 100 -> 108 % über 3 s (anteilig), oder zurück
       if (d < 1) return;
-      const k = 0.08 * Math.min(3, d) / 3, s0 = st[n].scale, s1 = zoomOut ? s0 - k : s0 + k;
+      const k = 0.08 * Math.min(3, d) / 3, s0 = st[n].scale, s1 = zoomOut ? Math.max(1, s0 - k) : s0 + k;
+      if (Math.abs(s1 - s0) < 0.005) return;
       moveCard(n, { x: st[n].x, y: st[n].y, scale: s1 }, t, Math.min(3, d), "none");
       zooms[n].push({ t: t, d: Math.min(3, d), s0: s0, s1: s1 });
     }
@@ -192,7 +208,7 @@
     function path(t, pts, d) { t = Math.max(t, busy + 0.01); const seg = d / (pts.length - 1); for (let i = 1; i < pts.length; i++) steps.push({ t: t + (i - 1) * seg, to: pts[i], d: seg, ease: "none" }); busy = t + d; return busy; }
     function click(t) { steps.push({ t: t, click: true }); }
     const R = [215, 270];                                  // = Endpunkt der Anfänge (auf dem Bild von Karte 1)
-    // Klickpunkte auf den Raster-Karten. K[4] liegt auf dem "?" und ist zugleich ein freier Ruhepunkt der großen Karte 4 (unten Mitte).
+    // Klickpunkte auf den Raster-Karten. K[4] liegt auf dem "?".
     const K = { 2: [720, 270], 3: [215, 624], 4: [784, 576] };
     // Nach jedem Klick gleitet der Cursor einmal auf eine freie Fläche der großen Karte (nie an den Rand der Motiv-Zone, nie auf den Kartenrand).
     const REST1 = [624, 486];                              // Karte 1 groß: unter den Werten, links der Ziffer
@@ -205,38 +221,48 @@
     click(tF1);
     fly(1, tF1);
     mv(tF1 + 0.2, REST1, 0.7);
-    // "… hat keinen Stop und hofft auf den großen Wurf …" -> "Plan 0" einkreisen; der Cursor zeichnet mit und bleibt am Ende des Kreises liegen.
+    // "… hat keinen Stop-Loss und hofft auf den großen Wurf …" -> "Plan 0" einkreisen; der Cursor zeichnet mit und bleibt am Ende des Kreises liegen.
     const TR1 = [[689.5,303.9],[695.2,303.6],[712.2,302.5],[740.7,301.4],[780.5,301.4],[831.7,304.1],[893.6,313.3],[961.6,340.7],[937.5,403.2],[844.5,428.4],[736.6,433.9],[629.1,423.1],[537,394.4],[535.7,333.6],[606.1,311.5],[668.1,302.7],[719.2,299],[759,298.1],[787.4,298.4],[804.5,299.1],[810.2,299.3]];
     const tC1 = Math.max(tF1 + 1.0, C.stop - 0.1);
     FX.drawCircle(tl, "#a4b-o1", tC1);
     mv(Math.max(C.setzt, tC1 - 0.75), TR1[0], 0.6);
     path(tC1, TR1, 0.5);
-    // "… und meistens ist er als Erster wieder raus." -> langsamer Zoom.
-    const tR2 = Math.max(tC1 + 1.4, C.typ2 - 0.55);
-    const tZ1 = Math.max(tC1 + 0.8, C.raus);
+    // "… und meistens ist er als Erster der, der wieder raus ist." -> langsamer Zoom; auf "Erster" knallt ein roter Stempel "Raus" drauf (8° schräg).
+    const tR2 = Math.max(tC1 + 1.6, C.typ2 - 0.55);
+    const tZ1 = Math.max(tC1 + 0.6, Math.min(C.raus, tR2 - 1.1));
     slow(1, tZ1, tR2 - 0.1 - tZ1);
+    const tSt = Math.min(tR2 - 0.6, Math.max(tC1 + 0.9, C.erster - 0.1));
+    FX.slam(tl, "#a4b-stamp1", tSt, { rotation: -8 });
 
     // ---------------------------------------------------------------- Typ 2: der Dauerlerner
-    back(1, tR2, ["#a4b-o1"]);
+    back(1, tR2, ["#a4b-o1", "#a4b-stamp1"]);
     mv(tR2, K[2], 0.45);
     const tF2 = Math.max(C.typ2 - 0.05, busy);
     click(tF2);
     fly(2, tF2);
     mv(tF2 + 0.2, REST2, 0.7);
-    // "… 50 Videos geschaut und 20 Strategien gespeichert …" -> Karte rückt nach links (78 %, Werte ≈ 56 px), dahinter ein Stapel Zettel "Strategie 1 … 20".
+    // "Der hat 50 Videos geschaut …" -> Karte rückt nach links (78 %), rechts daneben ein kleiner Stapel Video-Kacheln "50 Videos".
     const tV = Math.max(tF2 + 0.9, C.videos - 0.1);
-    moveCard(2, { x: -148, y: 6, scale: 0.78 }, tV, 0.4, "power2.inOut");   // Karte x 36–748: ≈ 20 px Luft bis "Strategie 20"
-    [1, 2, 3, 4].forEach(function (k) {
-      FX.tween(tl, "#a4b-nt" + k, { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tV + 0.2 + (k - 1) * 0.08);
+    moveCard(2, { x: -148, y: 6, scale: 0.78 }, tV, 0.4, "power2.inOut");   // Karte x 36–748
+    FX.pop(tl, "#a4b-vid", tV + 0.2);
+    // "… und 20 Strategien gespeichert …" -> die Video-Kacheln gehen, dahinter ein Stapel Zettel "Strategie 1 … 20".
+    const t20 = Math.max(tV + 0.9, C.strat20 - 0.3);
+    FX.fadeOut(tl, "#a4b-vid", t20, 0.15);
+    NOTES.forEach(function (el, k) {
+      FX.tween(tl, el, { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, t20 + 0.05 + k * 0.08);
     });
-    const t20 = Math.max(tV + 0.65, C.strat20 - 0.05);
-    FX.tween(tl, "#a4b-nt5", { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, t20);
-    // "… aber noch keinen einzigen Trade gesetzt …" -> Cursor zeigt ruhig von links unten auf die "0" von "Trades 0".
-    mv(Math.max(C.keinen, t20 + 0.4), zone(2, 790, 358), 0.6);
+    // "… aber noch keinen einzigen Trade gesetzt …" -> "Trades 0" einkreisen; der Cursor zeigt ruhig von links unten auf die "0".
+    const tC2 = Math.max(t20 + 0.8, C.keinen - 0.1);
+    FX.drawCircle(tl, "#a4b-o2", tC2);
+    mv(Math.max(busy + 0.05, tC2 - 0.55), zone(2, 790, 358), 0.55);
+    // "… weil er alles verstehen will …" -> Kreis geht, "Wissen 9" wird unterstrichen.
+    const tU2 = Math.max(tC2 + 0.9, C.verstehen - 0.1);
+    FX.fadeOut(tl, "#a4b-o2", tU2, 0.2);
+    FX.drawLine(tl, "#a4b-u2", tU2);
 
     // ---------------------------------------------------------------- Typ 3: der Ungeduldige
-    const tR3 = Math.max(busy + 0.6, C.typ3 - 0.55);
-    back(2, tR3, ["#a4b-nt1", "#a4b-nt2", "#a4b-nt3", "#a4b-nt4", "#a4b-nt5"]);
+    const tR3 = Math.max(busy + 0.6, tU2 + 0.8, C.typ3 - 0.55);
+    back(2, tR3, ["#a4b-u2"].concat(NOTES));
     mv(tR3, K[3], 0.45);
     const tF3 = Math.max(C.typ3 - 0.05, busy);
     click(tF3);
@@ -245,15 +271,17 @@
     // "… nach 2 Wochen Ergebnisse sehen …" -> kleine tickende Uhr (der Sekundenzeiger springt alle 0,5 s).
     const tW = Math.max(tF3 + 0.8, C.wochen - 0.05);
     FX.pop(tl, "#a4b-clock", tW);
-    // "… macht er aus Frust einen Rache-Trade …" -> Cursor zeigt ruhig von links unten auf "10" von "Frust 10".
-    mv(Math.max(C.frust, tW + 0.5), zone(3, 768, 360), 0.6);
-    const tR4 = Math.max(busy + 0.6, C.typ4 - 0.55);
+    // "… macht er aus Frust einen Rache-Trade." -> "Frust 10" einkreisen; der Cursor zeigt ruhig von links unten auf die "10".
+    const tC3 = Math.max(tW + 1.0, C.frust - 0.1);
+    FX.drawCircle(tl, "#a4b-o3", tC3);
+    mv(Math.max(busy + 0.05, tC3 - 0.55), zone(3, 768, 360), 0.55);
+    const tR4 = Math.max(busy + 0.6, tC3 + 0.9, C.typ4 - 0.55);
     for (let k = 1, t = tW + 0.5; t < tR4 - 0.05; k++, t += 0.5) tl.set("#a4b-sec", { rotation: k * 30, svgOrigin: "0 0" }, t);
 
     // ---------------------------------------------------------------- Typ 4: der, der dranbleibt
-    // "Und dann gibt's noch einen 4. Typ:" -> zurück zum Raster, der Cursor geht auf die verdeckte Karte;
-    // auf "4." dreht sie sich um (0,4 s um die senkrechte Achse).
-    back(3, tR4, ["#a4b-clock"]);
+    // "Und jetzt zum Typ Nummer 4:" -> zurück zum Raster, der Cursor geht auf die verdeckte Karte;
+    // auf "4" dreht sie sich um (0,4 s um die senkrechte Achse).
+    back(3, tR4, ["#a4b-clock", "#a4b-o3"]);
     mv(tR4, K[4], 0.45);
     const tFl = Math.max(C.typ4n - 0.1, busy + 0.05);
     click(tFl);
@@ -262,68 +290,65 @@
     tl.set("#a4b-front4", { opacity: 1 }, tFl + 0.2);
     FX.tween(tl, "#a4b-front4", { rotationY: -90 }, { rotationY: 0, duration: 0.2, ease: "power1.out" }, tFl + 0.2);
     // "Von über 2.000 Leuten in meinem Coaching …" -> Klick, Karte 4 groß: "Der, der dranbleibt", "Plan 10 · Geduld 9", Einblendung "2.000+ im Coaching".
-    // Der Cursor bleibt liegen: der Klickpunkt ist auf der großen Karte eine freie Fläche (unten Mitte, über den späteren Haken).
     const tF4 = Math.max(C.coaching - 0.05, tFl + 0.6, busy);
     click(tF4);
     fly(4, tF4);
-    FX.pop(tl, "#a4b-badge", Math.max(tF4 + 0.35, C.k2000 - 0.05));   // Untergrenze klein, damit "2.000+" auch bei schnellem Sprechen nie nach "2.000" kommt
-    // "… sind das die, die dranbleiben." -> Cursor zeigt ruhig auf "10" von "Plan 10".
-    const tZ4 = Math.max(tF4 + 1.0, C.genies);
-    const tk1 = Math.max(tF4 + 1.2, C.einzige - 0.05), tk2 = Math.max(tk1 + 0.4, C.wenig - 0.05), tk3 = Math.max(tk2 + 0.4, C.geduldig - 0.05);
-    mv(Math.max(C.dran - 0.1, tF4 + 0.6), zone(4, 768, 336), 0.6);
-    // "Das sind keine Genies …" -> langsamer Zoom; "… ganz normale Leute mit Job …" -> Cursor zeigt auf das Bild;
-    // "… eine einzige Strategie … wenig riskieren … geduldig" -> 3 Haken.
-    slow(4, tZ4, tk1 - 0.1 - tZ4);
-    const tJob = Math.max(C.job - 0.1, busy + 0.3);
+    FX.pop(tl, "#a4b-badge", Math.max(tF4 + 0.35, C.k2000 - 0.05));
+    // "… sind das die, die wirklich dranbleiben." -> "dranbleibt" wird unterstrichen; der Cursor zeigt von links unten auf das Wort.
+    const tU4 = Math.max(tF4 + 1.0, C.dran - 0.1);
+    mv(Math.max(busy + 0.05, tU4 - 0.55), zone(4, 420, 246), 0.55);
+    FX.drawLine(tl, "#a4b-u4", tU4);
+    // "Das sind keine Genies und keine Zocker …" -> langsamer Zoom.
+    // "… sondern ganz normale Leute, die in einem Vollzeitjob sind …" -> Cursor auf das Bild; "2.000+" geht, "Vollzeitjob" ploppt an seiner Stelle auf.
+    // "… einer einzigen Strategie … wenig Zeit … geduldig …" -> 3 Haken.
+    const tZ4 = Math.max(tU4 + 0.5, C.genies);
+    const tJob = Math.max(C.job - 0.1, tZ4 + 0.4, busy + 0.1);
+    const tJ = Math.max(tJob + 0.6, C.vollzeit - 0.1);
+    const tk1 = Math.max(tJ + 0.6, C.einzige - 0.05), tk2 = Math.max(tk1 + 0.5, C.wenig - 0.05), tk3 = Math.max(tk2 + 0.5, C.geduldig - 0.05);
+    // "Und wenn du zu den vierten Typen passen möchtest …" -> zurück zum Raster (alle 4 Karten offen), die "4" wird eingekreist.
+    const tD = Math.max(C.disziplin, tk3 + 0.35);
+    const tR5 = Math.max(tD + 1.15, C.vierten - 0.55);
+    const tZo = Math.max(tD + 1.0, E.disziplin + 0.2);
+    slow(4, tZ4, Math.min(tk1 - 0.1, tZo - 0.1) - tZ4);
     mv(tJob, zoneAt(4, 312, 418, tJob + 0.7), 0.7);
+    FX.fadeOut(tl, "#a4b-badge", tJ, 0.15);
+    FX.pop(tl, "#a4b-job", tJ + 0.05);
     FX.pop(tl, "#a4b-t1", tk1);
     FX.pop(tl, "#a4b-t2", tk2);
     FX.pop(tl, "#a4b-t3", tk3);
-    // "Dafür musst du kein Profi sein …" -> leicht rauszoomen; der Cursor gleitet einmal über die 3 Haken und bleibt zwischen Haken 2 und 3.
-    const tK = Math.max(tk3 + 0.6, C.kurs - 0.05);
-    const tZ4b = Math.max(tk3 + 0.4, C.profi);
-    slow(4, tZ4b, Math.min(st[4].scale > 1 ? 3 * (st[4].scale - 1) / 0.08 : 0, tK - 0.1 - tZ4b), true);
-    const tP = Math.max(C.profi, busy + 0.2);
-    if (tP + 1.45 < tK - 0.1) {
-      mv(tP, zoneAt(4, 470, 556, tP + 0.55), 0.55, "power1.in");
-      mv(tP + 0.56, zoneAt(4, 746, 540, tP + 1.41), 0.85, "power1.out");
-    }
+    // "… und Disziplin haben." -> der Cursor gleitet einmal über die 3 Haken und bleibt zwischen Haken 2 und 3; danach leicht rauszoomen.
+    mv(tD, zoneAt(4, 470, 556, tD + 0.4), 0.4, "power1.in");
+    mv(tD + 0.41, zoneAt(4, 746, 540, tD + 1.11), 0.7, "power1.out");
+    slow(4, tZo, tR5 - 0.1 - tZo, true);
+    back(4, tR5, ["#a4b-job", "#a4b-t1", "#a4b-t2", "#a4b-t3", "#a4b-u4"]);
+    const TR4 = [[887.4,418.1],[919.1,419.2],[962.8,437.9],[986.1,459.9],[1006.8,503.7],[1008.9,536],[1001.8,567.1],[978,607.4],[955.2,628.8],[911.6,649.1],[878.5,650.2],[846.9,639],[811.8,603],[799.4,572.5],[794.7,524.7],[799.7,493.2],[812.2,463.1],[846.5,427.4],[877.2,414.8],[926.7,415.7],[957.3,428.4]];
+    const tC4 = Math.max(tR5 + 0.45, C.vierten - 0.1);
+    mv(Math.max(busy + 0.05, tR5 + 0.05), TR4[0], Math.max(0.3, Math.min(0.6, tC4 - 0.05 - Math.max(busy + 0.06, tR5 + 0.05))));
+    FX.drawCircle(tl, "#a4b-c4o", tC4);
+    path(tC4, TR4, 0.5);
 
     // ---------------------------------------------------------------- Kurs-Mockup (ohne Punkte: nur der Laptop, mittig)
-    // "Wie du zu diesem 4. Typ wirst …" -> Schnitt auf den Kurs; der Laptop schiebt sich in 0,25 s rein.
+    // "… einen kostenfreien Videokurs anschauen." -> Schnitt auf den Kurs; der Laptop schiebt sich in 0,25 s rein,
+    // der Cursor gleitet auf das grüne Badge "Kostenloser Videokurs".
+    const tK = Math.max(tC4 + 0.9, C.kurs - 0.05);
     tl.set("#a4b-grid", { opacity: 0 }, tK);
     tl.set("#a4b-course", { opacity: 0 }, 0);
     tl.set("#a4b-course", { opacity: 1 }, tK);
     FX.tween(tl, "#a4b-course-laptop", { opacity: 0, x: -1100 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tK);
-    // Eine ruhige Bewegung für den Satz: gleich nach dem Schnitt gleitet der Cursor vom Laptop-Rand auf das rechte Ende des grünen Badges
-    // (Badge ≈ x 218–422, y 148–177) und liegt dort, während "kostenlosen Videokurs" gesprochen wird.
-    mv(Math.max(tK + 0.1, Math.min(tK + 0.35, C.kostenlos - 1.0)), [418, 165], 0.9);
-
-    // ---------------------------------------------------------------- CTA-Bild
-    // "Klick unter dem Video auf „Mehr dazu“ …" -> Laptop + "Mehr dazu" + Pfeil nach unten.
+    mv(Math.max(tK + 0.15, busy + 0.05), [418, 165], 0.8);
+    // "Dort zeige ich dir alles, was du brauchst …" -> langsamer Zoom auf den Laptop.
+    // "… um zum vierten Typ dazuzugehören." -> der Cursor gleitet ruhig auf "Kostenlos starten".
     const tCTA = Math.max(C.klick - 0.05, busy + 0.2);
+    const tDort = Math.max(tK + 1.0, C.dort - 0.05);
+    if (tCTA - 0.1 - tDort >= 1) FX.slowZoom(tl, "#a4b-course-laptop", tDort, { d: Math.min(3, tCTA - 0.1 - tDort), to: 1 + 0.08 * Math.min(3, tCTA - 0.1 - tDort) / 3 });
+    const tDazu = Math.max(busy + 0.3, C.dazu - 0.1);
+    if (tDazu + 0.7 < tCTA - 0.1) mv(tDazu, [476, 470], 0.7);
+
+    // ---------------------------------------------------------------- CTA-Bild (bleibt bis zum Ende)
+    // "Deswegen klicke auf den Button, und ich wünsche dir ganz viel Erfolg." -> Laptop + "Mehr dazu" + Pfeil nach unten.
     tl.set("#a4b-course", { opacity: 0 }, tCTA);
     FX.cta(tl, "a4b-cta", tCTA);
     steps.push({ t: tCTA, hide: true });
-
-    // ---------------------------------------------------------------- Schlussbild
-    // "… welcher Typ du bisher warst." -> Raster mit allen 4 Karten offen, "Welcher warst du?" + "Kommentar ↓", Banner "Mehr dazu ↓" bis zum Ende.
-    const tEnd = Math.max(C.welcher - 0.05, tCTA + 1.2);
-    tl.set("#a4b-cta", { opacity: 0 }, tEnd);
-    const G = 0.58, GX = 40, GY = 96;                       // Raster auf 58 %, links; Text rechts
-    [1, 2, 3, 4].forEach(function (n) {
-      const c = SL[n - 1];
-      tl.set(card(n), { x: GX + (c[0] - 48) * G - 540, y: GY + (c[1] - 10) * G - 355, scale: S * G, opacity: 1, zIndex: 1 }, tEnd);
-      tl.set("#a4b-d" + n, { x: 0, y: 0, scale: 1.9, opacity: 1 }, tEnd);
-      tl.set("#a4b-p" + n, { top: 32, height: 574 }, tEnd);
-      tl.set("#a4b-pi" + n, { y: 0 }, tEnd);
-      tl.set(["#a4b-n" + n, "#a4b-va" + n, "#a4b-vb" + n], { opacity: 0 }, tEnd);
-    });
-    tl.set(["#a4b-badge", "#a4b-t1", "#a4b-t2", "#a4b-t3"], { opacity: 0 }, tEnd);
-    tl.set("#a4b-grid", { opacity: 1 }, tEnd);
-    FX.pop(tl, "#a4b-q", tEnd);
-    FX.more(tl, "a4b-more", tEnd + 0.15);
-    FX.pop(tl, "#a4b-k", Math.min(tEnd + 0.4, Math.max(tEnd + 0.2, E.welcher - 0.3)));
 
     FX.cursor(tl, "#a4b-cur", "#a4b-ring", R, steps);
     window.__timelines["ad4-body"] = tl;

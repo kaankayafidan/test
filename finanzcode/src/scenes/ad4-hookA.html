@@ -122,7 +122,7 @@
 
     // Cursor: kreist ab Frame 1 über die 3 offenen Karten (1 Runde ≈ 1,6 s), danach ruhig.
     path(0, LOOP, 1.6);
-    // "Alle 3 geben meistens nach ein paar Wochen auf …" -> der Cursor sinkt ruhig in die Lücke in der Mitte des Rasters.
+    // "Alle 3 geben nach mindestens ein paar Wochen auf …" -> der Cursor sinkt ruhig in die Lücke in der Mitte des Rasters.
     const tApp = Math.max(C.aber, tCirc - 0.8);              // Anflug auf den Kreis um die "?"-Karte
     const tAlle = Math.max(busy + 0.1, C.alle);
     mv(tAlle, MID, Math.max(0.4, Math.min(1.1, tApp - 0.15 - tAlle)), "sine.inOut");
@@ -133,6 +133,14 @@
     const tBack = Math.max(busy + 0.25, Math.min(E.gleich - 0.9, DUR - 1.0));
     mv(tBack, R, Math.max(0.3, Math.min(0.8, DUR - 0.1 - tBack)));
     FX.fadeOut(tl, "#a4ha-circ", Math.max(tCirc + 0.6, Math.min(tBack, DUR - 0.3)), 0.2);
+    // "… geben nach mindestens ein paar Wochen auf" -> die 3 offenen Karten werden blass (0,2 s), nur die "?"-Karte bleibt kräftig;
+    // auf "… und zu dem kommen wir gleich." sind sie wieder voll da (Übergang in den Body: Raster wie im ersten Bild).
+    const tDim = Math.min(tCirc - 0.3, Math.max(C.alle + 0.6, C.auf - 0.1));
+    const tUndim = Math.min(DUR - 0.35, Math.max(tDim + 0.6, tBack));
+    ["#a4ha-c1", "#a4ha-c2", "#a4ha-c3"].forEach(function (el) {
+      FX.tween(tl, el, { opacity: 1 }, { opacity: 0.35, duration: 0.2, ease: "none" }, tDim);
+      FX.tween(tl, el, { opacity: 0.35 }, { opacity: 1, duration: 0.2, ease: "none" }, tUndim);
+    });
     FX.cursor(tl, "#a4ha-cur", "#a4ha-ring", LOOP[0], steps);
 
     window.__timelines["ad4-hookA"] = tl;

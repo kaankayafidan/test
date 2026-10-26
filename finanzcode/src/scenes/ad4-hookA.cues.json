@@ -1,7 +1,8 @@
 {
   "cues": {
-    "welcher": "Welcher von diesen 3 Trading-Anfängern bist du?",
-    "alle": "Alle 3 geben meistens nach ein paar Wochen auf",
+    "welcher": "Welcher dieser 3 Trading-Anfänger-Typen bist du?",
+    "alle": "Alle 3 geben nach mindestens ein paar Wochen auf",
+    "auf": { "phrase": "ein paar Wochen auf", "word": 3 },
     "aber": "aber es gibt noch einen 4.",
     "vierter": { "phrase": "noch einen 4.", "word": 2 },
     "gleich": "und zu dem kommen wir gleich."

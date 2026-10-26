@@ -11,7 +11,7 @@
     #a5hb-tt { position: absolute; left: 172px; top: 410px; height: 160px; font-family: 'Poppins'; font-weight: 700; font-size: 84px; line-height: 160px; color: #0E1A2B; white-space: nowrap; }
     #a5hb-qw { position: relative; display: inline-block; }
     #a5hb-q { display: inline-block; }
-    #a5hb-30 { position: absolute; left: 0; top: 0; display: inline-block; }
+    #a5hb-30 { position: absolute; left: 0; top: 0; display: inline-block; color: #16A34A; }
     /* Kalender (gleich wie Anfang A und Body) */
     #a5hb-cal { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; background: #FFFFFF; }
     .a5hb-day { position: absolute; top: 0; width: 200px; height: 710px; }
@@ -29,6 +29,8 @@
         <div id="a5hb-job"><div id="a5hb-jobt">Job: 40 h</div></div>
         <div id="a5hb-tbar"></div>
         <div id="a5hb-tt">Trading: <span id="a5hb-qw"><span id="a5hb-q">?</span><span id="a5hb-30">30 Min.</span></span></div>
+        <!-- "… neben einem 40-Stunden-Job?": rot unterstrichen (10 px, Linie in 0,3 s) -->
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a5hb-ul" class="fx-stroke" pathLength="1" d="" /></svg>
       </div>
       <div id="a5hb-cal">
         <div class="a5hb-day" style="left: 40px;"><div class="a5hb-dl">Mo</div><div class="a5hb-card"><div class="a5hb-b a5hb-grey"></div><div class="a5hb-b a5hb-ev a5hb-blue"></div></div></div>
@@ -42,10 +44,17 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const END = [1000, 640];                         // = Startpunkt des Cursors im Body
 
-    // "Gerade mal 30 Minuten am Tag …": Klick, aus dem "?" wird "30 Min." (ploppt auf).
-    const t30 = Math.max(1.8, C.min30 - 0.05);
-    // "… und ich zeig's dir direkt hier im Kalender.": harter Schnitt auf den vollen Kalender.
+    // "… neben einem 40-Stunden-Job?": "40 h" wird rot unterstrichen, der Cursor zieht die Linie mit.
+    const UL0 = [322, 268], UL1 = [522, 264];
+    document.getElementById("a5hb-ul").setAttribute("d", FX.handLine(UL0[0], UL0[1], UL1[0], UL1[1], 5));
+    const tJob = Math.max(1.75, C.job - 0.05);
+    FX.init(tl, "#a5hb-ul", { opacity: 0 });
+    FX.drawLine(tl, "#a5hb-ul", tJob);
+    // "Gerade mal 30 Minuten am Tag …": Klick, aus dem "?" wird ein grünes "30 Min." (ploppt auf, dann 1 Schlag pulsieren).
+    const t30 = Math.max(tJob + 0.6, C.min30 - 0.05);
+    // "… und ich zeige es dir in diesem Kalender.": harter Schnitt auf den vollen Kalender.
     const tCal = Math.max(t30 + 0.8, C.zeig - 0.05);
 
     // Frame 1: das offene "?" pulsiert (100 -> 108 %, 0,8 s pro Schlag) bis zum Klick.
@@ -54,22 +63,30 @@
     tl.set("#a5hb-q", { opacity: 0 }, t30);
     FX.init(tl, "#a5hb-30", { opacity: 0 });
     FX.pop(tl, "#a5hb-30", t30, { origin: "0% 55%" });
+    if (tCal - (t30 + 0.2) >= 0.8) FX.pulse(tl, "#a5hb-30", t30 + 0.2, 0.8, { origin: "0% 55%" });
 
     FX.init(tl, "#a5hb-cal", { opacity: 0 });
     FX.cut(tl, "#a5hb-bars", "#a5hb-cal", tCal);
 
-    // Cursor: ab Frame 1 kreist er knapp außerhalb um die beiden Balken (1 Runde in 1,5 s), danach ruhig:
-    // eine Bewegung zum "?", Klick; nach dem Schnitt eine Bewegung in die freie Fläche unter den Blöcken
-    // (= Startpunkt des Cursors im Body).
-    const ORB = { cx: 540, cy: 355, rx: 505, ry: 280 };
-    const a0 = (25 * Math.PI) / 180;
-    const start = [ORB.cx + ORB.rx * Math.cos(a0), ORB.cy + ORB.ry * Math.sin(a0)];
+    // Cursor: ab Frame 1 kreist er einmal knapp außerhalb um die beiden Balken (1 Runde in 1,5 s). Die Bahn ist
+    // eine abgerundete Rechteck-Form (Superellipse), damit sie die Balken-Ecken nicht schneidet.
+    // Danach ruhig: zum "40 h" und die Unterstreichung entlang, dann zum "?" und Klick;
+    // nach dem Schnitt eine Bewegung in die freie Fläche unten rechts (= Startpunkt des Cursors im Body).
+    const OC = [540, 355], RA = 505, RB = 282, NE = 5, A0 = (25 * Math.PI) / 180;
+    const sp = function (v) { return Math.sign(v) * Math.pow(Math.abs(v), 2 / NE); };
+    const orbitAt = function (a) { return [OC[0] + RA * sp(Math.cos(a)), OC[1] + RB * sp(Math.sin(a))]; };
+    const start = orbitAt(A0);
+    const steps = [];
+    const N = 36, DO = 1.5;
+    for (let i = 1; i <= N; i++) steps.push({ t: (i - 1) * DO / N, to: orbitAt(A0 + (i / N) * Math.PI * 2), d: DO / N, ease: "none" });
+    const legJ = Math.max(0.2, Math.min(0.6, tJob - 0.03 - 1.55));
+    steps.push({ t: tJob - 0.03 - legJ, to: UL0, d: legJ });
+    steps.push({ t: tJob, to: UL1, d: 0.3, ease: "power1.inOut" });
     const Q = [586, 540];
-    const steps = [{ t: 0, orbit: Object.assign({}, ORB, { start: a0, turns: 1 }), d: 1.5 }];
-    const legQ = Math.max(0.25, Math.min(0.7, t30 - 0.05 - 1.55));
-    steps.push({ t: Math.max(1.55, t30 - 0.05 - legQ - 0.4), to: Q, d: legQ });
+    const legQ = Math.max(0.25, Math.min(0.6, t30 - 0.05 - (tJob + 0.35)));
+    steps.push({ t: t30 - 0.03 - legQ, to: Q, d: legQ });
     steps.push({ t: t30, click: true });
-    steps.push({ t: tCal + 0.15, to: [620, 640], d: Math.max(0.3, Math.min(0.7, DUR - tCal - 0.6)) });
+    steps.push({ t: tCal + 0.1, to: END, d: Math.max(0.3, Math.min(0.6, DUR - 0.35 - (tCal + 0.1))) });
     FX.cursor(tl, "#a5hb-cur", "#a5hb-ring", start, steps);
 
     window.__timelines["ad5-hookB"] = tl;

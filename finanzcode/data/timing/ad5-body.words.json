@@ -101,7 +101,7 @@
 },
 {
 "text": "Abends",
-"start": 4.54,
+"start": 4.52,
 "end": 4.78
 },
 {
@@ -117,801 +117,806 @@
 {
 "text": "Sport",
 "start": 5.02,
-"end": 5.34
+"end": 5.36
 },
 {
 "text": "oder",
-"start": 5.34,
-"end": 5.52
+"start": 5.36,
+"end": 5.54
 },
 {
-"text": "Freunde.",
-"start": 5.52,
-"end": 5.88
+"text": "Freunde,",
+"start": 5.54,
+"end": 5.9
 },
 {
-"text": "Das",
-"start": 6.52,
-"end": 6.62
+"text": "und",
+"start": 6.02,
+"end": 6.069999999999999
+},
+{
+"text": "das",
+"start": 6.06,
+"end": 6.16
 },
 {
 "text": "Wochenende",
-"start": 6.62,
-"end": 6.96
+"start": 6.16,
+"end": 6.5
 },
 {
 "text": "bleibt",
-"start": 6.96,
-"end": 7.14
+"start": 6.5,
+"end": 6.68
 },
 {
 "text": "frei,",
-"start": 7.14,
-"end": 7.42
+"start": 6.68,
+"end": 6.96
 },
 {
 "text": "und",
-"start": 7.6,
-"end": 7.78
+"start": 7.16,
+"end": 7.34
 },
 {
 "text": "jetzt",
-"start": 7.78,
-"end": 7.94
+"start": 7.34,
+"end": 7.5
 },
 {
 "text": "schau",
-"start": 7.94,
-"end": 8.16
+"start": 7.5,
+"end": 7.7
 },
 {
 "text": "mal",
-"start": 8.16,
-"end": 8.3
+"start": 7.7,
+"end": 7.86
 },
 {
 "text": "hier:",
-"start": 8.3,
-"end": 8.56
+"start": 7.86,
+"end": 8.1
 },
 {
 "text": "morgens",
-"start": 8.94,
-"end": 9.3
+"start": 8.44,
+"end": 8.84
 },
 {
 "text": "15",
-"start": 9.3,
-"end": 9.62
+"start": 8.84,
+"end": 9.18
 },
 {
 "text": "Minuten",
-"start": 9.62,
-"end": 9.92
+"start": 9.18,
+"end": 9.46
 },
 {
 "text": "vor",
-"start": 9.92,
-"end": 10.18
+"start": 9.46,
+"end": 9.72
 },
 {
 "text": "der",
-"start": 10.18,
-"end": 10.32
+"start": 9.72,
+"end": 9.86
 },
 {
 "text": "Arbeit",
-"start": 10.32,
-"end": 10.64
+"start": 9.86,
+"end": 10.2
 },
 {
 "text": "und",
-"start": 10.64,
-"end": 10.92
+"start": 10.2,
+"end": 10.46
 },
 {
 "text": "abends",
-"start": 10.92,
-"end": 11.3
+"start": 10.46,
+"end": 10.86
 },
 {
 "text": "15",
-"start": 11.3,
-"end": 11.6
+"start": 10.86,
+"end": 11.16
 },
 {
 "text": "Minuten",
-"start": 11.6,
-"end": 11.94
+"start": 11.16,
+"end": 11.5
 },
 {
 "text": "nach",
-"start": 11.94,
-"end": 12.24
+"start": 11.5,
+"end": 11.78
 },
 {
 "text": "Feierabend.",
-"start": 12.24,
-"end": 12.86
+"start": 11.78,
+"end": 12.4
 },
 {
 "text": "Mehr",
-"start": 12.98,
-"end": 13.34
+"start": 12.6,
+"end": 12.9
 },
 {
 "text": "ist",
-"start": 13.34,
-"end": 13.54
+"start": 12.9,
+"end": 13.08
 },
 {
 "text": "es",
-"start": 13.54,
-"end": 13.64
+"start": 13.08,
+"end": 13.18
 },
 {
 "text": "nicht.",
-"start": 13.64,
-"end": 13.76
+"start": 13.18,
+"end": 13.3
 },
 {
 "text": "Und",
-"start": 13.84,
-"end": 13.89
+"start": 13.4,
+"end": 13.450000000000001
 },
 {
 "text": "das",
-"start": 13.88,
+"start": 13.42,
+"end": 13.56
+},
+{
+"text": "funktioniert,",
+"start": 13.56,
 "end": 14.02
 },
 {
-"text": "funktioniert,",
-"start": 14.02,
-"end": 14.46
-},
-{
 "text": "weil",
-"start": 14.6,
-"end": 14.7
+"start": 14.12,
+"end": 14.26
 },
 {
 "text": "ich",
-"start": 14.7,
-"end": 14.84
+"start": 14.26,
+"end": 14.4
 },
 {
 "text": "eben",
-"start": 14.84,
-"end": 14.98
+"start": 14.4,
+"end": 14.54
 },
 {
 "text": "kein",
-"start": 14.98,
-"end": 15.22
+"start": 14.54,
+"end": 14.76
 },
 {
 "text": "Daytrading",
-"start": 15.22,
-"end": 15.74
+"start": 14.76,
+"end": 15.28
 },
 {
 "text": "mache,",
-"start": 15.74,
-"end": 15.96
+"start": 15.28,
+"end": 15.5
 },
 {
 "text": "sondern",
-"start": 16.02,
-"end": 16.16
+"start": 15.6,
+"end": 15.72
 },
 {
 "text": "wirklich",
-"start": 16.16,
-"end": 16.44
+"start": 15.72,
+"end": 15.96
 },
 {
 "text": "ruhige",
-"start": 16.44,
-"end": 16.94
+"start": 15.96,
+"end": 16.48
 },
 {
 "text": "Swing-Trades,",
-"start": 17.3,
-"end": 17.64
+"start": 16.84,
+"end": 17.18
 },
 {
 "text": "die",
-"start": 17.74,
-"end": 17.9
+"start": 17.44,
+"end": 17.490000000000002
 },
 {
 "text": "ich",
-"start": 17.9,
-"end": 17.98
+"start": 17.46,
+"end": 17.52
 },
 {
 "text": "einfach",
-"start": 17.98,
-"end": 18.18
+"start": 17.52,
+"end": 17.72
 },
 {
 "text": "laufen",
-"start": 18.18,
-"end": 18.54
+"start": 17.72,
+"end": 18.08
 },
 {
 "text": "lasse,",
-"start": 18.54,
-"end": 18.82
+"start": 18.08,
+"end": 18.36
 },
 {
 "text": "wo",
-"start": 18.88,
-"end": 19.0
+"start": 18.42,
+"end": 18.54
 },
 {
 "text": "ich",
-"start": 19.0,
-"end": 19.12
+"start": 18.54,
+"end": 18.66
 },
 {
 "text": "nicht",
-"start": 19.12,
-"end": 19.34
+"start": 18.66,
+"end": 18.9
 },
 {
 "text": "8",
-"start": 19.34,
-"end": 19.58
+"start": 18.9,
+"end": 19.16
 },
 {
 "text": "Stunden",
-"start": 19.58,
-"end": 19.82
+"start": 19.16,
+"end": 19.36
 },
 {
 "text": "am",
-"start": 19.82,
-"end": 20.0
+"start": 19.36,
+"end": 19.54
 },
 {
 "text": "Tag",
-"start": 20.0,
-"end": 20.24
+"start": 19.54,
+"end": 19.78
 },
 {
 "text": "vor",
-"start": 20.24,
-"end": 20.56
+"start": 19.78,
+"end": 20.1
 },
 {
 "text": "dem",
-"start": 20.56,
-"end": 20.68
+"start": 20.1,
+"end": 20.22
 },
 {
 "text": "Bildschirm",
-"start": 20.68,
-"end": 21.04
+"start": 20.22,
+"end": 20.6
 },
 {
 "text": "sitzen",
-"start": 21.04,
-"end": 21.28
+"start": 20.6,
+"end": 20.82
 },
 {
 "text": "muss.",
-"start": 21.28,
-"end": 21.42
+"start": 20.82,
+"end": 20.98
 },
 {
 "text": "Die",
-"start": 21.42,
-"end": 21.58
+"start": 20.98,
+"end": 21.12
 },
 {
 "text": "meisten",
-"start": 21.58,
-"end": 21.86
+"start": 21.12,
+"end": 21.4
 },
 {
 "text": "Trader",
-"start": 21.86,
-"end": 22.24
+"start": 21.4,
+"end": 21.78
 },
 {
 "text": "denken,",
-"start": 22.24,
-"end": 22.5
+"start": 21.78,
+"end": 22.04
 },
 {
 "text": "sie",
-"start": 22.62,
-"end": 22.67
+"start": 22.16,
+"end": 22.21
 },
 {
 "text": "müssen",
-"start": 22.66,
-"end": 22.86
+"start": 22.2,
+"end": 22.42
 },
 {
 "text": "so",
-"start": 22.86,
-"end": 23.04
+"start": 22.42,
+"end": 22.58
 },
 {
 "text": "viel",
-"start": 23.04,
-"end": 23.24
+"start": 22.58,
+"end": 22.78
 },
 {
 "text": "Zeit",
-"start": 23.24,
-"end": 23.48
+"start": 22.78,
+"end": 23.04
 },
 {
 "text": "investieren,",
-"start": 23.48,
-"end": 24.0
+"start": 23.04,
+"end": 23.54
 },
 {
 "text": "verbringen",
-"start": 24.24,
-"end": 24.5
+"start": 23.78,
+"end": 24.04
 },
 {
 "text": "8",
-"start": 24.5,
-"end": 24.8
+"start": 24.04,
+"end": 24.34
 },
 {
 "text": "Stunden",
-"start": 24.8,
-"end": 24.96
+"start": 24.34,
+"end": 24.5
 },
 {
 "text": "am",
-"start": 24.96,
-"end": 25.14
+"start": 24.5,
+"end": 24.68
 },
 {
 "text": "Tag",
-"start": 25.14,
-"end": 25.32
+"start": 24.68,
+"end": 24.86
 },
 {
 "text": "irgendwie",
-"start": 25.36,
-"end": 25.48
+"start": 24.86,
+"end": 24.91
 },
 {
 "text": "nebenbei",
-"start": 25.58,
-"end": 26.02
+"start": 24.91,
+"end": 24.96
 },
 {
 "text": "neben",
-"start": 26.08,
-"end": 26.2
+"start": 24.93,
+"end": 25.14
 },
 {
 "text": "der",
-"start": 26.2,
-"end": 26.36
+"start": 25.14,
+"end": 25.88
 },
 {
 "text": "Arbeit",
-"start": 26.36,
-"end": 26.6
+"start": 25.88,
+"end": 26.14
 },
 {
 "text": "am",
-"start": 26.68,
-"end": 26.73
+"start": 26.14,
+"end": 26.28
 },
 {
 "text": "Bildschirm,",
-"start": 26.72,
+"start": 26.28,
+"end": 26.74
+},
+{
+"text": "und",
+"start": 26.88,
+"end": 27.06
+},
+{
+"text": "das",
+"start": 27.06,
 "end": 27.2
 },
 {
-"text": "und",
-"start": 27.44,
-"end": 27.52
-},
-{
-"text": "das",
-"start": 27.52,
-"end": 27.66
-},
-{
 "text": "ist",
-"start": 27.66,
-"end": 27.76
+"start": 27.2,
+"end": 27.3
 },
 {
 "text": "genau",
-"start": 27.76,
-"end": 27.88
+"start": 27.3,
+"end": 27.42
 },
 {
 "text": "der",
-"start": 27.88,
-"end": 28.02
+"start": 27.42,
+"end": 27.58
 },
 {
 "text": "Fehler.",
-"start": 28.02,
-"end": 28.24
+"start": 27.58,
+"end": 27.78
 },
 {
 "text": "Du",
-"start": 28.88,
-"end": 29.16
+"start": 28.56,
+"end": 28.7
 },
 {
 "text": "tradest",
-"start": 29.16,
-"end": 29.5
+"start": 28.7,
+"end": 29.04
 },
 {
 "text": "aus",
-"start": 29.5,
-"end": 29.7
+"start": 29.04,
+"end": 29.26
 },
 {
 "text": "Langeweile,",
-"start": 29.7,
-"end": 30.22
+"start": 29.26,
+"end": 29.74
 },
 {
 "text": "du",
-"start": 30.34,
-"end": 30.39
+"start": 29.86,
+"end": 29.92
 },
 {
 "text": "hast",
-"start": 30.38,
-"end": 30.5
+"start": 29.92,
+"end": 29.98
 },
 {
 "text": "keine",
-"start": 30.5,
-"end": 30.76
+"start": 29.98,
+"end": 30.26
 },
 {
 "text": "richtige",
-"start": 30.76,
-"end": 31.12
+"start": 30.26,
+"end": 30.66
 },
 {
 "text": "Strategie,",
-"start": 31.12,
-"end": 31.7
+"start": 30.66,
+"end": 31.26
 },
 {
 "text": "keine",
-"start": 31.92,
-"end": 32.12
+"start": 31.4,
+"end": 31.66
 },
 {
 "text": "Disziplin,",
-"start": 32.12,
-"end": 32.7
+"start": 31.66,
+"end": 32.24
 },
 {
 "text": "und",
-"start": 32.7,
-"end": 33.02
+"start": 32.34,
+"end": 32.56
 },
 {
 "text": "schon",
-"start": 33.02,
-"end": 33.2
+"start": 32.56,
+"end": 32.74
 },
 {
 "text": "passieren",
-"start": 33.2,
-"end": 33.52
+"start": 32.74,
+"end": 33.06
 },
 {
 "text": "die",
-"start": 33.52,
-"end": 33.64
+"start": 33.06,
+"end": 33.18
 },
 {
 "text": "ersten",
-"start": 33.64,
-"end": 33.86
+"start": 33.18,
+"end": 33.42
 },
 {
 "text": "Fehler.",
-"start": 33.86,
-"end": 34.14
+"start": 33.42,
+"end": 33.68
 },
 {
 "text": "Und",
-"start": 34.34,
-"end": 34.42
+"start": 33.9,
+"end": 33.98
 },
 {
 "text": "genau",
-"start": 34.42,
-"end": 34.56
+"start": 33.98,
+"end": 34.1
 },
 {
 "text": "deswegen",
-"start": 34.56,
-"end": 34.8
+"start": 34.1,
+"end": 34.34
 },
 {
 "text": "rate",
-"start": 34.8,
-"end": 35.04
+"start": 34.34,
+"end": 34.58
 },
 {
 "text": "ich",
-"start": 35.04,
-"end": 35.14
+"start": 34.58,
+"end": 34.68
 },
 {
 "text": "dir",
-"start": 35.14,
-"end": 35.24
+"start": 34.68,
+"end": 34.78
 },
 {
 "text": "auch",
-"start": 35.24,
-"end": 35.38
+"start": 34.78,
+"end": 34.92
 },
 {
 "text": "im",
-"start": 35.38,
-"end": 35.48
+"start": 34.92,
+"end": 35.02
 },
 {
 "text": "Trading,",
-"start": 35.48,
-"end": 35.74
+"start": 35.02,
+"end": 35.28
 },
 {
 "text": "wirklich",
-"start": 35.98,
-"end": 36.06
+"start": 35.5,
+"end": 35.6
 },
 {
 "text": "auch",
-"start": 36.06,
-"end": 36.26
+"start": 35.6,
+"end": 35.8
 },
 {
 "text": "weniger",
-"start": 36.26,
-"end": 36.64
+"start": 35.8,
+"end": 36.18
 },
 {
 "text": "anfangs",
-"start": 36.64,
-"end": 37.16
+"start": 36.18,
+"end": 36.72
 },
 {
 "text": "zu",
-"start": 37.16,
-"end": 37.28
+"start": 36.72,
+"end": 36.82
 },
 {
 "text": "investieren,",
-"start": 37.28,
-"end": 37.8
+"start": 36.82,
+"end": 37.34
 },
 {
 "text": "Zeit",
-"start": 37.94,
-"end": 38.22
+"start": 37.48,
+"end": 37.76
 },
 {
 "text": "als",
-"start": 38.22,
-"end": 38.4
+"start": 37.76,
+"end": 37.94
 },
 {
 "text": "auch",
-"start": 38.4,
-"end": 38.52
+"start": 37.94,
+"end": 38.04
 },
 {
 "text": "Kapital.",
-"start": 38.52,
-"end": 38.98
+"start": 38.04,
+"end": 38.52
 },
 {
 "text": "Und",
-"start": 39.62,
-"end": 39.74
+"start": 38.68,
+"end": 38.82
 },
 {
 "text": "wenn",
-"start": 39.74,
-"end": 39.84
+"start": 38.82,
+"end": 38.92
 },
 {
 "text": "du",
-"start": 39.84,
-"end": 39.92
+"start": 38.92,
+"end": 38.98
 },
 {
 "text": "wissen",
-"start": 39.92,
-"end": 40.12
+"start": 38.98,
+"end": 39.2
 },
 {
 "text": "möchtest,",
-"start": 40.12,
-"end": 40.38
+"start": 39.2,
+"end": 39.46
 },
 {
 "text": "wie",
-"start": 40.38,
-"end": 40.48
+"start": 39.48,
+"end": 39.56
 },
 {
 "text": "das",
-"start": 40.48,
-"end": 40.6
+"start": 39.56,
+"end": 39.66
 },
 {
 "text": "Ganze",
-"start": 40.6,
-"end": 40.76
+"start": 39.66,
+"end": 39.84
 },
 {
 "text": "funktioniert,",
-"start": 40.76,
-"end": 41.32
+"start": 39.84,
+"end": 40.36
 },
 {
 "text": "dann",
-"start": 41.6,
-"end": 41.7
+"start": 40.66,
+"end": 40.78
 },
 {
 "text": "sichere",
-"start": 41.7,
-"end": 41.94
+"start": 40.78,
+"end": 41.0
 },
 {
 "text": "dir",
-"start": 41.94,
-"end": 42.02
+"start": 41.0,
+"end": 41.1
 },
 {
 "text": "gerne",
-"start": 42.02,
-"end": 42.2
+"start": 41.1,
+"end": 41.26
 },
 {
 "text": "mal",
-"start": 42.2,
-"end": 42.32
+"start": 41.26,
+"end": 41.38
 },
 {
 "text": "einen",
-"start": 42.32,
-"end": 42.4
+"start": 41.38,
+"end": 41.46
 },
 {
 "text": "kostenfreien",
-"start": 42.4,
-"end": 42.92
+"start": 41.46,
+"end": 41.98
 },
 {
 "text": "Videokurs.",
-"start": 42.92,
-"end": 43.48
+"start": 41.98,
+"end": 42.54
 },
 {
 "text": "Ich",
-"start": 43.64,
-"end": 43.84
+"start": 42.7,
+"end": 42.9
 },
 {
 "text": "könnte",
-"start": 43.84,
-"end": 44.02
+"start": 42.9,
+"end": 43.08
 },
 {
 "text": "dafür",
-"start": 44.02,
-"end": 44.18
+"start": 43.08,
+"end": 43.26
 },
 {
 "text": "locker",
-"start": 44.18,
-"end": 44.46
+"start": 43.26,
+"end": 43.52
 },
 {
 "text": "500",
-"start": 44.46,
-"end": 44.86
+"start": 43.52,
+"end": 43.9
 },
 {
 "text": "Euro",
-"start": 44.86,
-"end": 45.08
+"start": 43.9,
+"end": 44.16
 },
 {
 "text": "verlangen,",
-"start": 45.08,
-"end": 45.5
+"start": 44.16,
+"end": 44.56
 },
 {
 "text": "aber",
-"start": 45.62,
-"end": 45.98
+"start": 44.72,
+"end": 45.04
 },
 {
 "text": "du",
-"start": 45.98,
-"end": 46.1
+"start": 45.04,
+"end": 45.16
 },
 {
 "text": "bekommst",
-"start": 46.1,
-"end": 46.38
+"start": 45.16,
+"end": 45.44
 },
 {
 "text": "den",
-"start": 46.38,
-"end": 46.46
+"start": 45.44,
+"end": 45.52
 },
 {
 "text": "komplett",
-"start": 46.46,
-"end": 46.68
+"start": 45.52,
+"end": 45.76
 },
 {
 "text": "umsonst.",
-"start": 46.68,
-"end": 47.1
+"start": 45.76,
+"end": 46.16
 },
 {
 "text": "Klick",
-"start": 47.18,
-"end": 47.34
+"start": 46.24,
+"end": 46.4
 },
 {
 "text": "einfach",
-"start": 47.34,
-"end": 47.52
+"start": 46.4,
+"end": 46.58
 },
 {
 "text": "unter",
-"start": 47.52,
-"end": 47.82
+"start": 46.58,
+"end": 46.88
 },
 {
 "text": "dem",
-"start": 47.82,
-"end": 47.98
+"start": 46.88,
+"end": 47.04
 },
 {
 "text": "Video",
-"start": 47.98,
-"end": 48.16
+"start": 47.04,
+"end": 47.22
 },
 {
 "text": "auf",
-"start": 48.16,
-"end": 48.34
+"start": 47.22,
+"end": 47.4
 },
 {
 "text": "den",
-"start": 48.34,
-"end": 48.44
+"start": 47.4,
+"end": 47.52
 },
 {
 "text": "Link.",
-"start": 48.44,
-"end": 48.68
+"start": 47.52,
+"end": 47.74
 }
 ]
