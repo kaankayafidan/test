@@ -1,0 +1,84 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a2hb-scene { position: absolute; inset: 0; }
+    .a2hb-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+
+  </style>
+  <div id="root" data-composition-id="ad2-hookB" data-width="1080" data-height="710">
+    <!-- One clip spans the whole scene; everything inside is animated, never the clip itself. -->
+    <div id="a2hb-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <!-- Skizze S. 10 (Anfang B): ein großer voller Akku (100 %) wird in Sekunde 1 von 3 roten Blitzen
+           getroffen und wackelt. Erst im Body teilt sich das Bild in A und B. -->
+      <svg id="a2hb-art" class="a2hb-svg" viewBox="0 0 1080 710">
+        <g id="a2hb-bat">
+          <g id="a2hb-acc">
+          <rect x="200" y="330" width="640" height="280" rx="30" fill="#FFFFFF"/>
+          <rect id="a2hb-acc-fill" x="222" y="352" width="596" height="236" rx="14" fill="#16A34A"/>
+          <path d="M392 328.8 C399.7 328.8 423 328.9 438.4 328.9 C453.9 328.9 469.4 328.4 484.9 328.9 C500.4 329.3 515.9 331.3 531.3 331.7 C546.8 332.2 562.3 331.9 577.8 331.6 C593.3 331.3 608.7 330.5 624.2 330.1 C639.7 329.6 655.2 328.7 670.7 328.8 C686.1 328.9 701.6 330.5 717.1 330.6 C732.6 330.6 748.1 329.2 763.6 329.1 C779 329 799.8 329.2 810 330 C820.2 330.8 820.7 331.5 825 334 C829.3 336.5 833.5 340.7 836 345 C838.5 349.3 839.2 350.2 840 360 C840.8 369.8 841 389.3 840.9 404 C840.9 418.7 839.7 433.3 839.9 448 C840 462.7 841.5 477.3 841.7 492 C842 506.7 841.5 521.3 841.2 536 C840.9 550.7 840.9 570.2 840 580 C839.1 589.8 838.5 590.7 836 595 C833.5 599.3 829.3 603.5 825 606 C820.7 608.5 820.6 609.1 810 610 C799.4 610.9 777.8 611.5 761.7 611.4 C745.6 611.3 729.4 609.4 713.3 609.3 C697.2 609.3 681.1 610.9 665 611 C648.9 611.1 632.8 610 616.7 610 C600.6 609.9 584.4 610.9 568.3 610.7 C552.2 610.4 536.1 608.4 520 608.4 C503.9 608.4 487.8 610.3 471.7 610.8 C455.6 611.3 439.4 611.7 423.3 611.4 C407.2 611.2 391.1 610.1 375 609.6 C358.9 609.1 342.8 608.7 326.7 608.5 C310.6 608.3 294.4 608 278.3 608.2 C262.2 608.5 240.6 610.4 230 610 C219.4 609.6 219.3 608.5 215 606 C210.7 603.5 206.5 599.3 204 595 C201.5 590.7 200.4 589.8 200 580 C199.6 570.2 201.6 550.7 201.8 536 C201.9 521.3 201.4 506.7 200.9 492 C200.4 477.3 198.8 462.7 198.9 448 C199 433.3 201.3 418.7 201.5 404 C201.7 389.3 199.6 369.8 200 360 C200.4 350.2 201.5 349.3 204 345 C206.5 340.7 210.7 336.5 215 334 C219.3 331.5 218.5 330.8 230 330 C241.5 329.2 266 328.7 284 329 C302 329.2 320 331 338 331.3 C356 331.6 376.3 330.7 392 330.8 C407.7 330.9 425.3 332 432 332.2" fill="none" stroke="#111827" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="845" y="414" width="45" height="112" rx="15" fill="#111827"/>
+          
+          <text id="a2hb-acc-t0" x="520" y="533" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="180" fill="#FFFFFF">100 %</text>
+        </g>
+          <text id="a2hb-qm" x="520" y="556.4" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="240" fill="#FFFFFF">?</text>
+          <path id="a2hb-b0" d="M340.2 66.3 L431.8 61.7 L385.1 172.2 L424.8 170.3 L338 324 L364.6 209.3 L327.5 211.2 Z" fill="#DC2626" stroke="#111827" stroke-width="7" stroke-linejoin="round"/>
+          <path id="a2hb-b1" d="M530.2 66.3 L621.8 61.7 L575.1 171.4 L614.8 169.4 L528 322 L554.6 208.2 L517.5 210.1 Z" fill="#DC2626" stroke="#111827" stroke-width="7" stroke-linejoin="round"/>
+          <path id="a2hb-b2" d="M720.2 66.3 L811.8 61.7 L765.1 172.2 L804.8 170.3 L718 324 L744.6 209.3 L707.5 211.2 Z" fill="#DC2626" stroke="#111827" stroke-width="7" stroke-linejoin="round"/>
+        </g>
+        <rect id="a2hb-flash" x="0" y="0" width="1080" height="710" fill="#FFFFFF"/>
+      </svg>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const pv = (el, o) => FX.init(tl, el, { ...o, smoothOrigin: false });
+    const END = DUR - 0.25;
+    const PIV = "520 610";            // Fußpunkt des Akkus (Wackeln)
+    const QC = "520 470";              // Mitte des Akkus ("?" pulsiert)
+    const BOLTS = [["#a2hb-b0","364 194"],["#a2hb-b1","554 193"],["#a2hb-b2","744 194"]];
+
+    // ---------------------------------------------------------------- initial states (t = 0)
+    pv("#a2hb-bat", { svgOrigin: PIV, rotation: -4 });
+    pv("#a2hb-qm", { svgOrigin: QC, opacity: 0, scale: 1 });
+    pv(BOLTS[0][0], { svgOrigin: BOLTS[0][1], opacity: 1, scale: 1.25 });
+    pv(BOLTS[1][0], { svgOrigin: BOLTS[1][1], opacity: 0, scale: 1 });
+    pv(BOLTS[2][0], { svgOrigin: BOLTS[2][1], opacity: 0, scale: 1 });
+    FX.init(tl, "#a2hb-flash", { opacity: 0 });
+
+    // "Blitz schlägt ein" (Animations-Tabelle): Blitz ploppt in 0,1 s rein, 0,1 s weißer Flash,
+    // der Akku wackelt 0,2 s. Local version of FX.lightning with an SVG pivot (svgOrigin).
+    function strike(i, t) {
+      const [b, o] = BOLTS[i];
+      if (i === 0) FX.tween(tl, b, { opacity: 1, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.1, ease: "power2.out", svgOrigin: o }, t);
+      else FX.tween(tl, b, { opacity: 0, scale: 1.25 }, { opacity: 1, scale: 1, duration: 0.1, ease: "power2.out", svgOrigin: o }, t);
+      FX.tween(tl, "#a2hb-flash", { opacity: 0.85 }, { opacity: 0, duration: 0.1, ease: "none" }, t + 0.1);
+      const tw = i === 0 ? t : t + 0.1; // the first strike is already hitting on frame 1
+      FX.tween(tl, "#a2hb-bat", { rotation: -4 }, { rotation: 4, duration: 0.05, yoyo: true, repeat: 3, ease: "sine.inOut", svgOrigin: PIV }, tw);
+      FX.set(tl, "#a2hb-bat", { rotation: 0 }, tw + 0.2);
+    }
+    // 3 Blitze in Sekunde 1, der erste trifft schon im ersten Frame.
+    strike(0, 0);
+    strike(1, 0.3);
+    strike(2, 0.6);
+
+    // Danach wackelt der Akku weiter (6°, 0,6 s pro Schwung) und kommt vor "Entweder ..." zur Ruhe.
+    const tQ = Math.max(1.8, C.entweder - 0.1);
+    const w0 = 0.9;
+    const swings = Math.floor((tQ - 0.35 - (w0 + 0.3)) / 0.6);
+    if (swings >= 1) {
+      FX.tween(tl, "#a2hb-bat", { rotation: 0 }, { rotation: -6, duration: 0.3, ease: "sine.out", svgOrigin: PIV }, w0);
+      const w = FX.wobble(tl, "#a2hb-bat", w0 + 0.3, swings * 0.6, { svgOrigin: PIV });
+      FX.settle(tl, "#a2hb-bat", w.end, w.endRotation, { svgOrigin: PIV });
+    }
+
+    // "Entweder fast nichts, oder zwei Drittel sind weg ...": auf dem Akku erscheint ein "?".
+    FX.fadeOut(tl, "#a2hb-acc-t0", tQ - 0.05, 0.15);
+    FX.pop(tl, "#a2hb-qm", tQ, { svgOrigin: QC });
+
+    // "... und der Unterschied ist eine einzige Zahl.": das "?" pulsiert.
+    const tP = Math.max(tQ + 0.5, C.unterschied - 0.1);
+    if (END - tP >= 0.8) FX.pulse(tl, "#a2hb-qm", tP, END - tP, { svgOrigin: QC });
+
+    window.__timelines["ad2-hookB"] = tl;
+  </script>
+</template>

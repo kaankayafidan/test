@@ -1,0 +1,11 @@
+{
+  "cues": {
+    "es": "Es gibt 3 Typen von Trading-Anfängern",
+    "aufgeben": "die meistens nach ein paar Wochen aufgeben",
+    "wette": "und ich wette",
+    "erkennst": "du erkennst dich in einem davon wieder."
+  },
+  "sfx": [
+    { "t": 0, "type": "whoosh" }
+  ]
+}

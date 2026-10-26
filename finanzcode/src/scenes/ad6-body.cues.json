@@ -38,7 +38,6 @@
     { "at": "klar", "type": "pop" },
     { "at": "min30", "type": "pop" },
     { "at": "kurs", "type": "whoosh" },
-    { "at": "klick", "type": "pop" },
-    { "at": "ende", "type": "pop" }
+    { "at": "klick", "type": "pop" }
   ]
 }

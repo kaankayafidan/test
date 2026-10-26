@@ -1,0 +1,96 @@
+{
+  "cues": {
+    "typ1": "Typ 1 ist der Zocker.",
+    "setzt": "Der setzt alles auf einen Trade",
+    "stop": {
+      "phrase": "hat keinen Stop und hofft auf den großen Wurf",
+      "word": 1
+    },
+    "raus": "und meistens ist er als Erster wieder raus.",
+    "typ2": "Typ 2 ist der Dauerlerner.",
+    "videos": {
+      "phrase": "Der hat 50 Videos geschaut",
+      "word": 2
+    },
+    "strat20": {
+      "phrase": "und 20 Strategien gespeichert",
+      "word": 1
+    },
+    "keinen": "aber noch keinen einzigen Trade gesetzt",
+    "typ3": "Typ 3 ist der Ungeduldige.",
+    "wochen": {
+      "phrase": "Der will nach 2 Wochen Ergebnisse sehen",
+      "word": 3
+    },
+    "frust": "macht er aus Frust einen Rache-Trade nach dem anderen.",
+    "typ4": "Und dann gibt's noch einen 4. Typ:",
+    "coaching": "Von über 2.000 Leuten in meinem Coaching",
+    "k2000": {
+      "phrase": "über 2.000 Leuten",
+      "word": 1
+    },
+    "dran": "sind das die, die dranbleiben.",
+    "genies": "Das sind keine Genies und keine Zocker",
+    "einzige": {
+      "phrase": "die eine einzige Strategie mit festen Regeln haben",
+      "word": 2
+    },
+    "wenig": "wenig riskieren",
+    "geduldig": {
+      "phrase": "und geduldig sind.",
+      "word": 1
+    },
+    "profi": "Dafür musst du kein Profi sein",
+    "kurs": "Wie du zu diesem 4. Typ wirst",
+    "kostenlos": {
+      "phrase": "zeig ich dir in meinem kostenlosen Videokurs",
+      "word": 5
+    },
+    "klick": "Klick unter dem Video auf „Mehr dazu“",
+    "schreib": "und schreib mir ehrlich in die Kommentare",
+    "welcher": "welcher Typ du bisher warst."
+  },
+  "sfx": [
+    {
+      "at": "typ1",
+      "type": "whoosh"
+    },
+    {
+      "at": "typ2",
+      "type": "whoosh"
+    },
+    {
+      "at": "videos",
+      "type": "whoosh",
+      "offset": 0.1
+    },
+    {
+      "at": "typ3",
+      "type": "whoosh"
+    },
+    {
+      "at": "wochen",
+      "type": "pop"
+    },
+    {
+      "at": "typ4",
+      "type": "whoosh"
+    },
+    {
+      "at": "coaching",
+      "type": "whoosh"
+    },
+    {
+      "at": "einzige",
+      "type": "pop"
+    },
+    {
+      "at": "kurs",
+      "type": "whoosh"
+    },
+    {
+      "at": "klick",
+      "type": "pop"
+    }
+  ]
+}

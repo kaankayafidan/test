@@ -1,0 +1,104 @@
+{
+  "cues": {
+    "kessel": "Ein Roulette-Kessel hat 37 Felder",
+    "felder": {
+      "phrase": "hat 37 Felder",
+      "word": 1
+    },
+    "nur36": {
+      "phrase": "als wären es nur 36",
+      "word": 3
+    },
+    "gruen": {
+      "phrase": "und dieses eine grüne Feld",
+      "word": 3
+    },
+    "null": "die Null",
+    "rechnerisch": "rechnerisch sind das 2,7 Prozent.",
+    "p27": "2,7 Prozent.",
+    "verliert": "Das Casino verliert jeden Abend unzählige Spiele",
+    "tausende": {
+      "phrase": "über Tausende Spiele",
+      "word": 1
+    },
+    "mathe": "gewinnt die Mathematik.",
+    "genau9": "Genau so trade ich seit 9 Jahren",
+    "nehme": "Ich nehme nur Trades",
+    "ziel": {
+      "phrase": "mein Ziel deutlich weiter weg ist",
+      "word": 1
+    },
+    "stop": {
+      "phrase": "als mein Stop",
+      "word": 2
+    },
+    "riskiere": "und riskiere pro Trade nur einen kleinen Teil.",
+    "verliere": "Ich verliere trotzdem Trades",
+    "casinoVerliert": "genau wie das Casino Spiele verliert",
+    "casino": {
+      "phrase": "wie das Casino und nicht wie der Zocker",
+      "word": 2
+    },
+    "zocker": {
+      "phrase": "nicht wie der Zocker",
+      "word": 3
+    },
+    "treffer": {
+      "phrase": "auf den einen großen Treffer hofft.",
+      "word": 3
+    },
+    "kein": "kein Mathestudium",
+    "stunden": "keine 8 Stunden am Tag",
+    "klare": {
+      "phrase": "sondern ein paar klare Regeln.",
+      "word": 3
+    },
+    "regeln": {
+      "phrase": "klare Regeln.",
+      "word": 1
+    },
+    "welche": "Welche das sind, zeig ich dir in meinem kostenlosen Videokurs",
+    "grundlagen": {
+      "phrase": "mit den Grundlagen",
+      "word": 2
+    },
+    "strategie": {
+      "phrase": "einer einfachen Strategie",
+      "word": 2
+    },
+    "plan": {
+      "phrase": "einem Plan für deine ersten 60 Tage",
+      "word": 1
+    },
+    "klick": "Klick unter dem Video auf „Mehr dazu“.",
+    "wer": "wer am Tisch wirklich gewinnt."
+  },
+  "sfx": [
+    {
+      "at": "p27",
+      "type": "stamp",
+      "offset": -0.2
+    },
+    {
+      "at": "mathe",
+      "type": "pop"
+    },
+    {
+      "at": "ziel",
+      "type": "pop"
+    },
+    {
+      "at": "casino",
+      "type": "whoosh",
+      "offset": -0.1
+    },
+    {
+      "at": "klare",
+      "type": "pop"
+    },
+    {
+      "at": "klick",
+      "type": "pop"
+    }
+  ]
+}

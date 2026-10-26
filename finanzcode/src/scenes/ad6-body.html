@@ -1,0 +1,335 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a6b-scene { position: absolute; inset: 0; }
+    .a6b-slide { position: absolute; inset: 0; }
+    #a6b-art { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+    .a6b-lab { font-family: 'Poppins'; font-weight: 700; font-size: 56px; fill: #0E1A2B; }
+    /* Haken-Folie */
+    #a6b-tList { position: absolute; left: 130px; top: 0; height: 710px; display: flex; flex-direction: column; justify-content: center; gap: 46px; }
+    .a6b-row { display: flex; align-items: center; gap: 28px; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
+    .a6b-row svg { flex: none; width: 76px; height: 76px; }
+    /* Sanduhr-Folie */
+    #a6b-hg { position: absolute; inset: 0; }
+    #a6b-hg svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    /* 30-Min-Folie */
+    #a6b-m30 { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+    #a6b-mBig { font-family: 'Poppins'; font-weight: 700; font-size: 180px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    #a6b-mRow { display: flex; align-items: center; gap: 28px; font-family: 'Poppins'; font-weight: 700; font-size: 96px; line-height: 1.1; color: #0E1A2B; white-space: nowrap; }
+    #a6b-mTick { flex: none; width: 96px; height: 96px; }
+  </style>
+  <div id="root" data-composition-id="ad6-body" data-width="1080" data-height="710">
+    <!-- One clip spans the whole scene; slides inside are switched by opacity, never the clip itself. -->
+    <div id="a6b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+
+      <!-- Folie 1: Hocker + Figur (Anfang, Kippen, Aufstehen, zweites Bein, Schlussbild).
+           Same figure/stool drawing as the hooks (same user units), shown at 1:1 and shifted right
+           (viewBox x -60) to leave room for the labels on the left. -->
+      <div id="a6b-s1" class="a6b-slide">
+        <svg id="a6b-art" viewBox="-60 -4 1080 710">
+          <g id="a6b-world">
+            <line id="a6b-floor" x1="70" y1="652" x2="880" y2="652" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" />
+
+            <!-- tipG kippt (Drehpunkt so gewählt, dass der Hocker danach auf dem Sitzrand liegt), rig wackelt um den Fußpunkt -->
+            <g id="a6b-tipG">
+              <g id="a6b-rig">
+                <!-- zweites Bein "Trading" (wird angeschraubt) -->
+                <g id="a6b-leg2">
+                  <line x1="640" y1="480" x2="712" y2="642" stroke="#16A34A" stroke-width="24" stroke-linecap="round" />
+                  <ellipse cx="716" cy="649" rx="32" ry="8" fill="#15803D" />
+                </g>
+                <!-- Hocker -->
+                <ellipse cx="540" cy="650" rx="48" ry="9" fill="#7C2D12" />
+                <rect x="527" y="470" width="26" height="182" rx="8" fill="#7C2D12" />
+                <ellipse cx="540" cy="474" rx="124" ry="24" fill="#9A3412" />
+                <ellipse cx="540" cy="462" rx="124" ry="24" fill="#EA580C" />
+                <!-- Schraube am zweiten Bein -->
+                <g id="a6b-screw">
+                  <circle cx="648" cy="502" r="17" fill="#9CA3AF" />
+                  <circle cx="648" cy="502" r="17" fill="none" stroke="#6B7280" stroke-width="3" />
+                  <path d="M639 502 L657 502 M648 493 L648 511" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" />
+                </g>
+                <!-- sitzende Figur (entspannt / fallend) -->
+                <g id="a6b-sit">
+                  <path d="M518 448 Q492 490 485 546" fill="none" stroke="#1E293B" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M562 448 Q588 490 595 546" fill="none" stroke="#1E293B" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" />
+                  <ellipse cx="477" cy="556" rx="26" ry="13" fill="#111827" />
+                  <ellipse cx="603" cy="556" rx="26" ry="13" fill="#111827" />
+                  <path d="M486 330 Q486 304 512 302 L568 302 Q594 304 594 330 L590 452 L490 452 Z" fill="#2563EB" />
+                  <path d="M528 302 L540 330 L552 302 Z" fill="#FFFFFF" />
+                  <rect x="522" y="282" width="36" height="26" rx="8" fill="#F2C29B" />
+                  <!-- Arme entspannt: Hände auf den Oberschenkeln -->
+                  <g id="a6b-armsRelax">
+                    <path d="M497 326 L483 390" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+                    <path d="M583 326 L597 390" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+                    <path d="M483 390 L503 438" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+                    <path d="M597 390 L577 438" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+                    <circle cx="505" cy="443" r="15" fill="#F2C29B" />
+                    <circle cx="575" cy="443" r="15" fill="#F2C29B" />
+                  </g>
+                  <!-- Arme beim Fallen: hochgerissen -->
+                  <g id="a6b-armsFall">
+                    <path d="M478 268 L468 212" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+                    <path d="M602 268 L612 212" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+                    <path d="M498 322 L478 268" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+                    <path d="M582 322 L602 268" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+                    <circle cx="468" cy="204" r="16" fill="#F2C29B" />
+                    <circle cx="612" cy="204" r="16" fill="#F2C29B" />
+                  </g>
+                  <g id="a6b-head">
+                    <circle cx="540" cy="240" r="54" fill="#F2C29B" />
+                    <path d="M488 232 Q490 180 540 180 Q594 180 594 230 Q580 206 552 204 Q520 204 500 222 Z" fill="#5B3A1E" />
+                    <g id="a6b-faceRelax">
+                      <circle cx="522" cy="248" r="7" fill="#111827" />
+                      <circle cx="558" cy="248" r="7" fill="#111827" />
+                      <path d="M522 268 Q540 284 558 268" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+                    </g>
+                    <g id="a6b-faceFall">
+                      <circle cx="521" cy="244" r="13" fill="#FFFFFF" />
+                      <circle cx="559" cy="244" r="13" fill="#FFFFFF" />
+                      <circle cx="521" cy="246" r="6" fill="#111827" />
+                      <circle cx="559" cy="246" r="6" fill="#111827" />
+                      <path d="M504 222 L528 214 M576 222 L552 214" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+                      <ellipse cx="540" cy="276" rx="12" ry="15" fill="#7F1D1D" />
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </g>
+
+            <!-- stehende Figur (steht wieder auf), links neben dem Hocker -->
+            <g transform="translate(-290 0)">
+              <g id="a6b-stand">
+                <path d="M524 470 L520 630" fill="none" stroke="#1E293B" stroke-width="30" stroke-linecap="round" />
+                <path d="M556 470 L560 630" fill="none" stroke="#1E293B" stroke-width="30" stroke-linecap="round" />
+                <ellipse cx="512" cy="639" rx="26" ry="12" fill="#111827" />
+                <ellipse cx="568" cy="639" rx="26" ry="12" fill="#111827" />
+                <path d="M486 348 Q486 322 512 320 L568 320 Q594 322 594 348 L590 478 L490 478 Z" fill="#2563EB" />
+                <path d="M528 320 L540 348 L552 320 Z" fill="#FFFFFF" />
+                <rect x="522" y="300" width="36" height="26" rx="8" fill="#F2C29B" />
+                <!-- Hände in die Hüften -->
+                <path d="M497 344 L462 398" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+                <path d="M583 344 L618 398" fill="none" stroke="#2563EB" stroke-width="28" stroke-linecap="round" />
+                <path d="M462 398 L492 444" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+                <path d="M618 398 L588 444" fill="none" stroke="#F2C29B" stroke-width="24" stroke-linecap="round" />
+                <circle cx="494" cy="447" r="15" fill="#F2C29B" />
+                <circle cx="586" cy="447" r="15" fill="#F2C29B" />
+                <circle cx="540" cy="258" r="54" fill="#F2C29B" />
+                <path d="M488 250 Q490 198 540 198 Q594 198 594 248 Q580 224 552 222 Q520 222 500 240 Z" fill="#5B3A1E" />
+                <circle cx="522" cy="266" r="7" fill="#111827" />
+                <circle cx="558" cy="266" r="7" fill="#111827" />
+                <path d="M522 286 Q540 302 558 286" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" />
+              </g>
+            </g>
+
+            <!-- Label "1 Arbeitgeber" (oben), "Gehalt" hängt daran und zeigt aufs Bein -->
+            <g id="a6b-lAG">
+              <line x1="300" y1="380" x2="300" y2="544" stroke="#0E1A2B" stroke-width="5" />
+              <rect x="8" y="300" width="424" height="80" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="220" y="360" text-anchor="middle">1 Arbeitgeber</text>
+            </g>
+            <g id="a6b-lGehalt">
+              <line x1="402" y1="584" x2="524" y2="584" stroke="#0E1A2B" stroke-width="5" stroke-linecap="round" />
+              <circle cx="530" cy="584" r="8" fill="#0E1A2B" />
+              <rect x="166" y="544" width="236" height="80" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="284" y="604" text-anchor="middle">Gehalt</text>
+            </g>
+            <g id="a6b-circG"><path id="a6b-circ" class="fx-stroke" pathLength="1" d="M0 0" /></g>
+
+            <!-- Säge am Bein -->
+            <g id="a6b-saw"><g transform="translate(0 6)">
+              <path d="M512 604 L792 580 L792 627 L512 627 Z" fill="#9CA3AF" />
+              <path d="M512 627 L519 639 L526 627 L533 639 L540 627 L547 639 L554 627 L561 639 L568 627 L575 639 L582 627 L589 639 L596 627 L603 639 L610 627 L617 639 L624 627 L631 639 L638 627 L645 639 L652 627 L659 639 L666 627 L673 639 L680 627 L687 639 L694 627 L701 639 L708 627 L715 639 L722 627 L729 639 L736 627 L743 639 L750 627 L757 639 L764 627 L771 639 L778 627 L785 639 L792 627 Z" fill="#9CA3AF" />
+              <path d="M528 612 L776 591" stroke="#F3F4F6" stroke-width="5" stroke-linecap="round" />
+              <path d="M786 572 L842 566 Q888 570 888 606 Q888 644 842 646 L786 646 Z M812 588 L842 588 Q862 590 862 606 Q862 624 842 626 L812 626 Z" fill="#DC2626" fill-rule="evenodd" />
+              <circle cx="799" cy="592" r="5" fill="#0E1A2B" />
+              <circle cx="799" cy="624" r="5" fill="#0E1A2B" />
+            </g></g>
+
+            <!-- Label "Trading" am zweiten Bein -->
+            <g id="a6b-lTrading">
+              <rect x="712" y="500" width="262" height="80" rx="16" fill="#F3F4F6" />
+              <text class="a6b-lab" x="843" y="560" text-anchor="middle">Trading</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Folie 2: 3 Haken nacheinander -->
+      <div id="a6b-s2" class="a6b-slide">
+        <div id="a6b-tList">
+          <div id="a6b-t0" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>keine Kunden</span></div>
+          <div id="a6b-t1" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>nichts verkaufen</span></div>
+          <div id="a6b-t2" class="a6b-row"><svg viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg><span>nicht nach Stunden</span></div>
+        </div>
+      </div>
+
+      <!-- Folie 3: Sanduhr läuft -->
+      <div id="a6b-s3" class="a6b-slide">
+        <div id="a6b-hg">
+          <svg viewBox="0 0 1080 710">
+            <rect x="404" y="104" width="16" height="500" rx="6" fill="#0E1A2B" />
+            <rect x="660" y="104" width="16" height="500" rx="6" fill="#0E1A2B" />
+            <path d="M436 110 L644 110 C644 230 600 300 556 342 Q546 355 556 368 C600 410 644 480 644 600 L436 600 C436 480 480 410 524 368 Q534 355 524 342 C480 300 436 230 436 110 Z" fill="#F3F4F6" stroke="#0E1A2B" stroke-width="8" stroke-linejoin="round" />
+            <path id="a6b-sandTop" d="M462 178 L618 178 C612 246 584 296 550 333 L530 333 C496 296 468 246 462 178 Z" fill="#9CA3AF" />
+            <rect id="a6b-stream" x="535" y="336" width="10" height="236" fill="#9CA3AF" />
+            <path id="a6b-sandBot" d="M448 594 C468 516 612 516 632 594 Z" fill="#9CA3AF" />
+            <rect x="390" y="74" width="300" height="38" rx="14" fill="#0E1A2B" />
+            <rect x="390" y="598" width="300" height="38" rx="14" fill="#0E1A2B" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Folie 4: "30 Min. am Tag ✓" -->
+      <div id="a6b-s4" class="a6b-slide">
+        <div id="a6b-m30">
+          <div id="a6b-mBig">30 Min.</div>
+          <div id="a6b-mRow"><span>am Tag</span><svg id="a6b-mTick" viewBox="0 0 58 58"><circle cx="29" cy="29" r="29" fill="#16A34A" /><path d="M16 30 L25 39 L43 20" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+        </div>
+      </div>
+
+      <!-- Folie 5: Kurs-Mockup mit 3 Haken -->
+      <!--@include course p="a6b-course" items="Grundlagen|Strategie|60-Tage-Plan"-->
+      <!-- Folie 6: CTA-Bild -->
+      <!--@include cta p="a6b-cta"-->
+      <!-- Schlussbild: kleines Banner "Mehr dazu ↓" bleibt bis zum Ende -->
+      <!--@include more p="a6b-more"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const PIV = "540 650";   // Fußpunkt (Wackeln)
+    const TIP = "478 588";   // Kipp-Drehpunkt: nach -90° liegt der Sitzrand auf dem Boden
+    // Pivot of every transformed SVG element is set once at t = 0 (no smoothOrigin offsets on seek).
+    const pv = (el, o) => FX.init(tl, el, { ...o, smoothOrigin: false });
+
+    document.querySelector("#a6b-circ").setAttribute("d", FX.handCircle(220, 340, 236, 70, 7));
+
+    // ---------------------------------------------------------------- initial states (t = 0)
+    pv("#a6b-tipG", { svgOrigin: TIP });
+    pv("#a6b-rig", { svgOrigin: PIV });
+    pv("#a6b-screw", { transformOrigin: "50% 50%", opacity: 0 });
+    pv("#a6b-stand", { transformOrigin: "50% 100%", opacity: 0 });
+    pv("#a6b-lGehalt", { transformOrigin: "50% 50%", opacity: 0 });
+    pv("#a6b-lAG", { transformOrigin: "50% 50%", opacity: 0 });
+    pv("#a6b-lTrading", { transformOrigin: "50% 50%", opacity: 0 });
+    pv("#a6b-sandTop", { transformOrigin: "50% 100%" });
+    pv("#a6b-sandBot", { transformOrigin: "50% 100%" });
+    FX.init(tl, ["#a6b-leg2", "#a6b-saw", "#a6b-armsFall", "#a6b-faceFall"], { opacity: 0 });
+    FX.init(tl, ["#a6b-s2", "#a6b-s3", "#a6b-s4"], { opacity: 0 });
+    FX.init(tl, ["#a6b-t0", "#a6b-t1", "#a6b-t2", "#a6b-m30", "#a6b-mTick"], { opacity: 0 });
+    // FX.course pops the 3 course ticks but does not hide them before their cue: hide them here.
+    FX.init(tl, ["#a6b-course-i0", "#a6b-course-i1", "#a6b-course-i2"], { opacity: 0 });
+
+    // ---------------------------------------------------------------- Folie 1
+    // "Das erste Bein ist das Gehalt." -> Label "Gehalt" am Bein.
+    const tGeh = Math.max(0.3, C.gehalt - 0.05);
+    FX.pop(tl, "#a6b-lGehalt", tGeh);
+
+    // "Das hängt an einem einzigen Arbeitgeber ..." -> Label "1 Arbeitgeber", einkreisen.
+    const tAG = Math.max(tGeh + 0.4, C.einzigen - 0.05);
+    FX.pop(tl, "#a6b-lAG", tAG);
+    const tCirc = Math.max(tAG + 0.25, C.arbeitgeber - 0.1);
+    FX.drawCircle(tl, "#a6b-circ", tCirc);
+
+    // "... solange keiner dran sägt, steht der Stuhl." -> eine Säge erscheint am Bein.
+    const tSaw = Math.max(tCirc + 0.6, C.saegt - 0.1);
+    FX.fadeIn(tl, "#a6b-saw", tSaw);
+    // "Aber wenn doch," -> die Säge sägt (hin und her, endet vor dem Kippen).
+    const sawFrom = Math.max(tSaw + 0.3, C.aber);
+    const strokes = 2 * Math.floor((C.kippt - 0.05 - sawFrom) / 0.5);
+    if (strokes >= 2) FX.tween(tl, "#a6b-saw", { x: 0 }, { x: 36, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: strokes - 1 }, sawFrom);
+
+    // "... kippt alles auf einmal." -> der Hocker kippt um 90°, die Figur fällt.
+    const tTip = Math.max(C.kippt, tSaw + 0.4);
+    FX.fadeOut(tl, ["#a6b-lGehalt", "#a6b-lAG", "#a6b-circG", "#a6b-saw"], tTip - 0.1);
+    FX.set(tl, ["#a6b-armsRelax", "#a6b-faceRelax"], { opacity: 0 }, tTip);
+    FX.set(tl, ["#a6b-armsFall", "#a6b-faceFall"], { opacity: 1 }, tTip);
+    FX.tip(tl, "#a6b-tipG", tTip, { from: 0, to: -90, svgOrigin: TIP });
+    // Figur plumpst nach dem Aufschlag auf den Boden (lokal -x = im Bild nach unten).
+    FX.tween(tl, "#a6b-sit", { x: 0 }, { x: -36, duration: 0.15, ease: "power2.in" }, tTip + 0.35);
+
+    // "Ein zweites Standbein heißt nicht, dass du morgen kündigst." -> die Figur steht wieder auf
+    // (und stellt den Hocker wieder hin; der steht wieder nur auf einem Bein und wackelt).
+    const tUp = Math.max(C.standbein - 0.05, tTip + 0.6);
+    FX.set(tl, "#a6b-sit", { opacity: 0 }, tUp);
+    FX.pop(tl, "#a6b-stand", tUp, { origin: "50% 100%" });
+    FX.tween(tl, "#a6b-tipG", { rotation: -90 }, { rotation: 0, duration: 0.35, ease: "power2.out", svgOrigin: TIP }, tUp);
+    // Wackeln ±6° (0,6 s pro Schwung); der letzte Schwung endet bei -6° genau, wenn das zweite Bein kommt.
+    const tSettle = Math.max(C.nicht - 0.05, tUp + 0.4);
+    const nSw = Math.floor((tSettle - (tUp + 0.35) - 0.3) / 0.6);
+    if (nSw >= 1) {
+      const s0 = nSw % 2 === 0 ? -6 : 6;
+      const tw = tSettle - nSw * 0.6;
+      FX.tween(tl, "#a6b-rig", { rotation: 0 }, { rotation: s0, duration: 0.3, ease: "sine.out", svgOrigin: PIV }, tw - 0.3);
+      FX.tween(tl, "#a6b-rig", { rotation: s0 }, { rotation: -s0, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: nSw - 1, svgOrigin: PIV }, tw);
+      FX.settle(tl, "#a6b-rig", tSettle, -6, { svgOrigin: PIV });
+    }
+
+    // "... nicht mehr alles an einer einzigen Unterschrift hängt." -> das zweite Bein "Trading" wird
+    // angeschraubt (schiebt sich rein, Schraube dreht sich), der Hocker steht stabil.
+    const tLeg = tSettle + 0.05;
+    FX.flyIn(tl, "#a6b-leg2", tLeg, { from: "right", dist: 560 });
+    FX.pop(tl, "#a6b-screw", tLeg + 0.27);
+    FX.tween(tl, "#a6b-screw", { rotation: 0 }, { rotation: 720, duration: 0.5, ease: "power1.inOut", transformOrigin: "50% 50%" }, tLeg + 0.42);
+    const tLab = Math.min(Math.max(tLeg + 0.95, C.unterschrift), Math.max(tLeg + 0.5, E.nicht - 0.15));
+    FX.pop(tl, "#a6b-lTrading", tLab);
+    // "... ist Trading für mich das sinnvollste zweite Bein" -> das Label pulsiert.
+    const tPulse = Math.max(C.trading - 0.1, tLab + 0.4);
+    if (tPulse + 1.6 < C.kunden) FX.pulse(tl, "#a6b-lTrading", tPulse, 1.6);
+
+    // ---------------------------------------------------------------- Folie 2: 3 Haken
+    // "... keine Kunden brauchst, nichts verkaufen musst und es nicht nach Stunden läuft"
+    FX.cut(tl, "#a6b-s1", "#a6b-s2", C.kunden);
+    const tk1 = C.kunden, tk2 = Math.max(tk1 + 0.4, C.verkaufen - 0.05), tk3 = Math.max(tk2 + 0.4, C.stunden - 0.05);
+    FX.pop(tl, "#a6b-t0", tk1, { origin: "0% 50%" });
+    FX.pop(tl, "#a6b-t1", tk2, { origin: "0% 50%" });
+    FX.pop(tl, "#a6b-t2", tk3, { origin: "0% 50%" });
+    // "Ein Trade kostet dich gleich viel Zeit ..." (keine eigene Zeile): langsamer Zoom auf die Liste.
+    const tZ1 = Math.max(C.trade, tk3 + 0.4);
+    const dZ1 = Math.min(3, C.klar - 0.05 - tZ1);
+    if (dZ1 > 1) FX.slowZoom(tl, "#a6b-tList", tZ1, { d: dZ1, to: 1 + 0.08 * dZ1 / 3 });
+
+    // ---------------------------------------------------------------- Folie 3: Sanduhr
+    // "Klar, das baut sich nicht über Nacht auf." -> eine Sanduhr läuft (bis zur nächsten Folie).
+    FX.cut(tl, "#a6b-s2", "#a6b-s3", C.klar);
+    const dDrain = Math.max(1.5, C.min30 - 0.2 - C.klar);
+    FX.tween(tl, "#a6b-sandTop", { scale: 1 }, { scale: 0.14, duration: dDrain, ease: "none", transformOrigin: "50% 100%" }, C.klar);
+    FX.tween(tl, "#a6b-sandBot", { scale: 0.3 }, { scale: 1, duration: dDrain, ease: "none", transformOrigin: "50% 100%" }, C.klar);
+    // "Am Anfang lernst du ..." (keine eigene Zeile): langsamer Zoom.
+    const tZ2 = Math.max(C.anfang, C.klar + 0.6);
+    const dZ2 = Math.min(3, C.min30 - 0.05 - tZ2);
+    if (dZ2 > 1) FX.slowZoom(tl, "#a6b-hg", tZ2, { d: dZ2, to: 1 + 0.08 * dZ2 / 3 });
+
+    // ---------------------------------------------------------------- Folie 4: 30 Min. am Tag ✓
+    FX.cut(tl, "#a6b-s3", "#a6b-s4", C.min30);
+    FX.pop(tl, "#a6b-m30", C.min30);
+    FX.pop(tl, "#a6b-mTick", Math.max(C.min30 + 0.3, C.tag - 0.05));
+
+    // ---------------------------------------------------------------- Folie 5: Kurs-Mockup
+    FX.set(tl, "#a6b-s4", { opacity: 0 }, C.kurs);
+    const tc1 = Math.max(C.kurs + 0.35, C.grund - 0.05), tc2 = Math.max(tc1 + 0.4, C.strategie - 0.05), tc3 = Math.max(tc2 + 0.4, C.plan - 0.05);
+    FX.course(tl, "a6b-course", C.kurs, [tc1, tc2, tc3]);
+    FX.set(tl, "#a6b-course", { opacity: 0 }, C.klick);
+
+    // ---------------------------------------------------------------- Folie 6: CTA
+    FX.cta(tl, "a6b-cta", C.klick);
+
+    // ---------------------------------------------------------------- Schlussbild
+    // "... solange das erste noch fest steht." -> die Figur sitzt entspannt auf dem stabilen Hocker und nickt.
+    const tEnd = Math.max(C.ende, C.klick + 1.2);
+    FX.set(tl, "#a6b-cta", { opacity: 0 }, tEnd);
+    FX.set(tl, "#a6b-s1", { opacity: 1 }, tEnd);
+    FX.set(tl, "#a6b-world", { x: -101, y: -70 }, tEnd);
+    FX.set(tl, "#a6b-floor", { attr: { x1: 281, x2: 881 } }, tEnd);
+    FX.set(tl, ["#a6b-stand", "#a6b-lTrading"], { opacity: 0 }, tEnd);
+    FX.set(tl, "#a6b-sit", { opacity: 1, x: 0 }, tEnd);
+    FX.set(tl, ["#a6b-armsRelax", "#a6b-faceRelax"], { opacity: 1 }, tEnd);
+    FX.set(tl, ["#a6b-armsFall", "#a6b-faceFall"], { opacity: 0 }, tEnd);
+    const nods = Math.max(1, Math.min(3, Math.floor((DUR - 0.5 - (tEnd + 0.3)) / 0.6)));
+    FX.tween(tl, "#a6b-head", { y: 0 }, { y: 10, duration: 0.3, ease: "sine.inOut", yoyo: true, repeat: nods * 2 - 1 }, tEnd + 0.3);
+    FX.more(tl, "a6b-more", tEnd);
+
+    window.__timelines["ad6-body"] = tl;
+  </script>
+</template>

@@ -1,0 +1,158 @@
+{
+  "cues": {
+    "start": "Trader A riskiert bei jedem Trade",
+    "a10": {
+      "phrase": "Trader A riskiert bei jedem Trade 10 Prozent seines Kontos",
+      "word": 6
+    },
+    "b1": {
+      "phrase": "Trader B nur 1 Prozent.",
+      "word": 3
+    },
+    "verluste": "10 Verluste am Stück klingen extrem",
+    "schau": "Schau, was danach übrig ist",
+    "drittel": {
+      "phrase": "Bei Trader A sind fast zwei Drittel weg",
+      "word": 5
+    },
+    "nichtmal": {
+      "phrase": "bei Trader B nicht mal 10 Prozent.",
+      "word": 3
+    },
+    "teil": "Und jetzt der Teil, den kaum einer kennt",
+    "trA": "Trader A muss sein Restkonto fast verdreifachen",
+    "verdreifachen": {
+      "phrase": "fast verdreifachen",
+      "word": 1
+    },
+    "startwert": {
+      "phrase": "auf den Startwert zu kommen.",
+      "word": 2
+    },
+    "trB": "Trader B reicht ein kleines Plus von gut 10 Prozent.",
+    "plus": {
+      "phrase": "ein kleines Plus von gut 10 Prozent.",
+      "word": 1
+    },
+    "deshalb": "Deshalb ist die wichtigste Zahl beim Trading nicht",
+    "riskierst": {
+      "phrase": "sondern wie viel du pro Trade maximal riskierst.",
+      "word": 1
+    },
+    "maximal": {
+      "phrase": "pro Trade maximal riskierst.",
+      "word": 2
+    },
+    "rechnen": {
+      "phrase": "Dafür musst du weder rechnen können wie ein Mathematiker",
+      "word": 4
+    },
+    "mathe": {
+      "phrase": "wie ein Mathematiker",
+      "word": 2
+    },
+    "regel": {
+      "phrase": "sondern nur diese eine Regel kennen",
+      "word": 2
+    },
+    "genau": "Genau diese Regel, eine einfache Strategie und einen Plan",
+    "regel2": {
+      "phrase": "Genau diese Regel",
+      "word": 2
+    },
+    "strategie": {
+      "phrase": "eine einfache Strategie",
+      "word": 2
+    },
+    "plan": {
+      "phrase": "einen Plan für deine ersten 60 Tage",
+      "word": 1
+    },
+    "klick": "Klick unter dem Video auf „Mehr dazu“",
+    "bevor": "bevor du deinen nächsten Trade setzt."
+  },
+  "sfx": [
+    {
+      "t": 0.22,
+      "type": "whoosh"
+    },
+    {
+      "t": "C.verluste + 0 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 1 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 2 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 3 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 4 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 5 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 6 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 7 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 8 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "t": "C.verluste + 9 * Math.min(0.62, Math.max(0.36, (C.schau - 0.4 - C.verluste) / 10))",
+      "offset": 0.1,
+      "type": "tick"
+    },
+    {
+      "at": "schau",
+      "type": "pop"
+    },
+    {
+      "at": "trA",
+      "type": "pop"
+    },
+    {
+      "at": "trB",
+      "type": "pop"
+    },
+    {
+      "at": "riskierst",
+      "type": "pop"
+    },
+    {
+      "at": "rechnen",
+      "type": "pop"
+    },
+    {
+      "at": "genau",
+      "type": "whoosh"
+    },
+    {
+      "at": "klick",
+      "type": "pop"
+    }
+  ]
+}

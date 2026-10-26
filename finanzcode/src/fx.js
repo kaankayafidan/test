@@ -6,7 +6,8 @@ const FX = (() => {
   const IR = { immediateRender: false };
   const q = (el) => el;
   // Pivot: o.svgOrigin ("540 650", absolute SVG user units) for SVG parts, else o.origin (CSS transform-origin).
-  const pivot = (o, def) => (o.svgOrigin ? { svgOrigin: o.svgOrigin } : { transformOrigin: o.origin ?? def });
+  // smoothOrigin:false + pivot in both from and to vars, otherwise GSAP adds a lasting x/y offset on SVG parts.
+  const pivot = (o, def) => (o.svgOrigin ? { svgOrigin: o.svgOrigin, smoothOrigin: false } : { transformOrigin: o.origin ?? def, smoothOrigin: false });
 
   // Initial state at t=0 (call once per element before any tween on it).
   function init(tl, el, props) {
@@ -22,7 +23,7 @@ const FX = (() => {
 
   // "ploppt rein, ploppt auf": Größe 120 -> 100 % in 0,15 s.
   function pop(tl, el, t, o = {}) {
-    tl.fromTo(el, { opacity: 0, scale: o.from ?? 1.2 }, { ...IR, opacity: 1, scale: 1, duration: 0.15, ease: "power2.out", ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), opacity: 0, scale: o.from ?? 1.2 }, { ...IR, opacity: 1, scale: 1, duration: 0.15, ease: "power2.out", ...pivot(o, "50% 50%") }, t);
   }
   // "einblenden, erscheint": Deckkraft 0 -> 100 % in 0,2 s.
   function fadeIn(tl, el, t, d = 0.2) {
@@ -40,23 +41,23 @@ const FX = (() => {
   // "knallt drauf, knallt ins Bild": Größe 140 -> 100 % in 0,12 s. Stempel zusätzlich 8° schräg.
   function slam(tl, el, t, o = {}) {
     const rot = o.rotation ?? 0;
-    tl.fromTo(el, { opacity: 0, scale: 1.4, rotation: rot }, { ...IR, opacity: 1, scale: 1, rotation: rot, duration: 0.12, ease: "power3.out", ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), opacity: 0, scale: 1.4, rotation: rot }, { ...IR, opacity: 1, scale: 1, rotation: rot, duration: 0.12, ease: "power3.out", ...pivot(o, "50% 50%") }, t);
   }
   // "schnelles Ranzoomen": 100 -> 130 % in 0,4 s, am Ende abbremsen.
   function zoomFast(tl, el, t, o = {}) {
-    tl.fromTo(el, { scale: o.from ?? 1 }, { ...IR, scale: o.to ?? 1.3, duration: 0.4, ease: "power3.out", ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), scale: o.from ?? 1 }, { ...IR, scale: o.to ?? 1.3, duration: 0.4, ease: "power3.out", ...pivot(o, "50% 50%") }, t);
   }
   // "reinzoomen auf ein Detail": auf 150-200 % in 0,5 s, weich. origin = detail point in px ("x y").
   function zoomIn(tl, el, t, o = {}) {
-    tl.fromTo(el, { scale: o.from ?? 1, x: o.fromX ?? 0, y: o.fromY ?? 0 }, { ...IR, scale: o.to ?? 1.75, x: o.x ?? 0, y: o.y ?? 0, duration: o.d ?? 0.5, ease: "power2.inOut", ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), scale: o.from ?? 1, x: o.fromX ?? 0, y: o.fromY ?? 0 }, { ...IR, scale: o.to ?? 1.75, x: o.x ?? 0, y: o.y ?? 0, duration: o.d ?? 0.5, ease: "power2.inOut", ...pivot(o, "50% 50%") }, t);
   }
   // Rauszoomen auf das ganze Motiv: genauso zurück auf 100 %.
   function zoomOut(tl, el, t, o = {}) {
-    tl.fromTo(el, { scale: o.from ?? 1.75, x: o.fromX ?? 0, y: o.fromY ?? 0 }, { ...IR, scale: 1, x: 0, y: 0, duration: o.d ?? 0.5, ease: "power2.inOut", ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), scale: o.from ?? 1.75, x: o.fromX ?? 0, y: o.fromY ?? 0 }, { ...IR, scale: 1, x: 0, y: 0, duration: o.d ?? 0.5, ease: "power2.inOut", ...pivot(o, "50% 50%") }, t);
   }
   // "langsamer Zoom, leicht rauszoomen": 100 -> 108 % über 3 s (oder rückwärts), linear.
   function slowZoom(tl, el, t, o = {}) {
-    tl.fromTo(el, { scale: o.from ?? 1 }, { ...IR, scale: o.to ?? 1.08, duration: o.d ?? 3, ease: "none", ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), scale: o.from ?? 1 }, { ...IR, scale: o.to ?? 1.08, duration: o.d ?? 3, ease: "none", ...pivot(o, "50% 50%") }, t);
   }
   // "fliegt rein, schiebt sich rein, wird ausgeteilt": von außerhalb in 0,25 s (ease-out),
   // mehrere Elemente je 0,08 s versetzt. els: array of selectors/elements.
@@ -78,24 +79,24 @@ const FX = (() => {
   }
   // "kippt": Drehung um 90° in 0,35 s.
   function tip(tl, el, t, o = {}) {
-    tl.fromTo(el, { rotation: o.from ?? 0 }, { ...IR, rotation: o.to ?? 90, duration: 0.35, ease: "power2.in", ...pivot(o, "50% 100%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 100%"), rotation: o.from ?? 0 }, { ...IR, rotation: o.to ?? 90, duration: 0.35, ease: "power2.in", ...pivot(o, "50% 100%") }, t);
   }
   // "wackelt": Drehung um 6° nach links und rechts um den Fußpunkt, 0,6 s pro Schwung, in Schleife.
   // Starts already in motion (at -6°). d = total length in s. Ends at a swing end; call settle() to stop.
   function wobble(tl, el, t, d, o = {}) {
     const deg = o.deg ?? 6;
     const swings = Math.max(1, Math.floor(d / 0.6));
-    tl.fromTo(el, { rotation: -deg }, { ...IR, rotation: deg, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: swings - 1, ...pivot(o, "50% 100%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 100%"), rotation: -deg }, { ...IR, rotation: deg, duration: 0.6, ease: "sine.inOut", yoyo: true, repeat: swings - 1, ...pivot(o, "50% 100%") }, t);
     return { end: t + swings * 0.6, endRotation: swings % 2 === 1 ? deg : -deg };
   }
   // Wackeln hält an: back to 0° in 0,3 s.
   function settle(tl, el, t, fromRot, o = {}) {
-    tl.fromTo(el, { rotation: fromRot }, { ...IR, rotation: 0, duration: 0.3, ease: "power2.out", ...pivot(o, "50% 100%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 100%"), rotation: fromRot }, { ...IR, rotation: 0, duration: 0.3, ease: "power2.out", ...pivot(o, "50% 100%") }, t);
   }
   // "pulsiert": Größe 100 -> 108 % und zurück, 0,8 s pro Schlag. d = total length.
   function pulse(tl, el, t, d, o = {}) {
     const beats = Math.max(1, Math.floor(d / 0.8));
-    tl.fromTo(el, { scale: 1 }, { ...IR, scale: o.to ?? 1.08, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: beats * 2 - 1, ...pivot(o, "50% 50%") }, t);
+    tl.fromTo(el, { ...pivot(o, "50% 50%"), scale: 1 }, { ...IR, scale: o.to ?? 1.08, duration: 0.4, ease: "sine.inOut", yoyo: true, repeat: beats * 2 - 1, ...pivot(o, "50% 50%") }, t);
   }
   // "blinkt": Deckkraft 100 -> 40 % und zurück, 0,8 s pro Takt.
   function blink(tl, el, t, d) {
@@ -105,7 +106,7 @@ const FX = (() => {
   // "einkreisen, unterstreichen, durchstreichen": rote Linie #DC2626, 10 px.
   // Kreis zeichnet sich in 0,5 s, Linie in 0,3 s. el = <path pathLength="1" class="fx-stroke">.
   function draw(tl, el, t, d) {
-    tl.fromTo(el, { opacity: 1, strokeDashoffset: 1 }, { ...IR, opacity: 1, strokeDashoffset: 0, duration: d, ease: "power1.inOut" }, t);
+    tl.fromTo(el, { opacity: 1, strokeDashoffset: 1 }, { ...IR, opacity: 1, strokeDashoffset: 0, duration: d, ease: "power1.inOut", autoRound: false }, t);
   }
   const drawCircle = (tl, el, t) => draw(tl, el, t, 0.5);
   const drawLine = (tl, el, t) => draw(tl, el, t, 0.3);
@@ -203,6 +204,7 @@ const FX = (() => {
   // Course mockup with 3 ticks (Kurs-Mockup, daneben 3 Haken). p = id prefix used in the include.
   function course(tl, p, t, tickTimes) {
     tl.set(`#${p}`, { opacity: 0 }, 0);
+    [0, 1, 2].forEach((i) => tl.set(`#${p}-i${i}`, { opacity: 0 }, 0));
     tl.set(`#${p}`, { opacity: 1 }, t);
     tl.fromTo(`#${p}-laptop`, { opacity: 0, x: -1100 }, { ...IR, opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, t);
     [0, 1, 2].forEach((i) => {
@@ -213,6 +215,8 @@ const FX = (() => {
   // CTA-Bild: Laptop mittig (80 % Breite), darunter "Mehr dazu" + Pfeil nach unten. Bleibt bis zum Ende.
   function cta(tl, p, t) {
     tl.set(`#${p}`, { opacity: 0 }, 0);
+    tl.set(`#${p}-laptop`, { opacity: 0 }, 0);
+    tl.set(`#${p}-more`, { opacity: 0 }, 0);
     tl.set(`#${p}`, { opacity: 1 }, t);
     tl.fromTo(`#${p}-laptop`, { scale: 1.2, opacity: 0 }, { ...IR, scale: 1, opacity: 1, duration: 0.15, ease: "power2.out" }, t);
     tl.fromTo(`#${p}-more`, { opacity: 0, y: 30 }, { ...IR, opacity: 1, y: 0, duration: 0.25, ease: "power2.out" }, t + 0.2);

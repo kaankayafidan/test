@@ -1,0 +1,467 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a1b-scene { position: absolute; inset: 0; }
+    .a1b-slide { position: absolute; inset: 0; background: #FFFFFF; }
+    .a1b-art { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+    .a1b-t { position: absolute; font-family: 'Poppins'; font-weight: 700; color: #0E1A2B; line-height: 1; white-space: nowrap; }
+    .a1b-pill { position: absolute; font-family: 'Poppins'; font-weight: 700; font-size: 56px; line-height: 1.12; color: #0E1A2B; background: #F3F4F6; border-radius: 18px; padding: 12px 26px; white-space: nowrap; text-align: center; }
+    /* Bild 1: Kessel + Labels */
+    #a1b-l37 { left: 687px; top: 118px; }
+    #a1b-l36 { left: 642px; top: 352px; }
+    /* Bild 2: 1 von 37 / 2,7 % */
+    #a1b-n137 { left: 0; top: 150px; width: 1080px; text-align: center; font-size: 90px; }
+    #a1b-n27 { left: 0; top: 330px; width: 1080px; text-align: center; font-size: 220px; }
+    /* Bild 4: 1.000 Spiele / Mathematik gewinnt */
+    #a1b-n1000 { left: 0; top: 190px; width: 1080px; text-align: center; font-size: 120px; }
+    #a1b-wins { left: 0; top: 430px; width: 1080px; text-align: center; font-size: 84px; }
+    #a1b-wins b { color: #16A34A; font-weight: 700; }
+    /* Chart */
+    .a1b-clab { position: absolute; font-family: 'Poppins'; font-weight: 700; font-size: 56px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    /* Split */
+    .a1b-card { position: absolute; top: 30px; width: 495px; height: 650px; border-radius: 28px; background: #F3F4F6; overflow: hidden; }
+    #a1b-cardL { left: 30px; }
+    #a1b-cardR { left: 555px; }
+    .a1b-ill { position: absolute; left: 0; top: 0; width: 495px; height: 540px; }
+    .a1b-ill svg { position: absolute; left: 0; top: 0; width: 495px; height: 540px; }
+    .a1b-clabel { position: absolute; left: 0; top: 552px; width: 495px; height: 72px; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 72px; text-align: center; color: #0E1A2B; white-space: nowrap; }
+    /* Klare Regeln */
+    #a1b-rtext { left: 115px; top: 300px; font-size: 110px; }
+  </style>
+  <div id="root" data-composition-id="ad1-body" data-width="1080" data-height="710">
+    <div id="a1b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+
+      <!-- Kessel (Bild 1, 3 und Schlussbild). Platzhalter für Foto / Stock-Loop des Kessels von oben. -->
+      <div id="a1b-wheel" class="a1b-slide photo-slot" data-asset="roulette-wheel-top">
+        <svg class="a1b-art" viewBox="0 0 1080 710">
+          <g id="a1b-wpan">
+            <g id="a1b-wzoom">
+<!--gen:wheel p="a1b" ball="1" ballIn="1" zero="1"-->
+<circle r="320" fill="#4A2A12"/>
+<circle r="314" fill="#8A5226"/>
+<circle r="300" fill="#9C5F2D"/>
+<circle r="293" fill="#6B3D1B"/>
+<circle r="262" fill="#4A2A12"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(22.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(67.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(112.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(157.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(202.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(247.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(292.5)"/>
+<path d="M0 -265 L6 -256 L0 -247 L-6 -256 Z" fill="#D4A017" transform="rotate(337.5)"/>
+<circle r="250" fill="#C9971C"/>
+<g id="a1b-spin"><circle r="246" fill="#1F2937"/><path d="M-20.86 -245.11A246 246 0 0 1 20.86 -245.11L17.39 -204.26A205 205 0 0 0 -17.39 -204.26Z" fill="#16A34A"/><path d="M-17.39 -204.26A205 205 0 0 1 17.39 -204.26L13.57 -159.42A160 160 0 0 0 -13.57 -159.42Z" fill="#15803D"/><path d="M20.86 -245.11A246 246 0 0 1 61.99 -238.06L51.66 -198.39A205 205 0 0 0 17.39 -204.26Z" fill="#DC2626"/><path d="M17.39 -204.26A205 205 0 0 1 51.66 -198.39L40.32 -154.84A160 160 0 0 0 13.57 -159.42Z" fill="#B91C1C"/><path d="M51.66 -198.39A205 205 0 0 1 84.44 -186.8L65.9 -145.8A160 160 0 0 0 40.32 -154.84Z" fill="#111827"/><path d="M101.33 -224.16A246 246 0 0 1 137.75 -203.81L114.79 -169.84A205 205 0 0 0 84.44 -186.8Z" fill="#DC2626"/><path d="M84.44 -186.8A205 205 0 0 1 114.79 -169.84L89.6 -132.56A160 160 0 0 0 65.9 -145.8Z" fill="#B91C1C"/><path d="M114.79 -169.84A205 205 0 0 1 141.85 -148L110.71 -115.51A160 160 0 0 0 89.6 -132.56Z" fill="#111827"/><path d="M170.22 -177.6A246 246 0 0 1 197.78 -146.28L164.82 -121.9A205 205 0 0 0 141.85 -148Z" fill="#DC2626"/><path d="M141.85 -148A205 205 0 0 1 164.82 -121.9L128.64 -95.14A160 160 0 0 0 110.71 -115.51Z" fill="#B91C1C"/><path d="M164.82 -121.9A205 205 0 0 1 183.05 -92.29L142.87 -72.03A160 160 0 0 0 128.64 -95.14Z" fill="#111827"/><path d="M219.66 -110.75A246 246 0 0 1 235.22 -72.03L196.01 -60.03A205 205 0 0 0 183.05 -92.29Z" fill="#DC2626"/><path d="M183.05 -92.29A205 205 0 0 1 196.01 -60.03L152.99 -46.85A160 160 0 0 0 142.87 -72.03Z" fill="#B91C1C"/><path d="M196.01 -60.03A205 205 0 0 1 203.34 -26.04L158.7 -20.32A160 160 0 0 0 152.99 -46.85Z" fill="#111827"/><path d="M244.01 -31.25A246 246 0 0 1 245.78 10.44L204.82 8.7A205 205 0 0 0 203.34 -26.04Z" fill="#DC2626"/><path d="M203.34 -26.04A205 205 0 0 1 204.82 8.7L159.86 6.79A160 160 0 0 0 158.7 -20.32Z" fill="#B91C1C"/><path d="M204.82 8.7A205 205 0 0 1 200.4 43.19L156.41 33.71A160 160 0 0 0 159.86 6.79Z" fill="#111827"/><path d="M240.48 51.83A246 246 0 0 1 228.26 91.72L190.22 76.44A205 205 0 0 0 200.4 43.19Z" fill="#DC2626"/><path d="M200.4 43.19A205 205 0 0 1 190.22 76.44L148.46 59.66A160 160 0 0 0 156.41 33.71Z" fill="#B91C1C"/><path d="M190.22 76.44A205 205 0 0 1 174.56 107.48L136.24 83.89A160 160 0 0 0 148.46 59.66Z" fill="#111827"/><path d="M209.48 128.98A246 246 0 0 1 184.67 162.53L153.89 135.44A205 205 0 0 0 174.56 107.48Z" fill="#DC2626"/><path d="M174.56 107.48A205 205 0 0 1 153.89 135.44L120.11 105.71A160 160 0 0 0 136.24 83.89Z" fill="#B91C1C"/><path d="M153.89 135.44A205 205 0 0 1 128.79 159.5L100.52 124.49A160 160 0 0 0 120.11 105.71Z" fill="#111827"/><path d="M154.54 191.4A246 246 0 0 1 119.97 214.76L99.98 178.97A205 205 0 0 0 128.79 159.5Z" fill="#DC2626"/><path d="M128.79 159.5A205 205 0 0 1 99.98 178.97L78.03 139.68A160 160 0 0 0 100.52 124.49Z" fill="#B91C1C"/><path d="M99.98 178.97A205 205 0 0 1 68.29 193.29L53.3 150.86A160 160 0 0 0 78.03 139.68Z" fill="#111827"/><path d="M81.95 231.95A246 246 0 0 1 41.57 242.46L34.65 202.05A205 205 0 0 0 68.29 193.29Z" fill="#DC2626"/><path d="M68.29 193.29A205 205 0 0 1 34.65 202.05L27.04 157.7A160 160 0 0 0 53.3 150.86Z" fill="#B91C1C"/><path d="M34.65 202.05A205 205 0 0 1 0 205L0 160A160 160 0 0 0 27.04 157.7Z" fill="#111827"/><path d="M0 246A246 246 0 0 1 -41.57 242.46L-34.65 202.05A205 205 0 0 0 0 205Z" fill="#DC2626"/><path d="M0 205A205 205 0 0 1 -34.65 202.05L-27.04 157.7A160 160 0 0 0 0 160Z" fill="#B91C1C"/><path d="M-34.65 202.05A205 205 0 0 1 -68.29 193.29L-53.3 150.86A160 160 0 0 0 -27.04 157.7Z" fill="#111827"/><path d="M-81.95 231.95A246 246 0 0 1 -119.97 214.76L-99.98 178.97A205 205 0 0 0 -68.29 193.29Z" fill="#DC2626"/><path d="M-68.29 193.29A205 205 0 0 1 -99.98 178.97L-78.03 139.68A160 160 0 0 0 -53.3 150.86Z" fill="#B91C1C"/><path d="M-99.98 178.97A205 205 0 0 1 -128.79 159.5L-100.52 124.49A160 160 0 0 0 -78.03 139.68Z" fill="#111827"/><path d="M-154.54 191.4A246 246 0 0 1 -184.67 162.53L-153.89 135.44A205 205 0 0 0 -128.79 159.5Z" fill="#DC2626"/><path d="M-128.79 159.5A205 205 0 0 1 -153.89 135.44L-120.11 105.71A160 160 0 0 0 -100.52 124.49Z" fill="#B91C1C"/><path d="M-153.89 135.44A205 205 0 0 1 -174.56 107.48L-136.24 83.89A160 160 0 0 0 -120.11 105.71Z" fill="#111827"/><path d="M-209.48 128.98A246 246 0 0 1 -228.26 91.72L-190.22 76.44A205 205 0 0 0 -174.56 107.48Z" fill="#DC2626"/><path d="M-174.56 107.48A205 205 0 0 1 -190.22 76.44L-148.46 59.66A160 160 0 0 0 -136.24 83.89Z" fill="#B91C1C"/><path d="M-190.22 76.44A205 205 0 0 1 -200.4 43.19L-156.41 33.71A160 160 0 0 0 -148.46 59.66Z" fill="#111827"/><path d="M-240.48 51.83A246 246 0 0 1 -245.78 10.44L-204.82 8.7A205 205 0 0 0 -200.4 43.19Z" fill="#DC2626"/><path d="M-200.4 43.19A205 205 0 0 1 -204.82 8.7L-159.86 6.79A160 160 0 0 0 -156.41 33.71Z" fill="#B91C1C"/><path d="M-204.82 8.7A205 205 0 0 1 -203.34 -26.04L-158.7 -20.32A160 160 0 0 0 -159.86 6.79Z" fill="#111827"/><path d="M-244.01 -31.25A246 246 0 0 1 -235.22 -72.03L-196.01 -60.03A205 205 0 0 0 -203.34 -26.04Z" fill="#DC2626"/><path d="M-203.34 -26.04A205 205 0 0 1 -196.01 -60.03L-152.99 -46.85A160 160 0 0 0 -158.7 -20.32Z" fill="#B91C1C"/><path d="M-196.01 -60.03A205 205 0 0 1 -183.05 -92.29L-142.87 -72.03A160 160 0 0 0 -152.99 -46.85Z" fill="#111827"/><path d="M-219.66 -110.75A246 246 0 0 1 -197.78 -146.28L-164.82 -121.9A205 205 0 0 0 -183.05 -92.29Z" fill="#DC2626"/><path d="M-183.05 -92.29A205 205 0 0 1 -164.82 -121.9L-128.64 -95.14A160 160 0 0 0 -142.87 -72.03Z" fill="#B91C1C"/><path d="M-164.82 -121.9A205 205 0 0 1 -141.85 -148L-110.71 -115.51A160 160 0 0 0 -128.64 -95.14Z" fill="#111827"/><path d="M-170.22 -177.6A246 246 0 0 1 -137.75 -203.81L-114.79 -169.84A205 205 0 0 0 -141.85 -148Z" fill="#DC2626"/><path d="M-141.85 -148A205 205 0 0 1 -114.79 -169.84L-89.6 -132.56A160 160 0 0 0 -110.71 -115.51Z" fill="#B91C1C"/><path d="M-114.79 -169.84A205 205 0 0 1 -84.44 -186.8L-65.9 -145.8A160 160 0 0 0 -89.6 -132.56Z" fill="#111827"/><path d="M-101.33 -224.16A246 246 0 0 1 -61.99 -238.06L-51.66 -198.39A205 205 0 0 0 -84.44 -186.8Z" fill="#DC2626"/><path d="M-84.44 -186.8A205 205 0 0 1 -51.66 -198.39L-40.32 -154.84A160 160 0 0 0 -65.9 -145.8Z" fill="#B91C1C"/><path d="M-51.66 -198.39A205 205 0 0 1 -17.39 -204.26L-13.57 -159.42A160 160 0 0 0 -40.32 -154.84Z" fill="#111827"/><path d="M-13.57 -159.42L-20.86 -245.11M13.57 -159.42L20.86 -245.11M40.32 -154.84L61.99 -238.06M65.9 -145.8L101.33 -224.16M89.6 -132.56L137.75 -203.81M110.71 -115.51L170.22 -177.6M128.64 -95.14L197.78 -146.28M142.87 -72.03L219.66 -110.75M152.99 -46.85L235.22 -72.03M158.7 -20.32L244.01 -31.25M159.86 6.79L245.78 10.44M156.41 33.71L240.48 51.83M148.46 59.66L228.26 91.72M136.24 83.89L209.48 128.98M120.11 105.71L184.67 162.53M100.52 124.49L154.54 191.4M78.03 139.68L119.97 214.76M53.3 150.86L81.95 231.95M27.04 157.7L41.57 242.46M0 160L0 246M-27.04 157.7L-41.57 242.46M-53.3 150.86L-81.95 231.95M-78.03 139.68L-119.97 214.76M-100.52 124.49L-154.54 191.4M-120.11 105.71L-184.67 162.53M-136.24 83.89L-209.48 128.98M-148.46 59.66L-228.26 91.72M-156.41 33.71L-240.48 51.83M-159.86 6.79L-245.78 10.44M-158.7 -20.32L-244.01 -31.25M-152.99 -46.85L-235.22 -72.03M-142.87 -72.03L-219.66 -110.75M-128.64 -95.14L-197.78 -146.28M-110.71 -115.51L-170.22 -177.6M-89.6 -132.56L-137.75 -203.81M-65.9 -145.8L-101.33 -224.16M-40.32 -154.84L-61.99 -238.06" stroke="#D4A017" stroke-width="2.4" fill="none"/><circle r="205" fill="none" stroke="#D4A017" stroke-width="3"/><circle r="246" fill="none" stroke="#D4A017" stroke-width="3"/><circle r="160" fill="#C9971C"/><circle r="156" fill="#6E4220"/><circle r="148" fill="#9A6332"/><circle r="112" fill="#AD7442"/><circle r="74" fill="#BE8650"/><g transform="rotate(45)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><g transform="rotate(135)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><g transform="rotate(225)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><g transform="rotate(315)"><rect x="-7" y="-104" width="14" height="96" rx="7" fill="#D4A017"/><circle cy="-104" r="12" fill="#E9C14A"/></g><circle r="26" fill="#D4A017"/><circle r="15" fill="#F2D06B"/><path id="a1b-zp" d="M-20.86 -245.11A246 246 0 0 1 20.86 -245.11L13.57 -159.42A160 160 0 0 0 -13.57 -159.42Z" fill="#16A34A" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/><g id="a1b-bin"><circle cy="-182" r="10.5" fill="#D1D5DB"/><circle cx="-1.2" cy="-183.2" r="8.6" fill="#FFFFFF"/></g></g>
+<g id="a1b-borb"><g id="a1b-bdrop"><circle cy="-277" r="10.5" fill="#D1D5DB"/><circle cx="-1.2" cy="-278.2" r="8.6" fill="#FFFFFF"/></g></g>
+<!--/gen:wheel-->
+            </g>
+          </g>
+        </svg>
+      </div>
+      <!-- Labels zu Bild 1 -->
+      <div id="a1b-labs" class="a1b-slide" style="background: transparent;">
+        <div id="a1b-l37" class="a1b-pill">37 Felder</div>
+        <div id="a1b-l36" class="a1b-pill">Auszahlung<br />wie bei 36</div>
+      </div>
+
+      <!-- Bild 2: "1 von 37", darunter groß "2,7 %" -->
+      <div id="a1b-s27" class="a1b-slide">
+        <div id="a1b-n137" class="a1b-t">1 von 37</div>
+        <div id="a1b-n27" class="a1b-t">2,7 %</div>
+      </div>
+
+      <!-- Bild 4: "1.000 Spiele", danach "Mathematik gewinnt" -->
+      <div id="a1b-s1000" class="a1b-slide">
+        <div id="a1b-n1000" class="a1b-t">1.000 Spiele</div>
+        <div id="a1b-wins" class="a1b-t">Mathematik <b>gewinnt</b></div>
+      </div>
+
+      <!-- Bild 5: schlichter Gold-Chart (bereinigt: kein Name, keine Preise, kein Gitter, kein Volumen). Platzhalter für den Chart-Screenshot. -->
+      <div id="a1b-chart" class="a1b-slide">
+        <div class="photo-slot" data-asset="gold-chart-clean" style="position: absolute; inset: 0;">
+          <svg class="a1b-art" viewBox="0 0 1080 710">
+            <rect x="24" y="24" width="1032" height="662" rx="24" fill="#F3F4F6" />
+<!--gen:candles p="a1b"-->
+<g fill="#16A34A"><rect x="80" y="587.61" width="4" height="40.39" rx="2"/><rect x="72.5" y="597.3" width="19" height="24.23" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="108.4" y="592.46" width="4" height="33.12" rx="2"/><rect x="100.9" y="597.3" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="136.8" y="566.61" width="4" height="52.51" rx="2"/><rect x="129.3" y="581.15" width="19" height="32.31" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="165.2" y="557.72" width="4" height="32.31" rx="2"/><rect x="157.7" y="564.99" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="193.6" y="553.68" width="4" height="50.89" rx="2"/><rect x="186.1" y="564.99" width="19" height="24.23" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="222" y="583.57" width="4" height="23.43" rx="2"/><rect x="214.5" y="589.22" width="19" height="8.08" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="250.4" y="556.1" width="4" height="46.05" rx="2"/><rect x="242.9" y="564.99" width="19" height="32.31" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="278.8" y="527.83" width="4" height="45.24" rx="2"/><rect x="271.3" y="540.76" width="19" height="24.23" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="307.2" y="534.29" width="4" height="36.35" rx="2"/><rect x="299.7" y="540.76" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="335.6" y="506.02" width="4" height="58.16" rx="2"/><rect x="328.1" y="516.52" width="19" height="40.39" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="364" y="509.25" width="4" height="55.74" rx="2"/><rect x="356.5" y="516.52" width="19" height="32.31" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="392.4" y="536.72" width="4" height="37.16" rx="2"/><rect x="384.9" y="548.83" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="420.8" y="535.1" width="4" height="36.35" rx="2"/><rect x="413.3" y="540.76" width="19" height="24.23" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="449.2" y="498.75" width="4" height="53.32" rx="2"/><rect x="441.7" y="508.44" width="19" height="32.31" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="477.6" y="500.36" width="4" height="29.08" rx="2"/><rect x="470.1" y="508.44" width="19" height="8.08" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="506" y="464.82" width="4" height="57.36" rx="2"/><rect x="498.5" y="476.13" width="19" height="40.39" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="534.4" y="453.51" width="4" height="32.31" rx="2"/><rect x="526.9" y="459.97" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="562.8" y="447.05" width="4" height="47.66" rx="2"/><rect x="555.3" y="459.97" width="19" height="24.23" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="591.2" y="476.94" width="4" height="37.97" rx="2"/><rect x="583.7" y="484.21" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="619.6" y="459.17" width="4" height="47.66" rx="2"/><rect x="612.1" y="468.05" width="19" height="32.31" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="648" y="433.32" width="4" height="42.81" rx="2"/><rect x="640.5" y="443.82" width="19" height="24.23" rx="2.5"/></g>
+<g fill="#DC2626"><rect x="676.4" y="438.16" width="4" height="25.85" rx="2"/><rect x="668.9" y="443.82" width="19" height="8.08" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="704.8" y="426.05" width="4" height="33.12" rx="2"/><rect x="697.3" y="435.74" width="19" height="16.16" rx="2.5"/></g>
+<g fill="#16A34A"><rect x="733.2" y="380" width="4" height="62.2" rx="2"/><rect x="725.7" y="387.27" width="19" height="48.47" rx="2.5"/></g>
+<!--/gen:candles-->
+          </svg>
+        </div>
+        <svg class="a1b-art" viewBox="0 0 1080 710">
+<!--gen:chartover p="a1b"-->
+<path id="a1b-entry" d="M727.2 387 H837" stroke="#0E1A2B" stroke-width="5" stroke-dasharray="14 10" fill="none"/>
+<rect id="a1b-zbar" x="761" y="179" width="70" height="208" rx="8" fill="#16A34A"/>
+<rect id="a1b-sbar" x="761" y="387" width="70" height="104" rx="8" fill="#DC2626"/>
+<!--/gen:chartover-->
+        </svg>
+<!--gen:chartlabels p="a1b"-->
+<div id="a1b-zlab" class="a1b-clab" style="left: 851px; top: 255px;">Ziel 2</div>
+<div id="a1b-slab" class="a1b-clab" style="left: 851px; top: 411px;">Stop 1</div>
+<svg class="fx-svg" viewBox="0 0 1080 710"><path id="a1b-uline" class="fx-stroke" pathLength="1" d="M849 325 Q925 331 1001 322"/></svg>
+<!--/gen:chartlabels-->
+      </div>
+
+      <!-- Bild 6: Reihe aus grünen Haken und roten X, ohne Beträge -->
+      <div id="a1b-trades" class="a1b-slide">
+        <svg class="a1b-art" viewBox="0 0 1080 710">
+<!--gen:trades p="a1b"-->
+<g transform="translate(113 355)"><g id="a1b-t0"><circle r="50" fill="#16A34A"/><path d="M-22 2 L-6 18 L24 -16" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g transform="translate(235 355)"><g id="a1b-t1"><circle r="50" fill="#16A34A"/><path d="M-22 2 L-6 18 L24 -16" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g transform="translate(357 355)"><g id="a1b-t2"><circle r="50" fill="#DC2626"/><path d="M-17 -17 L17 17 M17 -17 L-17 17" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/></g></g>
+<g transform="translate(479 355)"><g id="a1b-t3"><circle r="50" fill="#16A34A"/><path d="M-22 2 L-6 18 L24 -16" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g transform="translate(601 355)"><g id="a1b-t4"><circle r="50" fill="#DC2626"/><path d="M-17 -17 L17 17 M17 -17 L-17 17" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/></g></g>
+<g transform="translate(723 355)"><g id="a1b-t5"><circle r="50" fill="#16A34A"/><path d="M-22 2 L-6 18 L24 -16" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g transform="translate(845 355)"><g id="a1b-t6"><circle r="50" fill="#16A34A"/><path d="M-22 2 L-6 18 L24 -16" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></g>
+<g transform="translate(967 355)"><g id="a1b-t7"><circle r="50" fill="#DC2626"/><path d="M-17 -17 L17 17 M17 -17 L-17 17" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round"/></g></g>
+<!--/gen:trades-->
+        </svg>
+      </div>
+
+      <!-- Bild 7: Split Casino / Zocker -->
+      <div id="a1b-split" class="a1b-slide">
+        <div id="a1b-cardL" class="a1b-card">
+          <div class="a1b-ill photo-slot" data-asset="croupier-table">
+            <svg viewBox="0 0 495 540">
+              <!-- Croupier (hinter dem Tisch) -->
+              <path d="M112 540 L112 330 Q112 262 176 250 L318 250 Q382 262 382 330 L382 540 Z" fill="#1F2937" />
+              <path d="M214 250 L247 330 L280 250 Z" fill="#FFFFFF" />
+              <path d="M226 262 L247 274 L268 262 L268 286 L247 274 L226 286 Z" fill="#DC2626" />
+              <rect x="229" y="214" width="36" height="42" rx="12" fill="#E8B48A" />
+              <circle cx="247" cy="168" r="58" fill="#F2C29B" />
+              <ellipse cx="190" cy="172" rx="10" ry="15" fill="#E8B48A" />
+              <ellipse cx="304" cy="172" rx="10" ry="15" fill="#E8B48A" />
+              <path d="M188 160 Q186 104 247 104 Q309 104 306 160 Q296 128 262 124 Q222 122 200 142 Z" fill="#2B1A0E" />
+              <circle cx="227" cy="172" r="6.5" fill="#111827" />
+              <circle cx="267" cy="172" r="6.5" fill="#111827" />
+              <path d="M215 156 L238 154 M256 154 L279 156" stroke="#2B1A0E" stroke-width="5" stroke-linecap="round" />
+              <path d="M232 198 Q247 208 262 198" stroke="#7F1D1D" stroke-width="5" stroke-linecap="round" fill="none" />
+              <!-- Tisch -->
+              <path d="M18 420 L18 474 Q247 556 477 474 L477 420 Z" fill="#5B3416" />
+              <ellipse cx="247" cy="420" rx="229" ry="92" fill="#8A5226" />
+              <ellipse cx="247" cy="418" rx="208" ry="76" fill="#166534" />
+              <!-- kleiner Kessel auf dem Tisch -->
+              <ellipse cx="130" cy="420" rx="66" ry="28" fill="#4A2A12" />
+              <ellipse cx="130" cy="418" rx="54" ry="22" fill="#DC2626" />
+              <ellipse cx="130" cy="418" rx="54" ry="22" fill="none" stroke="#1F2937" stroke-width="8" stroke-dasharray="8 8" />
+              <ellipse cx="130" cy="418" rx="30" ry="12" fill="#AD7442" />
+              <circle cx="130" cy="417" r="5" fill="#D4A017" />
+              <!-- Spielfeld ohne Zahlen, ohne Jetons -->
+              <g fill="none" stroke="#FFFFFF" stroke-opacity="0.6" stroke-width="3">
+                <path d="M222 384 L402 384 L418 452 L214 452 Z" />
+                <path d="M218 418 L410 418 M258 384 L254 452 M294 384 L294 452 M330 384 L334 452 M366 384 L374 452" />
+              </g>
+              <!-- Hände auf der Tischkante -->
+              <ellipse cx="176" cy="352" rx="26" ry="15" fill="#F2C29B" />
+              <ellipse cx="318" cy="352" rx="26" ry="15" fill="#F2C29B" />
+            </svg>
+          </div>
+          <div class="a1b-clabel">Casino:<span style="margin-left: 18px;">Regeln</span></div>
+        </div>
+        <div id="a1b-cardR" class="a1b-card">
+          <div class="a1b-ill photo-slot" data-asset="frustrated-person">
+            <svg viewBox="0 0 495 540">
+              <!-- Oberkörper -->
+              <path d="M96 540 L96 470 Q96 392 170 380 L325 380 Q399 392 399 470 L399 540 Z" fill="#475569" />
+              <path d="M216 380 L247 420 L278 380 Z" fill="#E8B48A" />
+              <rect x="226" y="336" width="42" height="52" rx="14" fill="#E8B48A" />
+              <g id="a1b-zk">
+                <!-- Arme, Ellbogen nach außen -->
+                <path d="M150 400 L96 300 L176 196" fill="none" stroke="#475569" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M345 400 L399 300 L319 196" fill="none" stroke="#475569" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" />
+                <!-- Kopf -->
+                <circle cx="247" cy="262" r="76" fill="#F2C29B" />
+                <ellipse cx="172" cy="268" rx="11" ry="17" fill="#E8B48A" />
+                <ellipse cx="322" cy="268" rx="11" ry="17" fill="#E8B48A" />
+                <!-- zerzauste Haare, nach oben gerissen -->
+                <path d="M172 236 Q166 186 196 166 L186 122 L218 154 L226 104 L248 148 L268 100 L276 152 L304 118 L300 166 Q330 190 322 236 Q300 206 247 204 Q196 206 172 236 Z" fill="#4A2A12" />
+                <!-- Gesicht: zusammengekniffene Augen, Sorgenfalten, verzogener Mund -->
+                <path d="M210 252 L230 262 L210 272 M284 252 L264 262 L284 272" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M204 234 L232 242 M290 234 L262 242" stroke="#4A2A12" stroke-width="6" stroke-linecap="round" />
+                <path d="M220 312 Q247 290 274 312 Q247 302 220 312 Z" fill="#7F1D1D" stroke="#7F1D1D" stroke-width="8" stroke-linejoin="round" />
+                <path d="M320 214 Q332 236 320 246 Q308 236 320 214 Z" fill="#60A5FA" />
+                <!-- Hände greifen in die Haare -->
+                <circle cx="180" cy="192" r="26" fill="#F2C29B" />
+                <circle cx="314" cy="192" r="26" fill="#F2C29B" />
+                <path d="M166 178 L160 160 M182 172 L180 152 M198 178 L202 160" stroke="#E8B48A" stroke-width="9" stroke-linecap="round" />
+                <path d="M328 178 L334 160 M312 172 L314 152 M296 178 L292 160" stroke="#E8B48A" stroke-width="9" stroke-linecap="round" />
+                <!-- kleine Stress-Striche -->
+                <path d="M120 150 L98 130 M110 186 L82 182 M374 150 L396 130 M384 186 L412 182" stroke="#DC2626" stroke-width="7" stroke-linecap="round" />
+              </g>
+            </svg>
+          </div>
+          <div class="a1b-clabel">Zocker: Hoffnung</div>
+        </div>
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a1b-cregeln" class="fx-stroke" pathLength="1" d="" /></svg>
+      </div>
+
+      <!-- Bild 8: Doktorhut und Uhr mit "8 h", beide rot durchgestrichen -->
+      <div id="a1b-icons" class="a1b-slide">
+        <svg class="a1b-art" viewBox="0 0 1080 710">
+          <g transform="translate(0 22)">
+          <g id="a1b-cap">
+            <path d="M186 292 L186 384 Q290 430 394 384 L394 292 Z" fill="#1F2937" />
+            <path d="M290 196 L468 262 L290 328 L112 262 Z" fill="#0E1A2B" />
+            <path d="M290 262 L430 286 L430 380" fill="none" stroke="#9CA3AF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M414 376 L446 376 L452 430 L408 430 Z" fill="#9CA3AF" />
+            <ellipse cx="290" cy="262" rx="14" ry="8" fill="#9CA3AF" />
+          </g>
+          <g id="a1b-clock">
+            <circle cx="790" cy="330" r="158" fill="#FFFFFF" stroke="#0E1A2B" stroke-width="16" />
+            <g stroke="#0E1A2B" stroke-width="8" stroke-linecap="round">
+              <path d="M790 196 V216 M790 444 V464 M656 330 H676 M904 330 H924" />
+              <path d="M857 214 L852 223 M906 263 L897 268 M723 214 L728 223 M674 263 L683 268 M906 397 L897 392 M857 446 L852 437 M674 397 L683 392 M723 446 L728 437" />
+            </g>
+            <path d="M790 330 V236 M790 330 L852 300" stroke="#0E1A2B" stroke-width="12" stroke-linecap="round" fill="none" />
+            <circle cx="790" cy="330" r="13" fill="#0E1A2B" />
+            <text x="790" y="408" text-anchor="middle" dominant-baseline="central" font-family="Poppins" font-weight="700" font-size="64" fill="#0E1A2B">8 h</text>
+          </g>
+          </g>
+        </svg>
+        <svg class="fx-svg" viewBox="0 0 1080 710">
+          <path id="a1b-xcap" class="fx-stroke" pathLength="1" d="" />
+          <path id="a1b-xclock" class="fx-stroke" pathLength="1" d="" />
+        </svg>
+      </div>
+
+      <!-- Bild 9: "Klare Regeln ✓" -->
+      <div id="a1b-rules" class="a1b-slide">
+        <div id="a1b-rtext" class="a1b-t">Klare Regeln</div>
+        <svg class="a1b-art" viewBox="0 0 1080 710">
+          <g id="a1b-rcheck">
+            <circle cx="910" cy="355" r="56" fill="#16A34A" />
+            <path d="M884 357 L902 375 L937 337" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+          </g>
+        </svg>
+      </div>
+
+      <!-- Kurs-Mockup mit 3 Haken -->
+      <!--@include course p="a1b-course" items="Grundlagen|Strategie|60-Tage-Plan"-->
+      <!-- CTA-Bild -->
+      <!--@include cta p="a1b-cta"-->
+      <!-- kleines Banner "Mehr dazu ↓" bleibt im Schlussbild bis zum Ende -->
+      <!--@include more p="a1b-more"-->
+      <!--@include cursor p="a1b"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const O = { svgOrigin: "0 0" };
+    const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+    // Lokaler Ersatz für FX.drawCircle/drawLine: FX.draw rundet stroke-dashoffset auf ganze px (GSAP autoRound),
+    // dann ploppt der Strich nur auf statt sich zu zeichnen. Gleiche Werte (Kreis 0,5 s, Linie 0,3 s), ohne Rundung.
+    const draw = (el, t, d) => FX.tween(tl, el, { opacity: 1, strokeDashoffset: 1 }, { opacity: 1, strokeDashoffset: 0, autoRound: false, duration: d, ease: "power1.inOut" }, t);
+    const pathOf = (id, d) => { document.getElementById(id).setAttribute("d", d); return d; };
+    // Cursor-Schritte, bei denen die Pfeilspitze am Ende eines Strichs bleibt (gleiche Kurve wie draw()).
+    const followPath = (P, t0, d) => {
+      const L = [0];
+      for (let i = 1; i < P.length; i++) L.push(L[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
+      const inv = (f) => (f < 0.5 ? Math.sqrt(f / 2) : 1 - Math.sqrt((1 - f) / 2));
+      const T = L.map((l) => t0 + d * inv(l / L[L.length - 1]));
+      return P.slice(1).map((q, i) => ({ t: T[i], to: q, d: Math.max(0.001, T[i + 1] - T[i]), ease: "none" }));
+    };
+    const ptsOf = (d) => [...d.matchAll(/[ML]([-\d.]+) ([-\d.]+)/g)].map((m) => [+m[1], +m[2]]);
+
+    // ---------------------------------------------------------------- Zeitpunkte (alle aus den Cues)
+    const t27 = C.rechnerisch - 0.05;          // Schnitt auf "1 von 37"
+    const tV = C.verliert - 0.05;              // zurück zum Kessel
+    const tT = C.tausende - 0.05;              // "1.000 Spiele"
+    const tG = C.genau9 - 0.05;                // harter Schnitt auf den Chart
+    const tR = C.verliere - 0.05;              // Haken und X
+    const tC = C.casino - 0.1;                 // Split
+    const tK = C.kein - 0.05;                  // Doktorhut + Uhr
+    const tKR = C.klare - 0.05;                // "Klare Regeln"
+    const tKu = C.welche - 0.05;               // Kurs-Mockup
+    const tCTA = C.klick - 0.05;               // CTA-Bild
+    const tW = C.wer - 0.05;                   // zurück zum Kessel, Kugel landet auf der Null
+
+    // ---------------------------------------------------------------- Ebenen (harte Schnitte)
+    ["#a1b-s27", "#a1b-s1000", "#a1b-chart", "#a1b-trades", "#a1b-split", "#a1b-icons", "#a1b-rules"].forEach((s) => FX.init(tl, s, { opacity: 0 }));
+    FX.cut(tl, "#a1b-wheel", "#a1b-s27", t27);
+    tl.set("#a1b-labs", { opacity: 0 }, t27);
+    FX.cut(tl, "#a1b-s27", "#a1b-wheel", tV);
+    FX.cut(tl, "#a1b-wheel", "#a1b-s1000", tT);
+    FX.cut(tl, "#a1b-s1000", "#a1b-chart", tG);
+    FX.cut(tl, "#a1b-chart", "#a1b-trades", tR);
+    FX.cut(tl, "#a1b-trades", "#a1b-split", tC);
+    FX.cut(tl, "#a1b-split", "#a1b-icons", tK);
+    FX.cut(tl, "#a1b-icons", "#a1b-rules", tKR);
+    tl.set("#a1b-rules", { opacity: 0 }, tKu);
+    // FX.course/FX.cta setzen die Haken bzw. "Mehr dazu" nicht auf ihren Anfangszustand: hier nachholen, sonst stehen sie vor ihrem Einsatz schon da.
+    [0, 1, 2].forEach((i) => FX.init(tl, `#a1b-course-i${i}`, { opacity: 0 }));
+    FX.init(tl, "#a1b-cta-more", { opacity: 0 });
+    FX.course(tl, "a1b-course", tKu, [C.grundlagen - 0.05, C.strategie - 0.05, C.plan - 0.05]);
+    tl.set("#a1b-course", { opacity: 0 }, tCTA);
+    FX.cta(tl, "a1b-cta", tCTA);
+    FX.cut(tl, "#a1b-cta", "#a1b-wheel", tW);
+    FX.more(tl, "a1b-more", tW + 0.15);
+
+    // ---------------------------------------------------------------- Kessel: Position, Zoom, Drehung, Kugel
+    // Bild 1: links, Radius 275 px, steht still (Null oben).
+    FX.init(tl, "#a1b-wpan", { x: 330, y: 355 });
+    FX.init(tl, "#a1b-wzoom", { scale: 0.86, ...O });
+    FX.init(tl, "#a1b-spin", { rotation: 0, ...O });
+    FX.init(tl, "#a1b-bdrop", { opacity: 0, y: 0 });
+    FX.init(tl, "#a1b-borb", { rotation: 130, ...O });
+    FX.init(tl, "#a1b-bin", { opacity: 0 });
+    FX.init(tl, "#a1b-zp", { opacity: 0 });
+
+    // Labels: "37 Felder" auf "37", "Auszahlung wie bei 36" auf "36".
+    FX.init(tl, "#a1b-l37", { opacity: 0 });
+    FX.init(tl, "#a1b-l36", { opacity: 0 });
+    FX.pop(tl, "#a1b-l37", C.felder - 0.05);
+    FX.pop(tl, "#a1b-l36", C.nur36 - 0.05);
+
+    // "... dieses eine grüne Feld, die Null": die Null pulsiert grün bis zum Schnitt.
+    const tP = C.gruen - 0.05;
+    tl.set("#a1b-zp", { opacity: 1 }, tP);
+    FX.pulse(tl, "#a1b-zp", tP, Math.max(0.8, t27 - tP), { svgOrigin: "0 -203" });
+    tl.set("#a1b-zp", { opacity: 0 }, t27);
+
+    // Bild 3: "Das Casino verliert jeden Abend unzählige Spiele": Kessel mittig, läuft, du zoomst langsam raus.
+    tl.set("#a1b-wpan", { x: 540, y: 355 }, tV);
+    tl.set("#a1b-wzoom", { scale: 1.08, ...O }, tV);
+    FX.slowZoom(tl, "#a1b-wzoom", tV, { from: 1.08, to: 1, d: Math.max(1, Math.min(3, tT - tV)), ...O });
+    const d3 = Math.max(0.5, tT - tV);
+    FX.tween(tl, "#a1b-spin", { rotation: 0, ...O }, { rotation: 150 * d3, duration: d3, ease: "none", ...O }, tV);
+    tl.set("#a1b-bdrop", { opacity: 1 }, tV);
+    FX.tween(tl, "#a1b-borb", { rotation: 130, ...O }, { rotation: 130 - 420 * d3, duration: d3, ease: "none", ...O }, tV);
+    tl.set("#a1b-bdrop", { opacity: 0 }, tT);
+
+    // Schlussbild: "... wer am Tisch wirklich gewinnt." Kessel mittig (Platz für das Banner), Kugel läuft und landet auf der Null.
+    const tStop = DUR - 0.35;
+    const tLand = clamp(E.wer - 0.1, tW + 1.2, DUR - 0.9);
+    const thA = 188, thC = 380;                       // Kessel dreht von 188° auf 380° und läuft aus
+    const pOut = (p) => 1 - (1 - p) * (1 - p);        // = GSAP "power1.out"
+    const thLand = thA + (thC - thA) * pOut((tLand - tW) / (tStop - tW));
+    const phL = thLand - 360 * 2, ph0 = phL + 720;    // Kugel: 2 Runden gegen den Uhrzeigersinn, endet genau über der Null
+    tl.set("#a1b-wpan", { x: 540, y: 312 }, tW);
+    tl.set("#a1b-wzoom", { scale: 0.85, ...O }, tW);
+    tl.set("#a1b-spin", { rotation: thA, ...O }, tW);
+    FX.tween(tl, "#a1b-spin", { rotation: thA, ...O }, { rotation: thC, duration: tStop - tW, ease: "power1.out", ...O }, tW);
+    tl.set("#a1b-borb", { rotation: ph0, ...O }, tW);
+    FX.tween(tl, "#a1b-borb", { rotation: ph0, ...O }, { rotation: phL, duration: tLand - tW, ease: "power1.out", ...O }, tW);
+    tl.set("#a1b-bdrop", { opacity: 1 }, tW);
+    FX.tween(tl, "#a1b-bdrop", { y: 0 }, { y: 277 - 182, duration: 0.35, ease: "power2.in" }, tLand - 0.35);
+    FX.cut(tl, "#a1b-bdrop", "#a1b-bin", tLand);
+    if (tLand + 0.9 <= DUR - 0.3) {
+      tl.set("#a1b-zp", { opacity: 1 }, tLand + 0.05);
+      FX.pulse(tl, "#a1b-zp", tLand + 0.05, 0.8, { svgOrigin: "0 -203" });
+    }
+
+    // ---------------------------------------------------------------- Bild 2: "1 von 37", dann "2,7 %"
+    FX.init(tl, "#a1b-n137", { opacity: 0 });
+    FX.init(tl, "#a1b-n27", { opacity: 0 });
+    FX.pop(tl, "#a1b-n137", t27);
+    FX.slam(tl, "#a1b-n27", Math.max(t27 + 0.3, C.p27 - 0.2));
+
+    // ---------------------------------------------------------------- Bild 4: "1.000 Spiele", danach "Mathematik gewinnt"
+    FX.init(tl, "#a1b-n1000", { opacity: 0 });
+    FX.init(tl, "#a1b-wins", { opacity: 0 });
+    FX.pop(tl, "#a1b-n1000", tT);
+    FX.pop(tl, "#a1b-wins", Math.max(tT + 0.5, C.mathe - 0.05));
+
+    // ---------------------------------------------------------------- Bild 5: Chart, Einstieg, Ziel 2 / Stop 1, unterstreichen
+    ["#a1b-entry", "#a1b-zbar", "#a1b-sbar", "#a1b-zlab", "#a1b-slab"].forEach((s) => FX.init(tl, s, { opacity: 0 }));
+    const tE = Math.max(tG + 0.4, C.nehme + 0.15);
+    FX.fadeIn(tl, "#a1b-entry", tE);
+    const tZ = Math.max(tE + 0.4, C.ziel - 0.05);
+    FX.fadeIn(tl, "#a1b-zbar", tZ);
+    FX.fadeIn(tl, "#a1b-zlab", tZ);
+    const tS = Math.max(tZ + 0.5, C.stop - 0.05);
+    FX.fadeIn(tl, "#a1b-sbar", tS);
+    FX.fadeIn(tl, "#a1b-slab", tS);
+    const tU = clamp(E.stop + 0.15, tS + 0.35, tR - 0.6);
+    draw("#a1b-uline", tU, 0.3);
+
+    // ---------------------------------------------------------------- Bild 6: Reihe aus Haken und X, nacheinander
+    const nT = 8;
+    const tR1 = clamp(E.casinoVerliert - 0.2, tR + 1.2, tC - 0.3);
+    for (let i = 0; i < nT; i++) {
+      FX.init(tl, `#a1b-t${i}`, { opacity: 0 });
+      FX.pop(tl, `#a1b-t${i}`, tR + ((tR1 - tR) * i) / (nT - 1));
+    }
+
+    // ---------------------------------------------------------------- Bild 7: Split Casino / Zocker, "Regeln" einkreisen
+    FX.flyIn(tl, "#a1b-cardL", tC, { from: "left" });
+    FX.init(tl, "#a1b-cardR", { opacity: 0 });
+    const tZo = Math.max(tC + 0.5, C.zocker - 0.1);
+    tl.set("#a1b-cardR", { opacity: 1 }, tZo);
+    FX.flyIn(tl, "#a1b-cardR", tZo, { from: "right" });
+    // der Zocker rauft sich die Haare (Kopf + Arme rütteln, endlich)
+    const shakes = Math.max(2, Math.floor((tK - tZo - 0.3) / 0.22));
+    FX.tween(tl, "#a1b-zk", { rotation: -2.5, svgOrigin: "247 380" }, { rotation: 2.5, duration: 0.22, ease: "sine.inOut", yoyo: true, repeat: shakes - 1, svgOrigin: "247 380" }, tZo + 0.25);
+    const ringR = pathOf("a1b-cregeln", FX.handCircle(380, 618, 93, 41, 3));
+    const tCi = clamp(C.treffer - 0.05, tZo + 0.6, tK - 0.6);
+    draw("#a1b-cregeln", tCi, 0.5);
+
+    // ---------------------------------------------------------------- Bild 8: Doktorhut und Uhr "8 h", rot durchgestrichen
+    pathOf("a1b-xcap", FX.handLine(140, 218, 440, 478, 5));
+    pathOf("a1b-xclock", FX.handLine(642, 208, 938, 496, 9));
+    FX.init(tl, "#a1b-cap", { opacity: 0 });
+    FX.init(tl, "#a1b-clock", { opacity: 0 });
+    const tSt = Math.max(tK + 0.6, C.stunden - 0.05);
+    FX.pop(tl, "#a1b-cap", tK, { svgOrigin: "290 300" });
+    draw("#a1b-xcap", clamp(E.kein, tK + 0.25, tSt - 0.3), 0.3);
+    FX.pop(tl, "#a1b-clock", tSt, { svgOrigin: "790 330" });
+    draw("#a1b-xclock", clamp(E.stunden, tSt + 0.25, tKR - 0.35), 0.3);
+
+    // ---------------------------------------------------------------- Bild 9: "Klare Regeln ✓"
+    FX.init(tl, "#a1b-rtext", { opacity: 0 });
+    FX.init(tl, "#a1b-rcheck", { opacity: 0 });
+    FX.pop(tl, "#a1b-rtext", tKR);
+    FX.pop(tl, "#a1b-rcheck", clamp(E.regeln - 0.15, tKR + 0.3, tKu - 0.3), { svgOrigin: "910 355" });
+
+    // ---------------------------------------------------------------- Cursor: ruhig, eine Bewegung pro Satz, Klick bei jeder Einblendung
+    const REST = [960, 640];
+    const ringPts = ptsOf(ringR);
+    const tCiStart = tCi;
+    const cur = [
+      { t: C.felder - 0.05, click: true },
+      { t: C.nur36 - 0.05, click: true },
+      { t: Math.max(C.nur36 + 0.2, tP - 0.5), to: [356, 176], d: 0.5 },
+      { t: clamp(E.null + 0.3, tP + 0.3, t27 - 0.65), to: REST, d: 0.55 },
+      { t: t27, click: true },
+      { t: Math.max(t27 + 0.3, C.p27 - 0.05), click: true },
+      { t: tT, click: true },
+      { t: Math.max(tT + 0.5, C.mathe - 0.05), click: true },
+      { t: Math.max(tG + 0.1, tE - 0.55), to: [792, 526], d: 0.5 },
+      { t: tE, click: true },
+      { t: tZ, click: true },
+      { t: tS, click: true },
+      { t: tR, to: REST, d: 0.5 },
+      { t: tC + 0.3, to: [520, 520], d: 0.4 },
+      { t: tCiStart - 0.35, to: ringPts[0], d: 0.3 },
+      ...followPath(ringPts, tCiStart, 0.5),
+      { t: tCiStart + 0.6, to: [512, 566], d: 0.3 },
+      { t: tK + 0.05, to: REST, d: 0.45 },
+      { t: tKR, click: true },
+      { t: tCTA + 0.25, to: [818, 628], d: 0.5 },
+      { t: tW + 0.1, to: REST, d: 0.5 },
+    ];
+    FX.cursor(tl, "#a1b-cur", "#a1b-ring", REST, cur);
+
+    window.__timelines["ad1-body"] = tl;
+  </script>
+</template>

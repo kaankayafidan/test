@@ -1,0 +1,125 @@
+<template>
+  <!-- Ad 4 "Die 3 Typen", Anfang B. Hook- und Body-Raster nutzen dasselbe Karten-/Porträt-Markup, damit der Übergang Anfang -> Body pixelgleich ist. -->
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a4hb-scene { position: absolute; inset: 0; }
+    .a4hb-layer { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    .a4hb-card { position: absolute; left: 84px; top: 36px; width: 912px; height: 638px; }
+    .a4hb-face, .a4hb-back { position: absolute; left: 0; top: 0; width: 912px; height: 638px; border-radius: 40px; overflow: hidden; }
+    .a4hb-face { background: #F3F4F6; }
+    .a4hb-rim { position: absolute; left: 0; top: 0; width: 912px; height: 638px; border-radius: 40px; border: 8px solid #0E1A2B; box-sizing: border-box; }
+    .a4hb-photo { position: absolute; left: 32px; top: 32px; width: 380px; height: 574px; border-radius: 24px; overflow: hidden; background: #DDE3EA; }
+    .a4hb-photo svg { position: absolute; left: 0; top: 0; width: 380px; height: 574px; }
+    .a4hb-dig { position: absolute; left: 512px; top: 210px; width: 300px; height: 220px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 190px; line-height: 1; color: #0E1A2B; }
+    .a4hb-back { background: #0E1A2B; }
+    .a4hb-backin { position: absolute; left: 30px; top: 30px; width: 852px; height: 578px; border-radius: 26px; border: 8px solid #9CA3AF; box-sizing: border-box; }
+    .a4hb-qm { position: absolute; left: 0; top: 0; width: 912px; height: 638px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 361px; line-height: 1; color: #FFFFFF; }
+    .a4hb-name { position: absolute; left: 40px; top: 24px; font-family: 'Poppins'; font-weight: 700; font-size: 96px; line-height: 106px; color: #0E1A2B; white-space: nowrap; }
+    .a4hb-val { position: absolute; left: 444px; width: 436px; height: 100px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-sizing: border-box; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    .a4hb-ov { position: absolute; left: 0; top: 0; width: 912px; height: 638px; overflow: visible; pointer-events: none; }
+  </style>
+  <div id="root" data-composition-id="ad4-hookB" data-width="1080" data-height="710">
+    <div id="a4hb-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <!-- 2 x 2 Raster (Skizze S. 16): Karten 1, 2, 3 offen mit großer Ziffer + Bild (noch ohne Namen), rechts unten verdeckt mit "?". -->
+      <div id="a4hb-s1" class="a4hb-layer">
+        <div id="a4hb-w1" class="a4hb-layer">
+          <div id="a4hb-c1" class="a4hb-card">
+            <div class="a4hb-face">
+              <div id="a4hb-p1" class="a4hb-photo photo-slot" data-asset="ad4-portrait-zocker"><svg id="a4hb-pi1" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#DC2626"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#E0A57A"/><path d="M112 356 C124 302 256 302 268 356 C244 388 136 388 112 356 Z" fill="#B91C1C"/><path d="M170 380 L166 444" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M210 380 L214 444" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#F2C29B"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#F2C29B"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#F2C29B"/><path d="M112 196 C100 126 146 94 194 94 C246 94 284 128 270 198 C264 170 252 154 236 146 L226 160 L212 140 L196 158 L180 138 L164 160 L150 146 C130 156 118 172 112 196 Z" fill="#3B2416"/><path d="M150 104 L132 80 L170 96 Z M196 94 L198 66 L220 96 Z M238 104 L264 86 L254 118 Z" fill="#3B2416"/><path d="M134 158 Q157 140 180 154" fill="none" stroke="#3B2416" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M200 154 Q223 140 246 158" fill="none" stroke="#3B2416" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="202" rx="21" ry="21" fill="#FFFFFF"/><circle cx="158" cy="202" r="8.5" fill="#111827"/><circle cx="161" cy="199" r="2.6" fill="#FFFFFF"/><ellipse cx="222" cy="202" rx="21" ry="21" fill="#FFFFFF"/><circle cx="222" cy="202" r="8.5" fill="#111827"/><circle cx="225" cy="199" r="2.6" fill="#FFFFFF"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#E0A57A" stroke-width="7" stroke-linecap="round"/><path d="M152 254 Q190 306 228 254 Q190 268 152 254 Z" fill="#7F1D1D"/><path d="M160 258 Q190 268 220 258 L217 266 Q190 276 163 266 Z" fill="#FFFFFF"/><path d="M48 574 L84 440" fill="none" stroke="#DC2626" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(-9 96 372)"><rect x="54" y="292" width="88" height="160" rx="16" fill="#0E1A2B"/><rect x="66" y="306" width="22" height="34" rx="8" fill="#334155"/><circle cx="77" cy="316" r="5" fill="#94A3B8"/><circle cx="77" cy="331" r="5" fill="#94A3B8"/></g><ellipse cx="92" cy="424" rx="34" ry="30" fill="#F2C29B"/><rect x="120" y="356" width="30" height="20" rx="10" fill="#F2C29B" transform="rotate(-9 135 366)"/><rect x="122" y="380" width="30" height="20" rx="10" fill="#F2C29B" transform="rotate(-9 137 390)"/></svg></div>
+              <div id="a4hb-d1" class="a4hb-dig">1</div>
+              <div class="a4hb-rim"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="a4hb-s2" class="a4hb-layer">
+        <div id="a4hb-w2" class="a4hb-layer">
+          <div id="a4hb-c2" class="a4hb-card">
+            <div class="a4hb-face">
+              <div id="a4hb-p2" class="a4hb-photo photo-slot" data-asset="ad4-portrait-dauerlerner"><svg id="a4hb-pi2" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#334155"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#A86B32"/><path d="M160 350 L190 392 L220 350 Z" fill="#FFFFFF"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#C68642"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#C68642"/><circle cx="118" cy="176" r="30" fill="#1F1A17"/><circle cx="128" cy="136" r="30" fill="#1F1A17"/><circle cx="156" cy="108" r="30" fill="#1F1A17"/><circle cx="190" cy="98" r="30" fill="#1F1A17"/><circle cx="224" cy="108" r="30" fill="#1F1A17"/><circle cx="252" cy="136" r="30" fill="#1F1A17"/><circle cx="262" cy="176" r="30" fill="#1F1A17"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#C68642"/><path d="M120 170 C128 128 160 116 190 116 C220 116 252 128 260 170 C246 150 220 142 190 142 C160 142 134 150 120 170 Z" fill="#1F1A17"/><circle cx="157" cy="204" r="29" fill="#FFFFFF" fill-opacity="0.25" stroke="#0E1A2B" stroke-width="7"/><circle cx="223" cy="204" r="29" fill="#FFFFFF" fill-opacity="0.25" stroke="#0E1A2B" stroke-width="7"/><path d="M186 200 Q190 194 194 200" fill="none" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="157" cy="206" rx="13" ry="11" fill="#FFFFFF"/><circle cx="157" cy="206" r="7.5" fill="#111827"/><circle cx="160" cy="203" r="2.6" fill="#FFFFFF"/><ellipse cx="223" cy="206" rx="13" ry="11" fill="#FFFFFF"/><circle cx="223" cy="206" r="7.5" fill="#111827"/><circle cx="226" cy="203" r="2.6" fill="#FFFFFF"/><path d="M136 164 Q156 156 176 166" fill="none" stroke="#1F1A17" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M204 166 Q224 156 244 164" fill="none" stroke="#1F1A17" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#A86B32" stroke-width="7" stroke-linecap="round"/><path d="M168 262 Q179 252 190 262 Q201 272 212 262" fill="none" stroke="#5B2A12" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(14 249 99)"><rect x="214" y="64" width="70" height="70" rx="6" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="5"/><path d="M228 88 H270" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M228 108 H258" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-16 129 123)"><rect x="98" y="92" width="62" height="62" rx="6" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="5"/><path d="M112 116 H146" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M112 136 H134" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-8 133 545)"><rect x="18" y="470" width="230" height="150" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M40 500 H226" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 526 H226" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 552 H157" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(9 260 531)"><rect x="150" y="456" width="220" height="150" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M172 486 H348" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 512 H348" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 538 H282" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(6 145 454)"><rect x="40" y="384" width="210" height="140" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M62 414 H228" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 440 H228" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 466 H165" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-7 257 442)"><rect x="150" y="372" width="214" height="140" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M172 402 H342" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 428 H342" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 454 H277.8" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-3 189 384)"><rect x="84" y="318" width="210" height="132" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M106 348 H272" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M106 374 H272" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M106 400 H209" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+              <div id="a4hb-d2" class="a4hb-dig">2</div>
+              <div class="a4hb-rim"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="a4hb-s3" class="a4hb-layer">
+        <div id="a4hb-w3" class="a4hb-layer">
+          <div id="a4hb-c3" class="a4hb-card">
+            <div class="a4hb-face">
+              <div id="a4hb-p3" class="a4hb-photo photo-slot" data-asset="ad4-portrait-ungeduldig"><svg id="a4hb-pi3" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M98 214 C90 120 140 84 190 84 C244 84 292 122 282 214 L292 336 C268 352 236 344 228 318 L152 318 C144 344 112 352 88 336 Z" fill="#8B3A1A"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#475569"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#C48F52"/><path d="M162 350 L190 404 L218 350 Z" fill="#FFFFFF"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#E0AC69"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#E0AC69"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#E0AC69"/><path d="M112 180 C112 118 152 100 192 100 C236 100 270 120 270 182 C252 150 226 136 206 132 C190 150 150 166 112 180 Z" fill="#8B3A1A"/><path d="M134 170 L178 182" fill="none" stroke="#5B2A12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M246 170 L202 182" fill="none" stroke="#5B2A12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="208" rx="15" ry="11" fill="#FFFFFF"/><circle cx="163" cy="212" r="7.5" fill="#111827"/><circle cx="166" cy="209" r="2.6" fill="#FFFFFF"/><ellipse cx="222" cy="208" rx="15" ry="11" fill="#FFFFFF"/><circle cx="227" cy="212" r="7.5" fill="#111827"/><circle cx="230" cy="209" r="2.6" fill="#FFFFFF"/><path d="M141 200 H175" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M205 200 H239" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#C48F52" stroke-width="7" stroke-linecap="round"/><path d="M168 268 Q190 256 212 268" fill="none" stroke="#7F1D1D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M330 586 L250 430" fill="none" stroke="#334155" stroke-width="72" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="238" cy="398" rx="34" ry="30" fill="#E0AC69" transform="rotate(-30 238 398)"/><path d="M214 384 Q226 368 246 372" fill="none" stroke="#C48F52" stroke-width="6" stroke-linecap="round"/><rect x="234" y="420" width="78" height="34" rx="8" fill="#111827" transform="rotate(-62 273 437)"/><circle cx="273" cy="437" r="31" fill="#FFFFFF" stroke="#0E1A2B" stroke-width="7"/><path d="M273 437 L273 418" fill="none" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M273 437 L287 444" fill="none" stroke="#DC2626" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div id="a4hb-d3" class="a4hb-dig">3</div>
+              <div class="a4hb-rim"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="a4hb-s4" class="a4hb-layer">
+        <div id="a4hb-w4" class="a4hb-layer">
+          <div id="a4hb-c4" class="a4hb-card">
+            <div id="a4hb-front4" class="a4hb-layer" style="left:0;top:0;width:912px;height:638px;">
+            <div class="a4hb-face">
+              <div id="a4hb-p4" class="a4hb-photo photo-slot" data-asset="ad4-portrait-dranbleiber"><svg id="a4hb-pi4" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#16A34A"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#74431B"/><path d="M140 352 C150 330 230 330 240 352 C226 372 154 372 140 352 Z" fill="#15803D"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#8D5524"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#8D5524"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#8D5524"/><path d="M114 182 C108 116 150 92 192 92 C236 92 274 118 266 182 C256 150 232 132 192 132 C152 132 126 150 114 182 Z" fill="#111827"/><path d="M138 168 Q157 160 176 168" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M204 168 Q223 160 242 168" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="204" rx="14" ry="12" fill="#FFFFFF"/><circle cx="158" cy="204" r="8" fill="#111827"/><circle cx="161" cy="201" r="2.6" fill="#FFFFFF"/><ellipse cx="222" cy="204" rx="14" ry="12" fill="#FFFFFF"/><circle cx="222" cy="204" r="8" fill="#111827"/><circle cx="225" cy="201" r="2.6" fill="#FFFFFF"/><path d="M144 198 Q158 190 172 198" fill="none" stroke="#74431B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M208 198 Q222 190 236 198" fill="none" stroke="#74431B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#74431B" stroke-width="7" stroke-linecap="round"/><path d="M164 252 Q190 274 216 252" fill="none" stroke="#3B1F0E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="150" y="306" width="80" height="50" rx="20" fill="#15803D"/><path d="M230 344 C266 344 266 388 230 388" fill="none" stroke="#FFFFFF" stroke-width="13"/><rect x="146" y="324" width="88" height="88" rx="14" fill="#FFFFFF"/><ellipse cx="190" cy="326" rx="40" ry="9" fill="#6B3F1D"/><rect x="146" y="352" width="88" height="20" fill="#0E1A2B"/><ellipse cx="144" cy="392" rx="27" ry="21" fill="#8D5524"/><ellipse cx="236" cy="394" rx="27" ry="21" fill="#8D5524"/></svg></div>
+              <div id="a4hb-d4" class="a4hb-dig">4</div>
+              <div class="a4hb-rim"></div>
+            </div>
+            </div>
+            <div id="a4hb-back4" class="a4hb-back"><div class="a4hb-backin"></div><div class="a4hb-qm">?</div></div>
+          </div>
+        </div>
+      </div>
+      <!--@include cursor p="a4hb"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const S = 1 / 1.9;                                    // Groß-Format 912 x 638 -> Raster 480 x 336
+    const SL = [[288,178],[792,178],[288,532],[792,532]];                     // Kartenmitten im Raster
+    const R = [215, 270];                                 // Ruhepunkt am Ende = Startpunkt im Body (Bild Karte 1)
+    const LOOP = [[318,196],[345,183],[382,172],[429,163],[481,157],[536,153],[593,152],[647,153],[698,157],[741,163],[776,172],[798,183],[806,196],[798,215],[776,242],[741,276],[698,313],[647,353],[593,394],[536,433],[481,470],[429,501],[382,526],[345,542],[318,548],[299,542],[284,526],[272,501],[264,470],[259,433],[257,394],[259,353],[264,313],[272,276],[284,242],[299,215],[318,196]];
+
+    // Raster-Zustand (t = 0)
+    SL.forEach(function (c, i) {
+      FX.init(tl, "#a4hb-c" + (i + 1), { x: c[0] - 540, y: c[1] - 355, scale: S, transformOrigin: "50% 50%" });
+    });
+    [1, 2, 3].forEach(function (n) { FX.init(tl, "#a4hb-d" + n, { scale: 1.9, transformOrigin: "50% 50%" }); });
+    FX.init(tl, "#a4hb-d4", { scale: 1.9, transformOrigin: "50% 50%" });
+    FX.init(tl, "#a4hb-front4", { rotationY: -90, opacity: 0, transformPerspective: 2400, transformOrigin: "50% 50%" });   // Vorderseite von Karte 4: hochkant und unsichtbar (wie im Body vor dem Umdrehen)
+
+    // Frame 1: die Karten werden ausgeteilt – jede rutscht von knapp neben ihrem Platz (leicht gedreht) in 0,25 s (ease-out)
+    // an ihren Platz, je 0,08 s versetzt, nach 0,49 s liegen alle 4 (so steht das Skizzen-Raster schon im ersten Frame).
+    const DEAL = [[-60, -28, -5], [60, -28, 5], [-60, 28, 4], [60, 28, -5]];
+    SL.forEach(function (c, i) {
+      const el = "#a4hb-s" + (i + 1), o = c[0] + "px " + c[1] + "px", d = DEAL[i];
+      const from = { x: d[0], y: d[1], rotation: d[2], scale: 1.05, transformOrigin: o };
+      FX.init(tl, el, from);
+      FX.tween(tl, el, from, { x: 0, y: 0, rotation: 0, scale: 1, duration: 0.25, ease: "power2.out", transformOrigin: o }, i * 0.08);
+    });
+
+    // Cursor-Hilfen: jede Bewegung startet erst, wenn die vorige fertig ist (nie zwei Tweens gleichzeitig).
+    const steps = [];
+    let busy = 0;
+    function mv(t, to, d, ease) { t = Math.max(t, busy + 0.01); steps.push({ t: t, to: to, d: d, ease: ease || "power2.inOut" }); busy = t + d; return busy; }
+    function path(t, pts, d) { t = Math.max(t, busy + 0.01); const seg = d / (pts.length - 1); for (let i = 1; i < pts.length; i++) steps.push({ t: t + (i - 1) * seg, to: pts[i], d: seg, ease: "none" }); busy = t + d; return busy; }
+
+    // "?"-Karte wackelt leicht (±2,5°, 0,6 s pro Schwung) durch den ganzen Anfang und steht am Ende still (Übergang in den Body).
+    const WO = "792px 532px";
+    FX.init(tl, "#a4hb-w4", { rotation: -2.5, transformOrigin: WO });
+    const w = FX.wobble(tl, "#a4hb-w4", 0, Math.max(0.6, DUR - 0.45), { deg: 2.5, origin: WO });
+    FX.settle(tl, "#a4hb-w4", w.end, w.endRotation, { origin: WO });
+
+    // Cursor bewegt sich ab Frame 1 (ruhiges Hereingleiten zum Raster), "Raster." steht.
+    mv(0, [470, 330], 1.1, "power2.out");
+    // "… du erkennst dich in einem davon wieder." -> Cursor kreist über die 3 offenen Karten.
+    const tLoop = Math.max(busy + 0.35, C.erkennst);
+    mv(tLoop - 0.3, LOOP[0], 0.28);
+    const dLoop = Math.max(1.0, Math.min(1.6, DUR - 0.6 - tLoop));
+    path(tLoop, LOOP, dLoop);
+    // danach ruhig auf Karte 1 (Startpunkt des Body).
+    const tBack = Math.max(busy + 0.05, DUR - 0.8);
+    mv(tBack, R, Math.max(0.25, Math.min(0.6, DUR - 0.1 - tBack)));
+    FX.cursor(tl, "#a4hb-cur", "#a4hb-ring", [560, 650], steps);
+
+    window.__timelines["ad4-hookB"] = tl;
+  </script>
+</template>

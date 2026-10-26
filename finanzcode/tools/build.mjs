@@ -217,6 +217,11 @@ function placeholderScene(segName) {
 }
 
 // ---------------------------------------------------------------- captions
+// 8 px black outline (Untertitel-Spec) as a ring of text-shadows: round corners, no miter spikes
+// like -webkit-text-stroke produces on "v", "A", "W".
+const OUTLINE = [[8, 40], [5, 24], [2.5, 12]]
+  .flatMap(([r, n]) => Array.from({ length: n }, (_, k) => `${(r * Math.cos((2 * Math.PI * k) / n)).toFixed(2)}px ${(r * Math.sin((2 * Math.PI * k) / n)).toFixed(2)}px 0 #000`))
+  .join(", ");
 const SENT_END = /[.?!:]["“”]?$/;
 const COMMA = /[,;]["“”]?$/;
 function captionTokens(words) {
@@ -305,7 +310,7 @@ function captionsHtml(words, fmt, total) {
     #root { position: absolute; inset: 0; pointer-events: none; }
     .capg { position: absolute; left: ${F.cap.x}px; top: ${F.cap.y}px; width: ${F.cap.w}px; height: ${F.cap.h}px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
     .capl { display: block; white-space: nowrap; font-family: 'Poppins'; font-weight: 700; line-height: 80px; }
-    .capw { display: inline-block; margin: 0 11px; color: #FFFFFF; -webkit-text-stroke: 16px #000000; paint-order: stroke fill; }
+    .capw { display: inline-block; margin: 0 11px; color: #FFFFFF; text-shadow: ${OUTLINE}; }
   </style>
   <div id="root" data-composition-id="cap" data-width="${F.W}" data-height="${F.H}" data-layout-allow-caption-zone>
 ${html}

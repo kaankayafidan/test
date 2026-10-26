@@ -1,0 +1,8 @@
+{
+  "cues": {
+    "beide": "Beide Trader verlieren 10 Mal hintereinander",
+    "ganzes": { "phrase": "noch fast sein ganzes Konto.", "word": 3 },
+    "unterschied": "Und der Unterschied ist eine einzige Zahl."
+  },
+  "sfx": []
+}

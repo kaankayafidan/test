@@ -1,0 +1,152 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a2ha-scene { position: absolute; inset: 0; }
+    .a2ha-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+
+  </style>
+  <div id="root" data-composition-id="ad2-hookA" data-width="1080" data-height="710">
+    <!-- One clip spans the whole scene; everything inside is animated, never the clip itself. -->
+    <div id="a2ha-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <!-- Ende vorweg (Skizze S. 10): A sitzt am Boden (Taschen nach außen, Akku fast leer, blinkt rot),
+           B steht entspannt und nippt am Kaffee (Akku fast voll, grün), dazwischen ein großes "?". -->
+      <svg id="a2ha-art" class="a2ha-svg" viewBox="40 49.48 1000 657.41">
+        <path id="a2ha-ground" d="M100 668 C109.8 667.9 139.1 667.2 158.7 667.2 C178.2 667.1 197.8 667.5 217.3 667.7 C236.9 667.8 256.4 667.8 276 667.9 C295.6 667.9 315.1 668.1 334.7 667.9 C354.2 667.8 373.8 667.1 393.3 666.8 C412.9 666.6 432.4 666 452 666.2 C471.6 666.5 491.1 667.9 510.7 668.3 C530.2 668.8 549.8 669.2 569.3 669.1 C588.9 668.9 608.4 667.5 628 667.5 C647.6 667.4 667.1 668.7 686.7 668.7 C706.2 668.7 725.8 667.6 745.3 667.6 C764.9 667.5 784.4 668.3 804 668.4 C823.6 668.4 843.1 667.7 862.7 667.7 C882.2 667.8 901.8 668.7 921.3 668.7 C940.9 668.8 970.2 668.1 980 668" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <g id="a2ha-Asit">
+        <path d="M254 640 C259.5 640.7 276 642.2 286.8 643.9 C297.7 645.7 308.4 648.7 319.2 650.6 C330.1 652.5 340.7 654.5 351.9 655.4 C363.2 656.3 375.1 655.5 386.7 656 C398.3 656.5 409.8 657.7 421.3 658.4 C432.9 659.1 450.2 659.7 456 660" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M456 660 L466 640" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M254 640 C259.2 637.4 274.6 629.6 285 624.5 C295.3 619.4 305.6 614.3 316.1 609.4 C326.5 604.6 338.5 594 347.7 595.4 C357 596.8 363.9 610.1 371.6 617.7 C379.4 625.2 386.4 633.2 394.1 640.6 C401.8 648 414 658.4 418 662" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M418 662 L442 664" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(214 628) rotate(32)">
+          <path d="M-19 0 L19 0 L18 22 Q16 36 0 37 Q-16 36 -18 22 Z" fill="#FFFFFF"/>
+          <path d="M-20 0 C-17.9 0 -11.6 0 -7.3 0 C-3.1 0 1.1 -0.1 5.3 -0.1 C9.6 0 15.9 -1.7 18 0.2 C20.1 2 18.2 7.4 18.1 11 C18.1 14.6 19.2 18.9 17.7 22 C16.2 25.1 12 27.1 9.1 29.6 C6.1 32.1 3 37.2 0.1 37.1 C-2.9 37 -5.6 31.5 -8.6 29 C-11.6 26.5 -16.3 26.6 -18.1 22.1 C-19.8 17.6 -18.8 5.3 -19 2" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <g transform="translate(290 634) rotate(-30)">
+          <path d="M-19 0 L19 0 L18 22 Q16 36 0 37 Q-16 36 -18 22 Z" fill="#FFFFFF"/>
+          <path d="M-20 0 C-17.9 -0.1 -11.6 -0.6 -7.3 -0.6 C-3.1 -0.7 1.1 -0.4 5.3 -0.3 C9.6 -0.2 16 -1.9 18 0 C20 1.9 17.4 7.3 17.4 11 C17.4 14.7 19.3 18.9 17.9 22 C16.4 25.1 11.9 26.9 8.9 29.4 C5.9 31.9 3 37.1 0 37 C-2.9 37 -5.6 31.5 -8.6 29 C-11.6 26.5 -16.3 26.5 -18 22 C-19.8 17.5 -18.8 5.3 -19 2" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <path d="M234 512 C234.5 517.7 235.8 534.8 237.1 546.1 C238.4 557.4 240 569.4 241.7 580 C243.3 590.7 245.2 600.2 247.2 610.2 C249.3 620.1 252.9 635 254 640" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M238 548 Q217.4 572.2 202 600 Q193.6 627.1 180 652" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M180 652 L160 655" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M238 548 Q267.2 562.8 292 584 Q321.6 590.6 352 590" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <g transform="translate(236 520) rotate(-30)">
+          <path d="M-9 -6 L9 -6 L6 8 L-6 8 Z" fill="#111827" stroke="#111827" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M-5 8 L5 8 L13 56 L0 72 L-13 56 Z" fill="#111827" stroke="#111827" stroke-width="4" stroke-linejoin="round"/>
+        </g>
+        <path d="M274.3 462 C273.8 464.6 273.1 472.8 271.4 477.8 C269.6 482.8 267 487.8 263.7 492 C260.5 496.2 256.3 500.2 251.7 503 C247.1 505.9 241.6 508.1 236.3 509.1 C231 510.1 225 510 219.7 509 C214.4 507.9 209 505.7 204.4 502.9 C199.8 500 195.6 496.2 192.3 492 C188.9 487.8 186.1 482.9 184.3 477.9 C182.5 472.9 181.4 467.3 181.4 462 C181.3 456.7 182.2 451 184 446 C185.8 440.9 188.6 435.9 192 431.8 C195.5 427.7 199.9 424 204.5 421.3 C209.1 418.6 214.5 416.6 219.8 415.6 C225.1 414.6 230.9 414.4 236.2 415.3 C241.6 416.2 247.1 418.1 251.8 420.8 C256.4 423.5 260.9 427.4 264.3 431.6 C267.6 435.8 270.3 440.9 272 446 C273.6 451.1 274.3 456.7 274.3 462 C274.2 467.3 271.9 475.2 271.4 477.8 Z" fill="#FFFFFF"/>
+        <path d="M220 411.3 C224 411.8 236.7 411.6 244 414.3 C251.3 417 258.5 421.9 263.7 427.5 C269 433.2 273.5 440.6 275.6 448 C277.7 455.3 278.1 464 276.6 471.5 C275.1 479 271.3 486.7 266.5 492.7 C261.8 498.8 255.2 504.3 248.2 507.7 C241.3 511.1 232.6 513.5 224.8 513.2 C217 512.9 208 510.2 201.5 505.9 C194.9 501.7 189.2 494.6 185.6 487.8 C182 481 180.3 472.8 179.9 465.2 C179.5 457.6 180.4 449.5 183.2 442.3 C185.9 435.2 190.4 427.5 196.2 422.5 C202 417.4 210.5 413.4 218 412.2 C225.6 411 237.7 414.7 241.6 415.2" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="211" cy="461" r="6.5" fill="#111827"/><circle cx="245" cy="461" r="6.5" fill="#111827"/>
+        <path d="M196 446 L218 434 M238 434 L260 446" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M206 490 L215 483 L224 490 L233 483 L242 490 L250 484" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="a2ha-Asit-dr0" d="M160 409.3 C164.4 420.3 173.2 425.8 173.2 433.5 C173.2 441.2 167.7 445.6 160 445.6 C152.3 445.6 146.8 441.2 146.8 433.5 C146.8 425.8 155.6 420.3 160 409.3 Z" fill="#FFFFFF" stroke="#111827" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path id="a2ha-Asit-dr1" d="M298 403.3 C302.4 414.3 311.2 419.8 311.2 427.5 C311.2 435.2 305.7 439.6 298 439.6 C290.3 439.6 284.8 435.2 284.8 427.5 C284.8 419.8 293.6 414.3 298 403.3 Z" fill="#FFFFFF" stroke="#111827" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+        <g id="a2ha-batA">
+          <rect x="106" y="282" width="260" height="110" rx="16" fill="#FFFFFF"/>
+          <rect id="a2ha-batA-fill" x="119" y="295" width="32.8" height="84" rx="7" fill="#DC2626"/>
+          <path d="M184 280.8 C193.2 281.2 220.9 283 239.3 283.1 C257.8 283.1 276.2 281.4 294.7 281.2 C313.1 281.1 339.4 281.5 350 282 C360.6 282.5 355.7 282.8 358 284.1 C360.3 285.5 362.5 287.7 363.9 290 C365.2 292.3 365.7 290.2 366 298 C366.3 305.8 365.8 324 365.8 337 C365.8 350 366.3 368.2 366 376 C365.7 383.8 365.2 381.7 363.9 384 C362.5 386.3 360.3 388.5 358 389.9 C355.7 391.2 358.9 391.8 350 392 C341.1 392.2 319.6 391.2 304.4 391.1 C289.2 390.9 274 391 258.8 391.2 C243.6 391.5 228.4 392.5 213.2 392.5 C198 392.4 182.8 390.9 167.6 390.8 C152.4 390.7 130.9 392.2 122 392 C113.1 391.8 116.3 391.2 114 389.9 C111.7 388.5 109.5 386.3 108.1 384 C106.8 381.7 106.5 383.8 106 376 C105.5 368.2 104.9 350 104.9 337 C104.9 324 105.5 305.8 106 298 C106.5 290.2 106.8 292.3 108.1 290 C109.5 287.7 111.7 285.5 114 284.1 C116.3 282.8 110.3 282.2 122 282 C133.7 281.8 169.3 282.4 184 282.8 C198.7 283.2 205.7 284 210 284.2" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="370" y="315" width="18" height="44" rx="6" fill="#111827"/>
+          
+          
+        </g>
+        <g id="a2ha-bang"><path d="M416 286 L412 356.16" fill="none" stroke="#DC2626" stroke-width="18" stroke-linecap="round"/>
+          <circle cx="411" cy="382" r="11" fill="#DC2626"/></g>
+        <text id="a2ha-q" x="556" y="566" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="280" fill="#0E1A2B">?</text>
+        <g id="a2ha-batB">
+          <rect x="660" y="168" width="260" height="110" rx="16" fill="#FFFFFF"/>
+          <rect id="a2ha-batB-fill" x="673" y="181" width="210.6" height="84" rx="7" fill="#16A34A"/>
+          <path d="M738 166.8 C747.2 166.9 774.9 167.2 793.3 167.3 C811.8 167.4 830.2 167.4 848.7 167.5 C867.1 167.6 893.4 167.6 904 168 C914.6 168.4 909.7 168.8 912 170.1 C914.3 171.5 916.5 173.7 917.9 176 C919.2 178.3 919.6 176.2 920 184 C920.4 191.8 920 210 920 223 C920 236 920.4 254.2 920 262 C919.6 269.8 919.2 267.7 917.9 270 C916.5 272.3 914.3 274.5 912 275.9 C909.7 277.2 912.9 277.7 904 278 C895.1 278.3 873.6 278 858.4 277.9 C843.2 277.9 828 277.9 812.8 278 C797.6 278 782.4 278.2 767.2 278 C752 277.9 736.8 277.1 721.6 277.1 C706.4 277.1 684.9 278.2 676 278 C667.1 277.8 670.3 277.2 668 275.9 C665.7 274.5 663.5 272.3 662.1 270 C660.8 267.7 660.3 269.8 660 262 C659.7 254.2 660.5 236 660.5 223 C660.5 210 659.7 191.8 660 184 C660.3 176.2 660.8 178.3 662.1 176 C663.5 173.7 665.7 171.5 668 170.1 C670.3 168.8 664.3 168.2 676 168 C687.7 167.8 723.3 168.4 738 168.8 C752.7 169.2 759.7 170 764 170.2" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="924" y="201" width="18" height="44" rx="6" fill="#111827"/>
+          
+          
+        </g>
+        <g id="a2ha-B">
+        <path d="M793 540 C791 545.3 784.6 560.9 781.2 571.6 C777.8 582.3 775.7 593.7 772.7 604.2 C769.6 614.7 766.3 624.6 762.9 634.8 C759.4 644.9 753.8 660 752 665" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M793 540 C794.8 545.3 800.4 561.2 803.9 571.9 C807.4 582.5 810.9 593.5 814.1 604 C817.2 614.5 819.5 624.7 822.8 634.9 C826.1 645.1 832.1 660 834 665" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M752 665 L730 667" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M834 665 L856 667" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M791 385 C791.2 391.5 791.8 411 792.2 424 C792.5 437 793 450.1 793.3 463 C793.6 475.9 794.2 488.7 794.2 501.5 C794.1 514.3 793.2 533.6 793 540" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M792 422 Q769.6 447.7 754 478 Q751.4 506.7 742 534" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <g id="a2ha-B-head">
+          <path d="M837.5 336 C836.9 338.7 836 347.1 834 352 C832 357 829 361.8 825.5 365.8 C822 369.8 817.7 373.4 813.2 376.1 C808.6 378.8 803.3 381 798.1 382 C792.9 383 787.1 383.2 781.8 382.4 C776.5 381.6 771 379.6 766.4 376.9 C761.7 374.3 757.3 370.5 753.8 366.4 C750.3 362.2 747.5 357.2 745.6 352.2 C743.8 347.1 742.7 341.4 742.7 336 C742.7 330.6 743.7 324.9 745.6 319.8 C747.5 314.8 750.5 309.8 754 305.8 C757.5 301.8 762.1 298.2 766.7 295.7 C771.4 293.1 776.7 291.3 782 290.4 C787.2 289.5 792.8 289.5 798.1 290.3 C803.3 291.1 808.8 292.8 813.5 295.3 C818.3 297.8 822.9 301.3 826.5 305.4 C830.1 309.4 833.2 314.5 835 319.6 C836.8 324.7 837.7 330.6 837.5 336 C837.3 341.4 834.6 349.3 834 352 Z" fill="#FFFFFF"/>
+        <path d="M780.6 288 C784.4 288.3 796.3 287.7 803.6 289.7 C810.9 291.7 818.6 295.2 824.5 300.2 C830.3 305.2 835.9 312.4 838.5 319.7 C841.2 327 841.8 336.3 840.5 344 C839.1 351.6 835 359.6 830.3 365.8 C825.5 371.9 818.7 377.3 811.8 380.6 C804.8 383.9 796.3 385.8 788.7 385.6 C781.1 385.4 772.7 382.9 766 379.2 C759.4 375.5 753.2 369.6 748.8 363.2 C744.4 356.9 741 348.9 739.9 341.2 C738.8 333.5 739.3 324.4 742.1 317.1 C744.9 309.8 750.5 302.2 756.6 297.5 C762.7 292.8 771.3 289.9 778.7 288.8 C786.2 287.7 797.6 290.6 801.3 290.9" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <g id="a2ha-B-f0"><circle cx="773" cy="331" r="6.5" fill="#111827"/><circle cx="806" cy="331" r="6.5" fill="#111827"/>
+        <path d="M768 353 Q788 374 811 351" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+          <g id="a2ha-B-f1"><path d="M763 333 Q772 323 781 333 M797 333 Q806 323 815 333" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M774 354 Q788 366 803 353" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g>
+        </g>
+        <path id="a2ha-B-arm" d="M792 422 Q820.4 453.5 842 490 Q860 471.6 874 450" fill="none" stroke="#111827" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <g id="a2ha-B-cup"><path d="M915 428 C940 428 940 458 915 458" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M871 418 L917 418 L914 468 Q913 475 906 475 L880 475 Q873 475 873 468 Z" fill="#FFFFFF"/>
+          <path d="M871 418 C874.8 417.9 886.3 417.4 894 417.4 C901.7 417.5 913.3 415.4 917 418.4 C920.7 421.4 916.5 429.6 916.3 435.3 C916.1 441.1 916.2 446.9 915.9 452.7 C915.6 458.5 916 466.2 914.4 470 C912.8 473.8 912.2 474.6 906.3 475.4 C900.4 476.3 884.6 476.2 879 475.2 C873.4 474.2 873.9 474.4 872.7 469.3 C871.5 464.2 872.3 452.7 871.9 444.5 C871.4 436.3 870.3 424.1 870 420" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <g id="a2ha-B-st1"><path d="M884 404 Q876 394 884 384 Q892 374 884 364" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/></g>
+          <g id="a2ha-B-st2"><path d="M904 404 Q896 394 904 384 Q912 374 904 364" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round"/></g></g>
+      </g>
+      </svg>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const pv = (el, o) => FX.init(tl, el, { ...o, smoothOrigin: false });
+    const END = DUR - 0.25;
+    // Geometry from the drawing (SVG user units).
+    const ARM_REST = "M792 422 Q820.4 453.5 842 490 Q860 471.6 874 450";
+    const ARM_SIP = "M792 422 Q833.4 421.9 874 430 Q856.6 402 834 378";
+    const CUP = "874 450", NECK = "791 385";
+
+    // ---------------------------------------------------------------- initial states (t = 0)
+    pv("#a2ha-B-cup", { svgOrigin: CUP, x: 0, y: 0, rotation: 0 });
+    pv("#a2ha-B-head", { svgOrigin: NECK, rotation: 0 });
+    pv("#a2ha-batB", { svgOrigin: "790 223", scale: 1 });
+    pv("#a2ha-q", { svgOrigin: "556 471", scale: 1 });
+    FX.init(tl, "#a2ha-B-f1", { opacity: 0 });
+
+    // ---------------------------------------------------------------- Bewegung ab Frame 1
+    // A: Akku fast leer, blinkt rot (zusammen mit dem roten "!").
+    FX.blink(tl, ["#a2ha-batA-fill", "#a2ha-bang"], 0, END);
+
+    // B nippt sichtbar am Kaffee: Tasse zum Mund, kurz halten, wieder runter (Augen zu beim Trinken).
+    function sip(t, hold) {
+      const up = 0.45;
+      FX.tween(tl, "#a2ha-B-arm", { attr: { d: ARM_REST } }, { attr: { d: ARM_SIP }, duration: up, ease: "power2.inOut" }, t);
+      FX.tween(tl, "#a2ha-B-cup", { x: 0, y: 0, rotation: 0 }, { x: -40, y: -72, rotation: -28, duration: up, ease: "power2.inOut", svgOrigin: CUP }, t);
+      FX.tween(tl, "#a2ha-B-head", { rotation: 0 }, { rotation: -6, duration: up, ease: "power2.inOut", svgOrigin: NECK }, t);
+      FX.set(tl, "#a2ha-B-f0", { opacity: 0 }, t + 0.25);
+      FX.set(tl, "#a2ha-B-f1", { opacity: 1 }, t + 0.25);
+      const td = t + up + hold;
+      FX.tween(tl, "#a2ha-B-arm", { attr: { d: ARM_SIP } }, { attr: { d: ARM_REST }, duration: up, ease: "power2.inOut" }, td);
+      FX.tween(tl, "#a2ha-B-cup", { x: -40, y: -72, rotation: -28 }, { x: 0, y: 0, rotation: 0, duration: up, ease: "power2.inOut", svgOrigin: CUP }, td);
+      FX.tween(tl, "#a2ha-B-head", { rotation: -6 }, { rotation: 0, duration: up, ease: "power2.inOut", svgOrigin: NECK }, td);
+      FX.set(tl, "#a2ha-B-f1", { opacity: 0 }, td + 0.15);
+      FX.set(tl, "#a2ha-B-f0", { opacity: 1 }, td + 0.15);
+      return td + up;
+    }
+    const s1 = sip(0, 0.9);
+    const t2 = Math.max(s1 + 1.0, 2.8);
+    if (t2 + 1.8 < END) sip(t2, 0.8);
+
+    // Kaffee dampft (zwei Dampffäden steigen auf, endlich oft).
+    [["#a2ha-B-st1", 0], ["#a2ha-B-st2", 0.55]].forEach(([el, t0]) => {
+      const n = Math.max(1, Math.floor((END - t0) / 1.1));
+      FX.tween(tl, el, { y: 6, opacity: 1 }, { y: -16, opacity: 0, duration: 1.1, ease: "none", repeat: n - 1 }, t0);
+    });
+
+    // A schwitzt: zwei Tropfen laufen immer wieder ab.
+    [["#a2ha-Asit-dr0", 0], ["#a2ha-Asit-dr1", 0.45]].forEach(([el, t0]) => {
+      const n = Math.max(1, Math.floor((END - t0) / 0.9));
+      FX.tween(tl, el, { y: 0, opacity: 1 }, { y: 20, opacity: 0, duration: 0.9, ease: "power1.in", repeat: n - 1 }, t0);
+      FX.set(tl, el, { y: 0, opacity: 1 }, t0 + n * 0.9);
+    });
+
+    // "Und der Unterschied ist eine einzige Zahl.": das "?" pulsiert bis zum Ende.
+    const tQ = Math.max(1.0, C.unterschied - 0.1);
+
+    // "... nur einer hat danach noch fast sein ganzes Konto": B's Akku pulsiert einmal (nur wenn Zeit ist).
+    const tK = Math.max(0.9, C.ganzes - 0.1);
+    if (tK + 0.85 <= tQ) FX.pulse(tl, "#a2ha-batB", tK, 0.8, { svgOrigin: "790 223" });
+
+    FX.pulse(tl, "#a2ha-q", tQ, Math.max(0.8, END - tQ), { svgOrigin: "556 471" });
+
+    window.__timelines["ad2-hookA"] = tl;
+  </script>
+</template>

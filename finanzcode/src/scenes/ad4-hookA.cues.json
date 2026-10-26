@@ -1,0 +1,12 @@
+{
+  "cues": {
+    "welcher": "Welcher von diesen 3 Trading-Anfängern bist du?",
+    "alle": "Alle 3 geben meistens nach ein paar Wochen auf",
+    "aber": "aber es gibt noch einen 4.",
+    "vierter": { "phrase": "noch einen 4.", "word": 2 },
+    "gleich": "und zu dem kommen wir gleich."
+  },
+  "sfx": [
+    { "t": 0, "type": "whoosh" }
+  ]
+}

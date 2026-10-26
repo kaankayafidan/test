@@ -1,0 +1,308 @@
+<template>
+  <!-- Ad 4 "Die 3 Typen", Body. Hook- und Body-Raster nutzen dasselbe Karten-/Porträt-Markup, damit der Übergang Anfang -> Body pixelgleich ist. -->
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    #a4b-scene { position: absolute; inset: 0; }
+    .a4b-layer { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    .a4b-card { position: absolute; left: 84px; top: 36px; width: 912px; height: 638px; }
+    .a4b-face, .a4b-back { position: absolute; left: 0; top: 0; width: 912px; height: 638px; border-radius: 40px; overflow: hidden; }
+    .a4b-face { background: #F3F4F6; }
+    .a4b-rim { position: absolute; left: 0; top: 0; width: 912px; height: 638px; border-radius: 40px; border: 8px solid #0E1A2B; box-sizing: border-box; }
+    .a4b-photo { position: absolute; left: 32px; top: 32px; width: 380px; height: 574px; border-radius: 24px; overflow: hidden; background: #DDE3EA; }
+    .a4b-photo svg { position: absolute; left: 0; top: 0; width: 380px; height: 574px; }
+    .a4b-dig { position: absolute; left: 512px; top: 210px; width: 300px; height: 220px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 190px; line-height: 1; color: #0E1A2B; }
+    .a4b-back { background: #0E1A2B; }
+    .a4b-backin { position: absolute; left: 30px; top: 30px; width: 852px; height: 578px; border-radius: 26px; border: 8px solid #9CA3AF; box-sizing: border-box; }
+    .a4b-qm { position: absolute; left: 0; top: 0; width: 912px; height: 638px; display: flex; align-items: center; justify-content: center; font-family: 'Poppins'; font-weight: 700; font-size: 361px; line-height: 1; color: #FFFFFF; }
+    .a4b-name { position: absolute; left: 40px; top: 24px; font-family: 'Poppins'; font-weight: 700; font-size: 96px; line-height: 106px; color: #0E1A2B; white-space: nowrap; }
+    .a4b-val { position: absolute; left: 444px; width: 436px; height: 100px; border-radius: 20px; background: #FFFFFF; display: flex; align-items: center; justify-content: space-between; padding: 0 30px; box-sizing: border-box; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    .a4b-ov { position: absolute; left: 0; top: 0; width: 912px; height: 638px; overflow: visible; pointer-events: none; }
+    .a4b-note { position: absolute; width: 380px; height: 230px; border-radius: 14px; background: #FFFFFF; border: 5px solid #9CA3AF; box-sizing: border-box; }
+    .a4b-nl { position: absolute; right: 26px; top: 12px; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 58px; color: #0E1A2B; white-space: nowrap; }
+    .a4b-ln { position: absolute; right: 26px; height: 8px; border-radius: 4px; background: #9CA3AF; }
+    #a4b-q { position: absolute; left: 640px; top: 128px; width: 420px; text-align: center; font-family: 'Poppins'; font-weight: 700; font-size: 72px; line-height: 86px; color: #0E1A2B; white-space: nowrap; }
+    #a4b-k { position: absolute; left: 652px; top: 336px; width: 396px; height: 84px; border-radius: 18px; background: #F3F4F6; display: flex; align-items: center; justify-content: center; gap: 14px; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 1; color: #0E1A2B; white-space: nowrap; }
+    #a4b-k svg { width: 30px; height: 44px; }
+  </style>
+  <div id="root" data-composition-id="ad4-body" data-width="1080" data-height="710">
+    <div id="a4b-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <div id="a4b-grid" class="a4b-layer">
+        <!-- Zettelstapel "Strategie 1 … 20" hinter Karte 2 -->
+        <div id="a4b-nt1" class="a4b-note" style="left:660px;top:64px;"><div class="a4b-nl">Strategie 1</div><div class="a4b-ln" style="top:104px;width:250px;"></div><div class="a4b-ln" style="top:140px;width:300px;"></div><div class="a4b-ln" style="top:176px;width:200px;"></div></div>
+        <div id="a4b-nt2" class="a4b-note" style="left:674px;top:148px;"><div class="a4b-ln" style="top:26px;width:150px;"></div><div class="a4b-ln" style="top:72px;width:250px;"></div><div class="a4b-ln" style="top:108px;width:300px;"></div><div class="a4b-ln" style="top:144px;width:200px;"></div></div>
+        <div id="a4b-nt3" class="a4b-note" style="left:656px;top:226px;"><div class="a4b-ln" style="top:26px;width:150px;"></div><div class="a4b-ln" style="top:72px;width:250px;"></div><div class="a4b-ln" style="top:108px;width:300px;"></div><div class="a4b-ln" style="top:144px;width:200px;"></div></div>
+        <div id="a4b-nt4" class="a4b-note" style="left:670px;top:300px;"><div class="a4b-ln" style="top:26px;width:150px;"></div><div class="a4b-ln" style="top:72px;width:250px;"></div><div class="a4b-ln" style="top:108px;width:300px;"></div><div class="a4b-ln" style="top:144px;width:200px;"></div></div>
+        <div id="a4b-nt5" class="a4b-note" style="left:662px;top:372px;"><div class="a4b-nl">Strategie 20</div><div class="a4b-ln" style="top:104px;width:250px;"></div><div class="a4b-ln" style="top:140px;width:300px;"></div><div class="a4b-ln" style="top:176px;width:200px;"></div></div>
+        <!-- 2 x 2 Raster wie am Ende der Anfänge; jede Karte fliegt groß nach vorn (90 % der Motiv-Zone). -->
+      <div id="a4b-s1" class="a4b-layer">
+        <div id="a4b-w1" class="a4b-layer">
+          <div id="a4b-c1" class="a4b-card">
+            <div class="a4b-face">
+              <div id="a4b-p1" class="a4b-photo photo-slot" data-asset="ad4-portrait-zocker"><svg id="a4b-pi1" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#DC2626"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#E0A57A"/><path d="M112 356 C124 302 256 302 268 356 C244 388 136 388 112 356 Z" fill="#B91C1C"/><path d="M170 380 L166 444" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M210 380 L214 444" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#F2C29B"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#F2C29B"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#F2C29B"/><path d="M112 196 C100 126 146 94 194 94 C246 94 284 128 270 198 C264 170 252 154 236 146 L226 160 L212 140 L196 158 L180 138 L164 160 L150 146 C130 156 118 172 112 196 Z" fill="#3B2416"/><path d="M150 104 L132 80 L170 96 Z M196 94 L198 66 L220 96 Z M238 104 L264 86 L254 118 Z" fill="#3B2416"/><path d="M134 158 Q157 140 180 154" fill="none" stroke="#3B2416" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M200 154 Q223 140 246 158" fill="none" stroke="#3B2416" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="202" rx="21" ry="21" fill="#FFFFFF"/><circle cx="158" cy="202" r="8.5" fill="#111827"/><circle cx="161" cy="199" r="2.6" fill="#FFFFFF"/><ellipse cx="222" cy="202" rx="21" ry="21" fill="#FFFFFF"/><circle cx="222" cy="202" r="8.5" fill="#111827"/><circle cx="225" cy="199" r="2.6" fill="#FFFFFF"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#E0A57A" stroke-width="7" stroke-linecap="round"/><path d="M152 254 Q190 306 228 254 Q190 268 152 254 Z" fill="#7F1D1D"/><path d="M160 258 Q190 268 220 258 L217 266 Q190 276 163 266 Z" fill="#FFFFFF"/><path d="M48 574 L84 440" fill="none" stroke="#DC2626" stroke-width="66" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(-9 96 372)"><rect x="54" y="292" width="88" height="160" rx="16" fill="#0E1A2B"/><rect x="66" y="306" width="22" height="34" rx="8" fill="#334155"/><circle cx="77" cy="316" r="5" fill="#94A3B8"/><circle cx="77" cy="331" r="5" fill="#94A3B8"/></g><ellipse cx="92" cy="424" rx="34" ry="30" fill="#F2C29B"/><rect x="120" y="356" width="30" height="20" rx="10" fill="#F2C29B" transform="rotate(-9 135 366)"/><rect x="122" y="380" width="30" height="20" rx="10" fill="#F2C29B" transform="rotate(-9 137 390)"/></svg></div>
+              <div id="a4b-d1" class="a4b-dig">1</div>
+              <div id="a4b-n1" class="a4b-name">Der Zocker</div>
+              <div id="a4b-va1" class="a4b-val" style="top:156px"><span>Risiko</span><span>10</span></div>
+              <div id="a4b-vb1" class="a4b-val" style="top:272px"><span>Plan</span><span>0</span></div>
+              <div class="a4b-rim"></div>
+            </div>
+            <svg class="a4b-ov fx-svg" viewBox="0 0 912 638" style="width:912px;height:638px;"><path id="a4b-o1" class="fx-stroke" pathLength="1" d="M631.1 248.6 L665.5 247.3 L700.5 247.6 L735.4 249.4 L769.2 253.0 L800.9 258.2 L829.3 265.1 L853.3 273.4 L872.1 282.9 L885.2 293.2 L892.6 303.9 L894.8 314.6 L892.3 325.2 L885.8 335.4 L876.0 345.3 L863.2 354.7 L847.4 363.8 L828.3 372.5 L805.6 380.5 L779.2 387.7 L749.1 393.6 L715.8 398.0 L680.2 400.6 L643.5 401.1 L607.0 399.5 L572.0 396.0 L539.6 390.7 L510.6 383.9 L485.3 376.0 L464.0 367.2 L446.7 357.6 L433.4 347.6 L424.2 337.1 L419.4 326.4 L419.2 315.6 L423.9 304.8 L433.7 294.3 L448.4 284.3 L467.7 275.2 L491.3 267.0 L518.4 259.9 L548.4 254.0 L580.8 249.5 L615.0 246.2 L650.5 244.3 L686.9 244.0 L723.4 245.2 L759.3 248.2 L793.4 252.9"/></svg>
+          </div>
+        </div>
+      </div>
+      <div id="a4b-s2" class="a4b-layer">
+        <div id="a4b-w2" class="a4b-layer">
+          <div id="a4b-c2" class="a4b-card">
+            <div class="a4b-face">
+              <div id="a4b-p2" class="a4b-photo photo-slot" data-asset="ad4-portrait-dauerlerner"><svg id="a4b-pi2" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#334155"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#A86B32"/><path d="M160 350 L190 392 L220 350 Z" fill="#FFFFFF"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#C68642"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#C68642"/><circle cx="118" cy="176" r="30" fill="#1F1A17"/><circle cx="128" cy="136" r="30" fill="#1F1A17"/><circle cx="156" cy="108" r="30" fill="#1F1A17"/><circle cx="190" cy="98" r="30" fill="#1F1A17"/><circle cx="224" cy="108" r="30" fill="#1F1A17"/><circle cx="252" cy="136" r="30" fill="#1F1A17"/><circle cx="262" cy="176" r="30" fill="#1F1A17"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#C68642"/><path d="M120 170 C128 128 160 116 190 116 C220 116 252 128 260 170 C246 150 220 142 190 142 C160 142 134 150 120 170 Z" fill="#1F1A17"/><circle cx="157" cy="204" r="29" fill="#FFFFFF" fill-opacity="0.25" stroke="#0E1A2B" stroke-width="7"/><circle cx="223" cy="204" r="29" fill="#FFFFFF" fill-opacity="0.25" stroke="#0E1A2B" stroke-width="7"/><path d="M186 200 Q190 194 194 200" fill="none" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="157" cy="206" rx="13" ry="11" fill="#FFFFFF"/><circle cx="157" cy="206" r="7.5" fill="#111827"/><circle cx="160" cy="203" r="2.6" fill="#FFFFFF"/><ellipse cx="223" cy="206" rx="13" ry="11" fill="#FFFFFF"/><circle cx="223" cy="206" r="7.5" fill="#111827"/><circle cx="226" cy="203" r="2.6" fill="#FFFFFF"/><path d="M136 164 Q156 156 176 166" fill="none" stroke="#1F1A17" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M204 166 Q224 156 244 164" fill="none" stroke="#1F1A17" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#A86B32" stroke-width="7" stroke-linecap="round"/><path d="M168 262 Q179 252 190 262 Q201 272 212 262" fill="none" stroke="#5B2A12" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(14 249 99)"><rect x="214" y="64" width="70" height="70" rx="6" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="5"/><path d="M228 88 H270" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M228 108 H258" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-16 129 123)"><rect x="98" y="92" width="62" height="62" rx="6" fill="#F3F4F6" stroke="#9CA3AF" stroke-width="5"/><path d="M112 116 H146" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M112 136 H134" fill="none" stroke="#9CA3AF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-8 133 545)"><rect x="18" y="470" width="230" height="150" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M40 500 H226" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 526 H226" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 552 H157" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(9 260 531)"><rect x="150" y="456" width="220" height="150" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M172 486 H348" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 512 H348" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 538 H282" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(6 145 454)"><rect x="40" y="384" width="210" height="140" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M62 414 H228" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 440 H228" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M62 466 H165" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-7 257 442)"><rect x="150" y="372" width="214" height="140" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M172 402 H342" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 428 H342" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M172 454 H277.8" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="rotate(-3 189 384)"><rect x="84" y="318" width="210" height="132" rx="10" fill="#FFFFFF" stroke="#9CA3AF" stroke-width="5"/><path d="M106 348 H272" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M106 374 H272" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M106 400 H209" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+              <div id="a4b-d2" class="a4b-dig">2</div>
+              <div id="a4b-n2" class="a4b-name">Der Dauerlerner</div>
+              <div id="a4b-va2" class="a4b-val" style="top:156px"><span>Wissen</span><span>9</span></div>
+              <div id="a4b-vb2" class="a4b-val" style="top:272px"><span>Trades</span><span>0</span></div>
+              <div class="a4b-rim"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="a4b-s3" class="a4b-layer">
+        <div id="a4b-w3" class="a4b-layer">
+          <div id="a4b-c3" class="a4b-card">
+            <div class="a4b-face">
+              <div id="a4b-p3" class="a4b-photo photo-slot" data-asset="ad4-portrait-ungeduldig"><svg id="a4b-pi3" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M98 214 C90 120 140 84 190 84 C244 84 292 122 282 214 L292 336 C268 352 236 344 228 318 L152 318 C144 344 112 352 88 336 Z" fill="#8B3A1A"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#475569"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#C48F52"/><path d="M162 350 L190 404 L218 350 Z" fill="#FFFFFF"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#E0AC69"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#E0AC69"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#E0AC69"/><path d="M112 180 C112 118 152 100 192 100 C236 100 270 120 270 182 C252 150 226 136 206 132 C190 150 150 166 112 180 Z" fill="#8B3A1A"/><path d="M134 170 L178 182" fill="none" stroke="#5B2A12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M246 170 L202 182" fill="none" stroke="#5B2A12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="208" rx="15" ry="11" fill="#FFFFFF"/><circle cx="163" cy="212" r="7.5" fill="#111827"/><circle cx="166" cy="209" r="2.6" fill="#FFFFFF"/><ellipse cx="222" cy="208" rx="15" ry="11" fill="#FFFFFF"/><circle cx="227" cy="212" r="7.5" fill="#111827"/><circle cx="230" cy="209" r="2.6" fill="#FFFFFF"/><path d="M141 200 H175" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M205 200 H239" fill="none" stroke="#111827" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#C48F52" stroke-width="7" stroke-linecap="round"/><path d="M168 268 Q190 256 212 268" fill="none" stroke="#7F1D1D" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M330 586 L250 430" fill="none" stroke="#334155" stroke-width="72" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="238" cy="398" rx="34" ry="30" fill="#E0AC69" transform="rotate(-30 238 398)"/><path d="M214 384 Q226 368 246 372" fill="none" stroke="#C48F52" stroke-width="6" stroke-linecap="round"/><rect x="234" y="420" width="78" height="34" rx="8" fill="#111827" transform="rotate(-62 273 437)"/><circle cx="273" cy="437" r="31" fill="#FFFFFF" stroke="#0E1A2B" stroke-width="7"/><path d="M273 437 L273 418" fill="none" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M273 437 L287 444" fill="none" stroke="#DC2626" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div id="a4b-d3" class="a4b-dig">3</div>
+              <div id="a4b-n3" class="a4b-name">Der Ungeduldige</div>
+              <div id="a4b-va3" class="a4b-val" style="top:156px"><span>Geduld</span><span>0</span></div>
+              <div id="a4b-vb3" class="a4b-val" style="top:272px"><span>Frust</span><span>10</span></div>
+              <svg id="a4b-clock" viewBox="-90 -100 180 190" style="position:absolute;left:466px;top:404px;width:180px;height:190px;overflow:visible;">
+                <path d="M-46 52 L-60 80 M46 52 L60 80" stroke="#0E1A2B" stroke-width="10" stroke-linecap="round"/>
+                <path d="M-74 -40 A30 30 0 0 1 -34 -80 Z" fill="#0E1A2B"/><path d="M74 -40 A30 30 0 0 0 34 -80 Z" fill="#0E1A2B"/>
+                <circle r="64" fill="#FFFFFF" stroke="#0E1A2B" stroke-width="10"/><path d="M0.0 -50.0 L0.0 -38.0" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M25.0 -43.3 L21.5 -37.2" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M43.3 -25.0 L37.2 -21.5" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M50.0 -0.0 L38.0 -0.0" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M43.3 25.0 L37.2 21.5" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M25.0 43.3 L21.5 37.2" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M0.0 50.0 L0.0 38.0" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M-25.0 43.3 L-21.5 37.2" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M-43.3 25.0 L-37.2 21.5" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M-50.0 0.0 L-38.0 0.0" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M-43.3 -25.0 L-37.2 -21.5" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/><path d="M-25.0 -43.3 L-21.5 -37.2" stroke="#0E1A2B" stroke-width="6" stroke-linecap="round"/>
+                <path d="M0 0 L0 -30" stroke="#0E1A2B" stroke-width="9" stroke-linecap="round"/>
+                <path d="M0 0 L26 14" stroke="#0E1A2B" stroke-width="7" stroke-linecap="round"/>
+                <g id="a4b-sec"><path d="M0 10 L0 -48" stroke="#DC2626" stroke-width="5" stroke-linecap="round"/></g>
+                <circle r="7" fill="#0E1A2B"/>
+              </svg>
+              <div class="a4b-rim"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="a4b-s4" class="a4b-layer">
+        <div id="a4b-w4" class="a4b-layer">
+          <div id="a4b-c4" class="a4b-card">
+            <div id="a4b-front4" class="a4b-layer" style="left:0;top:0;width:912px;height:638px;">
+            <div class="a4b-face">
+              <div id="a4b-p4" class="a4b-photo photo-slot" data-asset="ad4-portrait-dranbleiber"><svg id="a4b-pi4" viewBox="0 0 380 574"><rect width="380" height="574" fill="#DDE3EA"/><path d="M24 574 V478 C24 400 88 352 190 348 C292 352 356 400 356 478 V574 Z" fill="#16A34A"/><path d="M160 250 H220 V338 Q190 360 160 338 Z" fill="#74431B"/><path d="M140 352 C150 330 230 330 240 352 C226 372 154 372 140 352 Z" fill="#15803D"/><ellipse cx="114" cy="206" rx="15" ry="24" fill="#8D5524"/><ellipse cx="266" cy="206" rx="15" ry="24" fill="#8D5524"/><ellipse cx="190" cy="196" rx="77" ry="92" fill="#8D5524"/><path d="M114 182 C108 116 150 92 192 92 C236 92 274 118 266 182 C256 150 232 132 192 132 C152 132 126 150 114 182 Z" fill="#111827"/><path d="M138 168 Q157 160 176 168" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M204 168 Q223 160 242 168" fill="none" stroke="#111827" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><ellipse cx="158" cy="204" rx="14" ry="12" fill="#FFFFFF"/><circle cx="158" cy="204" r="8" fill="#111827"/><circle cx="161" cy="201" r="2.6" fill="#FFFFFF"/><ellipse cx="222" cy="204" rx="14" ry="12" fill="#FFFFFF"/><circle cx="222" cy="204" r="8" fill="#111827"/><circle cx="225" cy="201" r="2.6" fill="#FFFFFF"/><path d="M144 198 Q158 190 172 198" fill="none" stroke="#74431B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M208 198 Q222 190 236 198" fill="none" stroke="#74431B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M192 214 Q181 236 194 241" fill="none" stroke="#74431B" stroke-width="7" stroke-linecap="round"/><path d="M164 252 Q190 274 216 252" fill="none" stroke="#3B1F0E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><rect x="150" y="306" width="80" height="50" rx="20" fill="#15803D"/><path d="M230 344 C266 344 266 388 230 388" fill="none" stroke="#FFFFFF" stroke-width="13"/><rect x="146" y="324" width="88" height="88" rx="14" fill="#FFFFFF"/><ellipse cx="190" cy="326" rx="40" ry="9" fill="#6B3F1D"/><rect x="146" y="352" width="88" height="20" fill="#0E1A2B"/><ellipse cx="144" cy="392" rx="27" ry="21" fill="#8D5524"/><ellipse cx="236" cy="394" rx="27" ry="21" fill="#8D5524"/></svg></div>
+              <div id="a4b-d4" class="a4b-dig">4</div>
+              <div id="a4b-n4" class="a4b-name">Der, der<br>dranbleibt</div>
+              <div id="a4b-va4" class="a4b-val" style="top:256px"><span>Plan</span><span>10</span></div>
+              <div id="a4b-vb4" class="a4b-val" style="top:372px"><span>Geduld</span><span>9</span></div>
+              <div id="a4b-badge" style="position:absolute;left:578px;top:30px;width:306px;height:150px;border-radius:26px;background:#0E1A2B;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Poppins';font-weight:700;color:#FFFFFF;line-height:1.08;white-space:nowrap;"><span style="font-size:64px">2.000+</span><span style="font-size:40px">im Coaching</span></div>
+              <svg id="a4b-t1" viewBox="0 0 96 96" style="position:absolute;left:444px;top:496px;width:96px;height:96px;overflow:visible;"><circle cx="48" cy="48" r="48" fill="#16A34A"/><path d="M26 50 L41 65 L71 33" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg id="a4b-t2" viewBox="0 0 96 96" style="position:absolute;left:614px;top:496px;width:96px;height:96px;overflow:visible;"><circle cx="48" cy="48" r="48" fill="#16A34A"/><path d="M26 50 L41 65 L71 33" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <svg id="a4b-t3" viewBox="0 0 96 96" style="position:absolute;left:784px;top:496px;width:96px;height:96px;overflow:visible;"><circle cx="48" cy="48" r="48" fill="#16A34A"/><path d="M26 50 L41 65 L71 33" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div class="a4b-rim"></div>
+            </div>
+            </div>
+            <div id="a4b-back4" class="a4b-back"><div class="a4b-backin"></div><div class="a4b-qm">?</div></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <!--@include course p="a4b-course"-->
+      <!--@include cta p="a4b-cta"-->
+      <div id="a4b-q">Welcher<br>warst du?</div>
+      <div id="a4b-k"><span>Kommentar</span><svg viewBox="0 0 30 44"><path d="M9 0 H21 V25 H30 L15 44 L0 25 H9 Z" fill="#0E1A2B"/></svg></div>
+      <!--@include more p="a4b-more"-->
+      <!--@include cursor p="a4b"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const S = 1 / 1.9;                                    // Groß-Format 912 x 638 -> Raster 480 x 336
+    const SL = [[288,178],[792,178],[288,532],[792,532]];
+    const card = function (n) { return "#a4b-c" + n; };
+    const others = function (n) { return [1, 2, 3, 4].filter(function (k) { return k !== n; }).map(card); };
+    const grid = function (n) { return { x: SL[n - 1][0] - 540, y: SL[n - 1][1] - 355, scale: S }; };
+    const st = {};                                         // aktueller Transform jeder Karte (für lückenlose fromTo-Ketten)
+    function moveCard(n, to, t, d, ease) {
+      FX.tween(tl, card(n), { x: st[n].x, y: st[n].y, scale: st[n].scale }, { x: to.x, y: to.y, scale: to.scale, duration: d, ease: ease }, t);
+      st[n] = { x: to.x, y: to.y, scale: to.scale };
+    }
+    function zone(n, nx, ny) { const s = st[n]; return [540 + s.x + (nx - 456) * s.scale, 355 + s.y + (ny - 319) * s.scale]; }
+    const DIG = { x: 138, y: 191 };                        // Ziffer wandert in der großen Karte nach rechts unten (190 px)
+    const PH = { 1: [156, 450, -50], 2: [156, 450, -50], 3: [156, 450, -50], 4: [256, 350, -75] }; // Bildausschnitt groß
+
+    // ---------------------------------------------------------------- Anfangszustand = letztes Bild der Anfänge
+    [1, 2, 3, 4].forEach(function (n) {
+      st[n] = grid(n);
+      FX.init(tl, card(n), { x: st[n].x, y: st[n].y, scale: S, transformOrigin: "50% 50%", zIndex: 1, opacity: 1 });
+      FX.init(tl, "#a4b-d" + n, { x: 0, y: 0, scale: 1.9, transformOrigin: "50% 50%", opacity: 1 });
+      FX.init(tl, ["#a4b-n" + n, "#a4b-va" + n, "#a4b-vb" + n], { opacity: 0 });
+    });
+    FX.init(tl, ["#a4b-clock", "#a4b-badge", "#a4b-t1", "#a4b-t2", "#a4b-t3"], { opacity: 0 });
+    FX.init(tl, "#a4b-badge", { rotation: -4, transformOrigin: "50% 50%" });
+    FX.init(tl, "#a4b-sec", { rotation: 0, svgOrigin: "0 0" });
+    [1, 2, 3, 4, 5].forEach(function (k) { FX.init(tl, "#a4b-nt" + k, { opacity: 0, x: -300, rotation: [-3, 3, -2, 3, -3][k - 1], transformOrigin: "50% 50%" }); });
+    FX.init(tl, "#a4b-front4", { rotationY: -90, opacity: 0, transformPerspective: 2400, transformOrigin: "50% 50%" });
+    FX.init(tl, "#a4b-back4", { rotationY: 0, opacity: 1, transformPerspective: 2400, transformOrigin: "50% 50%" });
+    FX.init(tl, ["#a4b-q", "#a4b-k", "#a4b-cta-more"], { opacity: 0 });
+
+    // Karte fliegt groß nach vorn: wächst in 0,4 s (ease-out) auf 90 % der Motiv-Zone, die anderen blenden aus.
+    // Name (96 px) und genau 2 Werte (72 px) erscheinen erst jetzt.
+    function fly(n, t) {
+      tl.set(card(n), { zIndex: 5 }, t);
+      moveCard(n, { x: 0, y: 0, scale: 1 }, t, 0.4, "power2.out");
+      others(n).forEach(function (el) { FX.fadeOut(tl, el, t); });
+      FX.tween(tl, "#a4b-p" + n, { top: 32, height: 574 }, { top: PH[n][0], height: PH[n][1], duration: 0.4, ease: "power2.out" }, t);
+      FX.tween(tl, "#a4b-pi" + n, { y: 0 }, { y: PH[n][2], duration: 0.4, ease: "power2.out" }, t);
+      if (n < 4) FX.tween(tl, "#a4b-d" + n, { x: 0, y: 0, scale: 1.9 }, { x: DIG.x, y: DIG.y, scale: 1, duration: 0.4, ease: "power2.out" }, t);
+      else FX.fadeOut(tl, "#a4b-d4", t, 0.15);
+      FX.pop(tl, "#a4b-n" + n, t + 0.25);
+      FX.pop(tl, "#a4b-va" + n, t + 0.35);
+      FX.pop(tl, "#a4b-vb" + n, t + 0.45);
+    }
+    // Karte zurück ins Raster (0,4 s), Namen/Werte/Extras blenden aus, die anderen Karten blenden wieder ein.
+    function back(n, t, extras) {
+      ["#a4b-n" + n, "#a4b-va" + n, "#a4b-vb" + n].concat(extras || []).forEach(function (el) { FX.fadeOut(tl, el, t, 0.15); });
+      moveCard(n, grid(n), t, 0.4, "power2.inOut");
+      others(n).forEach(function (el) { FX.fadeIn(tl, el, t); });
+      FX.tween(tl, "#a4b-p" + n, { top: PH[n][0], height: PH[n][1] }, { top: 32, height: 574, duration: 0.4, ease: "power2.inOut" }, t);
+      FX.tween(tl, "#a4b-pi" + n, { y: PH[n][2] }, { y: 0, duration: 0.4, ease: "power2.inOut" }, t);
+      FX.tween(tl, "#a4b-d" + n, { x: DIG.x, y: DIG.y, scale: 1 }, { x: 0, y: 0, scale: 1.9, duration: 0.4, ease: "power2.inOut" }, t);
+      tl.set(card(n), { zIndex: 1 }, t + 0.4);
+    }
+    function slow(n, t, d, zoomOut) {   // langsamer Zoom 100 -> 108 % über 3 s (anteilig), oder zurück
+      if (d < 1) return;
+      const k = 0.08 * Math.min(3, d) / 3;
+      moveCard(n, { x: st[n].x, y: st[n].y, scale: zoomOut ? st[n].scale - k : st[n].scale + k }, t, Math.min(3, d), "none");
+    }
+
+    // Cursor-Hilfen (eine ruhige Bewegung pro Satz; nie zwei Cursor-Tweens gleichzeitig)
+    const steps = [];
+    let busy = 0;
+    function mv(t, to, d, ease) { t = Math.max(t, busy + 0.01); steps.push({ t: t, to: to, d: d, ease: ease || "power2.inOut" }); busy = t + d; return busy; }
+    function path(t, pts, d) { t = Math.max(t, busy + 0.01); const seg = d / (pts.length - 1); for (let i = 1; i < pts.length; i++) steps.push({ t: t + (i - 1) * seg, to: pts[i], d: seg, ease: "none" }); busy = t + d; return busy; }
+    function click(t) { steps.push({ t: t, click: true }); }
+    const R = [215, 270];                                  // = Endpunkt der Anfänge (auf dem Bild von Karte 1)
+    const K = { 2: [720, 270], 3: [215, 624], 4: [720, 624] };   // Klickpunkte auf den Raster-Karten (Bildbereich)
+    const PARK = [1032, 560];                              // Parkposition rechts neben der großen Karte
+
+    // ---------------------------------------------------------------- Typ 1: der Zocker
+    // "Typ 1 ist der Zocker." -> Klick, Karte 1 fliegt groß nach vorn: "Der Zocker", "Risiko 10 · Plan 0".
+    const tF1 = Math.max(0, C.typ1 - 0.05);
+    click(tF1);
+    fly(1, tF1);
+    mv(tF1 + 0.2, PARK, 0.7);
+    // "… hat keinen Stop und hofft auf den großen Wurf …" -> "Plan 0" einkreisen; der Cursor zeichnet mit.
+    const TR1 = [[715.1,284.6],[721.2,284.4],[739.5,283.7],[769.9,283.5],[812.5,285],[867,291.3],[931.8,307.5],[975.8,361.9],[901.8,412.2],[800.8,433.9],[685.2,434.9],[571.9,412.8],[505.2,347.1],[581.2,301.5],[658.8,286.3],[725.6,280.8],[780.4,280.3],[823,282.5],[853.3,285.6],[871.4,288.1],[877.4,288.9]];
+    const tC1 = Math.max(tF1 + 1.0, C.stop - 0.1);
+    FX.drawCircle(tl, "#a4b-o1", tC1);
+    mv(Math.max(C.setzt, tC1 - 0.75), TR1[0], 0.6);
+    path(tC1, TR1, 0.5);
+    mv(tC1 + 0.6, PARK, 0.6);
+    // "… und meistens ist er als Erster wieder raus." -> langsamer Zoom.
+    const tR2 = Math.max(tC1 + 1.4, C.typ2 - 0.55);
+    const tZ1 = Math.max(tC1 + 0.8, C.raus);
+    slow(1, tZ1, tR2 - 0.1 - tZ1);
+
+    // ---------------------------------------------------------------- Typ 2: der Dauerlerner
+    back(1, tR2, ["#a4b-o1"]);
+    mv(tR2, K[2], 0.45);
+    const tF2 = Math.max(C.typ2 - 0.05, busy);
+    click(tF2);
+    fly(2, tF2);
+    mv(tF2 + 0.2, [1032, 640], 0.7);
+    // "… 50 Videos geschaut und 20 Strategien gespeichert …" -> Karte rückt nach links, dahinter ein Stapel Zettel "Strategie 1 … 20".
+    const tV = Math.max(tF2 + 0.9, C.videos - 0.1);
+    moveCard(2, { x: -170, y: 6, scale: 0.74 }, tV, 0.4, "power2.inOut");
+    [1, 2, 3, 4].forEach(function (k) {
+      FX.tween(tl, "#a4b-nt" + k, { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tV + 0.2 + (k - 1) * 0.08);
+    });
+    const t20 = Math.max(tV + 0.65, C.strat20 - 0.05);
+    FX.tween(tl, "#a4b-nt5", { opacity: 0, x: -300 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, t20);
+    // "… aber noch keinen einzigen Trade gesetzt …" -> Cursor zeigt ruhig auf "Trades 0".
+    mv(Math.max(C.keinen, t20 + 0.4), zone(2, 886, 330), 0.6);
+
+    // ---------------------------------------------------------------- Typ 3: der Ungeduldige
+    const tR3 = Math.max(busy + 0.6, C.typ3 - 0.55);
+    back(2, tR3, ["#a4b-nt1", "#a4b-nt2", "#a4b-nt3", "#a4b-nt4", "#a4b-nt5"]);
+    mv(tR3, K[3], 0.45);
+    const tF3 = Math.max(C.typ3 - 0.05, busy);
+    click(tF3);
+    fly(3, tF3);
+    mv(tF3 + 0.2, PARK, 0.7);
+    // "… nach 2 Wochen Ergebnisse sehen …" -> kleine tickende Uhr (der Sekundenzeiger springt alle 0,5 s).
+    const tW = Math.max(tF3 + 0.8, C.wochen - 0.05);
+    FX.pop(tl, "#a4b-clock", tW);
+    // "… macht er aus Frust einen Rache-Trade …" -> Cursor zeigt ruhig auf "Frust 10".
+    mv(Math.max(C.frust, tW + 0.5), zone(3, 886, 330), 0.6);
+    const tR4 = Math.max(busy + 0.6, C.typ4 - 0.55);
+    for (let k = 1, t = tW + 0.5; t < tR4 - 0.05; k++, t += 0.5) tl.set("#a4b-sec", { rotation: k * 30, svgOrigin: "0 0" }, t);
+
+    // ---------------------------------------------------------------- Typ 4: der, der dranbleibt
+    // "Und dann gibt's noch einen 4. Typ:" -> zurück zum Raster, die verdeckte Karte dreht sich um (0,4 s um die senkrechte Achse).
+    back(3, tR4, ["#a4b-clock"]);
+    mv(tR4, K[4], 0.45);
+    const tFl = Math.max(C.typ4 - 0.05, busy);
+    click(tFl);
+    FX.tween(tl, "#a4b-back4", { rotationY: 0 }, { rotationY: 90, duration: 0.2, ease: "power1.in" }, tFl);
+    tl.set("#a4b-back4", { opacity: 0 }, tFl + 0.2);
+    tl.set("#a4b-front4", { opacity: 1 }, tFl + 0.2);
+    FX.tween(tl, "#a4b-front4", { rotationY: -90 }, { rotationY: 0, duration: 0.2, ease: "power1.out" }, tFl + 0.2);
+    // "Von über 2.000 Leuten in meinem Coaching …" -> Klick, Karte 4 groß: "Der, der dranbleibt", "Plan 10 · Geduld 9", Einblendung "2.000+ im Coaching".
+    const tF4 = Math.max(C.coaching - 0.05, tFl + 0.6, busy);
+    click(tF4);
+    fly(4, tF4);
+    mv(tF4 + 0.2, PARK, 0.7);
+    FX.pop(tl, "#a4b-badge", Math.max(tF4 + 0.55, C.k2000 - 0.05));
+    // "Das sind keine Genies …" -> langsamer Zoom; "… eine einzige Strategie … wenig riskieren … geduldig" -> 3 Haken.
+    const tk1 = Math.max(tF4 + 1.2, C.einzige - 0.05), tk2 = Math.max(tk1 + 0.4, C.wenig - 0.05), tk3 = Math.max(tk2 + 0.4, C.geduldig - 0.05);
+    const tZ4 = Math.max(tF4 + 1.0, C.genies);
+    slow(4, tZ4, tk1 - 0.1 - tZ4);
+    FX.pop(tl, "#a4b-t1", tk1);
+    FX.pop(tl, "#a4b-t2", tk2);
+    FX.pop(tl, "#a4b-t3", tk3);
+    // "Dafür musst du kein Profi sein …" -> leicht rauszoomen.
+    const tK = Math.max(tk3 + 0.6, C.kurs - 0.05);
+    const tZ4b = Math.max(tk3 + 0.4, C.profi);
+    slow(4, tZ4b, Math.min(st[4].scale > 1 ? 3 * (st[4].scale - 1) / 0.08 : 0, tK - 0.1 - tZ4b), true);
+
+    // ---------------------------------------------------------------- Kurs-Mockup (ohne Punkte: nur der Laptop, mittig)
+    // "Wie du zu diesem 4. Typ wirst …" -> Schnitt auf den Kurs; der Laptop schiebt sich in 0,25 s rein.
+    tl.set("#a4b-grid", { opacity: 0 }, tK);
+    tl.set("#a4b-course", { opacity: 0 }, 0);
+    tl.set("#a4b-course", { opacity: 1 }, tK);
+    FX.tween(tl, "#a4b-course-laptop", { opacity: 0, x: -1100 }, { opacity: 1, x: 0, duration: 0.25, ease: "power2.out" }, tK);
+    // "… in meinem kostenlosen Videokurs" -> Cursor zeigt auf "Kostenloser Videokurs".
+    mv(Math.max(C.kostenlos - 0.3, tK + 0.6), [470, 176], 0.6);
+
+    // ---------------------------------------------------------------- CTA-Bild
+    // "Klick unter dem Video auf „Mehr dazu“ …" -> Laptop + "Mehr dazu" + Pfeil nach unten.
+    const tCTA = Math.max(C.klick - 0.05, busy + 0.2);
+    tl.set("#a4b-course", { opacity: 0 }, tCTA);
+    FX.cta(tl, "a4b-cta", tCTA);
+    steps.push({ t: tCTA, hide: true });
+
+    // ---------------------------------------------------------------- Schlussbild
+    // "… welcher Typ du bisher warst." -> Raster mit allen 4 Karten offen, "Welcher warst du?" + "Kommentar ↓", Banner "Mehr dazu ↓" bis zum Ende.
+    const tEnd = Math.max(C.welcher - 0.05, tCTA + 1.2);
+    tl.set("#a4b-cta", { opacity: 0 }, tEnd);
+    const G = 0.58, GX = 40, GY = 96;                       // Raster auf 58 %, links; Text rechts
+    [1, 2, 3, 4].forEach(function (n) {
+      const c = SL[n - 1];
+      tl.set(card(n), { x: GX + (c[0] - 48) * G - 540, y: GY + (c[1] - 10) * G - 355, scale: S * G, opacity: 1, zIndex: 1 }, tEnd);
+      tl.set("#a4b-d" + n, { x: 0, y: 0, scale: 1.9, opacity: 1 }, tEnd);
+      tl.set("#a4b-p" + n, { top: 32, height: 574 }, tEnd);
+      tl.set("#a4b-pi" + n, { y: 0 }, tEnd);
+      tl.set(["#a4b-n" + n, "#a4b-va" + n, "#a4b-vb" + n], { opacity: 0 }, tEnd);
+    });
+    tl.set(["#a4b-badge", "#a4b-t1", "#a4b-t2", "#a4b-t3"], { opacity: 0 }, tEnd);
+    tl.set("#a4b-grid", { opacity: 1 }, tEnd);
+    FX.pop(tl, "#a4b-q", tEnd);
+    FX.more(tl, "a4b-more", tEnd + 0.15);
+    FX.pop(tl, "#a4b-k", Math.min(tEnd + 0.4, Math.max(tEnd + 0.2, E.welcher - 0.3)));
+
+    FX.cursor(tl, "#a4b-cur", "#a4b-ring", R, steps);
+    window.__timelines["ad4-body"] = tl;
+  </script>
+</template>
