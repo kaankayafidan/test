@@ -11,7 +11,8 @@ mkdir -p data/raw data/work
 ffmpeg -y -loglevel error -i data/raw/loom.mp4 -vn -ac 1 -ar 16000 data/work/raw16k.wav
 python3 -I tools/cut/ranges.py data/work/raw16k.wav data/edit/ranges.json data/edl   # cut lists from the time ranges
 python3 -I tools/cut/render_seg.py data/raw/loom.mp4 data/edl                         # voice + circle clips per segment
-python3 -I tools/cut/voice_words.py                                                    # caption timings from the cut voice
+[ "$(find data/timing -name '*.words.json' -size +2c | wc -l)" -eq 18 ] || python3 -I tools/cut/voice_words.py   # caption timings (in the repo; re-made only if missing)
 node tools/build.mjs                                                                   # 24 HyperFrames projects in build/
 python3 -I tools/render.py "$@"                                                        # out/*.mp4
 ls -la out/*.mp4
+[ "$(uname)" = Darwin ] && tools/to_drive.sh out || true                                # copy into Google Drive "FC Loom Ads" (macOS)

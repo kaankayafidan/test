@@ -25,9 +25,11 @@ tools/mix.py             Stimme −14 LUFS, Musik ~20 dB darunter, Effekte ~12 d
 1. Repo holen: `git clone https://github.com/kaankayafidan/test.git && cd test`
 2. Sitzung holen: `claude --teleport` (Sitzung auswählen) — Claude Code ≥ 2.1.223, gleicher claude.ai-Account.
 3. Einmalig: `finanzcode/tools/setup_mac.sh` (Homebrew: ffmpeg, Node 22+, Python-Pakete, HyperFrames-Chrome, Musik)
-4. Alles bauen: `finanzcode/tools/run_all.sh ~/Downloads/"Trading wie beim Roulette denken.mp4"`
-   → 24 Dateien in `finanzcode/out/`, danach in den Google-Drive-Ordner kopieren
-   (Google Drive für Desktop: `~/Library/CloudStorage/GoogleDrive-…/Meine Ablage/`).
+4. Videos nach Google Drive (Ordner „FC Loom Ads“, braucht Google Drive für Desktop):
+   - Schnell: die ZIPs bzw. MP4s aus dem Chat in `~/Downloads` laden, dann `finanzcode/tools/to_drive.sh`
+     (entpackt die ZIPs und kopiert alle 24 Videos in den Drive-Ordner).
+   - Oder neu bauen: `finanzcode/tools/run_all.sh ~/Downloads/"Trading wie beim Roulette denken.mp4"`
+     → 24 Dateien in `finanzcode/out/`, am Ende automatisch in den Drive-Ordner kopiert.
 
 Nicht im Repo (zu groß / reproduzierbar): `data/raw/` (Loom-Video), `assets/media/`, `assets/music/bed.wav`,
 `build/`, `out/`.
