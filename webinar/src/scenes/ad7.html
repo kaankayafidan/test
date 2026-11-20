@@ -1,0 +1,479 @@
+<template>
+  <!--
+  AD 7 · "Der Bot live" · echte MT5-Aufnahme + Schaubilder (briefing p.32–34, rules p.8–13)
+
+  RECORDING BEATS. Kilian's server recording does not exist yet, so every beat that needs it is a NEUTRAL
+  PLACEHOLDER (nothing of the platform is drawn): <div class="a7-rec" id="a7-rec-BEAT" data-rec="BEAT"> holds
+    .a7-rec-media  grey #E5E7EB with a 4 px dashed #9CA3AF frame; its dashed .a7-tgt boxes mark where the zoom target lands
+    .a7-pix        pixel boxes drawn by us (stay; re-align them to the real columns)
+    .a7-rec-label  "AUFNAHME FOLGT" + beat name (Poppins 600 36 px #6B7280)
+  Swap: put the <video> (muted, timed on the scene clock, object-fit cover) into .a7-rec-media, remove the grey fill,
+  the dashed frame (.a7-rec-media::after), the .a7-tgt boxes and the .a7-rec-label, and frame the clip so its target
+  sits where the .a7-tgt box is. All animation stays: zoom/pan tween .a7-rec-media (#a7-algoM), blur tweens #a7-bgM,
+  dim = #a7-bgdim / #a7-Fdim / #a7-carddim, slow zooms tween the wrappers #a7-Az/#a7-Cz/#a7-Ez/#a7-Gz,
+  the shrink tweens #a7-rec-card. Times below = spoken cues in data/timing/ad7.words.json (this cut); code uses C/E.
+
+  beat     on screen (cue)                                   the clip must show                                       zoom target / place in the motif (1080 x 710)                     length
+  first    0 → C.allein−0.2 = 3.30  "Diesen Trade …"           tab "Handel": the new position row appears (opened by     row ~250 % into the slot x 30–1050, y 230–338; yellow flash,     3.3 s
+                                                               the bot) from frame 1; nothing else of the table          red circle and 2 pixel boxes (volume, price, result) sit on it
+  time     0 → 3.30 (same shot)                                the time of that row, big: crop of the server clock, or   box x 600–1050, y 452–652                                        3.3 s
+                                                               text with the real time + clock icon (Poppins 900 white)
+  algo     3.30 → C.zeige = 4.60  "ganz alleine eröffnet"      toolbar with the GREEN (switched on) Algo-Trading button  camera move 130 → 240 % on #a7-algoM; the button lands at        1.3 s
+                                                                                                                         (540, 288) inside the red circle; if the title bar (account
+                                                                                                                         number, broker) is in frame, add a .a7-pix strip inside #a7-algoM
+  experts  4.60 → C.vps−0.15 = 11.23  "ich zeige dir jetzt"    tab "Experts": the log line with the same time as the     tab x 40–370 y 30–94 (yellow line below it), line y 296–380      6.6 s
+           … "besonders spannend für dich"                     row; keeps running while Kilian is big ("spannend")       (yellow marking); slow zoom to 106 % from "spannend"
+  bg       11.23 → C.setzt−0.05 = 26.44  "auf einem            any calm running part of the recording, behind the        full motif ~200 %, blurred 10 px and 62 % darker (charts only    15.2 s
+           sogenannten VPS-Server" … "läuft"                   Schaubild                                                 ever like this)
+  row      26.44 → C.schliesst−0.05 = 28.96  "setzt der Bot    tab "Handel": the same moment as the first image, the     row 250 % into the slot x 30–1050, y 300–408; the row must       2.5 s on screen
+           automatisch nach festen Regeln den Trade"           row appears, played at HALF SPEED (0.5x)                  appear 0.35 s after the cut (marking + pixel boxes come then)   = 1.26 s of source
+  history  28.96 → C.heisst−0.1 = 35.83  "und schließt den     tab "Historie": the same row, closed (open → close        tab x 40–370 y 30–94, row y 236–340, result under the pixel      6.9 s
+           Trade automatisiert wieder" … "fasziniert"          time); result pixelated                                   box x 812–1026; whole picture dims to 60 % at "fasziniert"
+  card     35.83 → end (stays under the End-Karte)             continuation of the history shot (calm) or its last       shrinks in 0.5 s to 44 % into the card at x 40, y 64             22.6 s
+           "was heißt das für dich"                            frame                                                     (475 x 312)
+
+  - "Wartezeit übersprungen" (1.5 s, #a7-wait) is built for the jump row → history. Any other cut that jumps forward in
+    time (first → algo → experts → bg) shows it too.
+  - ACHTUNG: always pixelate P/L, balance, equity, margin, account number, broker. No MetaTrader logo or name in the
+    picture. Charts only blurred in the background. The "Demokonto" badge stays from frame 1 to the end.
+  - Source (MATERIAL): Kilian's recording from the server, demo account, at least 1080p and 30 fps, until the bot has
+    opened and closed 2–3 trades itself; Algo-Trading button, tabs Handel/Historie/Experts and the server clock visible;
+    no click while a trade opens.
+  - Not usable here: data/raw/ad7/*.mov (as of 20.11.) show a broker portal, the EA with Algo Trading switched off and
+    0 positions, and Strategy-Tester backtests (balance curve, report). No trade opened by the bot is in them.
+  -->
+  <style>
+    #root { position: absolute; inset: 0; background: #0B0F15; overflow: hidden; }
+    /* Ad 7 · Der Bot live: Plattform dunkel, Blitz/Auswahl Gelb #FACC15, Demokonto Rot #B91C1C, läuft Grün #16A34A,
+       Schaubilder als Navy-Kacheln mit gelben Rahmen. Motif px = 1080 x 710. */
+    #a7-scene { position: absolute; inset: 0; overflow: hidden; background: #0B0F15; }
+    #a7-scene div, #a7-scene b, #a7-scene i { box-sizing: border-box; }
+    .a7-grp { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+
+    /* Platzhalter für Kilians Aufnahme (siehe Kommentar oben) */
+    .a7-rec { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: hidden; }
+    .a7-rec-media { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; background: #E5E7EB; }
+    .a7-rec-media::after { content: ""; position: absolute; inset: 0; border: 4px dashed #9CA3AF; pointer-events: none; }
+    .a7-rec-label { position: absolute; font-family: 'Poppins'; font-weight: 600; font-size: 36px; line-height: 46px; color: #6B7280; white-space: nowrap; text-align: center; }
+    .a7-rec-label.a7-tag { padding: 6px 18px; border-radius: 12px; background: #E5E7EB; border: 3px dashed #9CA3AF; }
+    .a7-tgt { position: absolute; display: flex; align-items: center; padding-left: 22px; border: 4px dashed #9CA3AF; border-radius: 12px;
+      font-family: 'Poppins'; font-weight: 600; font-size: 36px; color: #6B7280; white-space: nowrap; }
+    .a7-pix { position: absolute; border-radius: 6px; overflow: hidden; background: #8A909A; }
+    .a7-pix svg { display: block; }
+    .a7-dim { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; background: #000000; opacity: 0; }
+    #a7-rec-time { left: 600px; top: 452px; width: 450px; height: 200px; }
+    #a7-rec-time .a7-rec-media { width: 450px; height: 200px; }
+    #a7-rec-card { box-shadow: 0 26px 60px rgba(0, 0, 0, 0.6); }
+    #a7-cardrim { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; border: 22px solid #FFFFFF; border-radius: 44px; opacity: 0; }
+
+    /* Erstes Bild: Blitz-Balken (0,3 s gelb) mit gelber Kante; rote Kreise = .fx-stroke */
+    #a7-flash { position: absolute; left: 30px; top: 230px; width: 1020px; height: 108px; border-radius: 8px; background: #FACC15; opacity: 0.92; }
+    .a7-edge { position: absolute; width: 10px; border-radius: 5px; background: #FACC15; }
+    /* gelbe Markierung einer Zeile, gelber Strich unter dem Reiter */
+    .a7-mark { position: absolute; border-radius: 8px; background: rgba(250, 204, 21, 0.38); box-shadow: inset 10px 0 0 #FACC15; }
+    .a7-tabline { position: absolute; height: 8px; border-radius: 4px; background: #FACC15; }
+
+    /* Notizen und Chips (wichtige Wörter >= 44 px) */
+    .a7-note { position: absolute; padding: 14px 30px 16px 26px; border-radius: 18px; background: #FFFFFF; border-left: 10px solid #FACC15;
+      color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 46px; line-height: 58px; white-space: nowrap; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.35); }
+    .a7-ck { display: inline-block; width: 46px; height: 40px; margin-left: 12px; vertical-align: -3px; overflow: visible; }
+    .a7-ck path { fill: none; stroke: #16A34A; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .a7-pill { position: absolute; height: 66px; padding: 0 30px; border-radius: 33px; color: #FFFFFF; font-family: 'Poppins'; font-weight: 700; font-size: 44px; line-height: 66px;
+      white-space: nowrap; text-align: center; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.4); }
+    #a7-auto { background: #0E1A2B; height: 76px; line-height: 76px; border-radius: 38px; }
+    #a7-auto .a7-ck path { stroke: #22C55E; }
+    #a7-waitrow { position: absolute; left: 0; top: 118px; width: 1080px; display: flex; justify-content: center; }
+    #a7-wait { height: 62px; padding: 0 30px; border-radius: 31px; background: #FFFFFF; color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 34px; line-height: 62px;
+      white-space: nowrap; box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4); }
+
+    /* Schaubild B: Laptop, Server, 3 x 3 Kacheln, Chip "KI" */
+    #a7-tiles { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    .a7-tile { position: absolute; width: 116px; height: 70px; border-radius: 12px; background: #263042; box-shadow: inset 0 0 0 2px #3B475C; }
+    .a7-lit { position: absolute; left: 0; top: 0; width: 116px; height: 70px; border-radius: 12px; background: #2F5A99; box-shadow: inset 0 0 0 2px #5B86C7; }
+    .a7-fr { position: absolute; left: -10px; top: -10px; width: 136px; height: 90px; border-radius: 18px; border: 6px solid #FACC15; }
+    #a7-ki { position: absolute; left: 0; top: 0; width: 156px; height: 72px; border-radius: 36px; background: #FACC15; display: flex; align-items: center; justify-content: center; gap: 10px;
+      color: #0E1A2B; font-family: 'Poppins'; font-weight: 800; font-size: 44px; line-height: 1; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45); }
+    #a7-ki svg { width: 40px; height: 26px; overflow: visible; }
+    #a7-ki path { fill: none; stroke: #0E1A2B; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Payoff C: großer gezeichneter Mauszeiger (Baustein-Cursor, 2,8 x) und rotes X */
+    #a7-curpop { position: absolute; left: 744px; top: 388px; width: 124px; height: 180px; }
+    #a7-curbig { position: absolute; left: 0; top: 0; width: 1px; height: 1px; transform: scale(2.8); transform-origin: 0 0; }
+
+    /* Wochenleiste: Mo–Sa + So mit dem Feld "30 Min" */
+    #a7-week { position: absolute; left: 54px; top: 446px; width: 972px; height: 130px; }
+    .a7-day { position: absolute; top: 0; width: 112px; height: 130px; padding-top: 12px; border-radius: 16px; background: #1C2940; box-shadow: inset 0 0 0 2px #2C3B57;
+      font-family: 'Poppins'; font-weight: 600; font-size: 34px; line-height: 40px; color: #94A3B8; text-align: center; }
+    #a7-so { width: 240px; }
+    #a7-ev { position: absolute; left: -8px; top: -8px; width: 256px; height: 146px; border-radius: 22px; border: 6px solid #FACC15; }
+    #a7-field { position: absolute; left: 14px; top: 60px; width: 216px; height: 62px; border-radius: 12px; background: #0E1A2B; color: #FFFFFF;
+      font-family: 'Poppins'; font-weight: 800; font-size: 50px; line-height: 62px; text-align: center; white-space: nowrap; }
+
+    /* Badge "Demokonto": rot #B91C1C, oben rechts, dauerhaft ab Frame 1 */
+    #a7-demo { position: absolute; right: 16px; top: 8px; height: 48px; padding: 0 16px; border-radius: 8px; background: #B91C1C; color: #FFFFFF; z-index: 99;
+      font-family: 'Poppins'; font-weight: 800; font-size: 30px; line-height: 48px; letter-spacing: 0.08em; white-space: nowrap; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35); }
+  </style>
+  <div id="root" data-composition-id="ad7" data-width="1080" data-height="710">
+    <div id="a7-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+
+      <!-- A · Erstes Bild: neue Positionszeile 250 %, gelber Blitz, roter Kreis, Uhrzeit groß -->
+      <div id="a7-A" class="a7-grp">
+        <div id="a7-Az" class="a7-grp">
+          <div id="a7-rec-first" class="a7-rec" data-rec="first">
+            <div class="a7-rec-media">
+              <div class="a7-tgt" style="left:30px; top:230px; width:1020px; height:108px;">Zeile</div>
+            </div>
+            <div class="a7-pix" style="left:610px; top:252px; width:176px; height:64px;"></div>
+            <div class="a7-pix" style="left:812px; top:252px; width:214px; height:64px;"></div>
+            <div class="a7-rec-label" style="left:0; top:62px; width:1080px;">AUFNAHME FOLGT<br>Erstes Bild: neue Zeile</div>
+          </div>
+          <div id="a7-flash"></div>
+          <div class="a7-edge" style="left:30px; top:230px; height:108px;"></div>
+          <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a7-c1" class="fx-stroke" pathLength="1" d="M0 0"/></svg>
+        </div>
+        <div id="a7-rec-time" class="a7-rec" data-rec="time">
+          <div class="a7-rec-media"></div>
+          <div class="a7-rec-label" style="left:0; top:54px; width:450px;">AUFNAHME FOLGT<br>Uhrzeit groß</div>
+        </div>
+      </div>
+
+      <!-- B · "ganz alleine eröffnet": Kamerafahrt zum grünen Algo-Trading-Button, einkreisen -->
+      <div id="a7-B" class="a7-grp">
+        <div id="a7-rec-algo" class="a7-rec" data-rec="algo">
+          <div id="a7-algoM" class="a7-rec-media">
+            <div class="a7-tgt" style="left:170px; top:90px; width:200px; height:60px; padding-left:0; justify-content:center;">Button</div>
+          </div>
+          <div class="a7-rec-label" style="left:0; top:556px; width:1080px;">AUFNAHME FOLGT<br>Algo-Trading-Button (grün)</div>
+        </div>
+        <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a7-c2" class="fx-stroke" pathLength="1" d="M0 0"/></svg>
+      </div>
+
+      <!-- C · Reiter "Experts": Zeile mit derselben Uhrzeit gelb markiert; Notiz "ohne Vorwissen ✓" -->
+      <div id="a7-C" class="a7-grp">
+        <div id="a7-Cz" class="a7-grp">
+          <div id="a7-rec-experts" class="a7-rec" data-rec="experts">
+            <div class="a7-rec-media">
+              <div class="a7-tgt" style="left:40px; top:30px; width:330px; height:64px;">Reiter</div>
+              <div class="a7-tgt" style="left:30px; top:296px; width:1020px; height:84px;">Logzeile, gleiche Uhrzeit</div>
+            </div>
+            <div class="a7-rec-label" style="left:0; top:150px; width:1080px;">AUFNAHME FOLGT<br>Reiter Experts</div>
+          </div>
+          <div id="a7-tabE" class="a7-tabline" style="left:56px; top:102px; width:298px;"></div>
+          <div id="a7-markE" class="a7-mark" style="left:30px; top:296px; width:1020px; height:84px;"></div>
+        </div>
+        <div id="a7-note1" class="a7-note" style="right:28px; bottom:28px;">ohne Vorwissen<svg class="a7-ck" viewBox="0 0 50 44"><path id="a7-ck1" pathLength="1" d="M5 25 L18 38 L46 5"/></svg></div>
+      </div>
+
+      <!-- D · Schaubild über der abgedunkelten, unscharfen Aufnahme: Laptop – Server "läuft", 3 x 3 Kacheln, Chip "KI" -->
+      <div id="a7-D" class="a7-grp">
+        <div id="a7-rec-bg" class="a7-rec" data-rec="bg">
+          <div id="a7-bgM" class="a7-rec-media"></div>
+          <div id="a7-bgdim" class="a7-dim"></div>
+          <div class="a7-rec-label a7-tag" style="right:22px; top:452px; text-align:right;">AUFNAHME<br>FOLGT<br>(unscharf)</div>
+        </div>
+        <svg id="a7-sb" class="fx-svg" viewBox="0 0 1080 710">
+          <defs>
+            <linearGradient id="a7-scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B85C6"/><stop offset="1" stop-color="#2E4F86"/></linearGradient>
+            <mask id="a7-lmask" maskUnits="userSpaceOnUse" x="420" y="212" width="290" height="48">
+              <path id="a7-linkdraw" d="M432 236 H694" fill="none" stroke="#FFFFFF" stroke-width="20" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            </mask>
+          </defs>
+          <g id="a7-lap">
+            <g id="a7-lid">
+              <rect x="100" y="92" width="276" height="184" rx="14" fill="#CBD5E1"/>
+              <rect x="114" y="106" width="248" height="158" rx="6" fill="#1E293B"/>
+              <rect id="a7-scrglow" x="114" y="106" width="248" height="158" rx="6" fill="url(#a7-scr)"/>
+              <circle cx="238" cy="99" r="3" fill="#94A3B8"/>
+            </g>
+            <path d="M70 276 H406 L392 302 H84 Z" fill="#94A3B8"/>
+            <rect x="204" y="276" width="68" height="7" rx="3.5" fill="#64748B"/>
+          </g>
+          <path d="M432 236 H694" fill="none" stroke="#94A3B8" stroke-width="5" stroke-dasharray="16 12" mask="url(#a7-lmask)"/>
+          <g id="a7-srv">
+            <rect x="712" y="86" width="226" height="262" rx="20" fill="#1E293B" stroke="#475569" stroke-width="3"/>
+            <rect x="730" y="104" width="190" height="66" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+            <rect x="730" y="184" width="190" height="66" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+            <rect x="730" y="264" width="190" height="66" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
+            <circle id="a7-led" cx="756" cy="137" r="17" fill="#22C55E" opacity="0.35"/>
+            <circle cx="756" cy="137" r="9" fill="#22C55E"/>
+            <circle cx="756" cy="217" r="9" fill="#64748B"/>
+            <circle cx="756" cy="297" r="9" fill="#64748B"/>
+            <path d="M800 125 V149 M826 125 V149 M852 125 V149 M878 125 V149 M800 205 V229 M826 205 V229 M852 205 V229 M878 205 V229 M800 285 V309 M826 285 V309 M852 285 V309 M878 285 V309" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
+          </g>
+        </svg>
+        <div id="a7-aus" class="a7-pill" style="left:168px; top:190px; width:140px; background:#475569;">aus</div>
+        <div id="a7-run" class="a7-pill" style="left:727px; top:362px; width:196px; background:#16A34A;">läuft</div>
+        <div id="a7-tiles">
+          <div class="a7-tile" style="left:350px; top:440px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:482px; top:440px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:614px; top:440px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:350px; top:526px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:482px; top:526px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:614px; top:526px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:350px; top:612px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:482px; top:612px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+          <div class="a7-tile" style="left:614px; top:612px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
+        </div>
+        <div id="a7-ki"><span>KI</span><svg viewBox="0 0 40 26"><path d="M3 13 H33 M23 4 L34 13 L23 22"/></svg></div>
+      </div>
+
+      <!-- E · zurück auf die Aufnahme: die Zeile erscheint in halber Geschwindigkeit, gelb markiert -->
+      <div id="a7-E" class="a7-grp">
+        <div id="a7-Ez" class="a7-grp">
+          <div id="a7-rec-row" class="a7-rec" data-rec="row">
+            <div class="a7-rec-media">
+              <div class="a7-tgt" style="left:30px; top:300px; width:1020px; height:108px;">Zeile</div>
+            </div>
+            <div id="a7-pixE" class="a7-grp">
+              <div class="a7-pix" style="left:610px; top:322px; width:176px; height:64px;"></div>
+              <div class="a7-pix" style="left:812px; top:322px; width:214px; height:64px;"></div>
+            </div>
+            <div class="a7-rec-label" style="left:0; top:150px; width:1080px;">AUFNAHME FOLGT<br>Zeile erscheint (0,5×)</div>
+          </div>
+          <div id="a7-markR" class="a7-mark" style="left:30px; top:300px; width:1020px; height:108px;"></div>
+        </div>
+      </div>
+
+      <!-- F · Reiter "Historie": dieselbe Zeile geschlossen, Ergebnis verpixelt; Chip "automatisch ✓"; Mauszeiger + rotes X -->
+      <div id="a7-F" class="a7-grp">
+        <div id="a7-rec-history" class="a7-rec" data-rec="history">
+          <div class="a7-rec-media">
+            <div class="a7-tgt" style="left:40px; top:30px; width:330px; height:64px;">Reiter</div>
+            <div class="a7-tgt" style="left:30px; top:236px; width:1020px; height:104px;">dieselbe Zeile, geschlossen</div>
+          </div>
+          <div class="a7-pix" style="left:812px; top:256px; width:214px; height:64px;"></div>
+          <div class="a7-rec-label" style="left:40px; top:566px; text-align:left;">AUFNAHME FOLGT<br>Reiter Historie</div>
+        </div>
+        <div id="a7-tabH" class="a7-tabline" style="left:56px; top:102px; width:298px;"></div>
+        <div id="a7-auto" class="a7-pill" style="left:30px; top:364px;">automatisch<svg class="a7-ck" viewBox="0 0 50 44"><path id="a7-ck2" pathLength="1" d="M5 25 L18 38 L46 5"/></svg></div>
+        <div id="a7-curpop"><div id="a7-curbig"><!--@include cursor p="a7"--></div></div>
+        <svg class="fx-svg" viewBox="0 0 1080 710"><g id="a7-xg" fill="none" stroke="#DC2626" stroke-width="16" stroke-linecap="round"><path d="M716 392 L888 564"/><path d="M888 392 L716 564"/></g></svg>
+        <div id="a7-Fdim" class="a7-dim"></div>
+      </div>
+      <div id="a7-waitrow"><div id="a7-wait">Wartezeit übersprungen</div></div>
+
+      <!-- G · die Aufnahme schrumpft in eine Karte; Notiz "Trading-Wissen: nicht nötig ✓"; Wochenleiste "30 Min" -->
+      <div id="a7-G" class="a7-grp">
+        <div id="a7-Gz" class="a7-grp">
+          <div id="a7-rec-card" class="a7-rec" data-rec="card">
+            <div class="a7-rec-media">
+              <div class="a7-tgt" style="left:40px; top:30px; width:330px; height:64px;">Reiter</div>
+              <div class="a7-tgt" style="left:30px; top:236px; width:1020px; height:104px;">dieselbe Zeile, geschlossen</div>
+            </div>
+            <div class="a7-pix" style="left:812px; top:256px; width:214px; height:64px;"></div>
+            <div id="a7-carddim" class="a7-dim"></div>
+            <div class="a7-rec-label" style="left:0; top:440px; width:1080px;">AUFNAHME FOLGT<br>Aufnahme als Karte</div>
+            <div id="a7-cardrim"></div>
+          </div>
+          <div id="a7-note2" class="a7-note" style="left:556px; top:92px;">Trading-Wissen:<br>nicht nötig<svg class="a7-ck" viewBox="0 0 50 44"><path id="a7-ck3" pathLength="1" d="M5 25 L18 38 L46 5"/></svg></div>
+          <div id="a7-week">
+            <div class="a7-day" style="left:0px;">Mo</div>
+            <div class="a7-day" style="left:122px;">Di</div>
+            <div class="a7-day" style="left:244px;">Mi</div>
+            <div class="a7-day" style="left:366px;">Do</div>
+            <div class="a7-day" style="left:488px;">Fr</div>
+            <div class="a7-day" style="left:610px;">Sa</div>
+            <div id="a7-so" class="a7-day" style="left:732px;">So<div id="a7-ev"><div id="a7-field">30 Min</div></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!--@include endcard p="a7e"-->
+      <div id="a7-demo">DEMOKONTO</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const $$ = (s) => [...document.querySelectorAll(s)];
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+    // ---------- Pixel boxes: grey mosaic, seeded, so every render is identical ----------
+    function rng(seed) {
+      let s = seed >>> 0;
+      return () => { s = (s + 0x6d2b79f5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+    }
+    const PIX = ["#5B626D", "#6B7280", "#7A818C", "#8A909A", "#9AA0A9", "#ABB0B8"];
+    $$("#a7-scene .a7-pix").forEach((el, k) => {
+      const w = parseFloat(el.style.width), h = parseFloat(el.style.height), c = 16, r = rng(11 + 7 * k);
+      let s = `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;
+      for (let y = 0; y < h; y += c) for (let x = 0; x < w; x += c) s += `<rect x="${x}" y="${y}" width="${c + 0.5}" height="${c + 0.5}" fill="${PIX[Math.floor(r() * PIX.length)]}"/>`;
+      el.innerHTML = s + "</svg>";
+    });
+
+    // ---------- red circles (einkreisen, .fx-stroke 10 px): clean ellipse, ~1.06 turns from the left ----------
+    function ellipse(cx, cy, rx, ry, a0 = 196, turns = 1.06, n = 96) {
+      let d = "";
+      for (let i = 0; i <= n; i++) {
+        const a = ((a0 + (i / n) * 360 * turns) * Math.PI) / 180;
+        d += `${i ? "L" : "M"}${(cx + rx * Math.cos(a)).toFixed(1)} ${(cy + ry * Math.sin(a)).toFixed(1)} `;
+      }
+      return d.trim();
+    }
+    $("#a7-c1").setAttribute("d", ellipse(540, 284, 534, 92));
+    $("#a7-c2").setAttribute("d", ellipse(540, 288, 312, 124));
+
+    // ---------- shots (harte Schnitte) ----------
+    const tB = C.allein - 0.2;        // Kamerafahrt zum Algo-Trading-Button
+    const tC = C.zeige;               // Reiter "Experts"
+    const tD = C.vps - 0.15;          // Aufnahme dimmt, Schaubild
+    const tE = C.setzt - 0.05;        // zurück auf die Aufnahme: die Zeile in halber Geschwindigkeit
+    const tF = C.schliesst - 0.05;    // Wartezeit übersprungen, Reiter "Historie"
+    const tG = C.heisst - 0.1;        // die Aufnahme schrumpft in eine Karte
+    const GR = ["#a7-A", "#a7-B", "#a7-C", "#a7-D", "#a7-E", "#a7-F", "#a7-G"];
+    GR.forEach((g, i) => FX.init(tl, g, { opacity: i === 0 ? 1 : 0 }));
+    [tB, tC, tD, tE, tF, tG].forEach((t, i) => FX.cut(tl, GR[i], GR[i + 1], t));
+
+    // ---------- 1 · "Diesen Trade hat gerade kein Mensch ausgeführt": die neue Zeile ab Frame 1, blitzt 0,3 s gelb auf,
+    //               dann zieht sich der rote Kreis drum; darunter groß die Uhrzeit; Badge "Demokonto" steht von Anfang an ----------
+    FX.tween(tl, "#a7-flash", { opacity: 0.92 }, { opacity: 0.2, duration: 0.3, ease: "power2.in" }, 0);
+    FX.drawCircle(tl, "#a7-c1", 0.3);
+    FX.slowZoom(tl, "#a7-Az", 0.85, { to: 1.05, d: Math.max(1, tB - 0.85), origin: "540px 284px" });
+
+    // ---------- 2 · "ganz alleine eröffnet": Kamerafahrt zum grünen Algo-Trading-Button, einkreisen ----------
+    FX.init(tl, "#a7-algoM", { scale: 1.3, x: 0, y: 0, transformOrigin: "0px 0px" });
+    FX.tween(tl, "#a7-algoM", { scale: 1.3, x: 0, y: 0, transformOrigin: "0px 0px" }, { scale: 2.4, x: -108, y: 0, duration: 0.42, ease: "power2.inOut" }, tB + 0.02);
+    FX.drawCircle(tl, "#a7-c2", tB + 0.46);
+
+    // ---------- 3 · "ich zeige dir jetzt" (Tabelle: "ich zeig dir jetzt, wie das abläuft"): Schnitt auf den Reiter "Experts",
+    //               die Zeile mit derselben Uhrzeit wird gelb markiert ----------
+    FX.init(tl, ["#a7-tabE", "#a7-tabH"], { scaleX: 0, transformOrigin: "0% 50%" });
+    FX.tween(tl, "#a7-tabE", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, tC + 0.05);
+    FX.init(tl, ["#a7-markE", "#a7-markR"], { clipPath: "inset(0% 100% 0% 0%)" });
+    FX.tween(tl, "#a7-markE", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.35, ease: "power1.inOut" }, tC + 0.3);
+
+    // ---------- 4 · "keine Ahnung von Trading hast" (Tabelle: "nichts von Trading verstehst"): Notiz "ohne Vorwissen ✓" in der Ecke ----------
+    FX.init(tl, "#a7-note1", { opacity: 0 });
+    FX.pop(tl, "#a7-note1", C.ahnung - 0.15, { origin: "100% 100%" });
+    FX.draw(tl, "#a7-ck1", C.ahnung + 0.05, 0.25);
+
+    // ---------- 5 · "besonders spannend für dich": Kilians Kreis 2 s auf Ø 360 (cues "kil"), die Aufnahme läuft weiter ----------
+    FX.slowZoom(tl, "#a7-Cz", C.spannend, { to: 1.06, d: Math.max(1, tD - C.spannend), origin: "540px 338px" });
+
+    // ---------- 6 · "auf einem sogenannten VPS-Server": die Aufnahme dimmt (und wird unscharf), darüber das Schaubild:
+    //               links ein Laptop, rechts ein Server mit grünem Punkt, Schild "läuft" ----------
+    FX.tween(tl, "#a7-bgdim", { opacity: 0 }, { opacity: 0.62, duration: 0.4, ease: "power1.out" }, tD);
+    FX.tween(tl, "#a7-bgM", { filter: "blur(0px)" }, { filter: "blur(10px)", duration: 0.4, ease: "power1.out" }, tD);
+    FX.init(tl, ["#a7-lap", "#a7-srv", "#a7-run", "#a7-aus"], { opacity: 0 });
+    FX.pop(tl, "#a7-lap", C.vps, { svgOrigin: "238 196" });
+    FX.pop(tl, "#a7-srv", C.vps + 0.12, { svgOrigin: "825 217" });
+    FX.draw(tl, "#a7-linkdraw", C.vps + 0.3, 0.35);
+    FX.pop(tl, "#a7-run", C.server - 0.12);
+    FX.pulse(tl, "#a7-led", C.vps + 0.6, tE - C.vps - 0.6, { svgOrigin: "756 137", to: 1.7 });
+
+    // ---------- 7 · "der Laptop aus ist" (Tabelle: "wenn mein Laptop aus ist"): der Deckel klappt zu, Schild "aus";
+    //               der Server-Punkt pulsiert weiter ----------
+    const tLid = C.laptop + 0.1;
+    FX.tween(tl, "#a7-scrglow", { opacity: 1 }, { opacity: 0, duration: 0.15, ease: "none" }, tLid);
+    FX.tween(tl, "#a7-lid", { scaleY: 1, svgOrigin: "238 276", smoothOrigin: false }, { scaleY: 0.05, svgOrigin: "238 276", smoothOrigin: false, duration: 0.35, ease: "power2.in" }, tLid);
+    FX.pop(tl, "#a7-aus", C.aus - 0.05);
+
+    // ---------- 8 · "9 Trading-Strategien": 3 × 3 Navy-Kacheln ploppen nacheinander rein ----------
+    const TILES = $$("#a7-tiles .a7-tile"), LIT = TILES.map((e) => e.querySelector(".a7-lit")), FR = TILES.map((e) => e.querySelector(".a7-fr"));
+    FX.init(tl, TILES, { opacity: 0 });
+    FX.init(tl, FR, { opacity: 0 });
+    TILES.forEach((e, i) => FX.pop(tl, e, C.neun - 0.1 + i * 0.08));
+
+    // ---------- 9 · "abwechselnd zum Einsatz kommen": Lauflicht, die Kacheln wechseln zwischen hell und grau, 0,15 s pro Kachel ----------
+    const tLL = C.abw - 0.1, SNAKE = [0, 1, 2, 5, 4, 3, 6, 7, 8];
+    FX.set(tl, LIT, { opacity: 0 }, tLL);
+    SNAKE.forEach((i, k) => {
+      FX.set(tl, LIT[i], { opacity: 1 }, tLL + 0.15 * (k + 1));
+      FX.set(tl, LIT[i], { opacity: 0 }, tLL + 0.15 * (k + 3));
+    });
+
+    // ---------- 10 · "die KI dahinter entscheidet immer wieder" (Tabelle: "eine KI entscheidet"): der Chip "KI" fährt über das
+    //                Raster und rahmt 3 Kacheln gelb ein; bei "und welche nicht" wechselt die Auswahl einmal (2 andere) ----------
+    const KW = 156, KH = 72, REST = [236, 561];
+    const kxy = (p) => ({ x: p[0] - KW / 2, y: p[1] - KH / 2 });
+    const TC = (i) => [408 + (i % 3) * 132, 475 + Math.floor(i / 3) * 86];
+    FX.init(tl, "#a7-ki", { ...kxy(REST), opacity: 0 });
+    const tK = C.ki - 0.15;
+    FX.tween(tl, "#a7-ki", { ...kxy([-120, REST[1]]), opacity: 1 }, { ...kxy(REST), opacity: 1, duration: 0.25, ease: "power2.out" }, tK);
+    let kAt = REST;
+    function kMove(to, t, d) {
+      FX.tween(tl, "#a7-ki", kxy(kAt), { ...kxy(to), duration: d, ease: "power2.inOut" }, t);
+      kAt = to;
+      return t + d;
+    }
+    function pick(list, t) {
+      for (const i of list) {
+        t = kMove(TC(i), t, 0.26);
+        FX.set(tl, LIT[i], { opacity: 1 }, t - 0.04);
+        FX.pop(tl, FR[i], t - 0.04);
+        t += 0.06;
+      }
+      return kMove(REST, t, 0.32);
+    }
+    const SEL1 = [0, 4, 7], SEL2 = [2, 5];
+    pick(SEL1, Math.max(tK + 0.3, C.ki + 0.2));
+    const tSw = Math.max(C.welche - 0.1, C.ki + 1.9);
+    SEL1.forEach((i) => { FX.fadeOut(tl, FR[i], tSw, 0.15); FX.set(tl, LIT[i], { opacity: 0 }, tSw + 0.15); });
+    pick(SEL2, tSw + 0.05);
+
+    // ---------- 11 · "sobald eine der aktiven Strategien läuft" (Tabelle: "alles passt"): eine eingerahmte Kachel blinkt 3× ----------
+    FX.tween(tl, [LIT[5], FR[5]], { opacity: 1 }, { opacity: 0.2, duration: 0.12, ease: "none", yoyo: true, repeat: 5 }, C.laeuft - 0.15);
+
+    // ---------- 12 · "setzt der Bot automatisch nach festen Regeln den Trade": Schnitt zurück auf die echte Aufnahme, die Zeile
+    //                erscheint in halber Geschwindigkeit, gelb markiert (Pixel stehen, bevor die Zeile kommt) ----------
+    const tRow = tE + 0.35;
+    FX.init(tl, "#a7-pixE", { opacity: 0 });
+    FX.set(tl, "#a7-pixE", { opacity: 1 }, tRow - 0.1);
+    FX.tween(tl, "#a7-markR", { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.6, ease: "power1.inOut" }, tRow);
+    FX.slowZoom(tl, "#a7-Ez", tE + 0.05, { to: 1.05, d: Math.max(1, tF - tE - 0.1), origin: "540px 354px" });
+
+    // ---------- 13 · "und schließt den Trade automatisiert wieder" (Tabelle: "wann er wieder aussteigt"): "Wartezeit übersprungen"
+    //                ploppt (1,5 s), Schnitt auf den Reiter "Historie": dieselbe Zeile ist geschlossen, das Ergebnis verpixelt ----------
+    FX.init(tl, "#a7-wait", { opacity: 0 });
+    FX.pop(tl, "#a7-wait", tF);
+    FX.fadeOut(tl, "#a7-wait", tF + 1.5);
+    FX.tween(tl, "#a7-tabH", { scaleX: 0 }, { scaleX: 1, duration: 0.25, ease: "power2.out" }, tF + 0.1);
+
+    // ---------- 14 · "automatisiert" (Tabelle: "100% automatisiert"): neben der geschlossenen Zeile ploppt der Chip
+    //                "automatisch ✓" (nur der Haken, keine Prozentzahl) ----------
+    FX.init(tl, "#a7-auto", { opacity: 0 });
+    FX.pop(tl, "#a7-auto", C.auto - 0.1, { origin: "0% 50%" });
+    FX.draw(tl, "#a7-ck2", C.auto + 0.1, 0.25);
+
+    // ---------- 15 · "also nichts angefasst" (Tabelle: "absolut nichts angefasst"): ein großer gezeichneter Mauszeiger,
+    //                ein rotes X knallt drauf ----------
+    FX.cursor(tl, "#a7-cur", "#a7-ring", [0, 0], []);
+    FX.init(tl, "#a7-curpop", { opacity: 0 });
+    FX.pop(tl, "#a7-curpop", C.nichts, { origin: "50px 80px" });
+    FX.init(tl, "#a7-xg", { opacity: 0 });
+    FX.slam(tl, "#a7-xg", C.angefasst - 0.05, { svgOrigin: "802 478" });
+
+    // ---------- 16 · "fasziniert mich bis heute": die Aufnahme dimmt, Kilians Kreis 2 s auf Ø 360 (cues "kil") ----------
+    FX.tween(tl, "#a7-Fdim", { opacity: 0 }, { opacity: 0.6, duration: 0.4, ease: "power1.out" }, C.fasz - 0.1);
+
+    // ---------- 17 · "was heißt das für dich?": die Aufnahme schrumpft in eine Karte (oben links) ----------
+    FX.init(tl, "#a7-carddim", { opacity: 0.6 });
+    FX.tween(tl, "#a7-rec-card", { scale: 1, x: 0, y: 0, borderRadius: 0, transformOrigin: "0px 0px" }, { scale: 0.44, x: 40, y: 64, borderRadius: 44, duration: 0.5, ease: "power2.inOut" }, tG + 0.04);
+    FX.tween(tl, "#a7-carddim", { opacity: 0.6 }, { opacity: 0, duration: 0.5, ease: "power1.inOut" }, tG + 0.04);
+    FX.fadeIn(tl, "#a7-cardrim", tG + 0.14, 0.4);
+
+    // ---------- 18 · "nicht traden können": die Notiz "Trading-Wissen: nicht nötig ✓" ploppt ----------
+    FX.init(tl, "#a7-note2", { opacity: 0 });
+    FX.pop(tl, "#a7-note2", C.koennen - 0.15, { origin: "0% 0%" });
+    FX.draw(tl, "#a7-ck3", C.koennen + 0.05, 0.25);
+    // bis "20 bis 30 Minuten" > 4 s ohne Stichwort: langsamer Zoom
+    const tZ = C.koennen + 0.9;
+    FX.slowZoom(tl, "#a7-Gz", tZ, { to: 1.05, d: clamp(C.minuten - 0.3 - tZ, 1, 3), origin: "540px 330px" });
+
+    // ---------- 19 · "20 bis 30 Minuten Zeit pro Woche" (Tabelle: "30 Minuten mit uns"): Wochenleiste mit dem Feld "30 Min" ----------
+    const DAYS = $$("#a7-week .a7-day");
+    FX.init(tl, DAYS, { opacity: 0 });
+    DAYS.forEach((d, i) => FX.pop(tl, d, C.minuten - 0.1 + i * 0.06, { origin: "50% 100%" }));
+    FX.init(tl, "#a7-ev", { opacity: 0 });
+    FX.pop(tl, "#a7-ev", C.dreissig - 0.1);
+    FX.pulse(tl, "#a7-ev", C.woche, clamp(C.sonntag - 0.3 - C.woche, 0.8, 1.6));
+
+    // ---------- 20–22 · End-Karte (Baustein, ohne Platz-Chip) ab "Und am Sonntag, den 6. Dezember"; "Klick auf den Link":
+    //                   der Touch-Punkt tippt auf "Mehr dazu"; das zweite "6. Dezember um 18 Uhr": das Datum pulsiert bis zum
+    //                   Ende (der Ton ist nach "um 18 Uhr" hart geschnitten) ----------
+    FX.fadeOut(tl, ["#a7-note2", "#a7-week"], C.sonntag - 0.1, 0.25);   // would peek out beside the card
+    FX.endCard(tl, "a7e", { start: C.sonntag - 0.1, t18: C.t18, bot: C.bot, klick: C.klick, pulseDate: C.datum2 });
+
+    window.__timelines["ad7"] = tl;
+  </script>
+</template>
