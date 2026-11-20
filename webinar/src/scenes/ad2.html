@@ -1,13 +1,415 @@
 <template>
-  <style> #root { position: absolute; inset: 0; background: #0E1A2B; overflow: hidden; } #a2-v1, #a2-v2 { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; object-fit: cover; } </style>
+  <style>
+    #root { position: absolute; inset: 0; background: #0E1A2B; overflow: hidden; }
+    /* Ad 2 "Das ETF-Problem": echte Stock-Clips (15 % entsättigt, leicht kühl, Filmkorn), Schilder hellgrau/Navy 56 px. */
+    #a2-media { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+    #a2-scene { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+    .a2-shot { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    .a2-vid { position: absolute; inset: 0; overflow: hidden; filter: url(#a2-grade); }
+    .a2-vid video, .a2-vid img { position: absolute; max-width: none; object-fit: fill; }
+    /* crops (source 1280 x 720 -> motif px): A1 x402 y172 x1.6 | A2 x368 y150 x1.45 | B x60 y30 x1.1 | C1 x240 y60 x1.5 */
+    .a2-gA1 { left: -643.2px; top: -275.2px; width: 2048px; height: 1152px; }
+    .a2-gA2 { left: -533.6px; top: -217.5px; width: 1856px; height: 1044px; }
+    .a2-gB  { left: -66px; top: -33px; width: 1408px; height: 792px; }
+    .a2-gC1 { left: -360px; top: -90px; width: 1920px; height: 1080px; }
+    .a2-gC5 { left: -720px; top: -72px; width: 2304px; height: 1296px; }   /* x400 y40 x1.8 */
+    .a2-gKI { left: -826px; top: 0; width: 1792px; height: 1008px; }       /* panel 400 x 570: x590 y0 x1.4 */
+    .a2-gSL { left: -655px; top: -75px; width: 1600px; height: 900px; }    /* half 540 x 710: x524 y60 x1.25 */
+    .a2-gSR { left: -682.5px; top: 0; width: 1664px; height: 936px; }      /* half 540 x 710: x525 y0 x1.3 */
+    #a2-grain { position: absolute; inset: 0; background: url(assets/img/ad2/a2-grain.png) 0 0 / 384px 384px repeat; mix-blend-mode: overlay; opacity: 0.16; pointer-events: none; }
+
+    /* Schild: hellgrau, Navy-Text, Poppins Bold 56 px, Ecken 16 px */
+    .a2-signbox { position: absolute; display: flex; justify-content: center; align-items: flex-end; }
+    .a2-sign { display: flex; align-items: center; gap: 14px; background: #F3F4F6; color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 56px; line-height: 1.2; padding: 8px 30px 6px; border-radius: 16px; white-space: nowrap; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38); }
+    .a2-sign svg { width: 52px; height: 52px; flex: none; }
+    .a2-chip-y { position: absolute; background: #FACC15; color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 48px; line-height: 1; padding: 14px 30px 12px; border-radius: 40px; white-space: nowrap; box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35); }
+    .a2-arrow { position: absolute; overflow: visible; }
+
+    /* A1: Rolltreppe */
+    #a2-ringsvg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+    #a2-ring { fill: none; stroke: #DC2626; stroke-width: 12; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #a2-etf { left: 226px; top: 340px; width: 600px; height: 100px; }
+    #a2-etf-shadow { position: absolute; left: 190px; bottom: -14px; width: 220px; height: 26px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)); }
+    #a2-arr1 { left: 880px; top: 170px; width: 140px; height: 400px; }
+    #a2-flash { position: absolute; inset: 0; border: 18px solid #DC2626; box-sizing: border-box; }
+    #a2-ki { position: absolute; left: 650px; top: 70px; width: 400px; height: 570px; }
+    #a2-ki-box { position: absolute; inset: 0; border-radius: 26px; overflow: hidden; border: 5px solid rgba(255, 255, 255, 0.85); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
+    #a2-ki-box .a2-vid { opacity: 0.6; }
+    #a2-ki-chip { left: -46px; top: 40px; }
+
+    /* B: Tokio */
+    #a2-japan { left: 40px; top: 40px; width: auto; height: auto; }
+    #a2-extrem { right: 40px; top: 40px; }
+    #a2-cnt { position: absolute; left: 240px; top: 96px; width: 720px; height: 330px; }
+    #a2-cnt-win { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 24%, #000 40%); mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 24%, #000 40%); }
+    #a2-cnt-strip { position: absolute; left: 0; top: 120px; width: 720px; }
+    .a2-yr { height: 210px; font-family: 'Poppins'; font-weight: 900; font-size: 224px; line-height: 210px; color: #FFFFFF; text-align: center; letter-spacing: -4px; text-shadow: 0 8px 36px rgba(0, 0, 0, 0.6); }
+    .a2-yr.bl { filter: blur(6px); opacity: 0.6; }
+    #a2-stamp { position: absolute; left: 330px; top: 440px; width: 460px; height: 128px; border: 9px solid #DC2626; border-radius: 18px; background: rgba(255, 255, 255, 0.92); box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.92), inset 0 0 0 10px #DC2626, 0 14px 30px rgba(0, 0, 0, 0.35); color: #DC2626; font-family: 'Poppins'; font-weight: 800; font-size: 82px; line-height: 110px; text-align: center; letter-spacing: 2px; white-space: nowrap; }
+    #a2-stamp span { display: block; filter: url(#a2-grunge); }
+    #a2-nikkei { position: absolute; left: 34px; top: 640px; background: #FFFFFF; color: #0E1A2B; font-family: 'Poppins'; font-weight: 600; font-size: 26px; line-height: 1; padding: 9px 18px 8px; border-radius: 12px; white-space: nowrap; }
+    #a2-cal { position: absolute; left: 34px; top: 432px; width: 276px; height: 244px; border-radius: 18px; background: #FFFFFF; box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4); overflow: hidden; }
+    #a2-cal-head { position: absolute; left: 0; top: 0; width: 276px; height: 50px; background: #DC2626; }
+    #a2-cal-head i { position: absolute; top: -10px; width: 14px; height: 30px; border-radius: 7px; background: #0E1A2B; }
+    .a2-cell { position: absolute; width: 54px; height: 46px; border-radius: 10px; background: #E5E7EB; }
+    .a2-cell svg { position: absolute; left: 7px; top: 3px; width: 40px; height: 40px; overflow: visible; }
+
+    /* A2: nur 1 Richtung */
+    #a2-arr2 { left: 410px; top: 64px; width: 260px; height: 580px; }
+    #a2-nur { left: 190px; top: 470px; width: 700px; height: 100px; }
+
+    /* C1: KI-Trading-Bot */
+    #a2-kib { left: 373.5px; top: 387px; width: 600px; height: 90px; }
+
+    /* Split */
+    .a2-half { position: absolute; top: 0; width: 540px; height: 710px; overflow: hidden; }
+    #a2-sL { left: 0; }
+    #a2-sR { left: 540px; }
+    #a2-divl { position: absolute; left: 536px; top: 0; width: 8px; height: 710px; background: #FFFFFF; }
+    #a2-vs { position: absolute; left: 465px; top: 280px; width: 150px; height: 150px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35); }
+    #a2-vs-t, #a2-plus { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #0E1A2B; font-family: 'Poppins'; font-weight: 800; }
+    #a2-vs-t { font-size: 60px; padding-bottom: 6px; }
+    #a2-plus svg { width: 74px; height: 74px; }
+    #a2-bleibt { left: 20px; top: 34px; width: 500px; height: 92px; }
+    #a2-D { position: absolute; inset: 0; background: linear-gradient(90deg, #C9CED6 0%, #E4E7EC 38%, #CDD2DA 70%, #B9BFC8 100%); }
+    #a2-D::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.10) 0 2px, rgba(0, 0, 0, 0.035) 2px 5px); }
+    #a2-Dpanel { position: absolute; left: 78px; top: 140px; width: 230px; height: 430px; border-radius: 34px; background: #0E1A2B; box-shadow: inset 0 0 0 8px #2B3A52, 0 18px 40px rgba(0, 0, 0, 0.35); }
+    #a2-Dpanel svg { position: absolute; inset: 0; width: 230px; height: 430px; overflow: visible; }
+    #a2-gold { left: 336px; top: 322px; }
+    #a2-mini { position: absolute; left: 944px; top: 26px; width: 104px; height: 194px; border-radius: 18px; background: #0E1A2B; box-shadow: inset 0 0 0 5px #2B3A52, 0 12px 28px rgba(0, 0, 0, 0.35); }
+    #a2-mini svg { position: absolute; inset: 0; width: 104px; height: 194px; overflow: visible; }
+    #a2-gold2 { left: 890px; top: 236px; font-size: 44px; padding: 12px 28px 10px; }
+  </style>
   <div id="root" data-composition-id="ad2" data-width="1080" data-height="710">
-    <div id="a2-media"><video id="a2-v2" class="clip" src="assets/img/ad2/a2-esc-loop.mp4" data-start="1" data-duration="3" data-media-start="2" muted playsinline></video></div>
+    <svg width="0" height="0" style="position: absolute">
+      <defs>
+        <filter id="a2-grade" color-interpolation-filters="sRGB">
+          <feColorMatrix type="saturate" values="0.85" />
+          <feColorMatrix type="matrix" values="0.95 0 0.02 0 0  0 0.99 0.02 0 0.004  0 0.02 1.05 0 0.016  0 0 0 1 0" />
+        </filter>
+        <filter id="a2-grunge" x="-5%" y="-5%" width="110%" height="110%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="11" result="n" />
+          <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -2.6 2.05" result="m" />
+          <feComposite in="SourceGraphic" in2="m" operator="in" />
+        </filter>
+        <filter id="a2-glow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="b" />
+          <feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
+      </defs>
+    </svg>
+
+    <div id="a2-media">
+      <!-- A1 · Rolltreppe von unten (0 bis "zeigt Japan") -->
+      <div id="a2-shotA" class="a2-shot">
+        <div class="a2-vid">
+          <video id="a2-va1" class="clip a2-gA1" src="assets/media/stock/mixkit-48002.mp4" data-start="0" data-duration="{{C.problem}}" data-media-start="{{Math.max(0, 12.6 - C.problem)}}" data-hf-media-start-basis="local" muted playsinline></video>
+          <img id="a2-freeze" class="clip a2-gA1" src="assets/img/ad2/a2-freeze.jpg" alt="" data-start="{{C.problem}}" data-duration="0.3" />
+          <video id="a2-va2" class="clip a2-gA1" src="assets/img/ad2/a2-esc-loop.mp4" data-start="{{C.problem + 0.3}}" data-duration="{{C.rueck - C.problem - 0.3}}" data-media-start="9.8" data-hf-media-start-basis="local" muted playsinline></video>
+          <video id="a2-vrew" class="clip a2-gA1" src="assets/img/ad2/a2-esc-rew8.mp4" data-start="{{C.rueck}}" data-duration="0.5" data-media-start="{{(29.4 - (9.8 + C.rueck - C.problem - 0.3)) / 8}}" data-hf-media-start-basis="local" muted playsinline></video>
+          <video id="a2-vrev" class="clip a2-gA1" src="assets/img/ad2/a2-esc-rev.mp4" data-start="{{C.rueck + 0.5}}" data-duration="{{C.japan - C.rueck - 0.5}}" data-media-start="{{29.4 - (9.8 + C.rueck - C.problem - 0.3 - 4)}}" data-hf-media-start-basis="local" muted playsinline></video>
+        </div>
+        <svg id="a2-ringsvg" viewBox="0 0 1080 710"><path id="a2-ring" pathLength="1" d="M659.5 72.0 A282 322 -8 1 1 523.2 53.1" /></svg>
+        <svg id="a2-arr1" class="a2-arrow a2-later" viewBox="0 0 140 400">
+          <g id="a2-arr1-p">
+            <rect id="a2-arr1-shaft" class="a2-af" x="47" y="112" width="46" height="288" rx="9" fill="#16A34A" />
+            <path id="a2-arr1-head" class="a2-af" d="M70 0 L140 124 L0 124 Z" fill="#16A34A" />
+          </g>
+        </svg>
+        <div id="a2-etf" class="a2-signbox a2-later"><div id="a2-etf-in" class="a2-sign">dein ETF</div><div id="a2-etf-shadow"></div></div>
+      </div>
+
+      <!-- Was KI damit zu tun hat: Clip C fliegt rechts mit 60 % rein -->
+      <div id="a2-ki" class="a2-later">
+        <div id="a2-ki-box"><div class="a2-vid">
+          <video id="a2-vki" class="clip a2-gKI" src="assets/img/ad2/a2-cab.mp4" data-start="{{C.ki}}" data-duration="{{C.kiw + 1.75 - C.ki}}" data-media-start="2" data-hf-media-start-basis="local" muted playsinline></video>
+        </div></div>
+        <div id="a2-ki-chip" class="a2-chip-y a2-later">KI?</div>
+      </div>
+
+      <!-- B · Tokio bei Nacht ("zeigt Japan" bis "einzigen Richtung") -->
+      <div id="a2-shotB" class="a2-shot">
+        <div class="a2-vid">
+          <video id="a2-vb" class="clip a2-gB" src="assets/img/ad2/a2-tokyo.mp4" data-start="{{C.japan}}" data-duration="{{C.richtung - C.japan}}" data-media-start="0" data-hf-media-start-basis="local" muted playsinline></video>
+        </div>
+        <div id="a2-cnt" class="a2-later"><div id="a2-cnt-win"><div id="a2-cnt-strip"></div></div></div>
+        <div id="a2-stamp" class="a2-later"><span>34 JAHRE</span></div>
+        <div id="a2-nikkei" class="a2-later">Nikkei 225</div>
+        <div id="a2-cal" class="a2-later"><div id="a2-cal-head"><i style="left: 62px"></i><i style="left: 200px"></i></div></div>
+        <div id="a2-japan" class="a2-sign a2-later" style="position: absolute">Japan</div>
+        <div id="a2-extrem" class="a2-sign a2-later" style="position: absolute">Extremfall</div>
+      </div>
+
+      <!-- A2 · zurück auf die Rolltreppe: nur 1 Richtung -->
+      <div id="a2-shotA2" class="a2-shot">
+        <div class="a2-vid">
+          <video id="a2-va3" class="clip a2-gA2" src="assets/img/ad2/a2-esc-loop.mp4" data-start="{{C.richtung}}" data-duration="{{C.loesung - C.richtung}}" data-media-start="1" data-hf-media-start-basis="local" muted playsinline></video>
+        </div>
+        <svg id="a2-arr2" class="a2-arrow a2-later" viewBox="0 0 260 580">
+          <rect id="a2-arr2-shaft" x="83" y="186" width="94" height="394" rx="12" fill="#16A34A" />
+          <path id="a2-arr2-head" d="M130 0 L260 206 L0 206 Z" fill="#16A34A" />
+        </svg>
+        <div id="a2-nur" class="a2-signbox a2-later"><div id="a2-nur-in" class="a2-sign">nur 1 Richtung</div></div>
+      </div>
+
+      <!-- C1 · gläserner Aufzug: KI-Trading-Bot (bis zum Split) -->
+      <div id="a2-shotC1" class="a2-shot">
+        <div class="a2-vid">
+          <video id="a2-vc1" class="clip a2-gC1" src="assets/img/ad2/a2-cab.mp4" data-start="{{C.loesung}}" data-duration="{{C.vs - C.loesung}}" data-media-start="0.3" data-hf-media-start-basis="local" muted playsinline></video>
+        </div>
+        <div id="a2-kib" class="a2-signbox a2-later" style="align-items: center"><div id="a2-kib-in" class="a2-sign">KI-Trading-Bot</div></div>
+      </div>
+
+      <!-- Split-Screen: links Rolltreppe, rechts Aufzug / Clip D (Aufzug-Anzeige) -->
+      <div id="a2-split" class="a2-shot">
+        <div id="a2-sL" class="a2-half"><div class="a2-vid">
+          <video id="a2-vsl" class="clip a2-gSL" src="assets/img/ad2/a2-esc-loop.mp4" data-start="{{C.vs}}" data-duration="{{C.profite - C.vs}}" data-media-start="{{9.8 - (C.selbst - C.vs)}}" data-hf-media-start-basis="local" muted playsinline></video>
+        </div></div>
+        <div id="a2-sR" class="a2-half">
+          <div class="a2-vid">
+            <video id="a2-vsr1" class="clip a2-gSR" src="assets/img/ad2/a2-cab.mp4" data-start="{{C.vs}}" data-duration="{{C.selbst - C.vs}}" data-media-start="1" data-hf-media-start-basis="local" muted playsinline></video>
+            <video id="a2-vsr2" class="clip a2-gSR" src="assets/img/ad2/a2-cab.mp4" data-start="{{C.verkaufen}}" data-duration="{{C.profite - C.verkaufen}}" data-media-start="1.6" data-hf-media-start-basis="local" muted playsinline></video>
+          </div>
+          <div id="a2-D" class="a2-later">
+            <div id="a2-Dpanel">
+              <svg viewBox="0 0 230 430">
+                <path d="M115 52 L192 178 L38 178 Z" fill="#1E293B" stroke="#33415A" stroke-width="4" stroke-linejoin="round" />
+                <path d="M38 252 L192 252 L115 378 Z" fill="#1E293B" stroke="#33415A" stroke-width="4" stroke-linejoin="round" />
+                <g id="a2-Dup" class="a2-later" filter="url(#a2-glow)"><path d="M115 52 L192 178 L38 178 Z" fill="#FACC15" stroke="#FDE68A" stroke-width="4" stroke-linejoin="round" /></g>
+                <g id="a2-Ddn" class="a2-later" filter="url(#a2-glow)"><g id="a2-Ddn-p"><path d="M38 252 L192 252 L115 378 Z" fill="#FACC15" stroke="#FDE68A" stroke-width="4" stroke-linejoin="round" /></g></g>
+              </svg>
+            </div>
+            <div id="a2-gold" class="a2-chip-y a2-later">Gold</div>
+          </div>
+        </div>
+        <div id="a2-divl" class="a2-later"></div>
+        <div id="a2-mini" class="a2-later">
+          <svg viewBox="0 0 104 194">
+            <path d="M52 26 L84 80 L20 80 Z" fill="#FACC15" filter="url(#a2-glow)" />
+            <path d="M20 114 L84 114 L52 168 Z" fill="#1E293B" stroke="#33415A" stroke-width="3" stroke-linejoin="round" />
+          </svg>
+        </div>
+        <div id="a2-gold2" class="a2-chip-y a2-later">Gold</div>
+        <div id="a2-vs" class="a2-later">
+          <div id="a2-vs-t">vs.</div>
+          <div id="a2-plus" class="a2-later"><svg viewBox="0 0 74 74"><path d="M37 6 V68 M6 37 H68" stroke="#0E1A2B" stroke-width="15" stroke-linecap="round" /></svg></div>
+        </div>
+        <div id="a2-bleibt" class="a2-signbox a2-later"><div id="a2-bleibt-in" class="a2-sign">bleibt<svg viewBox="0 0 52 52"><path d="M9 27 L21 39 L44 13" fill="none" stroke="#16A34A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" /></svg></div></div>
+      </div>
+
+      <!-- C5 · Aufzug fährt im Wechsel hoch und runter, darunter weiter bis zum Ende (unter der End-Karte) -->
+      <div id="a2-shotC5" class="a2-shot">
+        <div class="a2-vid">
+          <video id="a2-vc5" class="clip a2-gC5" src="assets/img/ad2/a2-cab-alt.mp4" data-start="{{C.profite}}" data-duration="{{C.sonntag - C.profite}}" data-media-start="0" data-hf-media-start-basis="local" muted playsinline></video>
+          <video id="a2-vc6" class="clip a2-gC5" src="assets/img/ad2/a2-cab-yoyo.mp4" data-start="{{C.sonntag}}" data-duration="{{DUR - C.sonntag}}" data-media-start="0" data-hf-media-start-basis="local" muted playsinline></video>
+        </div>
+      </div>
+
+      <div id="a2-flash" class="a2-later"></div>
+      <div id="a2-grain"></div>
+    </div>
+
     <div id="a2-scene" class="clip" data-start="0" data-duration="{{DUR}}">
-      <video id="a2-v1" class="clip" src="assets/media/stock/mixkit-48002.mp4" data-start="0" data-duration="1" muted playsinline></video>
+      <!--@include midcta p="a2m"-->
+      <!--@include endcard p="a2e" platz="bis zu 15 Plätze"-->
     </div>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const on = (el, t) => tl.set(el, { opacity: 1 }, t);
+    const off = (el, t) => tl.set(el, { opacity: 0 }, t);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const mk = (tag, attrs, parent) => { const e = document.createElementNS("http://www.w3.org/2000/svg", tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+
+    // ---- static build: counter strip 1989 ... 2024, calendar cells
+    const strip = $("#a2-cnt-strip");
+    for (let y = 1989; y <= 2024; y++) { const d = document.createElement("div"); d.className = "a2-yr" + (y > 1989 && y < 2024 ? " bl" : ""); d.textContent = y; strip.appendChild(d); }
+    const cal = $("#a2-cal"), cells = [];
+    for (let i = 0; i < 12; i++) {
+      const c = document.createElement("div");
+      c.className = "a2-cell";
+      c.style.left = 18 + (i % 4) * 62 + "px";
+      c.style.top = 66 + Math.floor(i / 4) * 58 + "px";
+      const s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      s.setAttribute("viewBox", "0 0 40 40");
+      const p = mk("path", { d: "M7 21 L16 30 L33 10", fill: "none", stroke: "#16A34A", "stroke-width": "7", "stroke-linecap": "round", "stroke-linejoin": "round" }, s);
+      p.id = "a2-chk" + i;
+      c.appendChild(s);
+      cal.appendChild(c);
+      cells.push(p);
+    }
+
+    document.querySelectorAll(".a2-later").forEach((el) => FX.init(tl, el, { opacity: 0 }));
+    cells.forEach((p) => FX.init(tl, p, { opacity: 0 }));
+
+    // ---- 1 "Siehst du diese Rolltreppe?": Clip A, der rote Kreis zieht sich in 0,5 s (offenes Ende, sichtbar ab Frame 1)
+    FX.tween(tl, "#a2-ring", { strokeDashoffset: 0.86, opacity: 1 }, { strokeDashoffset: 0, duration: 0.5, ease: "power1.inOut", autoRound: false }, 0);
+    FX.fadeOut(tl, "#a2-ringsvg", C.problem);
+
+    // ---- 2 "dein ETF" ploppt auf eine Stufe und fährt mit (rechte Rolltreppe; Perspektive: Abstand zur Fluchtlinie
+    // D = y + 541 px, Breite ~ D, Stufentempo K * D^2 px/s). Anker = Fußpunkt des Schilds (x 526, y 440).
+    const K = 2.256e-5, D0 = 981;
+    const pose = (D) => ({ x: 0.122 * (D - D0), y: D - D0, scale: D / D0 });
+    const segsEtf = [[C.etf, C.problem, 1], [C.problem, C.problem + 0.3, 0], [C.problem + 0.3, C.rueck, 1], [C.rueck, C.rueck + 0.5, -8], [C.rueck + 0.5, C.japan, -1]];
+    const rideD = (t) => { let D = D0; for (const [a, b, v] of segsEtf) { if (t <= a) break; D = 1 / (1 / D + K * v * (Math.min(t, b) - a)); } return D; };
+    FX.init(tl, "#a2-etf", { x: 0, y: 0, scale: 1, transformOrigin: "50% 100%" });
+    for (const [a, b, v] of segsEtf) {
+      if (!v || b <= a) continue;
+      const n = Math.max(1, Math.ceil((b - a) / 0.8));
+      for (let i = 0; i < n; i++) {
+        const t0 = a + ((b - a) * i) / n, t1 = a + ((b - a) * (i + 1)) / n;
+        FX.tween(tl, "#a2-etf", { ...pose(rideD(t0)), transformOrigin: "50% 100%" }, { ...pose(rideD(t1)), duration: t1 - t0, ease: "none", transformOrigin: "50% 100%" }, t0);
+      }
+    }
+    on("#a2-etf", C.etf);
+    FX.pop(tl, "#a2-etf-in", C.etf, { origin: "50% 100%" });
+    FX.fadeIn(tl, "#a2-etf-shadow", C.etf, 0.15);
+
+    // ---- 3 "das größte Problem": das Bild friert 0,3 s ein (Standbild), ein roter Rahmen blitzt 2x
+    [[0, 1], [0.12, 0], [0.22, 1], [0.34, 0]].forEach(([d, o]) => tl.set("#a2-flash", { opacity: o }, C.problem + d));
+
+    // ---- 4 "was deine KI damit zu tun hat": Clip C fliegt rechts mit 60 % rein, Chip "KI?" ploppt dran, nach 1,5 s weg
+    FX.flyIn(tl, "#a2-ki", C.ki, { from: "right", dist: 520 });
+    FX.pop(tl, "#a2-ki-chip", C.kiw);
+    FX.flyOut(tl, "#a2-ki", C.kiw + 1.5, { to: "right", dist: 520 });
+    off("#a2-ki", C.kiw + 1.75);
+
+    // ---- 5 "solange die Kurse an den Börsen steigen": neben der Rolltreppe wächst ein grüner Pfeil nach oben
+    const dGrow = clamp(C.steigenw - C.steigen, 0.5, 1.3);
+    on("#a2-arr1", C.steigen);
+    FX.tween(tl, "#a2-arr1-shaft", { scaleY: 0, svgOrigin: "70 400" }, { scaleY: 1, svgOrigin: "70 400", duration: dGrow, ease: "power2.out" }, C.steigen);
+    FX.tween(tl, "#a2-arr1-head", { y: 288 }, { y: 0, duration: dGrow, ease: "power2.out" }, C.steigen);
+
+    // ---- 6 "ganz bequem nach oben": langsamer Zoom auf das Schild (bis zum Rückspulen)
+    const zD = clamp(C.rueck - C.bequem, 0.5, 3), zTo = 1 + 0.08 * (zD / 3);
+    const zOrigin = `${(526 + pose(rideD(C.bequem)).x).toFixed(1)}px ${(440 + pose(rideD(C.bequem)).y - 40).toFixed(1)}px`;
+    FX.slowZoom(tl, "#a2-shotA", C.bequem, { origin: zOrigin, to: zTo, d: zD });
+
+    // ---- 7 "läuft die Rolltreppe mal rückwärts": Rückspul-Effekt 0,5 s (auch der Zoom spult zurück), dann Clip A
+    // rückwärts; der Pfeil dreht auf Rot nach unten
+    FX.tween(tl, "#a2-shotA", { scale: zTo, transformOrigin: zOrigin }, { scale: 1, transformOrigin: zOrigin, duration: 0.5, ease: "power2.inOut" }, C.rueck);
+    FX.tween(tl, "#a2-arr1", { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 180, transformOrigin: "50% 50%", duration: 0.4, ease: "power2.inOut" }, C.rueck);
+    FX.tween(tl, ".a2-af", { fill: "#16A34A" }, { fill: "#DC2626", duration: 0.4, ease: "none" }, C.rueck);
+
+    // ---- 8 "eine Menge Knete": der rote Pfeil pulsiert (kein Geld im Bild)
+    FX.pulse(tl, "#a2-arr1-p", C.knete, clamp(C.japan - C.knete - 0.2, 0.8, 2.4), { svgOrigin: "70 200" });
+
+    // ---- 9 "wie lange auch ETF-Kurse fallen können": das Schild gleitet mit der Rolltreppe nach unten (segsEtf)
+    // ---- 10 "zeigt Japan": harter Schnitt auf Clip B, das Schild "Japan" fliegt rein
+    ["#a2-etf", "#a2-arr1", "#a2-ringsvg"].forEach((s) => off(s, C.japan));
+    FX.flyIn(tl, "#a2-japan", C.japanw, { from: "left", dist: 420 });
+
+    // ---- 11 "sage und schreibe 34 Jahre": "2024" ploppt groß und zählt hoch (alte Zahl unscharf darüber),
+    // dann knallt der Stempel "34 Jahre" 8° schräg drauf; bei "Hoch von 1989" klein "Nikkei 225"
+    FX.pop(tl, "#a2-cnt", C.jahre);
+    const dRoll = clamp(C.stamp - C.jahre - 0.12, 0.45, 1.2);
+    FX.tween(tl, "#a2-cnt-strip", { y: 0 }, { y: -35 * 210, duration: dRoll, ease: "power2.inOut" }, C.jahre + 0.05);
+    FX.slam(tl, "#a2-stamp", C.stamp, { rotation: -8 });
+    FX.slowZoom(tl, "#a2-shotB", C.stamp + 0.3, { origin: "560px 360px" });
+    FX.pop(tl, "#a2-nikkei", C.hoch, { origin: "0% 50%" });
+
+    // ---- 12 "Japan ist ein Extremfall": Schild "Extremfall" ploppt in die Ecke ("Japan" fliegt raus, max. 5 Elemente)
+    FX.flyOut(tl, "#a2-japan", C.extrem, { to: "left", dist: 420 });
+    off("#a2-japan", C.extrem + 0.25);
+    FX.pop(tl, "#a2-extrem", C.extrem, { origin: "100% 0%" });
+
+    // ---- 13 "ein Sparplan kauft immer günstiger nach": unten links 1,5 s Mini-Kalender, 12 Häkchen ploppen nacheinander
+    FX.fadeOut(tl, "#a2-nikkei", C.sparplan, 0.15);
+    FX.pop(tl, "#a2-cal", C.sparplan, { origin: "0% 100%" });
+    cells.forEach((p, i) => FX.pop(tl, p, C.sparplan + 0.15 + i * 0.08, { svgOrigin: "20 20" }));
+    FX.fadeOut(tl, "#a2-cal", C.sparplan + 1.5);
+
+    // ---- 14 "in der einzigen Richtung": Schnitt zurück auf Clip A vorwärts, ein großer Pfeil nach oben
+    ["#a2-cnt", "#a2-stamp", "#a2-extrem"].forEach((s) => off(s, C.richtung));
+    on("#a2-arr2", C.richtung);
+    FX.tween(tl, "#a2-arr2-shaft", { scaleY: 0, svgOrigin: "130 580" }, { scaleY: 1, svgOrigin: "130 580", duration: 0.5, ease: "power2.out" }, C.richtung);
+    FX.tween(tl, "#a2-arr2-head", { y: 394 }, { y: 0, duration: 0.5, ease: "power2.out" }, C.richtung);
+
+    // ---- 15 "nämlich nach oben": Schild "nur 1 Richtung" knallt drauf
+    on("#a2-nur", C.oben);
+    FX.slam(tl, "#a2-nur-in", C.oben);
+    ["#a2-arr2", "#a2-nur"].forEach((s) => off(s, C.loesung));
+
+    // ---- 16 "das ist die Lösung, nämlich der KI-Trading-Bot": harter Schnitt auf Clip C, an der Kabine das Schild
+    // (es fährt mit der Kabine; Kabinen-Spur aus dem Clip, Quelle = 0,3 s + Zeit seit dem Schnitt)
+    const TR = [[0, 664, 316], [1.25, 664, 314], [1.5, 664, 310], [1.75, 664, 303], [2, 663, 293], [2.25, 662, 279], [2.5, 661, 265], [2.75, 660, 249], [3, 659, 236], [3.25, 658, 221], [3.5, 657, 208], [3.75, 656, 193], [4, 655, 180], [4.25, 654, 166], [4.5, 653, 154], [4.75, 652, 140], [5, 651, 128], [5.25, 650, 115], [5.5, 649, 103], [5.75, 648, 90], [6, 647, 79], [6.25, 646, 67], [6.5, 645, 56], [6.75, 644, 44], [7, 644, 33]];
+    const cab = (s) => { let i = 0; while (i < TR.length - 2 && TR[i + 1][0] < s) i++; const [a, x1, y1] = TR[i], [b, x2, y2] = TR[i + 1]; const f = clamp((s - a) / (b - a), 0, 1); return [(x1 + (x2 - x1) * f + 25 - 240) * 1.5, (y1 + (y2 - y1) * f + 32 - 60) * 1.5]; };
+    const srcC1 = (t) => 0.3 + t - C.loesung;
+    const [kx0, ky0] = [673.5, 432];
+    const kEnd = C.profite1 - 0.05;
+    FX.init(tl, "#a2-kib", { x: 0, y: 0 });
+    for (let t = C.kibot; t < kEnd - 0.01; t += 0.25) {
+      const t1 = Math.min(kEnd, t + 0.25), [xa, ya] = cab(srcC1(t)), [xb, yb] = cab(srcC1(t1));
+      FX.tween(tl, "#a2-kib", { x: xa - kx0, y: ya - ky0 }, { x: xb - kx0, y: yb - ky0, duration: t1 - t, ease: "none" }, t);
+    }
+    on("#a2-kib", C.kibot);
+    FX.pop(tl, "#a2-kib-in", C.kibot);
+
+    // ---- 17 "in solchen Marktphasen": die Kabine fährt ruhig weiter, langsamer Zoom
+    const [zx, zy] = cab(srcC1(C.phasen + 1.5));
+    FX.slowZoom(tl, "#a2-shotC1", C.phasen, { origin: `${zx.toFixed(1)}px ${zy.toFixed(1)}px` });
+    // "auch wirklich Profite generieren": keine Schrift -> das Schild ist vorher weg
+    FX.fadeOut(tl, "#a2-kib", C.profite1 - 0.25);
+
+    // ---- 18/19 BAUSTEIN Mitte-CTA: Chip bei "Live-Webinar", Button bei "Klick", fliegt nach dem Satz raus (Szene läuft ruhig)
+    FX.midCta(tl, "a2m", { live: C.live, klick: C.klick, out: E.ctaend });
+    // (20 "Dieser Bot Trader automatisiert" und 21 "ohne Vorwissen" sind in der geschnittenen Aufnahme nicht gesprochen.)
+
+    // ---- 22 "besser als ein ETF-Depot?": Split-Screen, links Clip A, rechts Clip C, in der Mitte "vs."
+    on("#a2-divl", C.vs);
+    FX.pop(tl, "#a2-vs", C.vs);
+    const szD = clamp(C.selbst - E.vs - 0.1, 0.5, 3);
+    FX.slowZoom(tl, "#a2-split", E.vs, { origin: "540px 355px", to: 1 + 0.08 * (szD / 3), d: szD });
+    tl.set("#a2-split", { scale: 1 }, C.selbst);
+
+    // ---- 23 "der sich die Richtung selbst aussucht": rechts Schnitt auf Clip D, Pfeil hoch leuchtet gelb, dann runter
+    on("#a2-D", C.selbst);
+    on("#a2-Dup", C.selbstw);
+    off("#a2-Dup", C.selbstd);
+    on("#a2-Ddn", C.selbstd);
+    off("#a2-Ddn", Math.min(C.selbstd + 0.8, C.gold - 0.1));
+
+    // ---- 24 "tradet zum Beispiel mit Gold": neben der Anzeige ploppt der Chip "Gold" (kein Goldbarren)
+    FX.pop(tl, "#a2-gold", C.gold, { origin: "0% 50%" });
+
+    // ---- 25 "bei fallenden Kursen": der Pfeil nach unten leuchtet und pulsiert; vor "profitieren" keine Schrift mehr
+    on("#a2-Ddn", C.fallend);
+    FX.pulse(tl, "#a2-Ddn-p", C.fallend, clamp(C.jede - C.fallend - 0.1, 0.8, 2.4), { svgOrigin: "115 315" });
+    FX.fadeOut(tl, "#a2-gold", C.profitieren - 0.25);
+    FX.fadeOut(tl, "#a2-vs", C.profitieren - 0.25);
+
+    // ---- 26 "Er profitiert quasi von jeder Marktphase": beide Pfeile leuchten abwechselnd, keine Schrift
+    for (let t = C.jede, k = 0; t < C.verkaufen - 0.1; t += 0.4, k++) {
+      tl.set("#a2-Dup", { opacity: k % 2 ? 0 : 1 }, t);
+      tl.set("#a2-Ddn", { opacity: k % 2 ? 1 : 0 }, t);
+    }
+
+    // ---- 27 "jetzt nicht verkaufen": zurück im Split-Screen (Aufzug + kleine Anzeige mit "Gold"), über der Rolltreppe "bleibt ✓"
+    off("#a2-D", C.verkaufen);
+    ["#a2-vs", "#a2-mini", "#a2-gold2"].forEach((s) => on(s, C.verkaufen));
+    on("#a2-bleibt", C.verkaufenw);
+    FX.pop(tl, "#a2-bleibt-in", C.verkaufenw, { origin: "50% 50%" });
+
+    // ---- 28 "ein anderer Ansatz": das "vs." dreht sich zu "+"
+    const tA = C.ansatz - 0.2;
+    FX.tween(tl, "#a2-vs", { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 180, transformOrigin: "50% 50%", duration: 0.4, ease: "power2.inOut" }, tA);
+    FX.fadeOut(tl, "#a2-vs-t", tA, 0.18);
+    FX.fadeIn(tl, "#a2-plus", tA + 0.2, 0.18);
+
+    // ---- 29 "Er kann nämlich profitieren": Clip C fährt im Wechsel hoch und runter, keine Schrift
+    ["#a2-divl", "#a2-vs", "#a2-mini", "#a2-gold2", "#a2-bleibt"].forEach((s) => off(s, C.profite));
+
+    // ---- 30-32 BAUSTEIN End-Karte ab "am Sonntag" ("18 Uhr", Unterzeile, Touch-Punkt bei "klick"). Den Platz-Chip gibt
+    // es nur, wenn Kilian die Zahl sagt: "bis zu 15 Leute" fehlt in der geschnittenen Aufnahme -> der Chip bleibt aus.
+    FX.endCard(tl, "a2e", { start: C.sonntag, t18: C.uhr18, bot: C.bot, klick: C.klick2, platz: C.platz ?? null, pulseDate: C.schnell });
+
+    // ---- Filmkorn: Korn-Kachel springt alle 2 Frames (deterministisch)
+    for (let i = 0, t = 0; t < DUR; i++, t += 2 / 30) {
+      const h = Math.imul(i + 1, 2654435761) >>> 0;
+      tl.set("#a2-grain", { backgroundPosition: `${h % 384}px ${(h >>> 9) % 384}px` }, t);
+    }
+
     window.__timelines["ad2"] = tl;
   </script>
 </template>
