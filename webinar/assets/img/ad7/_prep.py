@@ -18,24 +18,29 @@ Panel = the bot's on-chart panel, border box x 744..1405, y 263..1273. Text rows
   754-769, Position 783-799, ACCOUNT band 819-854, Balance .. Eq/Bal % 865-1034, POSITIONS band, Positions .. EA P/L
   1097-1233. Labels x 768..910, values x 1085..1180.
 
-a7-panel.mp4 (14 s, 1080 x 710): crop x 755..1181, y 539..819 (426 x 280, only panel inside: below Slow EMA, above the
-  ACCOUNT band), Lanczos x 2.535 (= ~250 %). Visible: Trend BULLISH, VOLUME PROFILE, POC/VAH/VAL, Signal WAIT,
-  Last Trade SELL, Position FLAT. Hidden: POC/VAH/VAL values = mosaic 5 x 1 blocks of 48 x 48 px per line (one block
-  = 1.6 characters x full line height), output x 822..1062, rows y 237/313/389 (+48). Everything else of the screen
-  (title with the product name, prices, account, toolbar, Market Watch, Navigator, taskbar, chart) is outside the crop.
+a7-panel.mp4 (14 s, 1080 x 710): crop x 757..1180, y 540..818 (423 x 278, only panel inside: below the Slow EMA row
+  incl. its faint ringing at y 538-539, above the ACCOUNT band at 818/819), Lanczos x 2.553 (= ~250 %).
+  Visible: Trend BULLISH, VOLUME PROFILE, POC/VAH/VAL labels, Signal WAIT, Last Trade SELL, Position FLAT.
+  Hidden: POC/VAH/VAL values = mosaic 5 x 1 blocks of 54 x 54 px per line (one block = 1.8 characters x full line
+  height incl. ringing), output x 808..1078, rows y 234/310/388 (+54). Everything else of the screen (title with the
+  product name, prices, account, toolbar, Market Watch, Navigator, taskbar, chart) is outside the crop.
+  Output rows (px): Trend 29-70, VOLUME PROFILE band 120-213, Signal label x 31-209 / WAIT x 836-955 y 467-519 (row
+  centre 491), Last Trade 544-587, Position 620-662. a7-panel = a7-screen region x 25.0..310.5, y 191.7..379.3 (x 3.78).
 a7-screen.mp4 (40 s, 1080 x 710): crop x 720..2320, y 256..1308 (1600 x 1052, area x 0.675): the whole panel left,
   the chart right of it. Cropped out: title bar, menu, toolbar (Algo Trading), Market Watch, Navigator, the chart's
   symbol/price header line (y 232-254), price axis, the EA label top right, time axis, ATR window, taskbar, the
   parked mouse (x >= 2404). Chart (everything outside the panel box) Gaussian-blurred sigma 12 output px (panel box
   blanked first, nothing of the panel bleeds in); this also smears the bot's input-string line (y 266-282, x >= 1408).
   Mosaic 14 x 14 px blocks on: the panel title (product name), all MARKET values, POC/VAH/VAL values, and the whole
-  ACCOUNT and POSITIONS rows, labels included (Balance, Equity, Margin, P/L, %, Lots). Sharp: section headers, the
-  MARKET / VOLUME PROFILE labels, BULLISH, WAIT, SELL, FLAT.
+  ACCOUNT and POSITIONS rows, labels included (Balance, Equity, Margin, P/L, %, Lots); 11 x 17 px blocks on the "(14)"
+  of ATR(14), so no digit is left. Sharp: section headers, the MARKET / VOLUME PROFILE labels, BULLISH, WAIT, SELL, FLAT.
 a7-clock.mp4 (14 s, 832 x 240): the Market Watch server-time digits only, crop x 160..264, y 222..252 (the header bar
-  between "Watch:" ending at x 157 and the empty bar; nothing else in it), luminance -> ink coverage, cubic x 8,
-  smoothed edge -> white digits on black (use mix-blend-mode: screen / lighten on a dark motif).
+  between "Watch:" ending at x 157 and the empty bar; nothing else in it), ink coverage per R/G/B subpixel (ClearType =
+  3 horizontal samples per pixel), cubic x 8, smoothed edge -> white digits on black (mix-blend-mode: screen / lighten).
 a7-clock.json: the ticks of that clock in clip time ([t, "HH:MM:SS"]; 10:48:34 at t = 0, +1 s per tick, verified
   by eye 118 - 159 s: 10:48:33 .. 10:49:15, no skipped second) - for a drawn clock that ticks exactly like the recording.
+Checked (every 0.5 s by eye + every frame numerically): no digit / title / account text / cursor / UI chrome legible;
+  outside the mosaics nothing changes over time beyond codec noise (max 20/255), the mosaic blocks stay uniform.
 """
 import json, os, subprocess, sys
 import numpy as np
@@ -86,17 +91,18 @@ class Enc:
             sys.exit(f"encode {self.name} failed")
 
 
-def mosaic(img, x0, y0, x1, y1, b):
-    """Fill every b x b block of the rectangle (blocks anchored at x0, y0) with its mean colour."""
-    for by in range(y0, y1, b):
+def mosaic(img, x0, y0, x1, y1, b, bh=None):
+    """Fill every b x bh block of the rectangle (blocks anchored at x0, y0) with its mean colour."""
+    bh = bh or b
+    for by in range(y0, y1, bh):
         for bx in range(x0, x1, b):
-            blk = img[by:min(by + b, y1), bx:min(bx + b, x1)]
+            blk = img[by:min(by + bh, y1), bx:min(bx + b, x1)]
             blk[...] = blk.reshape(-1, 3).mean(0)
 
 
 # ---------------------------------------------------------------- a7-panel
-PANEL_CROP = (755, 539, 426, 280)  # x, y, w, h (source)
-PANEL_BLOCKS = [(822, y, 1062, y + 48) for y in (237, 313, 389)]  # POC, VAH, VAL values (output px), 48 px blocks
+PANEL_CROP = (757, 540, 423, 278)  # x, y, w, h (source); rows 538-539 / 818 carry faint residue of Slow EMA / ACCOUNT
+PANEL_BLOCKS = [(808, y, 1078, y + 54) for y in (234, 310, 388)]  # POC, VAH, VAL values (output px), 54 px blocks
 
 
 def panel():
@@ -105,7 +111,7 @@ def panel():
     for f in frames(14.0, f"crop={w}:{h}:{x}:{y}:exact=1,scale=1080:710:flags=lanczos+accurate_rnd+full_chroma_int:{TO_RGB}", 1080, 710):
         img = f.astype(np.float32)
         for r in PANEL_BLOCKS:
-            mosaic(img, *r, 48)
+            mosaic(img, *r, 54)
         e.put(np.clip(img + 0.5, 0, 255))
     e.close()
 
@@ -114,8 +120,10 @@ def panel():
 SCR_CROP = (720, 256, 1600, 1052)
 SX, SY = 1080 / 1600, 710 / 1052
 PANEL_BOX = (744, 263, 1406, 1274)  # source, border included
-SCR_MOSAIC = [  # source rects: title, MARKET values, VOLUME PROFILE values, ACCOUNT rows, POSITIONS rows
-    (764, 281, 1094, 309), (1081, 367, 1186, 541), (1081, 631, 1174, 713), (764, 861, 1186, 1038), (764, 1093, 1186, 1237)]
+SCR_MOSAIC = [  # (source rect, block w, block h in output px): title, MARKET values, VOLUME PROFILE values, ACCOUNT rows,
+    #             POSITIONS rows, and the "(14)" of the ATR(14) label (glyphs x 806..849, "R" ends at 803) -> 3 blocks
+    ((764, 281, 1094, 309), 14, 14), ((1081, 367, 1186, 541), 14, 14), ((1081, 631, 1174, 713), 14, 14),
+    ((764, 861, 1186, 1038), 14, 14), ((764, 1093, 1186, 1237), 14, 14), ((805, 459, 852, 484), 11, 17)]
 
 
 def to_out(x0, y0, x1, y1):
@@ -125,12 +133,13 @@ def to_out(x0, y0, x1, y1):
 
 def screen():
     x, y, w, h = SCR_CROP
-    px0, py0, px1, py1 = to_out(*PANEL_BOX)
+    X, Y = SCR_CROP[:2]
+    px0, py0, px1, py1 = (int(round((v - o) * k)) for v, o, k in zip(PANEL_BOX, (X, Y, X, Y), (SX, SY, SX, SY)))
     e = Enc("a7-screen.mp4", 1080, 710)
     for f in frames(40.0, f"crop={w}:{h}:{x}:{y},scale=1080:710:flags=area+accurate_rnd+full_chroma_int:{TO_RGB}", 1080, 710):
         img = f.astype(np.float32)
-        for r in SCR_MOSAIC:
-            mosaic(img, *to_out(*r), 14)
+        for r, bw, bh in SCR_MOSAIC:
+            mosaic(img, *to_out(*r), bw, bh)
         chart = img.copy()
         chart[py0:py1, px0:px1] = 0  # nothing of the panel bleeds into the blur
         out = cv2.GaussianBlur(chart, (0, 0), 12)
@@ -142,7 +151,7 @@ def screen():
 # ---------------------------------------------------------------- a7-clock
 CLK_CROP = (160, 222, 104, 30)
 CLK_SCALE = 8
-BAR_LUM, INK_LUM = 194.0, 20.0
+CLK_BG = np.array([182, 196, 211], np.float32)  # header bar colour; the digits are ~black
 
 
 def smoothstep(a, b, v):
@@ -165,9 +174,9 @@ def clock():
                 hh, mm = hh + mm // 60, mm % 60
             ticks.append([round(k / 30, 3), f"{hh:02d}:{mm:02d}:{ss:02d}"])
         prev = lum
-        cov = np.clip((BAR_LUM - lum) / (BAR_LUM - INK_LUM), 0, 1)
-        up = cv2.GaussianBlur(cv2.resize(cov, (W, H), interpolation=cv2.INTER_CUBIC), (0, 0), 2.5)
-        e.put(np.repeat((smoothstep(0.3, 0.6, up) * 255)[..., None], 3, axis=2))
+        cov = np.clip((CLK_BG - f.astype(np.float32)) / CLK_BG, 0, 1).reshape(h, w * 3)  # ClearType: R,G,B = 3 subpixels
+        up = cv2.GaussianBlur(cv2.resize(cov, (W, H), interpolation=cv2.INTER_CUBIC), (0, 0), 2.75)
+        e.put(np.repeat((smoothstep(0.23, 0.47, up) * 255)[..., None], 3, axis=2))
     e.close()
     json.dump({"source": "experiment1.mov", "source_start": S0, "fps": 30, "what": "Market Watch server time",
                "ticks": ticks}, open(OUT("a7-clock.json"), "w"), indent=1)
