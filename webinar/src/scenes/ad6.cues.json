@@ -1,45 +1,110 @@
 {
   "cues": {
     "trade": "Ich trade jetzt seit 9 Jahren",
-    "trotzdem": "trotzdem lass ich heute eine KI für mich traden",
-    "heute": { "phrase": "trotzdem lass ich heute eine KI für mich traden", "word": 3 },
-    "ki": { "phrase": "trotzdem lass ich heute eine KI für mich traden", "word": 5 },
+    "trotzdem": "trotzdem lasse ich heute eine KI für mich traden",
+    "heute": {
+      "phrase": "trotzdem lasse ich heute eine KI für mich traden",
+      "word": 3
+    },
+    "ki": {
+      "phrase": "trotzdem lasse ich heute eine KI für mich traden",
+      "word": 5
+    },
     "verrueckt": "Klingt erst mal verrückt",
     "gruende": "3 richtig gute Gründe",
     "erstens": "Erstens",
-    "angst": "keine Angst und keine Gier",
     "gefuehle": "diese 2 Gefühle",
     "rede": "ich weiß, wovon ich rede",
     "zweitens": "Zweitens",
-    "zeit": "keine Zeit habe",
     "schlafe": "oder schlafe",
-    "ohne": "funktioniert ohne mich",
-    "drittens": "Und drittens",
-    "strategien": "9 TradingStrategien gleichzeitig im Blick",
+    "ohne": "Sie macht alles automatisiert",
+    "drittens": {
+      "phrase": "Und dritter Grund",
+      "word": 1
+    },
     "testet": "testet immer wieder",
-    "darf": "gerade arbeiten darf",
-    "mensch": "Das schafft kaum ein Mensch",
-    "job": "neben einem Job schon gar nicht",
+    "darf": "am besten arbeiten",
+    "mensch": "das schafft kaum ein Mensch",
+    "job": "neben dem Job schon gar nicht",
+    "garnicht": {
+      "phrase": "neben dem Job schon gar nicht",
+      "word": 4
+    },
     "beste": "Und jetzt kommt das Beste",
-    "erfahrung": "keine 9 Jahre Erfahrung",
+    "erfahrung": "keine 9 Jahre Trading-Erfahrung",
     "bot": "setzt der Bot ganz allein",
     "brauchst": "Was du brauchst",
-    "kapital": "moderates Startkapital",
-    "geduld": "ein bisschen Geduld",
-    "minuten": "30 Minuten pro Woche",
-    "schauen": "auf die Ergebnisse schauen",
+    "kapital": {
+      "phrase": "moderates Startkapital",
+      "word": 1
+    },
+    "geduld": {
+      "phrase": "ein bisschen Geduld",
+      "word": 2
+    },
+    "minuten": {
+      "phrase": "20 bis 30 Minuten Zeit pro Woche",
+      "word": 2
+    },
     "versprechen": "kein Gewinnversprechen",
-    "ehrlich": "ist nicht ehrlich",
-    "sonntag": "Am Sonntag, den 6.12.",
+    "luegner": "ist ein Lügner",
+    "aber": "aber ich möchte dir live",
+    "sonntag": "am Sonntag, den 6. Dezember",
     "uhr": "um 18 Uhr",
-    "wie": "wie mein KI-Trading-Bot für mich tradet",
-    "versteht": "dass es wirklich jeder versteht",
-    "personen": "nur 10 personen",
-    "platz": "sicher dir deinen platz"
+    "bots": "Wir entwickeln diese KI-Trading-Bots",
+    "letzte": "das erste und letzte Mal",
+    "personen": "nur 10 Personen",
+    "klick": "Klick unter dem Video auf den Link"
   },
   "kil": [
-    { "at": "rede", "dur": 2 },
-    { "at": "versprechen", "until": "ehrlich" }
+    {
+      "at": "rede",
+      "dur": 2
+    },
+    {
+      "at": "versprechen",
+      "until": "luegner"
+    }
   ],
-  "sfx": []
+  "sfx": [
+    {
+      "at": "trade",
+      "type": "pop",
+      "offset": 0.25
+    },
+    {
+      "at": "verrueckt",
+      "type": "stamp"
+    },
+    {
+      "at": "erstens",
+      "type": "whoosh"
+    },
+    {
+      "at": "testet",
+      "type": "pen"
+    },
+    {
+      "at": "garnicht",
+      "type": "stamp"
+    },
+    {
+      "at": "beste",
+      "type": "whoosh"
+    },
+    {
+      "at": "kapital",
+      "type": "pen",
+      "offset": 0.35
+    },
+    {
+      "at": "sonntag",
+      "type": "pop",
+      "offset": 0.25
+    },
+    {
+      "at": "personen",
+      "type": "pop"
+    }
+  ]
 }

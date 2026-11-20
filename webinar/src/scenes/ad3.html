@@ -1,0 +1,359 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #0E1A2B; overflow: hidden; }
+    #a3-scene { position: absolute; inset: 0; overflow: hidden; }
+    /* Hintergrund: Navy-Verlauf mit feinen senkrechten Streifen und weichem Licht hinter dem Handy */
+    #a3-bg { position: absolute; inset: 0; background:
+      radial-gradient(ellipse 640px 520px at 540px 330px, rgba(74, 102, 156, 0.36), rgba(14, 26, 43, 0) 72%),
+      repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.022) 0 2px, rgba(255, 255, 255, 0) 2px 7px),
+      linear-gradient(180deg, #15263E 0%, #0E1A2B 58%, #09121F 100%); }
+    #a3-stage, #a3-split, #a3-zA, #a3-zB { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+
+    /* Handy: neutraler schwarzer Rahmen, runde Ecken, unten aus dem Bild */
+    #a3-phone { position: absolute; left: 190px; top: 24px; width: 700px; height: 1500px; border-radius: 96px; background: #060709; box-shadow: inset 0 0 0 3px #30343C, 0 28px 70px rgba(0, 0, 0, 0.55); }
+    #a3-screen { position: absolute; left: 16px; top: 16px; width: 668px; height: 1468px; border-radius: 80px; overflow: hidden; background: #FFFFFF; }
+    #a3-cam { position: absolute; left: 335px; top: 40px; width: 30px; height: 30px; border-radius: 50%; background: #040506; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.07); }
+    #a3-status { position: absolute; left: 0; top: 0; width: 668px; height: 80px; color: #FFFFFF; z-index: 5; }
+    #a3-clock { position: absolute; left: 66px; top: 21px; font: 600 30px/40px 'Poppins'; }
+    #a3-sig { position: absolute; left: 498px; top: 28px; width: 104px; height: 26px; overflow: visible; }
+
+    /* Homescreen */
+    #a3-home { position: absolute; left: 0; top: 0; width: 668px; height: 1468px; z-index: 1; background: linear-gradient(158deg, #586A8F 0%, #5A6189 42%, #6C5A86 100%); }
+    .a3-app { position: absolute; width: 124px; height: 124px; border-radius: 30px; display: flex; align-items: center; justify-content: center; }
+    .a3-app svg { width: 64px; height: 64px; overflow: visible; }
+    .a3-lab { position: absolute; width: 200px; text-align: center; font: 500 27px/36px 'Poppins'; color: rgba(255, 255, 255, 0.92); white-space: nowrap; }
+    #a3-dep { position: absolute; left: 234px; top: 282px; width: 200px; height: 200px; }
+    #a3-deptile { position: absolute; left: 0; top: 0; width: 200px; height: 200px; border-radius: 48px; background: linear-gradient(160deg, #484E5C 0%, #343945 100%); box-shadow: 0 14px 30px rgba(10, 14, 30, 0.35); display: flex; align-items: center; justify-content: center; }
+    #a3-deptile svg { width: 118px; height: 100px; overflow: visible; }
+    #a3-badge { position: absolute; left: 148px; top: -30px; width: 82px; height: 82px; border-radius: 50%; background: #DC2626; border: 5px solid #FFFFFF; box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3); display: flex; align-items: center; justify-content: center; }
+    #a3-badge svg { width: 30px; height: 40px; }
+    #a3-deplab { position: absolute; left: 184px; top: 492px; width: 300px; text-align: center; font: 700 44px/56px 'Poppins'; color: #FFFFFF; }
+
+    /* Notiz-App */
+    #a3-notes { position: absolute; left: 0; top: 0; width: 668px; height: 1468px; z-index: 2; background: #FFFFFF; }
+    #a3-nhead { position: absolute; left: 34px; top: 100px; width: 600px; height: 40px; overflow: visible; }
+    #a3-title { position: absolute; left: 44px; top: 166px; font: 800 64px/74px 'Poppins'; color: #0E1A2B; white-space: nowrap; }
+    #a3-down { position: absolute; left: 418px; top: 170px; width: 60px; height: 74px; }
+    #a3-down svg { position: absolute; left: 0; top: 0; width: 60px; height: 74px; overflow: visible; }
+    .a3-ln { position: absolute; left: 44px; height: 62px; width: 600px; }
+    .a3-ty { position: absolute; left: 0; top: 0; font: 700 48px/62px 'Poppins'; color: #0E1A2B; white-space: pre; }
+    .a3-cl { position: absolute; left: 30px; height: 62px; width: 620px; }
+    .a3-cl .a3-ty, .a3-tx { left: 70px; font-size: 46px; }
+    .a3-tx { position: absolute; top: 0; font-weight: 700; line-height: 62px; color: #0E1A2B; white-space: pre; font-family: 'Poppins'; }
+    .a3-ic { position: absolute; left: 0; top: 4px; width: 54px; height: 54px; }
+    .a3-cur { display: inline-block; width: 5px; height: 52px; margin-left: 3px; background: #0E1A2B; border-radius: 2px; vertical-align: -9px; }
+    .a3-st { position: absolute; left: 0; top: 0; width: 10px; height: 10px; overflow: visible; }
+    .a3-case { fill: none; stroke: #FFFFFF; stroke-width: 20; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #a3-kbd { position: absolute; left: 0; top: 440px; width: 668px; height: 360px; z-index: 3; background: #D3D6DC; padding-top: 12px; }
+    .a3-kr { display: flex; justify-content: center; gap: 7px; margin-bottom: 12px; }
+    .a3-k { width: 53px; height: 64px; border-radius: 9px; background: #FFFFFF; box-shadow: 0 2px 0 #9CA3AF; font: 500 28px/64px 'Poppins'; color: #0E1A2B; text-align: center; }
+    .a3-k.w { width: 80px; background: #B7BCC5; }
+    .a3-k.sp { width: 360px; }
+
+    /* Kalender-Einladung */
+    .a3-inv { position: absolute; background: #FFFFFF; border-radius: 28px; box-shadow: 0 14px 36px rgba(6, 12, 24, 0.32), 0 0 0 1px rgba(14, 26, 43, 0.06); }
+    #a3-inv { left: 18px; top: 20px; width: 632px; height: 130px; z-index: 6; }
+    .a3-cal { position: absolute; width: 84px; height: 92px; border-radius: 16px; overflow: hidden; background: #F3F4F6; box-shadow: inset 0 0 0 2px #E5E7EB; }
+    .a3-cal b { display: block; height: 28px; background: #DC2626; color: #FFFFFF; font: 700 19px/28px 'Poppins'; text-align: center; letter-spacing: 0.08em; }
+    .a3-cal i { display: block; font: 800 46px/62px 'Poppins'; font-style: normal; color: #0E1A2B; text-align: center; }
+    .a3-it { position: absolute; font: 700 40px/48px 'Poppins'; color: #0E1A2B; white-space: nowrap; }
+    .a3-is { position: absolute; font: 500 30px/38px 'Poppins'; color: #4B5563; white-space: nowrap; }
+
+    /* geteiltes Bild: links klein die Depot-App (grau, unberührt), dazwischen das Plus */
+    #a3-lphone { position: absolute; left: 50px; top: 168px; width: 310px; height: 760px; border-radius: 52px; background: #060709; box-shadow: inset 0 0 0 3px #30343C, 0 20px 50px rgba(0, 0, 0, 0.5); }
+    #a3-lscreen { position: absolute; left: 10px; top: 10px; width: 290px; height: 740px; border-radius: 43px; overflow: hidden; background: #E5E7EB; }
+    #a3-lhead { position: absolute; left: 28px; top: 50px; font: 700 44px/56px 'Poppins'; color: #6B7280; }
+    #a3-ltile { position: absolute; left: 79px; top: 136px; width: 132px; height: 132px; border-radius: 32px; background: #9CA3AF; display: flex; align-items: center; justify-content: center; }
+    #a3-ltile svg { width: 78px; height: 66px; overflow: visible; }
+    #a3-up { position: absolute; left: 70px; top: 300px; width: 160px; height: 110px; }
+    #a3-up svg { position: absolute; left: 0; top: 4px; width: 60px; height: 100px; }
+    #a3-up span { position: absolute; left: 76px; top: -4px; font: 800 92px/110px 'Poppins'; color: #6B7280; }
+    #a3-plus { position: absolute; left: 401px; top: 344px; width: 96px; height: 96px; border-radius: 50%; background: #FACC15; box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35); }
+    #a3-plus svg { position: absolute; left: 0; top: 0; width: 96px; height: 96px; }
+
+    #a3-dim { position: absolute; inset: 0; background: #000000; opacity: 0; z-index: 50; }
+
+    /* über der End-Karte: LIVE-Badge neben dem Datum, Einladung mit "Annehmen" */
+    #a3-live { position: absolute; left: 828px; top: 196px; height: 58px; padding: 0 22px 0 18px; border-radius: 29px; background: #DC2626; display: flex; align-items: center; gap: 12px; color: #FFFFFF; font: 800 34px/58px 'Poppins'; letter-spacing: 0.06em; z-index: 88; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); }
+    #a3-live i { width: 16px; height: 16px; border-radius: 50%; background: #FFFFFF; flex: none; }
+    #a3-inv2 { left: 584px; top: 450px; width: 420px; height: 222px; z-index: 89; }
+    #a3-ann { position: absolute; left: 20px; top: 130px; width: 380px; height: 72px; border-radius: 36px; background: #0E1A2B; color: #FFFFFF; font: 700 40px/72px 'Poppins'; text-align: center; }
+    #a3-ok { position: absolute; left: 22px; top: 14px; width: 44px; height: 44px; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="ad3" data-width="1080" data-height="710">
+    <div id="a3-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <div id="a3-bg"></div>
+      <div id="a3-stage">
+        <div id="a3-split"><div id="a3-zA"><div id="a3-zB">
+          <div id="a3-phone">
+            <div id="a3-screen">
+              <div id="a3-home">
+                <div class="a3-app" style="left:82px; top:88px; background:rgba(255,255,255,0.2)"><svg viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round"><path d="M22 17 L26 10 H38 L42 17"/><rect x="6" y="17" width="52" height="37" rx="10"/><circle cx="32" cy="35" r="10"/></svg></div>
+                <div class="a3-app" style="left:272px; top:88px; background:rgba(214,216,222,0.62)"><svg viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"><path d="M12 18 H52 M12 32 H52 M12 46 H40"/></svg></div>
+                <div class="a3-app" style="left:462px; top:88px; background:rgba(255,255,255,0.32)"><svg viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="13" width="48" height="43" rx="9"/><path d="M8 27 H56 M22 7 V17 M42 7 V17"/></svg></div>
+                <div class="a3-lab" style="left:44px; top:222px">Kamera</div>
+                <div class="a3-lab" style="left:234px; top:222px">Notizen</div>
+                <div class="a3-lab" style="left:424px; top:222px">Kalender</div>
+                <div id="a3-dep">
+                  <div id="a3-deptile"><svg viewBox="0 0 120 100" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M42 27 V19 Q42 11 50 11 H70 Q78 11 78 19 V27"/><rect x="9" y="27" width="102" height="64" rx="14"/><path d="M9 54 H111"/></svg></div>
+                  <div id="a3-badge"><svg viewBox="0 0 34 44"><path d="M11 0 H23 V24 H34 L17 44 L0 24 H11 Z" fill="#FFFFFF"/></svg></div>
+                </div>
+                <div id="a3-deplab">Depot</div>
+                <div class="a3-app" style="left:82px; top:574px; background:rgba(255,255,255,0.22)"><svg viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linejoin="round"><rect x="6" y="14" width="52" height="38" rx="8"/><path d="M9 19 L32 36 L55 19"/></svg></div>
+                <div class="a3-app" style="left:462px; top:574px; background:rgba(255,255,255,0.3)"><svg viewBox="0 0 64 64" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"><circle cx="32" cy="32" r="11" fill="#FFFFFF"/><path d="M32 4 V12 M32 52 V60 M4 32 H12 M52 32 H60 M12 12 L18 18 M46 46 L52 52 M52 12 L46 18 M18 46 L12 52"/></svg></div>
+              </div>
+              <div id="a3-notes">
+                <svg id="a3-nhead" viewBox="0 0 600 40" fill="none" stroke="#FACC15" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2 L4 20 L18 38"/><circle cx="578" cy="20" r="18"/><circle cx="569" cy="20" r="1.5" fill="#FACC15"/><circle cx="578" cy="20" r="1.5" fill="#FACC15"/><circle cx="587" cy="20" r="1.5" fill="#FACC15"/></svg>
+                <div id="a3-title">Mein Plan:</div>
+                <div id="a3-down">
+                  <svg viewBox="0 0 60 74"><path d="M20 2 H40 V38 H58 L30 72 L2 38 H20 Z" fill="#DC2626" stroke="#DC2626" stroke-width="4" stroke-linejoin="round"/>
+                    <path id="a3-dxc" class="a3-case" pathLength="1" d="M-8 6 L68 68"/><path id="a3-dx" class="fx-stroke" pathLength="1" d="M-8 6 L68 68"/></svg>
+                </div>
+                <div id="a3-b1" class="a3-ln" style="top:280px"><div id="a3-b1t" class="a3-ty" data-text="1. warten und hoffen"><i id="a3-k1" class="a3-cur"></i></div>
+                  <svg class="a3-st"><path id="a3-s1" class="fx-stroke" pathLength="1" d="M-6 35 L507 35"/></svg></div>
+                <div id="a3-b2" class="a3-ln" style="top:358px"><div id="a3-b2t" class="a3-ty" data-text="2. Panik-Verkauf"><i id="a3-k2" class="a3-cur"></i></div>
+                  <svg class="a3-st"><path id="a3-s2" class="fx-stroke" pathLength="1" d="M-6 35 L427 35"/></svg></div>
+                <div id="a3-c1" class="a3-cl" style="top:280px">
+                  <svg id="a3-x1" class="a3-ic" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#DC2626"/><path d="M18 18 L36 36 M36 18 L18 36" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/></svg>
+                  <div id="a3-c1t" class="a3-ty" data-text="kaufen und hoffen"><i id="a3-k3" class="a3-cur"></i></div>
+                  <svg class="a3-st"><path id="a3-s3" class="fx-stroke" pathLength="1" d="M62 34 L514 34"/></svg>
+                </div>
+                <div id="a3-c2" class="a3-cl" style="top:358px"><svg id="a3-g2" class="a3-ic" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#16A34A"/><path d="M15 28 L24 37 L40 19" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><div id="a3-c2t" class="a3-tx">kurze Trades</div></div>
+                <div id="a3-c3" class="a3-cl" style="top:436px"><svg id="a3-g3" class="a3-ic" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#16A34A"/><path d="M15 28 L24 37 L40 19" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><div id="a3-c3t" class="a3-tx">Einstieg: feste Regel</div></div>
+                <div id="a3-c4" class="a3-cl" style="top:514px"><svg id="a3-g4" class="a3-ic" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#16A34A"/><path d="M15 28 L24 37 L40 19" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><div id="a3-c4t" class="a3-tx">Ausstieg: feste Regel</div></div>
+                <div id="a3-c5" class="a3-cl" style="top:514px"><svg id="a3-g5" class="a3-ic" viewBox="0 0 54 54"><circle cx="27" cy="27" r="27" fill="#16A34A"/><path d="M15 28 L24 37 L40 19" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg><div id="a3-c5t" class="a3-tx">Depot: bleibt, wie es ist</div></div>
+                <div id="a3-kbd"></div>
+              </div>
+              <div id="a3-status"><div id="a3-clock">14:27</div>
+                <svg id="a3-sig" viewBox="0 0 104 26" fill="currentColor"><rect x="0" y="16" width="7" height="8" rx="2"/><rect x="11" y="11" width="7" height="13" rx="2"/><rect x="22" y="6" width="7" height="18" rx="2"/><rect x="33" y="1" width="7" height="23" rx="2"/><rect x="52" y="2" width="44" height="22" rx="7" fill="none" stroke="currentColor" stroke-width="3"/><rect x="57" y="7" width="30" height="12" rx="3"/><rect x="98" y="9" width="4" height="8" rx="2"/></svg></div>
+              <div id="a3-inv" class="a3-inv">
+                <div class="a3-cal" style="left:22px; top:19px"><b>DEZ</b><i>6</i></div>
+                <div class="a3-it" style="left:130px; top:18px">Live-Webinar</div>
+                <div class="a3-is" style="left:130px; top:70px">So 6.12. · 18:00</div>
+              </div>
+            </div>
+            <div id="a3-cam"></div>
+          </div>
+        </div></div></div>
+        <div id="a3-lphone"><div id="a3-lscreen">
+          <div id="a3-lhead">Depot</div>
+          <div id="a3-ltile"><svg viewBox="0 0 120 100" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"><path d="M42 27 V19 Q42 11 50 11 H70 Q78 11 78 19 V27"/><rect x="9" y="27" width="102" height="64" rx="14"/><path d="M9 54 H111"/></svg></div>
+          <div id="a3-up"><svg viewBox="0 0 60 100"><path d="M20 98 V40 H3 L30 3 L57 40 H40 V98 Z" fill="#6B7280" stroke="#6B7280" stroke-width="4" stroke-linejoin="round"/></svg><span>?</span></div>
+        </div></div>
+        <div id="a3-plus"><svg viewBox="0 0 96 96"><path d="M48 25 V71 M25 48 H71" stroke="#0E1A2B" stroke-width="12" stroke-linecap="round"/></svg></div>
+      </div>
+      <div id="a3-dim"></div>
+      <!--@include midcta p="a3m"-->
+      <!--@include endcard p="a3e"-->
+      <div id="a3-live"><i></i><span>LIVE</span></div>
+      <div id="a3-inv2" class="a3-inv">
+        <div class="a3-cal" style="left:20px; top:20px"><b>DEZ</b><i>6</i></div>
+        <div class="a3-it" style="left:124px; top:20px; font-size:36px">Live-Webinar</div>
+        <div class="a3-is" style="left:124px; top:66px; font-size:27px">So 6.12. · 18:00</div>
+        <div id="a3-ann">Annehmen<svg id="a3-ok" viewBox="0 0 44 44"><path d="M6 23 L17 34 L38 11" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </div>
+      <!--@include touch p="a3"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    // 620-%-Satz gesprochen? (Ad 3 ja, Ad 3 B nein: dann fallen die rot markierten Zeilen weg)
+    const P620 = C.halte != null && C.p620 != null;
+
+    // ---- DOM (deterministisch): Tastatur, getippte Zeilen als einzelne Zeichen ----
+    for (const row of ["QWERTZUIOPÜ", "ASDFGHJKLÖÄ", "*YXCVBNM*", "*_*"]) {
+      const r = document.createElement("div");
+      r.className = "a3-kr";
+      for (const ch of row) {
+        const k = document.createElement("div");
+        k.className = "a3-k" + (ch === "*" ? " w" : ch === "_" ? " sp" : "");
+        if (ch !== "*" && ch !== "_") k.textContent = ch;
+        r.appendChild(k);
+      }
+      $("#a3-kbd").appendChild(r);
+    }
+    function chars(sel) {
+      const el = $(sel), cur = el.querySelector(".a3-cur"), out = [];
+      for (const ch of el.getAttribute("data-text")) {
+        const s = document.createElement("span");
+        s.textContent = ch;
+        el.insertBefore(s, cur);
+        out.push(s);
+      }
+      return out;
+    }
+    const B1 = chars("#a3-b1t"), B2 = chars("#a3-b2t"), C1 = chars("#a3-c1t");
+    // "es tippt sich": Zeichen für Zeichen, der Cursor wandert mit
+    function typeLine(list, t0, t1) {
+      const dt = clamp((t1 - t0) / list.length, 0.03, 0.065);
+      list.forEach((s, i) => tl.set(s, { display: "inline" }, t0 + i * dt));
+      return t0 + (list.length - 1) * dt;
+    }
+    // Cursor: blinkt (0,8 s pro Takt) oder steht, danach weg
+    function cursorTrack(el, segs, tEnd) {
+      for (const [a, b, mode] of segs) {
+        if (b <= a + 0.02) continue;
+        if (mode === "solid") { tl.set(el, { opacity: 1 }, a); continue; }
+        for (let t = a; t < b - 0.05; t += 0.8) {
+          tl.set(el, { opacity: 1 }, t);
+          if (t + 0.45 < b - 0.02) tl.set(el, { opacity: 0 }, t + 0.45);
+        }
+      }
+      tl.set(el, { opacity: 0 }, tEnd);
+    }
+
+    // ---- Anfangszustände ----
+    FX.init(tl, [...B1, ...B2, ...C1], { display: "none" });
+    FX.init(tl, ["#a3-k1", "#a3-k2", "#a3-k3", "#a3-down", "#a3-kbd", "#a3-inv", "#a3-x1", "#a3-g2", "#a3-g3", "#a3-g4", "#a3-g5",
+      "#a3-c2t", "#a3-c3t", "#a3-c4t", "#a3-c5t", "#a3-lphone", "#a3-up", "#a3-plus", "#a3-live", "#a3-inv2", "#a3-ok"], { opacity: 0 });
+    FX.init(tl, "#a3-dim", { opacity: 0 });
+    FX.init(tl, "#a3-notes", { x: 668 });
+    // die End-Karte nutzt den durchgehenden Touch-Punkt der Szene (sonst zwei Punkte gleichzeitig)
+    FX.init(tl, ["#a3e-touch", "#a3e-wave1", "#a3e-wave2"], { visibility: "hidden" });
+
+    // ---- 1–3 Erstes Bild: Touch-Punkt fährt ab Frame 1 aufs Depot-Icon zu, zögert, zittert, zieht sich zurück ----
+    const T0 = [852, 656], NEAR = [686, 568], BACK = [858, 648];
+    const tSw = C.anderes - 0.1;
+    const steps = [
+      { t: 0, to: NEAR, d: Math.max(0.8, C.amlieb - 0.08), ease: "power2.out" },
+      { t: C.amlieb, shake: true, d: 0.45 },
+      { t: C.amlieb + 0.5, back: BACK, d: 0.6 },
+      { t: tSw - 0.42, to: [820, 432], d: 0.36 },
+      { t: tSw, to: [300, 432], d: 0.4, ease: "power2.inOut" },
+      { t: tSw + 0.42, hide: true },
+    ];
+    const wobD = clamp(C.verstehe - C.minus - 0.3, 1.2, 3);
+    const wb = FX.wobble(tl, "#a3-dep", C.minus - 0.05, wobD);
+    FX.settle(tl, "#a3-dep", wb.end, wb.endRotation);
+    FX.pulse(tl, "#a3-badge", C.minus - 0.05, wobD + 0.3);
+
+    // ---- 4–5 Handy dimmt auf 60 %, dann hell + schnelles Ranzoomen aufs Icon ----
+    FX.tween(tl, "#a3-dim", { opacity: 0 }, { opacity: 0.4, duration: 0.3, ease: "power1.out" }, C.verstehe - 0.1);
+    FX.tween(tl, "#a3-dim", { opacity: 0.4 }, { opacity: 0, duration: 0.2, ease: "none" }, C.aber - 0.1);
+    FX.zoomFast(tl, "#a3-zA", C.aber - 0.05, { origin: "540px 422px" });
+
+    // ---- 6 Homescreen nach links weggewischt, Notiz "Mein Plan:" öffnet sich ----
+    FX.tween(tl, "#a3-home", { x: 0 }, { x: -668, duration: 0.4, ease: "power2.inOut" }, tSw);
+    FX.tween(tl, "#a3-notes", { x: 668 }, { x: 0, duration: 0.4, ease: "power2.inOut" }, tSw);
+    FX.zoomOut(tl, "#a3-zA", tSw, { from: 1.3, origin: "540px 422px" });
+    FX.tween(tl, "#a3-status", { color: "#FFFFFF" }, { color: "#0E1A2B", duration: 0.3, ease: "none" }, tSw + 0.1);
+
+    // ---- 7 roter Pfeil nach unten neben dem Titel, wird durchgestrichen ----
+    FX.pop(tl, "#a3-down", C.kurse - 0.05);
+    FX.draw(tl, "#a3-dxc", C.kurse + 0.4, 0.3);
+    FX.drawLine(tl, "#a3-dx", C.kurse + 0.4);
+
+    // ---- 8 Cursor blinkt auf der leeren Seite, langsamer Zoom ----
+    const z2 = C.plan - 0.1;
+    FX.slowZoom(tl, "#a3-zB", z2, { origin: "420px 330px" });
+
+    // ---- 9–12 Tastatur fährt rein, zwei Zeilen tippen sich, beide rot durchgestrichen ----
+    FX.flyIn(tl, "#a3-kbd", C.folgendes - 0.05, { from: "bottom", dist: 420 });
+    const tB1 = C.warten - 0.08, eB1 = typeLine(B1, tB1, C.panik - 0.3);
+    const tB2 = C.panik - 0.08, eB2 = typeLine(B2, tB2, C.subopt - 0.3);
+    cursorTrack("#a3-k1", [[tSw + 0.3, tB1, "blink"], [tB1, eB1 + 0.1, "solid"], [eB1 + 0.1, tB2, "blink"]], tB2);
+    cursorTrack("#a3-k2", [[tB2, eB2 + 0.1, "solid"], [eB2 + 0.1, C.subopt - 0.05, "blink"]], C.subopt - 0.05);
+    FX.drawLine(tl, "#a3-s1", C.subopt - 0.05);
+    FX.drawLine(tl, "#a3-s2", C.subopt + 0.3);
+    const tKo = Math.max(C.subopt + 0.35, Math.min(C.subopt + 0.75, C.stattdessen - 0.05));
+    FX.flyOut(tl, "#a3-kbd", tKo, { to: "bottom", dist: 420 });
+    FX.set(tl, "#a3-kbd", { opacity: 0 }, tKo + 0.3); // sonst taucht sie im verkleinerten Handy (geteiltes Bild) wieder auf
+    FX.fadeOut(tl, "#a3-down", tKo, 0.25);            // Storyboard B: Titel ohne Pfeil, ruhiges Bild für den Mitte-CTA
+
+    // ---- 13 Kalender-Einladung gleitet von oben rein (danach ruhig rauszoomen bis zum Chip) ----
+    FX.flyIn(tl, "#a3-inv", C.stattdessen - 0.1, { from: "top", dist: 260 });
+    const z3 = Math.max(z2 + 3.05, C.stattdessen + clamp((C.live - C.stattdessen - 3) / 2, 0.6, 1.5));
+    FX.slowZoom(tl, "#a3-zB", z3, { from: 1.08, to: 1, d: clamp(C.live - 0.1 - z3, 0.8, 3), origin: "420px 330px" });
+
+    // ---- 14–15 BAUSTEIN Mitte-CTA (fliegt in Ad 3 bei "halte dich fest" raus, in Ad 3 B am Satzende) ----
+    const tOut = P620 ? C.halte : Math.min(E.ctaend + 0.35, C.funkt - 0.05);
+    FX.midCta(tl, "a3m", { live: C.live, klick: C.klick, out: tOut });
+
+    // ---- 16–17 (fällt in B weg) Handy dimmt auf 40 %, Kreis groß, keine Zahl, kein Chart (langsam rein- und
+    //      wieder rauszoomen, damit nie > 4 s Stillstand); am Ende des Satzes wieder hell ----
+    if (P620) {
+      const pEnd = E.p620;
+      FX.tween(tl, "#a3-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.3, ease: "power1.out" }, C.halte + 0.05);
+      const z4 = C.halte + 0.25;
+      FX.slowZoom(tl, "#a3-zB", z4, { d: clamp(pEnd - 0.45 - z4, 0.8, 3), origin: "540px 330px" });
+      const z4b = Math.max(z4 + 3.05, pEnd - 3.3);
+      if (pEnd - 0.2 - z4b >= 1.5) FX.slowZoom(tl, "#a3-zB", z4b, { from: 1.08, to: 1, d: Math.min(3, pEnd - 0.2 - z4b), origin: "540px 330px" });
+      else FX.zoomOut(tl, "#a3-zB", pEnd, { from: 1.08, origin: "540px 330px" });
+      FX.tween(tl, "#a3-dim", { opacity: 0.6 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, pEnd);
+    }
+
+    // ---- 18 Einladung fährt hoch, Notiz wieder leer, Cursor blinkt ----
+    FX.flyOut(tl, "#a3-inv", C.funkt - 0.1, { to: "top", dist: 300 });
+    FX.tween(tl, ["#a3-b1", "#a3-b2"], { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "none" }, C.funkt - 0.1);
+
+    // ---- 19–20 "kaufen und hoffen" tippt sich; rotes X davor, Zeile grau + durchgestrichen ----
+    const tC1 = C.kauft - 0.08, eC1 = typeLine(C1, tC1, C.nein - 0.3);
+    cursorTrack("#a3-k3", [[C.funkt + 0.2, tC1, "blink"], [tC1, eC1 + 0.1, "solid"], [eC1 + 0.1, C.nein - 0.1, "blink"]], C.nein - 0.1);
+    FX.pop(tl, "#a3-x1", C.nein - 0.1);
+    FX.tween(tl, "#a3-c1t", { color: "#0E1A2B" }, { color: "#9CA3AF", duration: 0.2, ease: "none" }, C.nein);
+    FX.drawLine(tl, "#a3-s3", C.nein + 0.05);
+
+    // ---- 21–23 grüne Haken ploppen Zeile für Zeile ----
+    for (const [n, t] of [[2, C.trades], [3, C.ein], [4, C.aus]]) {
+      FX.pop(tl, `#a3-g${n}`, t - 0.08);
+      FX.fadeIn(tl, `#a3-c${n}t`, t - 0.08);
+    }
+    // ---- 24 nichts einblenden, langsamer Zoom auf die Liste ----
+    const z5 = C.passiv - 0.1;
+    FX.slowZoom(tl, "#a3-zB", z5, { d: clamp(C.parallel - 0.15 - z5, 0.8, 3), origin: "541px 460px" });
+    // ---- 25 "Depot: bleibt, wie es ist" (höchstens 4 Zeilen: die gestrichene Zeile geht, die Liste rückt hoch) ----
+    const tSh = C.depot2 - 0.5;
+    FX.fadeOut(tl, "#a3-c1", tSh, 0.25);
+    FX.tween(tl, ["#a3-c2", "#a3-c3", "#a3-c4"], { y: 0 }, { y: -78, duration: 0.35, ease: "power2.inOut" }, tSh + 0.08);
+    FX.pop(tl, "#a3-g5", C.depot2 - 0.05);
+    FX.fadeIn(tl, "#a3-c5t", C.depot2 - 0.05);
+
+    // ---- 26 Zoom-out, das Bild teilt sich: links klein die Depot-App, rechts der Plan ----
+    const tSp = C.parallel - 0.1;
+    FX.zoomOut(tl, "#a3-zB", tSp, { from: 1.08, origin: "541px 460px" });
+    FX.tween(tl, "#a3-split", { scale: 1, x: 0, transformOrigin: "540px 24px" }, { scale: 0.72, x: 250, duration: 0.5, ease: "power2.inOut", transformOrigin: "540px 24px" }, tSp);
+    FX.flyIn(tl, "#a3-lphone", tSp + 0.1, { from: "left", dist: 480 });
+    // ---- 27 grauer Pfeil nach oben mit Fragezeichen ----
+    FX.pop(tl, "#a3-up", C.davon - 0.08);
+    // ---- 28 "+" zwischen beiden Hälften, keine Schrift (danach langsamer Zoom) ----
+    FX.pop(tl, "#a3-plus", C.ergaenzung - 0.08);
+    const s1 = C.ergaenzung + 0.6, s1d = clamp(C.kgv2 - 0.15 - s1, 0.8, 3);
+    FX.slowZoom(tl, "#a3-stage", s1, { d: s1d, origin: "540px 380px" });
+    // ---- 29 Handy dimmt auf 40 % (Kreis groß), leicht rauszoomen ----
+    FX.tween(tl, "#a3-dim", { opacity: 0 }, { opacity: 0.6, duration: 0.3, ease: "power1.out" }, C.kgv2 - 0.1);
+    const s2 = Math.max(s1 + s1d + 0.05, C.kgv2 + 0.3);
+    FX.slowZoom(tl, "#a3-stage", s2, { from: 1.08, to: 1, d: clamp(C.sonntag - 0.1 - s2, 0.8, 3), origin: "540px 380px" });
+
+    // ---- 30 BAUSTEIN End-Karte (ohne Platz-Chip) ----
+    FX.tween(tl, "#a3-dim", { opacity: 0.6 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, C.sonntag);
+    const tk = C.klick2;
+    FX.endCard(tl, "a3e", { start: C.sonntag, t18: C.uhr, bot: C.bot, klick: tk });
+    // ---- 31 roter LIVE-Badge neben dem Datum, pulsiert bis zum Ende ("in meinem Live-Webinar"; die Zeile
+    //      "UND DIE ERGEBNISSE SIND SO GUT" ist im Schnitt nicht gesprochen) ----
+    FX.pop(tl, "#a3-live", C.livebadge - 0.08, { origin: "0% 50%" });
+    FX.pulse(tl, "#a3-live", C.livebadge + 0.12, Math.max(0.8, DUR - C.livebadge - 0.4));
+    // ---- 33 BAUSTEIN "klick unter dem Video": Touch-Punkt tippt auf "Mehr dazu" (Position wie FX.endCard) ----
+    const card = $("#a3e-card"), btn = $("#a3e-btn");
+    const bx = (card?.offsetLeft ?? 70) + (btn?.offsetLeft ?? 60) + (btn?.offsetWidth ?? 330) * 0.62;
+    const by = (card?.offsetTop ?? 55) + (btn?.offsetTop ?? 438) + (btn?.offsetHeight ?? 100) * 0.55;
+    steps.push({ t: tk - 0.85, show: true, at: [bx + 200, by + 120] });
+    steps.push({ t: tk - 0.65, to: [bx, by], d: 0.6 });
+    steps.push({ t: tk, tap: true });
+    // ---- 32 "und dann sehen wir uns live am Sonntag" (statt "IN MEINEM ACCOUNT ZEIGEN", im Schnitt nicht
+    //      gesprochen): Einladung kommt zurück, Touch-Punkt tippt "Annehmen", Haken erscheint ----
+    FX.flyIn(tl, "#a3-inv2", C.sehen - 0.1, { from: "right", dist: 560 });
+    const ANN = [584 + 20 + 190, 450 + 130 + 36];
+    const tA = Math.max(C.sonntag3 - 0.1, C.sehen + 0.6);
+    const tGo = Math.max(tk + 0.35, C.sehen + 0.1);
+    steps.push({ t: tGo, to: ANN, d: Math.max(0.3, Math.min(0.55, tA - 0.04 - tGo)) });
+    steps.push({ t: tA, tap: true });
+    steps.push({ t: Math.min(tA + 0.9, DUR - 0.3), hide: true });
+    FX.tween(tl, "#a3-ann", { backgroundColor: "#0E1A2B" }, { backgroundColor: "#16A34A", duration: 0.2, ease: "none" }, tA + 0.08);
+    FX.pop(tl, "#a3-ok", tA + 0.1);
+    FX.touch(tl, "a3", T0, steps);
+
+    window.__timelines["ad3"] = tl;
+  </script>
+</template>

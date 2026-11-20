@@ -1,0 +1,23 @@
+{
+ "duration": 81.65,
+ "voice": "assets/media/ad2.voice.wav",
+ "voiceWav": "assets/media/ad2.voice.wav",
+ "cam": "assets/media/ad2.cam.mp4",
+ "cuts": [
+  9.827,
+  28.627,
+  39.836,
+  42.564,
+  57.773
+ ],
+ "tempo": 1.1,
+ "crop": {
+  "x": 427,
+  "y": 62,
+  "size": 252,
+  "faces": -1
+ },
+ "loudness_in": -30.7,
+ "loudness_out": -14.3,
+ "true_peak": -4.6
+}

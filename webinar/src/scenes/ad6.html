@@ -1,0 +1,440 @@
+<template>
+  <style>
+    @font-face { font-family: 'Caveat'; font-weight: 400; src: url('assets/fonts/Caveat-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Caveat'; font-weight: 700; src: url('assets/fonts/Caveat-700.woff2') format('woff2'); }
+    @font-face { font-family: 'Permanent Marker'; font-weight: 400; src: url('assets/fonts/PermanentMarker-400.woff2') format('woff2'); }
+    #root { position: absolute; inset: 0; background: #4f351f; overflow: hidden; }
+    /* Ad 6 · Pinnwand: Kork 30 % dunkler + unscharf, Polaroids weiß, Karteikarten cremeweiß, Pins rot,
+       Karten in Caveat, Post-its in Permanent Marker. All wall items live in world px inside #a6-cam. */
+    #a6-scene { position: absolute; inset: 0; overflow: hidden; background: #4f351f; }
+    #a6-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    #a6-cork { position: absolute; left: -660px; top: -480px; width: 2400px; height: 1700px; }
+    .a6-item { position: absolute; width: 0; height: 0; }
+    .a6-tilt { position: absolute; }
+    .a6-swing { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+    .a6-pin { position: absolute; width: 30px; height: 30px; margin: -15px 0 0 -15px; border-radius: 50%; z-index: 5;
+      background: radial-gradient(circle at 36% 30%, #ffb1b1 0, #ff6b6b 10%, #e02f2f 30%, #b41818 68%, #7a0d0d 100%);
+      box-shadow: 4px 7px 5px rgba(0, 0, 0, 0.5); }
+    /* Polaroid */
+    .a6-pola { background: linear-gradient(170deg, #ffffff, #f1f0ea); border-radius: 3px;
+      box-shadow: 0 16px 26px rgba(0, 0, 0, 0.55), 0 3px 6px rgba(0, 0, 0, 0.35); }
+    .a6-win { position: absolute; left: 16px; top: 16px; width: 248px; height: 248px; overflow: hidden; background: #3d3833; }
+    .a6-win::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.28), inset 0 2px 8px rgba(0, 0, 0, 0.35); }
+    .photo-slot { position: absolute; inset: 0; }
+    .photo-slot img, .photo-slot svg { display: block; width: 248px; height: 248px; object-fit: cover; }
+    .a6-year { position: absolute; left: 0; width: 280px; top: 268px; text-align: center; font-family: 'Caveat'; font-weight: 700; font-size: 58px; line-height: 60px; color: #1D3A8A; }
+    #a6-robot { position: absolute; left: 212px; top: 272px; width: 58px; height: 58px; }
+    #a6-speed { position: absolute; left: -205px; top: 112px; width: 170px; height: 120px; }
+    /* roter Zettel "?" */
+    .a6-qnote { background: linear-gradient(160deg, #ef4444, #d42020); box-shadow: 0 14px 22px rgba(0, 0, 0, 0.5);
+      clip-path: polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%); }
+    .a6-qnote b { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding-bottom: 6px;
+      font-family: 'Permanent Marker'; font-weight: 400; font-size: 132px; line-height: 1; color: #FFFFFF; }
+    .a6-qfold { position: absolute; right: 0; bottom: 0; width: 22%; height: 22%; background: linear-gradient(135deg, #8f1111 50%, transparent 50%); }
+    /* Karteikarte (Vorder- und Rückseite) */
+    .a6-face { position: absolute; inset: 0; border-radius: 4px; overflow: hidden; background-color: #FBF6E8;
+      background-image: linear-gradient(#E46A6A, #E46A6A), repeating-linear-gradient(to bottom, transparent 0, transparent 35px, #B9CEE8 35px, #B9CEE8 37px);
+      background-size: 100% 3px, 100% 180px; background-position: 0 48px, 0 55px; background-repeat: no-repeat;
+      box-shadow: 0 14px 22px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.3); }
+    .a6-digit { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding-top: 22px;
+      font-family: 'Permanent Marker'; font-size: 128px; line-height: 1; color: #13213C; }
+    .a6-hand { position: absolute; font-family: 'Caveat'; font-weight: 700; color: #1D3A8A; white-space: nowrap; }
+    .a6-ink { fill: none; stroke: #1D3A8A; stroke-width: 3.4; stroke-linecap: round; stroke-linejoin: round; }
+    .a6-strike { fill: none; stroke: #DC2626; stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    /* Post-its */
+    .a6-postit { position: absolute; display: flex; align-items: center; justify-content: center; text-align: center;
+      font-family: 'Permanent Marker'; font-weight: 400; color: #1E2235; line-height: 1.04;
+      background: linear-gradient(165deg, #FFE866 0%, #FBD93A 70%, #F2CB2C 100%);
+      box-shadow: 0 12px 18px rgba(0, 0, 0, 0.45), 0 2px 4px rgba(0, 0, 0, 0.25); }
+    .a6-check { fill: none; stroke: #16A34A; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    /* Notizbuchseite */
+    .a6-paper { background-color: #FFFFFF; border-radius: 2px;
+      background-image: linear-gradient(#E79A9A, #E79A9A), repeating-linear-gradient(to bottom, transparent 0, transparent 44px, #C3D5EE 44px, #C3D5EE 46px);
+      background-size: 2px 100%, 100% 360px; background-position: 64px 0, 0 96px; background-repeat: no-repeat;
+      box-shadow: 0 16px 26px rgba(0, 0, 0, 0.5), 0 2px 5px rgba(0, 0, 0, 0.3); }
+    .a6-hole { position: absolute; left: 20px; width: 20px; height: 20px; border-radius: 50%; background: #5a3d24; box-shadow: inset 2px 3px 4px rgba(0, 0, 0, 0.6); }
+    .a6-lbl { position: absolute; left: 118px; padding: 0 14px 0 4px; font-family: 'Caveat'; font-weight: 700; font-size: 50px; line-height: 64px; color: #1D3A8A; white-space: nowrap; }
+    .a6-box { position: absolute; left: 70px; width: 46px; height: 46px; overflow: visible; }
+    #a6-dim { position: absolute; left: -1500px; top: -1200px; width: 4500px; height: 3600px; background: #000000; }
+    /* End-Karte als angepinnte Karte (Baustein-Include, auf 50 % in die Wand gesetzt, hochkant wie im Storyboard C) */
+    .a6-ecbox { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; transform: scale(0.5); transform-origin: 0 0; }
+    #a6e-card { width: 600px; height: 700px; border-radius: 26px; overflow: visible; box-shadow: 0 22px 44px rgba(0, 0, 0, 0.6), 0 4px 10px rgba(0, 0, 0, 0.4); }
+    #a6e-live { left: 54px; top: 54px; }
+    #a6e-date { left: 54px; top: 112px; width: 520px; white-space: normal; line-height: 1.02; }
+    #a6e-time { left: 54px; top: 304px; }
+    #a6e-sub { left: 54px; top: 422px; width: 520px; white-space: normal; line-height: 1.2; }
+    #a6e-btn { left: 54px; top: 554px; }
+    #a6e-platz { left: 418px; top: 600px; width: 236px; height: auto; padding: 26px 10px 22px; border-radius: 3px; white-space: normal; text-align: center;
+      background: linear-gradient(165deg, #EF4444, #D11F1F); color: #FFFFFF; font-family: 'Permanent Marker'; font-weight: 400; font-size: 62px; line-height: 1.02;
+      box-shadow: 0 16px 24px rgba(0, 0, 0, 0.5); }
+    #a6e-touch, #a6e-wave1, #a6e-wave2 { width: 82px; height: 82px; left: -41px; top: -41px; border-width: 5px; }
+    #a6-thread { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
+    .a6-thr { fill: none; stroke: #D42222; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; filter: drop-shadow(3px 5px 3px rgba(0, 0, 0, 0.45)); }
+  </style>
+  <div id="root" data-composition-id="ad6" data-width="1080" data-height="710">
+    <div id="a6-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <div id="a6-cam">
+        <img id="a6-cork" src="assets/img/ad6/cork.jpg" alt="">
+
+        <!-- Polaroid 2017: echter Gegenstand aus der Zeit (Notizbuch + Stift), kein Foto von Kilian -->
+        <div id="a6-p17" class="a6-item"><div class="a6-tilt">
+          <svg id="a6-speed" viewBox="0 0 170 120"><g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.75"><line x1="20" y1="20" x2="160" y2="20"/><line x1="55" y1="60" x2="160" y2="60"/><line x1="85" y1="100" x2="160" y2="100"/></g></svg>
+          <div id="a6-p17s" class="a6-swing a6-pola">
+            <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-2017">
+              <svg viewBox="0 0 248 248">
+                <defs><radialGradient id="a6-g17" cx="42%" cy="36%" r="85%"><stop offset="0" stop-color="#8b7f70"/><stop offset="1" stop-color="#463d35"/></radialGradient></defs>
+                <rect width="248" height="248" fill="url(#a6-g17)"/>
+                <g transform="rotate(-10 124 126)">
+                  <rect x="60" y="28" width="148" height="194" rx="5" fill="#000000" opacity="0.3" transform="translate(7 8)"/>
+                  <rect x="60" y="28" width="148" height="194" rx="5" fill="#F3E8CF"/>
+                  <g stroke="#A8C0DE" stroke-width="1.6"><line x1="68" y1="62" x2="200" y2="62"/><line x1="68" y1="77" x2="200" y2="77"/><line x1="68" y1="92" x2="200" y2="92"/><line x1="68" y1="107" x2="200" y2="107"/><line x1="68" y1="122" x2="200" y2="122"/><line x1="68" y1="137" x2="200" y2="137"/><line x1="68" y1="152" x2="200" y2="152"/><line x1="68" y1="167" x2="200" y2="167"/><line x1="68" y1="182" x2="200" y2="182"/><line x1="68" y1="197" x2="200" y2="197"/></g>
+                  <line x1="86" y1="32" x2="86" y2="218" stroke="#DD8B8B" stroke-width="1.6"/>
+                  <g fill="none" stroke="#3E4C69" stroke-width="2.5" stroke-linecap="round">
+                    <path d="M94 58 q6 -6 12 0 t12 0 t12 0 t12 0 t12 0"/>
+                    <path d="M94 73 q6 -6 12 0 t12 0 t12 0 t12 0 t12 0 t12 0 t10 0"/>
+                    <path d="M94 88 q6 -6 12 0 t12 0 t12 0"/>
+                    <path d="M94 118 q6 -6 12 0 t12 0 t12 0 t12 0 t12 0 t12 0"/>
+                    <path d="M94 133 q6 -6 12 0 t12 0 t12 0 t12 0"/>
+                    <path d="M94 148 q6 -6 12 0 t12 0 t12 0 t12 0 t12 0"/>
+                  </g>
+                  <g fill="#463d35" stroke="#A3A9B1" stroke-width="2.4"><circle cx="60" cy="44" r="5"/><circle cx="60" cy="62" r="5"/><circle cx="60" cy="80" r="5"/><circle cx="60" cy="98" r="5"/><circle cx="60" cy="116" r="5"/><circle cx="60" cy="134" r="5"/><circle cx="60" cy="152" r="5"/><circle cx="60" cy="170" r="5"/><circle cx="60" cy="188" r="5"/><circle cx="60" cy="206" r="5"/></g>
+                </g>
+                <g transform="rotate(-36 168 180)">
+                  <rect x="104" y="174" width="128" height="13" rx="6.5" fill="#000000" opacity="0.3" transform="translate(5 7)"/>
+                  <rect x="104" y="174" width="128" height="13" rx="6.5" fill="#1F2D4A"/>
+                  <rect x="104" y="174" width="28" height="13" rx="6.5" fill="#33476E"/>
+                  <polygon points="231,175 247,180.5 231,186" fill="#C9CED6"/>
+                  <rect x="118" y="170" width="46" height="4" rx="2" fill="#B5BCC6"/>
+                </g>
+              </svg>
+            </div></div>
+            <div class="a6-year">2017</div>
+            <div style="position:absolute; left:62px; top:84px; width:196px; height:150px; transform: rotate(-8deg)"><div id="a6-pi17i" class="a6-postit" style="left:0; top:0; width:100%; height:100%; font-size:34px">BRAUCHST<br>DU NICHT</div></div>
+          </div>
+          <div id="a6-p17pin" class="a6-pin" style="left:140px; top:15px"></div>
+        </div></div>
+
+        <!-- roter Zettel "?" -->
+        <div id="a6-q" class="a6-item"><div class="a6-tilt"><div id="a6-qs" class="a6-swing a6-qnote"><b>?</b><i class="a6-qfold"></i></div></div></div>
+
+        <!-- Polaroid 2026: Kilian heute am Schreibtisch (Standbild aus seiner Aufnahme, bis das echte Foto kommt) -->
+        <div id="a6-p26" class="a6-item"><div class="a6-tilt">
+          <div id="a6-p26s" class="a6-swing a6-pola">
+            <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-2026"><img src="assets/img/ad6/kilian-2026.jpg" alt=""></div></div>
+            <div class="a6-year">2026</div>
+            <svg id="a6-robot" viewBox="0 0 60 60"><g class="a6-ink" style="stroke-width:3.2"><line x1="30" y1="7" x2="30" y2="15"/><rect x="12" y="15" width="36" height="27" rx="6" style="fill:#EEF2FF"/><path d="M23 34 q7 5 14 0"/><line x1="7" y1="26" x2="12" y2="26"/><line x1="48" y1="26" x2="53" y2="26"/><rect x="19" y="45" width="22" height="10" rx="3"/></g><circle cx="30" cy="6" r="3.4" fill="#1D3A8A"/><circle cx="23" cy="26" r="3.4" fill="#1D3A8A"/><circle cx="37" cy="26" r="3.4" fill="#1D3A8A"/></svg>
+          </div>
+          <div id="a6-p26pin" class="a6-pin" style="left:140px; top:15px"></div>
+        </div></div>
+
+        <!-- Karteikarte 1: keine Angst · keine Gier -->
+        <div id="a6-c1" class="a6-item"><div class="a6-tilt">
+          <div id="a6-c1s" class="a6-swing">
+            <div id="a6-c1f" class="a6-face"><div class="a6-digit">1</div></div>
+            <div id="a6-c1b" class="a6-face">
+              <svg style="position:absolute; left:14px; top:2px; width:72px; height:72px" viewBox="0 0 70 70"><g class="a6-ink"><circle cx="35" cy="37" r="27" style="fill:#FFF3C4"/><path d="M16 26 l11 -7"/><path d="M54 26 l-11 -7"/><path d="M21 51 q4.5 -5 9 0 t9 0 t9 0"/></g><circle cx="25" cy="34" r="3.6" fill="#1D3A8A"/><circle cx="45" cy="34" r="3.6" fill="#1D3A8A"/><path d="M61 14 q6 9 0 12 q-6 -3 0 -12z" fill="#6FB0E8"/></svg>
+              <svg style="position:absolute; right:14px; top:2px; width:72px; height:72px" viewBox="0 0 70 70"><g class="a6-ink"><circle cx="35" cy="37" r="27" style="fill:#FFF3C4"/><path d="M15 21 l12 7"/><path d="M55 21 l-12 7"/><path d="M19 34 q5 -5 10 0"/><path d="M41 34 q5 -5 10 0"/><path d="M18 43 q17 19 34 0 z" style="fill:#FFFFFF"/></g><path d="M41 52 q8 2 6 10 q-7 1 -8 -6z" fill="#F08A8A" stroke="#1D3A8A" stroke-width="2.6" stroke-linejoin="round"/></svg>
+              <div class="a6-hand" style="left:0; width:320px; text-align:center; top:82px; font-size:54px; line-height:64px">keine Angst<br>keine Gier</div>
+              <svg style="position:absolute; left:0; top:0; width:320px; height:236px; overflow:visible" viewBox="0 0 320 236"><path id="a6-x1" class="a6-strike" pathLength="1" d="M14 6 L84 72"/><path id="a6-x2" class="a6-strike" pathLength="1" d="M236 6 L306 72"/></svg>
+            </div>
+          </div>
+          <div id="a6-c1pin" class="a6-pin" style="left:160px; top:15px"></div>
+        </div></div>
+
+        <!-- Karteikarte 2: arbeitet, auch wenn ich keine Zeit habe + Uhr -->
+        <div id="a6-c2" class="a6-item"><div class="a6-tilt">
+          <div id="a6-c2s" class="a6-swing">
+            <div id="a6-c2f" class="a6-face"><div class="a6-digit">2</div></div>
+            <div id="a6-c2b" class="a6-face">
+              <div class="a6-hand" style="left:22px; top:14px; font-size:48px; line-height:51px">arbeitet,<br>auch wenn<br>ich keine<br>Zeit habe</div>
+              <svg style="position:absolute; right:14px; top:56px; width:92px; height:92px" viewBox="0 0 80 80"><g class="a6-ink"><circle cx="40" cy="42" r="30" style="fill:#FFFFFF"/><line x1="40" y1="16" x2="40" y2="21"/><line x1="66" y1="42" x2="61" y2="42"/><line x1="40" y1="68" x2="40" y2="63"/><line x1="14" y1="42" x2="19" y2="42"/><line x1="40" y1="42" x2="51" y2="36"/><line id="a6-minh" x1="40" y1="42" x2="40" y2="22"/><path d="M16 15 l8 7"/><path d="M64 15 l-8 7"/></g><circle cx="40" cy="42" r="3.6" fill="#1D3A8A"/></svg>
+            </div>
+          </div>
+          <div id="a6-c2pin" class="a6-pin" style="left:160px; top:15px"></div>
+          <div style="position:absolute; left:204px; top:160px; width:150px; height:112px; transform: rotate(7deg)"><div id="a6-pi2i" class="a6-postit" style="left:0; top:0; width:100%; height:100%; font-size:30px; flex-direction:column">ohne mich<svg style="display:block; margin:2px auto 0; width:50px; height:34px; overflow:visible" viewBox="0 0 50 34"><path id="a6-ck2" class="a6-check" pathLength="1" d="M6 17 L19 29 L45 4"/></svg></div></div>
+        </div></div>
+
+        <!-- Karteikarte 3: 3 x 3 Punkte (9 Strategien) -->
+        <div id="a6-c3" class="a6-item"><div class="a6-tilt">
+          <div id="a6-c3s" class="a6-swing">
+            <div id="a6-c3f" class="a6-face"><div class="a6-digit">3</div></div>
+            <div id="a6-c3b" class="a6-face">
+              <svg id="a6-dots" style="position:absolute; left:0; top:0; width:320px; height:236px" viewBox="0 0 320 236"></svg>
+            </div>
+          </div>
+          <div id="a6-c3pin" class="a6-pin" style="left:160px; top:15px"></div>
+        </div></div>
+
+        <!-- Post-it "neben dem Job?" + rotes X -->
+        <div id="a6-job" class="a6-item"><div class="a6-tilt">
+          <div id="a6-jobs" class="a6-postit" style="left:0; top:0; width:100%; height:100%; font-size:50px">neben<br>dem Job?</div>
+          <svg id="a6-jobx" style="position:absolute; left:40px; top:10px; width:260px; height:190px; overflow:visible" viewBox="0 0 260 190"><g fill="none" stroke="#DC2626" stroke-width="16" stroke-linecap="round"><path d="M22 18 L238 172"/><path d="M238 18 L22 172"/></g></svg>
+        </div></div>
+
+        <!-- Notizbuchseite "Was du brauchst:" -->
+        <div id="a6-nb" class="a6-item"><div class="a6-tilt">
+          <div id="a6-nbs" class="a6-swing a6-paper">
+            <i class="a6-hole" style="top:70px"></i><i class="a6-hole" style="top:180px"></i><i class="a6-hole" style="top:290px"></i><i class="a6-hole" style="top:400px"></i>
+            <div class="a6-hand" style="left:76px; top:40px; font-size:50px; line-height:56px">Was du brauchst:</div>
+            <svg class="a6-box" style="top:150px" viewBox="0 0 46 46"><rect x="3" y="3" width="40" height="40" rx="4" class="a6-ink"/><path id="a6-ck0" class="a6-check" pathLength="1" d="M9 22 L20 34 L46 -2"/></svg>
+            <div id="a6-lb0" class="a6-lbl" style="top:140px">Startkapital</div>
+            <svg class="a6-box" style="top:240px" viewBox="0 0 46 46"><rect x="3" y="3" width="40" height="40" rx="4" class="a6-ink"/><path id="a6-ck1" class="a6-check" pathLength="1" d="M9 22 L20 34 L46 -2"/></svg>
+            <div id="a6-lb1" class="a6-lbl" style="top:230px">Geduld</div>
+            <svg class="a6-box" style="top:330px" viewBox="0 0 46 46"><rect x="3" y="3" width="40" height="40" rx="4" class="a6-ink"/><path id="a6-ck3" class="a6-check" pathLength="1" d="M9 22 L20 34 L46 -2"/></svg>
+            <div id="a6-lb2" class="a6-lbl" style="top:320px">30 Min/Woche</div>
+          </div>
+          <div id="a6-nbpin" class="a6-pin" style="left:190px; top:15px"></div>
+        </div></div>
+
+        <div id="a6-dim"></div>
+
+        <!-- End-Karte: Baustein, als Karte an die Wand gepinnt -->
+        <div id="a6-ec" class="a6-item"><div class="a6-tilt">
+          <div id="a6-ecs" class="a6-swing">
+            <div class="a6-ecbox"><!--@include endcard p="a6e" platz="10 Plätze" x="0" y="0"--></div>
+          </div>
+        </div></div>
+
+        <!-- roter Faden (über allem) mit den drei Pins, an denen er hängt -->
+        <svg id="a6-thread" viewBox="0 0 1080 710"><path id="a6-thr" class="a6-thr" pathLength="1" d="M0 0"/></svg>
+        <div id="a6-tp1" class="a6-pin"></div><div id="a6-tp2" class="a6-pin"></div><div id="a6-tp3" class="a6-pin"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+    // ---------------------------------------------------------------- wall layout (world px; camera scale 1 = storyboard B)
+    const L = {
+      p17: { x: 210, y: 195, r: -4, w: 280, h: 340 },
+      q: { x: 540, y: 150, r: 8, w: 170, h: 170 },
+      p26: { x: 870, y: 195, r: 3, w: 280, h: 340 },
+      c1: { x: 190, y: 572, r: -2, w: 320, h: 236 },
+      c2: { x: 540, y: 576, r: 1.5, w: 320, h: 236 },
+      c3: { x: 890, y: 572, r: -1.5, w: 320, h: 236 },
+      job: { x: 540, y: 802, r: -3, w: 340, h: 210 },
+      nb: { x: 568, y: 300, r: 1, w: 380, h: 460 },
+      ec: { x: 922, y: 388, r: 2, w: 300, h: 350 },
+    };
+    const PIN_Y = 15; // pin sits 15 px below the top edge of every pinned item
+    for (const [k, o] of Object.entries(L)) {
+      const it = $("#a6-" + k), tilt = it.querySelector(".a6-tilt");
+      it.style.left = o.x + "px"; it.style.top = o.y + "px";
+      Object.assign(tilt.style, { left: -o.w / 2 + "px", top: -o.h / 2 + "px", width: o.w + "px", height: o.h + "px", transform: `rotate(${o.r}deg)` });
+    }
+    // world position of an item's pin (top centre, rotated with the item's tilt)
+    const pinW = (o) => { const a = (o.r * Math.PI) / 180, dy = -(o.h / 2 - PIN_Y); return [o.x - dy * Math.sin(a), o.y + dy * Math.cos(a)]; };
+    const swingOrigin = (o) => `${o.w / 2}px ${PIN_Y}px`;
+
+    // 3 x 3 Punkte auf Karte 3: Kreise + Haken (grün) / Striche (grau)
+    const dotsSvg = $("#a6-dots");
+    let dots = "";
+    for (let i = 0; i < 9; i++) {
+      const cx = 90 + (i % 3) * 70, cy = 58 + Math.floor(i / 3) * 60;
+      dots += `<circle cx="${cx}" cy="${cy}" r="22" class="a6-ink" style="fill:#F1F4FA"/>`;
+      dots += `<path id="a6-mc${i}" d="M${cx - 11} ${cy + 1} L${cx - 3} ${cy + 9} L${cx + 12} ${cy - 9}" fill="none" stroke="#16A34A" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>`;
+      dots += `<path id="a6-md${i}" d="M${cx - 11} ${cy} L${cx + 11} ${cy}" fill="none" stroke="#9CA3AF" stroke-width="7" stroke-linecap="round"/>`;
+    }
+    dotsSvg.innerHTML = dots;
+
+    // ---------------------------------------------------------------- helpers
+    // Pin knallt (Ad 6): item flies in (0.25 s), the pin bangs in 0.12 s, the item wobbles once around its pin.
+    function pinIn(k, t, o = {}) {
+      const it = "#a6-" + k, sw = "#a6-" + k + "s", pin = o.pin ?? "#a6-" + k + "pin", org = { origin: swingOrigin(L[k]) };
+      FX.flyIn(tl, it, t, { from: o.from ?? "left", dist: o.dist ?? 1400 });
+      FX.slam(tl, pin, t + 0.25);
+      FX.wobble(tl, sw, t + 0.25, 0.6, org);
+      FX.settle(tl, sw, t + 0.85, 6, org);
+    }
+    function preIn(k, pin) {
+      FX.init(tl, "#a6-" + k, { opacity: 0 });
+      FX.init(tl, "#a6-" + k + "s", { rotation: -6, transformOrigin: swingOrigin(L[k]), smoothOrigin: false });
+      FX.init(tl, pin ?? "#a6-" + k + "pin", { opacity: 0 });
+    }
+    // Karte dreht sich: front 0 -> 90°, back -90 -> 0° (0.36 s)
+    function flip(n, t) {
+      const f = `#a6-c${n}f`, b = `#a6-c${n}b`, P = { transformPerspective: 1100 };
+      FX.tween(tl, f, { rotationY: 0, ...P }, { rotationY: 90, ...P, duration: 0.18, ease: "power2.in" }, t);
+      FX.set(tl, f, { opacity: 0 }, t + 0.18);
+      FX.set(tl, b, { opacity: 1 }, t + 0.18);
+      FX.tween(tl, b, { rotationY: -90, ...P }, { rotationY: 0, ...P, duration: 0.2, ease: "power2.out" }, t + 0.18);
+    }
+    // "wackelt kurz" from rest: 0 -> +6 -> -6 -> 0 (6°, 0.6 s per swing), pivot = pin
+    function wiggle(sw, t, origin) {
+      const o = { transformOrigin: origin, smoothOrigin: false };
+      FX.tween(tl, sw, { rotation: 0, ...o }, { rotation: 6, ...o, duration: 0.3, ease: "sine.out" }, t);
+      FX.tween(tl, sw, { rotation: 6, ...o }, { rotation: -6, ...o, duration: 0.6, ease: "sine.inOut" }, t + 0.3);
+      FX.tween(tl, sw, { rotation: -6, ...o }, { rotation: 0, ...o, duration: 0.3, ease: "sine.in" }, t + 0.9);
+    }
+    // Handschrift-Wischen von links (0.45 s)
+    const wipe = (el, t) => FX.tween(tl, el, { clipPath: "inset(0% 100% 0% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.45, ease: "none" }, t);
+
+    // ---------------------------------------------------------------- camera (one continuous script, moves never overlap)
+    const CAM = "#a6-cam";
+    const view = (fx, fy, s, sx = 540, sy = 355) => ({ x: sx - s * fx, y: sy - s * fy, scale: s });
+    const moves = [];
+    const go = (t, d, to, ease = "power2.inOut") => moves.push({ t, d, to, ease });
+    const slow = (t, f = 1.08) => moves.push({ t, d: 3, f, ease: "none" }); // langsamer Zoom 100 -> 108 % über 3 s
+    function runCamera(start) {
+      moves.sort((a, b) => a.t - b.t);
+      let cur = start;
+      const O = { transformOrigin: "0 0", smoothOrigin: false };
+      FX.init(tl, CAM, { ...cur, ...O });
+      moves.forEach((m, i) => {
+        const next = moves[i + 1];
+        const d = next ? Math.min(m.d, next.t - m.t - 0.02) : m.d;
+        let to = m.to;
+        if (m.f) { // slow zoom about the motif centre; shortened (gap < 3 s) = proportionally less zoom
+          if (d < 0.6) return;
+          const f = 1 + (m.f - 1) * (d / m.d);
+          to = { x: 540 - f * (540 - cur.x), y: 355 - f * (355 - cur.y), scale: cur.scale * f };
+        }
+        if (d < 0.05) { FX.set(tl, CAM, { ...to, ...O }, m.t); cur = to; return; }
+        FX.tween(tl, CAM, { ...cur, ...O }, { ...to, ...O, duration: d, ease: m.ease }, m.t);
+        cur = to;
+      });
+    }
+    const camA = view(L.p17.x, L.p17.y, 1.3, 470, 363); // first image: 2017 big, right side open
+    const camT = view(540, 200, 1.08);                   // top row: 2017 | ? | 2026
+    const camO = view(540, 350, 0.96);                   // whole wall
+    const camLeft = view(180, 358, 1.0);                 // 2017 + Karte 1 (+ Karte 2)
+    const camCard = (n) => view(L["c" + n].x, L["c" + n].y, 1.8);
+    const camRow = view(540, 728, 1.0);                  // 3 cards + space below
+    const camPhoto = view(212, 190, 1.5);                // fast zoom on 2017
+    const camC = { x: -30, y: 25, scale: 1 };            // payoff: 2017 | notebook | end card (storyboard C)
+    const camEnd = view(L.ec.x + 6, L.ec.y + 14, 1.66);  // end card hero
+
+    // ---------------------------------------------------------------- 1 "Ich trade jetzt seit 9 Jahren": Polaroid 2017 fliegt rein, Pin knallt
+    // First frame = briefing's first image: the polaroid is already mid-flight (speed lines), the pin bangs at 0.25 s.
+    FX.init(tl, "#a6-p17s", { rotation: -6, transformOrigin: swingOrigin(L.p17), smoothOrigin: false });
+    FX.init(tl, "#a6-p17pin", { opacity: 0 });
+    FX.flyIn(tl, "#a6-p17", 0, { from: "left", dist: 250 });
+    FX.tween(tl, "#a6-speed", { opacity: 1 }, { opacity: 0, duration: 0.24, ease: "none" }, 0.06);
+    FX.slam(tl, "#a6-p17pin", 0.25);
+    FX.wobble(tl, "#a6-p17s", 0.25, 0.6, { origin: swingOrigin(L.p17) });
+    FX.settle(tl, "#a6-p17s", 0.85, 6, { origin: swingOrigin(L.p17) });
+    slow(0.9);
+
+    // 2 "trotzdem lass ich heute eine KI für mich traden": Polaroid 2026 rechts daneben, kleiner Roboter
+    go(C.trotzdem, 0.6, camT);
+    preIn("p26");
+    pinIn("p26", Math.max(C.trotzdem + 0.15, C.heute - 0.2), { from: "right" });
+    FX.init(tl, "#a6-robot", { opacity: 0 });
+    FX.pop(tl, "#a6-robot", Math.max(C.ki, C.heute + 0.5));
+
+    // 3 "Klingt erst mal verrückt": roter Zettel "?" knallt zwischen die Fotos und wackelt
+    FX.init(tl, "#a6-q", { opacity: 0 });
+    FX.slam(tl, "#a6-q", C.verrueckt);
+    const qw = FX.wobble(tl, "#a6-qs", C.verrueckt + 0.12, clamp(C.gruende - C.verrueckt - 0.5, 0.6, 2.4));
+    FX.settle(tl, "#a6-qs", qw.end, qw.endRotation);
+
+    // 4 "3 richtig gute Gründe": Zoom-out, 3 Karteikarten 1-2-3 werden unten angepinnt ("?" geht, max. 5 Elemente)
+    go(C.gruende, 0.5, camO);
+    FX.fadeOut(tl, "#a6-q", C.gruende);
+    [1, 2, 3].forEach((n) => {
+      preIn("c" + n);
+      FX.init(tl, `#a6-c${n}b`, { opacity: 0, rotationY: -90, transformPerspective: 1100 });
+      pinIn("c" + n, C.gruende + 0.12 + (n - 1) * 0.08, { from: "bottom", dist: 900 });
+    });
+
+    // 5 "Erstens": schnelles Ranzoomen auf Karte 1, sie dreht sich: keine Angst · keine Gier
+    go(C.erstens, 0.4, camCard(1), "power3.out");
+    flip(1, C.erstens + 0.3);
+    // 6 "diese 2 Gefühle": die zwei Gesichter werden rot durchgestrichen
+    FX.drawLine(tl, "#a6-x1", C.gefuehle);
+    FX.drawLine(tl, "#a6-x2", C.gefuehle + 0.25);
+
+    // 7 "ich weiß, wovon ich rede": Kreis 2 s groß (cues.json kil), das Foto von 2017 wackelt kurz
+    go(C.rede, 0.5, camLeft);
+    wiggle("#a6-p17s", C.rede + 0.3, swingOrigin(L.p17));
+
+    // 8 "Zweitens": Zoom auf Karte 2, sie dreht sich: arbeitet, auch wenn ich keine Zeit habe (+ Uhr)
+    go(C.zweitens, 0.5, camCard(2));
+    flip(2, C.zweitens + 0.3);
+    const sweep = clamp(C.schlafe - C.zweitens - 0.9, 0, 1.6);
+    if (sweep > 0.4) FX.tween(tl, "#a6-minh", { rotation: 0, svgOrigin: "40 42", smoothOrigin: false }, { rotation: 360, svgOrigin: "40 42", smoothOrigin: false, duration: sweep, ease: "power1.inOut" }, C.zweitens + 0.7);
+    // 9 "oder schlafe": nichts Neues (kein Mond, kein Bett), nur langsamer Zoom
+    slow(C.schlafe);
+    // 10 "funktioniert ohne mich": kleines Post-it "ohne mich ✓" auf Karte 2
+    FX.init(tl, "#a6-pi2i", { opacity: 0 });
+    FX.pop(tl, "#a6-pi2i", C.ohne);
+    FX.draw(tl, "#a6-ck2", C.ohne + 0.2, 0.3);
+
+    // 11 "Und drittens": Zoom auf Karte 3, sie dreht sich: 3 x 3 Punkte
+    go(C.drittens, 0.5, camCard(3));
+    flip(3, C.drittens + 0.3);
+    slow(C.drittens + 0.6);
+    // 12 "testet immer wieder": Haken / Striche nacheinander, 2 wechseln
+    const first = ["c", "d", "c", "d", "c", "d", "c", "d", "d"];
+    for (let i = 0; i < 9; i++) { FX.init(tl, `#a6-mc${i}`, { opacity: 0 }); FX.init(tl, `#a6-md${i}`, { opacity: 0 }); }
+    first.forEach((m, i) => FX.pop(tl, `#a6-m${m}${i}`, C.testet + i * 0.13));
+    const tSw = Math.max(C.darf, C.testet + 9 * 0.13 + 0.2);
+    FX.fadeOut(tl, "#a6-mc2", tSw); FX.pop(tl, "#a6-md2", tSw + 0.1);
+    FX.fadeOut(tl, "#a6-md5", tSw + 0.3); FX.pop(tl, "#a6-mc5", tSw + 0.4);
+
+    // 13 "Das schafft kaum ein Mensch": Zoom-out auf alle 3 Karten
+    go(C.mensch, 0.5, camRow);
+    // 14 "neben einem Job schon gar nicht": gelbes Post-it darunter, rotes X knallt drauf
+    FX.init(tl, "#a6-jobs", { opacity: 0 });
+    FX.init(tl, "#a6-jobx", { opacity: 0 });
+    FX.pop(tl, "#a6-jobs", C.job);
+    FX.slam(tl, "#a6-jobx", Math.max(C.garnicht, C.job + 0.35));
+
+    // 15 "Und jetzt kommt das Beste": schnelles Ranzoomen auf das Foto von 2017 (Karten 1, 2 + Post-its gehen außerhalb des Bildes)
+    go(C.beste, 0.4, camPhoto, "power3.out");
+    FX.set(tl, ["#a6-c1", "#a6-c2", "#a6-job"], { opacity: 0 }, C.beste + 0.42);
+    // 16 "keine 9 Jahre Erfahrung": gelbes Post-it "brauchst du nicht" auf das Foto
+    FX.init(tl, "#a6-pi17i", { opacity: 0 });
+    FX.pop(tl, "#a6-pi17i", C.erfahrung);
+    slow(C.erfahrung + 0.35, 1.06);
+
+    // 17 "setzt der Bot ganz allein": Karte 3 rutscht neben das Foto von 2026
+    go(C.bot, 0.5, camC);
+    const c3to = { x: 578, y: 238 };
+    FX.tween(tl, "#a6-c3", { x: 0, y: 0 }, { x: c3to.x - L.c3.x, y: c3to.y - L.c3.y, duration: 0.6, ease: "power2.inOut" }, C.bot + 0.15);
+    FX.tween(tl, "#a6-c3s", { rotation: 0, transformOrigin: swingOrigin(L.c3), smoothOrigin: false }, { rotation: -3, transformOrigin: swingOrigin(L.c3), smoothOrigin: false, duration: 0.6, ease: "power2.inOut" }, C.bot + 0.15);
+
+    // 18 "Was du brauchst": Notizbuchseite mit 3 leeren Kästchen wird angepinnt (sie deckt Karte 3 zu)
+    preIn("nb");
+    pinIn("nb", C.brauchst + 0.05, { from: "top", dist: 900 });
+    // 19-21 Kästchen werden abgehakt (Wort wird geschrieben, dann Haken), ohne Summe
+    [["kapital", 0, 0], ["geduld", 1, 1], ["minuten", 2, 3]].forEach(([c, n, k]) => {
+      FX.init(tl, `#a6-lb${n}`, { clipPath: "inset(0% 100% 0% 0%)" });
+      wipe(`#a6-lb${n}`, C[c] - 0.1);
+      FX.draw(tl, `#a6-ck${k}`, C[c] + 0.35, 0.3);
+    });
+    slow(C.minuten + 0.75, 1.05);
+
+    // 22 "kein Gewinnversprechen": die Wand dimmt, Kilians Kreis auf Ø 360 px (cues.json kil), Wand zoomt langsam zurück
+    FX.init(tl, "#a6-dim", { opacity: 0 });
+    FX.tween(tl, "#a6-dim", { opacity: 0 }, { opacity: 0.5, duration: 0.3, ease: "power1.out" }, C.versprechen);
+    FX.tween(tl, "#a6-p26", { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "none" }, C.versprechen + 0.1); // Platz für die End-Karte
+    go(C.aber, 3, camC, "none");
+
+    // 23 "Am Sonntag, den 6.12." BAUSTEIN: End-Karte wird als Karte angepinnt, roter Faden 2017 -> Notizbuch -> End-Karte
+    const T0 = C.sonntag;
+    FX.init(tl, "#a6-ec", { opacity: 0 });
+    FX.init(tl, "#a6-ecs", { rotation: -6, transformOrigin: swingOrigin(L.ec), smoothOrigin: false });
+    FX.flyIn(tl, "#a6-ec", T0, { from: "right", dist: 900 });
+    FX.wobble(tl, "#a6-ecs", T0 + 0.25, 0.6, { origin: swingOrigin(L.ec) });
+    FX.settle(tl, "#a6-ecs", T0 + 0.85, 6, { origin: swingOrigin(L.ec) });
+    const [x1, y1] = pinW(L.p17), [x2, y2] = pinW(L.nb), [x3, y3] = pinW(L.ec);
+    $("#a6-thr").setAttribute("d", `M${x1} ${y1} Q${(x1 + x2) / 2} ${Math.max(y1, y2) + 26} ${x2} ${y2} Q${(x2 + x3) / 2 + 30} ${Math.max(y2, y3) + 40} ${x3} ${y3}`);
+    [[1, x1, y1], [2, x2, y2], [3, x3, y3]].forEach(([n, x, y]) => { const p = $(`#a6-tp${n}`); p.style.left = x + "px"; p.style.top = y + "px"; FX.init(tl, p, { opacity: 0 }); });
+    FX.fadeIn(tl, "#a6-tp1", T0, 0.15);
+    FX.fadeIn(tl, "#a6-tp2", T0 + 0.25, 0.15);
+    FX.slam(tl, "#a6-tp3", T0 + 0.25);
+    FX.draw(tl, "#a6-thr", T0 + 0.05, 0.75);
+    const tZoom = clamp(C.uhr + 0.35, T0 + 0.9, Math.max(T0 + 0.9, C.bots - 0.65));
+    go(tZoom, 0.6, camEnd);
+    slow(Math.max(C.bots + 0.6, tZoom + 0.7), 1.035);
+    slow(C.klick + 2.2, 0.97);
+    // 24 "nur 10 Personen" BAUSTEIN: rotes Post-it "10 Plätze"   25 "Klick unter dem Video" BAUSTEIN: Touch tippt auf "Mehr dazu"
+    FX.endCard(tl, "a6e", { start: T0, t18: C.uhr, bot: C.bots, klick: C.klick, platz: C.personen, pulseDate: C.letzte, dim: 0 });
+
+    runCamera(camA);
+    window.__timelines["ad6"] = tl;
+  </script>
+</template>

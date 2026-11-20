@@ -1,0 +1,25 @@
+{
+ "duration": 61.951,
+ "voice": "assets/media/ad3b.voice.wav",
+ "voiceWav": "assets/media/ad3b.voice.wav",
+ "cam": "assets/media/ad3b.cam.mp4",
+ "cuts": [
+  13.264,
+  20.682,
+  31.809,
+  43.455,
+  50.173,
+  56.709,
+  58.309
+ ],
+ "tempo": 1.1,
+ "crop": {
+  "x": 427,
+  "y": 62,
+  "size": 252,
+  "faces": -1
+ },
+ "loudness_in": -30.9,
+ "loudness_out": -14.3,
+ "true_peak": -4.6
+}

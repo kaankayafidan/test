@@ -1,0 +1,321 @@
+<template>
+  <style>
+    @font-face { font-family: 'Kalam'; font-weight: 400; src: url('assets/fonts/Kalam-400.woff2') format('woff2'); }
+    @font-face { font-family: 'Kalam'; font-weight: 700; src: url('assets/fonts/Kalam-700.woff2') format('woff2'); }
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    /* Ad 8 · Tablet-Notizen: weißes Papier mit Punktraster, Tinte blau, Korrektur rot, Haken grün, Kalam ≥ 52 px */
+    #a8-cam { position: absolute; inset: 0; }
+    #a8-desk { position: absolute; inset: 0; background: #E4E7EC; }
+    .a8-page { position: absolute; inset: 0; background-color: #FFFFFF;
+      background-image: radial-gradient(circle, #CDD2D9 2.4px, rgba(205, 210, 217, 0) 3px);
+      background-size: 40px 40px; background-position: 0px -5px; }
+    #a8-p2 { clip-path: polygon(0px 0px, 954px 0px, 1080px 126px, 1080px 710px, 0px 710px); }
+    .a8-hw { position: absolute; font-family: 'Kalam'; font-weight: 700; line-height: 1; white-space: nowrap; color: #1D4ED8; text-align: center; }
+    .a8-hw.thin { font-weight: 400; }
+    .a8-w { display: inline-block; }
+    .a8-wipe { clip-path: inset(-30% 112% -45% -12%); }
+    .a8-ck { display: inline-block; width: 0.98em; height: 0.86em; margin-left: 0.16em; vertical-align: baseline; overflow: visible; }
+    .a8-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; pointer-events: none; }
+    .a8-st, .a8-sv { fill: none; stroke: #1D4ED8; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; }
+    .a8-st { stroke-dashoffset: 1; }
+    .a8-sv { stroke-dashoffset: 0; }
+    .a8-st.g, .a8-sv.g { stroke: #16A34A; }
+    .a8-st.r, .a8-sv.r { stroke: #DC2626; }
+    .a8-st.y { stroke: #FACC15; stroke-width: 10; }
+    #a8-q { color: #DC2626; font-size: 200px; left: 749px; top: 451px; }
+    #a8-pen { position: absolute; left: 0; top: 0; width: 1px; height: 1px; z-index: 40; pointer-events: none; }
+    #a8-pen svg { position: absolute; left: -40px; top: -272px; width: 240px; height: 300px; overflow: visible; filter: drop-shadow(10px 14px 10px rgba(15, 23, 42, 0.22)); }
+    #a8-date { transform: rotate(-1.5deg); }
+  </style>
+  <div id="root" data-composition-id="ad8" data-width="1080" data-height="710">
+    <div id="a8-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <div id="a8-cam">
+        <div id="a8-desk"></div>
+
+        <!-- Seite 2 (C): liegt unter Seite 1, kommt beim Umblättern zum Vorschein; Eselsohr oben rechts -->
+        <div id="a8-p2" class="a8-page">
+          <div id="a8-p2h" class="a8-hw" style="left:30px; top:256px; width:490px; height:76px; font-size:76px;"><span id="a8-p2hw" class="a8-w">Sparplan</span></div>
+          <div id="a8-p2l" class="a8-hw" style="left:30px; top:372px; width:490px; height:52px; font-size:52px;"><span id="a8-p2l1" class="a8-w">läuft</span> <span id="a8-p2l2" class="a8-w">weiter</span><svg class="a8-ck" viewBox="0 0 50 44"><path id="a8-p2c" class="a8-st g" pathLength="1" d="M5 25 L18 38 L46 5"/></svg></div>
+          <div id="a8-p2k" class="a8-hw" style="left:580px; top:256px; width:490px; height:76px; font-size:76px;"><span id="a8-p2kw" class="a8-w a8-wipe">KI-Bot</span></div>
+          <svg id="a8-s2" class="a8-svg" viewBox="0 0 1080 710">
+            <defs>
+              <linearGradient id="a8-dog" x1="1017" y1="63" x2="954" y2="126" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#C9CED6"/><stop offset="0.35" stop-color="#EEF0F3"/><stop offset="1" stop-color="#FAFBFC"/>
+              </linearGradient>
+              <filter id="a8-blur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+            </defs>
+            <polygon points="950,6 1074,130 950,136" fill="#0F172A" opacity="0.18" filter="url(#a8-blur)"/>
+            <polygon points="954,0 1080,126 954,126" fill="url(#a8-dog)" stroke="#D5D9DF" stroke-width="2" stroke-linejoin="round"/>
+            <path id="a8-plus" class="a8-st" style="stroke-width:11" pathLength="1" d="M481 322 Q565 317 649 320 M566 236 Q563 320 565 404"/>
+          </svg>
+        </div>
+
+        <!-- Seite 1 (A und B) -->
+        <div id="a8-p1" class="a8-page">
+          <svg id="a8-s1b" class="a8-svg" viewBox="0 0 1080 710">
+            <path id="a8-midp" class="a8-sv" style="stroke-width:4; opacity:0.85" pathLength="1" d="M540 24 Q544 352 539 680"/>
+          </svg>
+          <!-- Kopfzeilen und "automatisch" stehen in Endposition (B); im ersten Bild (A) sind sie per GSAP größer und tiefer -->
+          <div id="a8-lh" class="a8-hw" style="left:0px; top:43px; width:540px; height:69px; font-size:69px;"><span class="a8-w">ETF-Sparplan</span></div>
+          <div id="a8-la" class="a8-hw" style="left:0px; top:140px; width:540px; height:52px; font-size:52px;"><span class="a8-w">automatisch</span><svg class="a8-ck" viewBox="0 0 50 44"><path class="a8-sv g" pathLength="1" d="M5 25 L18 38 L46 5"/></svg></div>
+          <div id="a8-rh" class="a8-hw" style="left:540px; top:43px; width:540px; height:69px; font-size:69px;"><span id="a8-kb" class="a8-w">KI-Bot</span></div>
+          <div id="a8-ra" class="a8-hw" style="left:540px; top:140px; width:540px; height:52px; font-size:52px;"><span id="a8-raw" class="a8-w a8-wipe">automatisch</span><svg class="a8-ck" viewBox="0 0 50 44"><path id="a8-rac" class="a8-st g" pathLength="1" d="M5 25 L18 38 L46 5"/></svg></div>
+          <div id="a8-qg">
+            <div id="a8-q" class="a8-hw"><span id="a8-qw" class="a8-w">?</span></div>
+            <svg class="a8-svg" viewBox="0 0 1080 710"><path id="a8-qc" class="a8-st" pathLength="1" d=""/></svg>
+          </div>
+          <div id="a8-cardt" class="a8-hw" style="left:810px; top:256px; height:52px; font-size:52px; text-align:left;"><span id="a8-ckw" class="a8-w a8-wipe">KI-Bot</span></div>
+          <div id="a8-ca" class="a8-hw thin" style="left:712px; top:346px; height:52px; font-size:52px; text-align:left;"><span id="a8-ca1" class="a8-w a8-wipe">Aufgabe:</span> <span id="a8-ca2" class="a8-w a8-wipe">Gold</span></div>
+          <div id="a8-date" class="a8-hw" style="left:0px; top:476px; width:1080px; height:62px; font-size:62px;"><span id="a8-d1" class="a8-w a8-wipe">Live</span> <span id="a8-d2" class="a8-w a8-wipe">·</span> <span id="a8-d3" class="a8-w a8-wipe">So</span> <span id="a8-d4" class="a8-w a8-wipe">6.12.</span> <span id="a8-d5" class="a8-w a8-wipe">·</span> <span id="a8-d6" class="a8-w a8-wipe">18</span> <span id="a8-d7" class="a8-w a8-wipe">Uhr</span></div>
+          <svg id="a8-s1" class="a8-svg" viewBox="0 0 1080 710">
+            <path id="a8-up" class="a8-st" pathLength="1" d="M160 302 Q158 258 161 212 M137 238 L161 211 L185 236"/>
+            <path id="a8-upc" class="a8-st g" pathLength="1" d="M193 266 L209 284 L242 241"/>
+            <path id="a8-dn" class="a8-st r" pathLength="1" d="M333 212 Q331 258 333 302 M309 277 L333 304 L357 278"/>
+            <path id="a8-dnx" class="a8-st r" pathLength="1" d="M370 246 L406 285 M406 246 L370 285"/>
+            <path id="a8-wave" class="a8-st r" style="stroke-width:7" pathLength="1" d=""/>
+            <path id="a8-kiu" class="a8-st y" pathLength="1" d=""/>
+            <path id="a8-dbl" class="a8-st" pathLength="1" d="M605 224 Q602 286 605 348 M583 246 L605 221 L627 245 M583 326 L605 351 L627 327"/>
+            <path id="a8-dbl2" class="a8-st" style="stroke-width:6" pathLength="1" d="M609 230 Q607 287 608 342 M586 249 L607 225 L630 248 M586 323 L608 346 L630 324"/>
+            <path id="a8-dc1" class="a8-st g" style="stroke-width:7" pathLength="1" d="M640 236 L652 250 L677 219"/>
+            <path id="a8-dc2" class="a8-st g" style="stroke-width:7" pathLength="1" d="M640 331 L652 345 L677 314"/>
+            <path id="a8-card" class="a8-st" style="stroke-width:7" pathLength="1" d="M710 214 H1020 Q1040 214 1040 234 V394 Q1040 414 1020 414 H710 Q690 414 690 394 V234 Q690 214 710 214 Z"/>
+            <path id="a8-slot" class="a8-st" style="stroke-width:6" pathLength="1" d="M851 203 H879 Q885 203 885 209 V217 Q885 223 879 223 H851 Q845 223 845 217 V209 Q845 203 851 203 Z"/>
+            <path id="a8-head" class="a8-st" style="stroke-width:6" pathLength="1" d="M724 238 H782 Q794 238 794 250 V304 Q794 316 782 316 H724 Q712 316 712 304 V250 Q712 238 724 238 Z M736 296 Q753 304 770 296 M753 238 V230"/>
+            <circle id="a8-he1" cx="737" cy="268" r="7" fill="#1D4ED8"/>
+            <circle id="a8-he2" cx="769" cy="268" r="7" fill="#1D4ED8"/>
+            <circle id="a8-he3" cx="753" cy="225" r="6" fill="#1D4ED8"/>
+            <path id="a8-clk" class="a8-st" style="stroke-width:6" pathLength="1" d="M1004 456 A27 27 0 1 1 1058 456 A27 27 0 1 1 1004 456 M1031 456 V437 M1031 456 L1045 465"/>
+            <path id="a8-dc" class="a8-st" pathLength="1" d=""/>
+          </svg>
+        </div>
+
+        <!-- Rückseite der umblätternden Seite 1 -->
+        <svg id="a8-flap" class="a8-svg" viewBox="0 0 1080 710">
+          <defs>
+            <linearGradient id="a8-fg" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#C3C9D2"/><stop offset="0.18" stop-color="#E9ECF0"/><stop offset="1" stop-color="#FBFCFD"/>
+            </linearGradient>
+            <filter id="a8-fblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>
+          </defs>
+          <polygon id="a8-fsh" points="0,0 0,0 0,0" fill="#0F172A" opacity="0.24" filter="url(#a8-fblur)"/>
+          <polygon id="a8-fp" points="0,0 0,0 0,0" fill="url(#a8-fg)" stroke="#D3D8DF" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <!-- Stift (nur im ersten Bild): Spitze liegt auf dem Ursprung von #a8-pen -->
+      <div id="a8-pen">
+        <svg viewBox="-40 -272 240 300">
+          <g transform="rotate(-58)">
+            <path d="M0 0 L34 -12 L34 12 Z" fill="#D9DDE3" stroke="#9CA3AF" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M0 0 L9 -3.2 L9 3.2 Z" fill="#374151"/>
+            <rect x="33" y="-13" width="190" height="26" rx="12" fill="#F7F8FA" stroke="#9CA3AF" stroke-width="2"/>
+            <rect x="178" y="-13" width="8" height="26" fill="#D1D5DB"/>
+          </g>
+        </svg>
+      </div>
+
+      <!--@include midcta p="a8m" variant="navy"-->
+      <!--@include endcard p="a8e"-->
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const $ = (s) => document.querySelector(s);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const W = 1080, H = 710;
+
+    // ---------- Handschrift: Wischen von links, 0,4–0,6 s pro Wort ----------
+    const H0 = "inset(-30% 112% -45% -12%)", H1 = "inset(-30% -12% -45% -12%)";
+    const wordDur = (el) => clamp(0.26 + 0.03 * el.textContent.trim().length, 0.4, 0.6);
+    function write(sel, t, d) {
+      const el = $(sel);
+      d = d ?? wordDur(el);
+      FX.tween(tl, el, { clipPath: H0 }, { clipPath: H1, duration: d, ease: "none" }, t);
+      return t + d;
+    }
+    function writeSeq(list, t, gap = 0.05) {
+      for (const it of list) t = (Array.isArray(it) ? write(it[0], t, it[1]) : write(it, t)) + gap;
+      return t - gap;
+    }
+    function draw(sel, t, d) { FX.draw(tl, sel, t, d); return t + d; }
+
+    // hand-drawn shapes (seeded, identical every render)
+    $("#a8-qc").setAttribute("d", FX.handCircle(810, 527, 100, 114, 3));
+    $("#a8-dc").setAttribute("d", FX.handCircle(540, 500, 352, 70, 11));
+    $("#a8-kiu").setAttribute("d", FX.handLine(708, 113, 912, 109, 5));
+    let wv = "M95 338";
+    for (let i = 0; i < 20; i++) wv += ` q8.75 ${i % 2 ? 9 : -9} 17.5 0`;
+    $("#a8-wave").setAttribute("d", wv);
+
+    // ---------- Anfangszustände ----------
+    // Seite 2 links: schreibt sich nach dem Umblättern nur, wenn bis "läuft daneben" Zeit ist; sonst steht es schon (nur ✓ live)
+    const tF = Math.max(C.stoppen - 0.15, E.mehr + 0.6);
+    const p2Room = C.daneben - 0.1 - (tF + 0.42);
+    const p2Words = p2Room >= 2.2 ? ["#a8-p2hw", "#a8-p2l1", "#a8-p2l2"] : p2Room >= 1.4 ? ["#a8-p2l1", "#a8-p2l2"] : [];
+    p2Words.forEach((s) => $(s).classList.add("a8-wipe"));
+    document.querySelectorAll("#a8-scene .a8-wipe").forEach((el) => FX.init(tl, el, { clipPath: H0 }));
+    FX.init(tl, "#a8-midp", { strokeDashoffset: 0 });
+    FX.init(tl, ["#a8-he1", "#a8-he2", "#a8-he3"], { opacity: 0 });
+    FX.init(tl, "#a8-p1", { clipPath: `polygon(0px 0px, ${W}px 0px, ${W}px ${H}px, 0px ${H}px)`, opacity: 1 });
+    FX.init(tl, "#a8-flap", { opacity: 0 });
+    FX.init(tl, "#a8m-chip", { opacity: 0 });                 // Datum schreibt sich von Hand, der Chip des Bausteins bleibt aus
+    FX.init(tl, "#a8m-btn", { opacity: 0 });
+
+    // A (erstes Bild): Kopfzeilen 1,22× und tiefer, "automatisch" ebenso; Mittelstrich lang
+    const SA = 1.22, CAP = "50% 38.6%";
+    const rowsA = [["#a8-lh", 151], ["#a8-rh", 151], ["#a8-la", 190], ["#a8-ra", 190]];
+    rowsA.forEach(([el, dy]) => FX.init(tl, el, { scale: SA, y: dy, transformOrigin: CAP }));
+
+    // ---------- 1 · "Wenn dein ETF-Sparplan schon automatisch läuft": rechts "KI-Bot" Buchstabe für Buchstabe, Stift fährt mit ----------
+    const KE = [0, 0.602, 0.911, 1.442, 2.066, 2.522, 2.973], KFS = 69;   // Kalam 700 letter edges (em)
+    const kW = KE[6] * KFS;
+    const kx = (i) => 810 - (kW * SA) / 2 + KE[i] * KFS * SA;
+    const kClip = (i) => `inset(-25px ${(i === 6 ? -14 : kW - KE[i] * KFS).toFixed(1)}px -35px -14px)`;
+    const AY = 221;
+    const penY = (i) => AY + (i % 2 ? 12 : -2);
+    FX.init(tl, "#a8-kb", { clipPath: kClip(2) });            // Frame 0: "KI" steht, der Stift setzt an
+    FX.init(tl, "#a8-pen", { x: kx(2), y: penY(2), opacity: 1 });
+    let t = 0;
+    [[2, 0.16], [3, 0.24], [4, 0.2], [5, 0.2]].forEach(([i, d]) => {
+      FX.tween(tl, "#a8-kb", { clipPath: kClip(i) }, { clipPath: kClip(i + 1), duration: d, ease: "none" }, t);
+      FX.tween(tl, "#a8-pen", { x: kx(i), y: penY(i) }, { x: kx(i + 1), y: penY(i + 1), duration: d, ease: "none" }, t);
+      t += d + 0.04;
+    });
+    const kEnd = t;
+
+    // ---------- 2 · "wozu brauchst du dann noch einen KI-Trading-Bot?": großes rotes "?" (der Stift schreibt es, dann geht er) ----------
+    const tQ = Math.max(C.wozu - 0.05, kEnd + 0.6);
+    const qStart = [774, 488];
+    FX.tween(tl, "#a8-pen", { x: kx(6), y: penY(6) }, { x: kx(6) + 18, y: AY - 40, duration: Math.max(0.2, tQ - 0.32 - kEnd), ease: "sine.inOut" }, kEnd);
+    FX.tween(tl, "#a8-pen", { x: kx(6) + 18, y: AY - 40 }, { x: qStart[0], y: qStart[1], duration: 0.3, ease: "power2.inOut" }, tQ - 0.32);
+    FX.init(tl, "#a8-qw", { clipPath: "inset(-12% -25% 112% -25%)" });
+    FX.tween(tl, "#a8-qw", { clipPath: "inset(-12% -25% 112% -25%)" }, { clipPath: "inset(-12% -25% -12% -25%)", duration: 0.5, ease: "none" }, tQ);
+    FX.tween(tl, "#a8-pen", { x: qStart[0], y: qStart[1] }, { x: 846, y: 486, duration: 0.17, ease: "sine.out" }, tQ);
+    FX.tween(tl, "#a8-pen", { x: 846, y: 486 }, { x: 811, y: 566, duration: 0.19, ease: "sine.inOut" }, tQ + 0.17);
+    FX.tween(tl, "#a8-pen", { x: 811, y: 566 }, { x: 811, y: 600, duration: 0.14, ease: "power1.out" }, tQ + 0.36);
+    FX.tween(tl, "#a8-pen", { x: 811, y: 600, opacity: 1 }, { x: 1260, y: 780, opacity: 0, duration: 0.35, ease: "power2.in" }, tQ + 0.62);
+    // Lücke bis "Frage" > 3 s: das "?" wackelt einmal (6°, 0,6 s pro Schwung)
+    const qEnd = tQ + 0.5;
+    if (C.frage - qEnd > 2.6) {
+      const tw = qEnd + Math.max(0.9, (C.frage - qEnd - 1.2) * 0.55);
+      FX.init(tl, "#a8-q", { rotation: 0, transformOrigin: "50% 77%" });
+      FX.tween(tl, "#a8-q", { rotation: 0 }, { rotation: -6, duration: 0.3, ease: "sine.out" }, tw);
+      FX.tween(tl, "#a8-q", { rotation: -6 }, { rotation: 6, duration: 0.6, ease: "sine.inOut" }, tw + 0.3);
+      FX.tween(tl, "#a8-q", { rotation: 6 }, { rotation: 0, duration: 0.3, ease: "sine.in" }, tw + 0.9);
+    }
+
+    // ---------- 3 · "eine richtig gute Frage": das "?" wird blau eingekreist ----------
+    const tFr = Math.max(C.frage, qEnd + 0.2);
+    draw("#a8-qc", tFr, 0.5);
+
+    // ---------- 4 · "automatisch läuft ja beides": rechts auf gleicher Höhe "automatisch ✓" ----------
+    const tB = Math.max(C.beides - 0.05, tFr + 0.5);
+    const bEnd = draw("#a8-rac", write("#a8-raw", tB) + 0.05, 0.25);
+
+    // ---------- Magic Move zu B ("DAS problem ist"): Spalten rücken nach oben, "?" geht, Mittelstrich wird kürzer ----------
+    const tM = Math.max(C.problem - 0.1, bEnd + 0.25);
+    rowsA.forEach(([el, dy]) => FX.tween(tl, el, { scale: SA, y: dy }, { scale: 1, y: 0, duration: 0.5, ease: "power2.inOut" }, tM));
+    FX.fadeOut(tl, "#a8-qg", tM, 0.25);
+    FX.tween(tl, "#a8-midp", { strokeDashoffset: 0 }, { strokeDashoffset: 0.385, duration: 0.5, ease: "power2.inOut", autoRound: false }, tM);
+
+    // ---------- 5–7 · links: Pfeil hoch + Haken, Pfeil runter + X, rote Wellenlinie ----------
+    draw("#a8-upc", draw("#a8-up", Math.max(C.steigen - 0.15, tM + 0.6), 0.3), 0.25);
+    draw("#a8-dnx", draw("#a8-dn", C.fallen - 0.15, 0.3), 0.25);
+    draw("#a8-wave", C.investoren, 0.5);
+
+    // Markierung in der langen Lücke vor "in beide Richtungen": "KI-Bot" wird gelb unterstrichen
+    draw("#a8-kiu", C.einki - 0.1, 0.3);
+
+    // ---------- 8 · "in beide Richtungen": Doppelpfeil, beide Spitzen bekommen Haken ----------
+    const tR = C.richtungen - 0.1;
+    draw("#a8-dbl", tR, 0.4);
+    draw("#a8-dc1", tR + 0.42, 0.2);
+    draw("#a8-dc2", tR + 0.62, 0.2);
+
+    // ---------- 9 · "wie der Mitarbeiter" (Tabelle: "wie dein mitarbeiter"): Mitarbeiterausweis (Roboterkopf, "KI-Bot", "Aufgabe: Gold") ----------
+    const tA = C.mitarbeiter - 0.12;
+    draw("#a8-card", tA, 0.35);
+    draw("#a8-slot", tA + 0.22, 0.15);
+    draw("#a8-head", tA + 0.2, 0.3);
+    FX.pop(tl, ["#a8-he1", "#a8-he2", "#a8-he3"], tA + 0.48);
+    writeSeq(["#a8-ckw", "#a8-ca1", "#a8-ca2"], tA + 0.34, 0.03);
+
+    // ---------- 10 · "24/7": nur ein Uhr-Doodle am Ausweis ----------
+    draw("#a8-clk", C.uhr - 0.1, 0.35);
+
+    // ---------- 11 · "fallenden Kursen" (Tabelle: "fallenden ETF Kursen"): Doppelpfeil wird einmal nachgezogen ----------
+    draw("#a8-dbl2", C.kursen, 0.4);
+
+    // ---------- 12 · Mitte-CTA (Baustein): "Live · So 6.12. · 18 Uhr" schreibt sich quer und wird eingekreist ----------
+    const dEnd = writeSeq(["#a8-d1", ["#a8-d2", 0.12], "#a8-d3", "#a8-d4", ["#a8-d5", 0.12], "#a8-d6", "#a8-d7"], C.live - 0.05, 0.06);
+    draw("#a8-dc", Math.max(C.webinar - 0.1, dEnd + 0.05), 0.5);
+
+    // ---------- 13 · "Klick dazu einfach" (Tabelle: "klick am besten jetzt schon"): Button "Mehr dazu" in Navy ploppt, pulsiert solange der Satz läuft, dann raus ----------
+    FX.pop(tl, "#a8m-btn", C.klick);
+    const pulseD = Math.max(0.8, E.mehr - C.klick - 0.2);
+    FX.pulse(tl, "#a8m-btn", C.klick + 0.15, pulseD);
+    FX.tween(tl, "#a8m-arrow", { y: 0 }, { y: 10, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }, C.klick + 0.2);
+    const tOut = Math.max(E.mehr, C.klick + 0.15 + Math.max(1, Math.floor(pulseD / 0.8)) * 0.8);
+    FX.tween(tl, "#a8m-btn", { opacity: 1, y: 0 }, { opacity: 0, y: 190, duration: 0.25, ease: "power2.in" }, tOut);
+
+    // ---------- 14 · "nicht stoppen": Umblättern in 0,4 s von rechts oben ----------
+    function peel(e) {
+      const Q = [W - 2 * W * e, H * 0.3 * Math.sin(Math.PI * e)];
+      const M = [(W + Q[0]) / 2, Q[1] / 2];
+      let n = [W - Q[0], -Q[1]];
+      const L = Math.hypot(n[0], n[1]);
+      n = [n[0] / L, n[1] / L];
+      const side = (p) => (p[0] - M[0]) * n[0] + (p[1] - M[1]) * n[1];
+      const rect = [[0, 0], [W, 0], [W, H], [0, H]];
+      const cut = (keepFold) => {
+        const out = [];
+        for (let i = 0; i < 4; i++) {
+          const a = rect[i], b = rect[(i + 1) % 4], sa = side(a), sb = side(b);
+          const ia = keepFold ? sa >= 0 : sa <= 0, ib = keepFold ? sb >= 0 : sb <= 0;
+          if (ia) out.push(a);
+          if (ia !== ib) { const k = sa / (sa - sb); out.push([a[0] + (b[0] - a[0]) * k, a[1] + (b[1] - a[1]) * k]); }
+        }
+        return out;
+      };
+      const fold = cut(true).map((p) => { const s = side(p); return [p[0] - 2 * s * n[0], p[1] - 2 * s * n[1]]; });
+      return { stay: cut(false), fold, M, Q };
+    }
+    const NF = 16;
+    FX.set(tl, "#a8-flap", { opacity: 1 }, tF);
+    for (let k = 1; k <= NF; k++) {
+      const tk = tF + ((k - 1) / NF) * 0.4;
+      const e = 0.5 - 0.5 * Math.cos(Math.PI * (k / NF));
+      const g = peel(Math.max(0.02, e));
+      if (g.stay.length >= 3) FX.set(tl, "#a8-p1", { clipPath: `polygon(${g.stay.map((p) => `${p[0].toFixed(1)}px ${p[1].toFixed(1)}px`).join(", ")})` }, tk);
+      const pts = g.fold.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join(" ");
+      const sh = g.fold.map((p) => `${(p[0] + 10).toFixed(1)},${(p[1] + 14).toFixed(1)}`).join(" ");
+      FX.set(tl, "#a8-fp", { attr: { points: pts } }, tk);
+      FX.set(tl, "#a8-fsh", { attr: { points: sh } }, tk);
+      FX.set(tl, "#a8-fg", { attr: { x1: g.M[0], y1: g.M[1], x2: g.Q[0], y2: g.Q[1] } }, tk);
+    }
+    FX.set(tl, "#a8-p1", { opacity: 0 }, tF + 0.4);
+    FX.set(tl, "#a8-flap", { opacity: 0 }, tF + 0.4);
+
+    // Seite 2: links "Sparplan" und "läuft weiter ✓"
+    let t2 = tF + 0.42;
+    if (p2Words.length) t2 = writeSeq(p2Words, t2) + 0.04;
+    t2 = draw("#a8-p2c", t2, 0.25);
+
+    // ---------- 15 · "läuft daneben" (Tabelle: "läuft einfach daneben"): rechts "KI-Bot", dazwischen ein großes "+" ----------
+    const tK = Math.max(C.daneben - 0.1, t2 - 0.15);
+    const kEnd2 = write("#a8-p2kw", tK);
+    draw("#a8-plus", Math.max(kEnd2 + 0.02, E.daneben - 0.3), 0.36);
+
+    // ---------- 16 · "als Absicherung": nichts Neues, langsamer Zoom ----------
+    FX.slowZoom(tl, "#a8-cam", C.absicherung, { origin: "523px 330px" });   // zoomed page stays inside the later end card (x 70–1010)
+
+    // 17–19 · "gar nicht hinschaust", "einmal pro Woche", "20 Minuten": sagt Kilian in der Aufnahme nicht → nichts einblenden.
+
+    // ---------- 20–23 · End-Karte (Baustein) legt sich über die Seite, ohne Platz-Chip ----------
+    // "sichere dir jetzt deinen Platz": Touch-Punkt tippt auf "Mehr dazu"; "kein zweites mal" (gesprochen: "einmalig"): nichts Neues;
+    // "am Sonntag, den 6. Dezember um 18 Uhr live": das Datum pulsiert bis zum Ende.
+    FX.endCard(tl, "a8e", { start: C.sonntag, t18: C.t18, bot: C.bot, klick: C.platz, pulseDate: C.sonntag2 });
+
+    window.__timelines["ad8"] = tl;
+  </script>
+</template>

@@ -46,6 +46,7 @@ def main():
     args = sys.argv[1:]
     only = args[args.index("--only") + 1].split(",") if "--only" in args else None
     from faster_whisper import WhisperModel
+    from faster_whisper.vad import VadOptions, get_speech_timestamps
     model = WhisperModel(MODEL, device="cpu", compute_type="int8", cpu_threads=4)
     fx_path = ROOT / "data/edit/word_fixes.json"
     fixes = {k: v for k, v in json.loads(fx_path.read_text()).items() if not k.startswith("_")} if fx_path.exists() else {}
@@ -58,9 +59,17 @@ def main():
         raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", str(wav), "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
         a = np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768
         dur = len(a) / 16000
-        segs, _ = model.transcribe(a, language="de", word_timestamps=True, beam_size=5, vad_filter=False, condition_on_previous_text=True,
-                                   initial_prompt=" ".join(text[:60]))
-        heard = [{"text": w.word.strip(), "start": w.start, "end": w.end} for s in segs for w in (s.words or []) if w.word.strip()]
+        # island by island (VAD, ≤ 7 s): a full-file pass can skip whole sentences, which would leave their captions
+        # without real timings; words are kept only where their centre lies inside the island (no doubles at edges)
+        ts = get_speech_timestamps(a, VadOptions(min_silence_duration_ms=120, speech_pad_ms=60, threshold=0.4, min_speech_duration_ms=80, max_speech_duration_s=7))
+        heard = []
+        for t in ts:
+            c0 = max(0, t["start"] - 2400)
+            segs, _ = model.transcribe(a[c0 : t["end"] + 2400], language="de", word_timestamps=True, beam_size=5, vad_filter=False, condition_on_previous_text=False)
+            for w in (x for sg in segs for x in (sg.words or [])):
+                mid = c0 / 16000 + (w.start + w.end) / 2
+                if t["start"] / 16000 <= mid < t["end"] / 16000 and w.word.strip():
+                    heard.append({"text": w.word.strip(), "start": c0 / 16000 + w.start, "end": c0 / 16000 + w.end})
         mp = align([canon(t) for t in text], [canon(h["text"]) for h in heard])
         out = []
         for i, t in enumerate(text):

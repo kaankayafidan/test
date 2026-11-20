@@ -1,0 +1,431 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; background: #FFFFFF; overflow: hidden; }
+    /* Ad 4 "KI im Büro": heller Desktop, weiße Fenster (runde Ecken, weicher Schatten), Fenster auf 3–4 Zeilen gezoomt. */
+    #a4-scene { position: absolute; inset: 0; overflow: hidden; font-family: 'Poppins'; color: #0E1A2B;
+      background: radial-gradient(90% 80% at 50% 40%, #FFFFFF 0%, #F1F3F6 60%, #E2E5EA 100%); }
+
+    /* grey laptop, front view, no logo (the desktop shrinks into its screen at "Am Sonntag") */
+    #a4-lap { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; z-index: 1; }
+    #a4-lapsh { position: absolute; left: 110px; top: 528px; width: 860px; height: 40px; border-radius: 50%; background: radial-gradient(closest-side, rgba(15, 23, 42, 0.22), rgba(15, 23, 42, 0)); }
+    #a4-lid { position: absolute; left: 243px; top: 112px; width: 594px; height: 402px; border-radius: 24px; background: #2B3139; box-shadow: inset 0 0 0 2px #4B5462; }
+    #a4-lidcam { position: absolute; left: 537px; top: 118px; width: 6px; height: 6px; border-radius: 50%; background: #4B5462; }
+    #a4-base { position: absolute; left: 150px; top: 513px; width: 780px; height: 28px; border-radius: 3px 3px 22px 22px; background: linear-gradient(#E7E9ED, #BEC3CB); box-shadow: 0 2px 0 #A2A8B1; }
+    #a4-notch { position: absolute; left: 480px; top: 513px; width: 120px; height: 9px; border-radius: 0 0 10px 10px; background: #A9AFB8; }
+
+    /* the desktop (world → camera) */
+    #a4-world { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: hidden; z-index: 2; }
+    #a4-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    #a4-bg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px;
+      background: radial-gradient(55% 65% at 14% 16%, rgba(199, 210, 254, 0.55), rgba(199, 210, 254, 0) 70%),
+                  radial-gradient(50% 60% at 88% 92%, rgba(191, 219, 254, 0.6), rgba(191, 219, 254, 0) 70%),
+                  linear-gradient(160deg, #F6F8FC 0%, #E6EAF2 100%); }
+    .a4-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; pointer-events: none; }
+
+    /* folders "Arbeit" / "Meine ETFs" */
+    .a4-fold { position: absolute; left: 60px; width: 260px; display: flex; flex-direction: column; align-items: center; }
+    .a4-fold svg { width: 150px; height: 118px; display: block; }
+    .a4-fold span { margin-top: 8px; font-weight: 600; font-size: 40px; line-height: 52px; white-space: nowrap; color: #0E1A2B; }
+    #a4-f1 { top: 50px; }
+    #a4-f2 { top: 290px; }
+    .a4-ystroke { fill: none; stroke: #FACC15; stroke-width: 10; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+    /* calendar widget "Mittwoch" */
+    #a4-cal { position: absolute; left: 550px; top: 24px; width: 470px; height: 436px; border-radius: 26px; background: #FFFFFF; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.12), 0 2px 6px rgba(15, 23, 42, 0.05); }
+    #a4-cal h3 { position: absolute; left: 30px; top: 18px; font-weight: 700; font-size: 40px; line-height: 52px; }
+    .a4-hr { position: absolute; left: 30px; width: 418px; height: 0; border-top: 1.5px solid #ECEEF2; }
+    .a4-hr b { position: absolute; left: 0; top: -15px; padding-right: 10px; background: #FFFFFF; font-weight: 500; font-size: 22px; line-height: 28px; color: #9CA3AF; }
+    .a4-blk { position: absolute; left: 100px; width: 350px; height: 64px; border-radius: 12px; padding-left: 20px; font-weight: 700; font-size: 44px; line-height: 64px; letter-spacing: -0.3px; white-space: nowrap; overflow: hidden; }
+    #a4-mtg { top: 114px; background: #EEF2FF; color: #312E81; box-shadow: inset 7px 0 0 #4F46E5; }
+    #a4-trn { top: 350px; background: #DCFCE7; color: #14532D; box-shadow: inset 7px 0 0 #16A34A; }
+
+    /* dock (no OS look, no logos) */
+    #a4-dock { position: absolute; left: 304px; top: 582px; width: 472px; height: 112px; border-radius: 32px; background: rgba(255, 255, 255, 0.82); box-shadow: 0 14px 34px rgba(15, 23, 42, 0.14), inset 0 0 0 1.5px rgba(255, 255, 255, 0.95); }
+    .a4-app { position: absolute; top: 14px; width: 76px; height: 76px; border-radius: 20px; }
+    .a4-app svg { position: absolute; left: 0; top: 0; width: 76px; height: 76px; }
+    #a4-ki { left: 378px; background: #0E1A2B; color: #FACC15; font-weight: 800; font-size: 32px; line-height: 76px; text-align: center; letter-spacing: 0.5px; }
+    #a4-ddot, #a4-dhalo { position: absolute; left: 713px; top: 677px; width: 14px; height: 14px; border-radius: 50%; }
+    #a4-ddot { background: #16A34A; box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9); }
+    #a4-dhalo { border: 3px solid #16A34A; }
+
+    /* e-mail window "Neue E-Mail" */
+    #a4-mail { position: absolute; left: 80px; top: 52px; width: 920px; height: 606px; border-radius: 26px; background: #FFFFFF; overflow: hidden; box-shadow: 0 22px 60px rgba(15, 23, 42, 0.16), 0 2px 8px rgba(15, 23, 42, 0.06); }
+    .a4-bar { position: absolute; left: 0; top: 0; width: 100%; height: 64px; border-bottom: 1.5px solid #EEF0F4; }
+    .a4-dots { position: absolute; left: 26px; top: 25px; display: flex; gap: 10px; }
+    .a4-dots i { width: 14px; height: 14px; border-radius: 50%; background: #DADDE3; }
+    .a4-wt { position: absolute; left: 0; top: 0; width: 100%; height: 64px; line-height: 64px; text-align: center; font-weight: 600; font-size: 26px; color: #374151; }
+    .a4-fld { position: absolute; left: 52px; right: 52px; height: 76px; border-bottom: 1.5px solid #EEF0F4; font-size: 30px; line-height: 76px; white-space: nowrap; }
+    .a4-fld em { display: inline-block; width: 140px; font-style: normal; font-weight: 400; color: #9CA3AF; }
+    #a4-to { top: 64px; font-weight: 500; color: #1F2937; }
+    #a4-subj { top: 140px; font-weight: 600; color: #111827; }
+    #a4-body { position: absolute; left: 52px; top: 240px; font-weight: 400; font-size: 50px; line-height: 72px; color: #B4BBC7; }
+    .a4-ln { height: 72px; white-space: pre; }
+    .a4-cr { display: inline-block; position: relative; width: 0; height: 58px; vertical-align: -12px; }
+    .a4-cr b { position: absolute; left: 0; top: 0; width: 4px; height: 58px; border-radius: 2px; background: #4F46E5; opacity: 0; }
+    #a4-chip { position: absolute; right: 34px; bottom: 30px; height: 56px; display: flex; align-items: center; gap: 10px; padding: 0 24px 0 18px; border-radius: 28px; background: #EEF2FF; box-shadow: inset 0 0 0 2px #C7D2FE; font-weight: 600; font-size: 28px; line-height: 56px; color: #4338CA; white-space: nowrap; }
+    #a4-chip svg { width: 28px; height: 28px; flex: none; }
+
+    /* bot schematic: flat navy card, no window bar, no buttons */
+    #a4-botm, #a4-botz { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    #a4-bot { position: absolute; left: 160px; top: 86px; width: 760px; height: 392px; border-radius: 30px; background: #0E1A2B; color: #FFFFFF; overflow: hidden; box-shadow: 0 30px 70px rgba(14, 26, 43, 0.38), 0 4px 12px rgba(14, 26, 43, 0.2); }
+    #a4-btitle { position: absolute; left: 48px; top: 34px; font-weight: 700; font-size: 58px; line-height: 64px; letter-spacing: -0.5px; white-space: nowrap; }
+    #a4-mk { position: absolute; left: 0; top: 0; width: 760px; height: 160px; overflow: visible; }
+    .a4-mkp { fill: none; stroke: #FACC15; stroke-width: 13; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+    #a4-akt { position: absolute; left: 570px; top: 44px; width: 146px; height: 50px; border-radius: 25px; background: rgba(22, 163, 74, 0.18); }
+    #a4-akt span { position: absolute; left: 46px; top: 0; font-weight: 600; font-size: 34px; line-height: 50px; color: #4ADE80; }
+    #a4-dot, #a4-halo { position: absolute; left: 16px; top: 15px; width: 20px; height: 20px; border-radius: 50%; }
+    #a4-dot { background: #16A34A; box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.35); }
+    #a4-halo { border: 3px solid #4ADE80; }
+    .a4-row { position: absolute; left: 48px; width: 664px; height: 78px; border-top: 1.5px solid rgba(255, 255, 255, 0.1); }
+    .a4-row em { position: absolute; left: 0; top: 0; font-style: normal; font-weight: 500; font-size: 40px; line-height: 78px; color: #9AA7BA; }
+    .a4-row strong { position: absolute; left: 282px; top: 0; font-weight: 700; font-size: 46px; line-height: 78px; color: #FFFFFF; }
+    #a4-r1 { top: 148px; }
+    #a4-r2 { top: 226px; }
+    #a4-r3 { top: 304px; }
+    #a4-goldhl { position: absolute; left: 268px; top: 13px; width: 132px; height: 52px; border-radius: 12px; background: #FACC15; }
+    #a4-check { position: absolute; left: 384px; top: 17px; width: 44px; height: 44px; }
+    #a4-tray { position: absolute; left: 0; top: 392px; width: 760px; height: 144px; border-top: 1.5px solid rgba(255, 255, 255, 0.1); }
+    .a4-sw { position: absolute; top: 46px; width: 62px; height: 36px; border-radius: 18px; background: #9CA3AF; }
+    .a4-sw i { position: absolute; left: 4px; top: 4px; width: 28px; height: 28px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25); }
+
+    /* week calendar: 4 rows (Do–So), Sunday block */
+    #a4-week { position: absolute; left: 30px; top: 20px; width: 1020px; height: 512px; border-radius: 26px; background: #FFFFFF; overflow: hidden; box-shadow: 0 26px 64px rgba(15, 23, 42, 0.2), 0 2px 8px rgba(15, 23, 42, 0.06); }
+    #a4-weekz { position: absolute; left: 0; top: 0; width: 1020px; height: 512px; }
+    .a4-wrow { position: absolute; left: 0; width: 1020px; height: 106px; border-top: 1.5px solid #EEF0F4; }
+    .a4-wrow em { position: absolute; left: 48px; top: 0; font-style: normal; font-weight: 600; font-size: 42px; line-height: 106px; color: #A3AAB6; }
+    #a4-wso em { color: #0E1A2B; font-weight: 700; font-size: 44px; }
+    #a4-wblk { position: absolute; left: 170px; top: 14px; height: 78px; padding: 0 32px 0 36px; border-radius: 16px; background: #FEF9C3; box-shadow: inset 9px 0 0 #FACC15; font-weight: 700; font-size: 46px; line-height: 78px; white-space: nowrap; color: #0E1A2B; }
+
+    /* screen-space icons (clock, magnifier, red X) */
+    #a4-ovl { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
+    .a4-ico { position: absolute; left: 346px; top: 182px; width: 160px; height: 160px; }
+    .a4-ico svg { width: 160px; height: 160px; overflow: visible; }
+    #a4-x { position: absolute; left: 336px; top: 172px; width: 180px; height: 180px; }
+    #a4-x svg { width: 180px; height: 180px; overflow: visible; }
+  </style>
+
+  <div id="root" data-composition-id="ad4" data-width="1080" data-height="710">
+    <div id="a4-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+
+      <div id="a4-lap">
+        <div id="a4-lapsh"></div>
+        <div id="a4-lid"></div>
+        <div id="a4-lidcam"></div>
+        <div id="a4-base"></div>
+        <div id="a4-notch"></div>
+      </div>
+
+      <div id="a4-world">
+        <div id="a4-cam">
+          <div id="a4-bg"></div>
+
+          <div id="a4-f1" class="a4-fold">
+            <svg viewBox="0 0 150 118"><path d="M8 18 Q8 8 18 8 H54 Q61 8 65 13 L72 22 H132 Q142 22 142 32 V44 H8 Z" fill="#3B82F6"/><rect x="4" y="32" width="142" height="84" rx="14" fill="#60A5FA"/><rect x="4" y="32" width="142" height="12" rx="6" fill="#93C5FD" opacity="0.7"/></svg>
+            <span>Arbeit</span>
+          </div>
+          <div id="a4-f2" class="a4-fold">
+            <svg viewBox="0 0 150 118"><path d="M8 18 Q8 8 18 8 H54 Q61 8 65 13 L72 22 H132 Q142 22 142 32 V44 H8 Z" fill="#3B82F6"/><rect x="4" y="32" width="142" height="84" rx="14" fill="#60A5FA"/><rect x="4" y="32" width="142" height="12" rx="6" fill="#93C5FD" opacity="0.7"/></svg>
+            <span>Meine ETFs</span>
+          </div>
+          <svg class="a4-svg" viewBox="0 0 1080 710"><g transform="rotate(-150 190 384)"><ellipse id="a4-yc" class="a4-ystroke" cx="190" cy="384" rx="150" ry="135" pathLength="1"/></g></svg>
+
+          <div id="a4-cal">
+            <h3>Mittwoch</h3>
+            <div class="a4-hr" style="top:88px"><b>09:00</b></div>
+            <div class="a4-hr" style="top:144px"><b>11:00</b></div>
+            <div class="a4-hr" style="top:200px"><b>13:00</b></div>
+            <div class="a4-hr" style="top:256px"><b>15:00</b></div>
+            <div class="a4-hr" style="top:312px"><b>17:00</b></div>
+            <div class="a4-hr" style="top:368px"><b>19:00</b></div>
+            <div id="a4-mtg" class="a4-blk">Meeting 10:00</div>
+            <div id="a4-trn" class="a4-blk">Training 18:30</div>
+          </div>
+
+          <div id="a4-dock">
+            <div class="a4-app" style="left:18px; background:#8FA3C1"><svg viewBox="0 0 76 76"><rect x="17" y="24" width="42" height="29" rx="5" fill="none" stroke="#fff" stroke-width="4.5"/><path d="M19 27 L38 41 L57 27" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/></svg></div>
+            <div class="a4-app" style="left:108px; background:#A9B6CA"><svg viewBox="0 0 76 76"><rect x="18" y="21" width="40" height="36" rx="6" fill="none" stroke="#fff" stroke-width="4.5"/><path d="M18 32 H58" stroke="#fff" stroke-width="4.5"/><circle cx="29" cy="43" r="3" fill="#fff"/><circle cx="38" cy="43" r="3" fill="#fff"/><circle cx="47" cy="43" r="3" fill="#fff"/></svg></div>
+            <div class="a4-app" style="left:198px; background:#7C90AE"><svg viewBox="0 0 76 76"><path d="M22 27 H54 M22 38 H54 M22 49 H44" stroke="#fff" stroke-width="4.5" stroke-linecap="round"/></svg></div>
+            <div class="a4-app" style="left:288px; background:#97A8C0"><svg viewBox="0 0 76 76"><path d="M18 27 Q18 23 22 23 H32 L36 28 H54 Q58 28 58 32 V50 Q58 54 54 54 H22 Q18 54 18 50 Z" fill="none" stroke="#fff" stroke-width="4.5" stroke-linejoin="round"/></svg></div>
+            <div id="a4-ki" class="a4-app">KI</div>
+          </div>
+
+          <div id="a4-mail">
+            <div class="a4-bar"><div class="a4-dots"><i></i><i></i><i></i></div><div class="a4-wt">Neue E-Mail</div></div>
+            <div id="a4-to" class="a4-fld"><em>An:</em>team@firma.de</div>
+            <div id="a4-subj" class="a4-fld"><em>Betreff:</em>Wochenupdate</div>
+            <div id="a4-body"></div>
+            <div id="a4-chip"><svg viewBox="0 0 28 28"><path d="M13 2 C14 9 17 12 24 13 C17 14 14 17 13 24 C12 17 9 14 2 13 C9 12 12 9 13 2 Z" fill="#4F46E5"/><path d="M23 1 C23.4 3.6 24.4 4.6 27 5 C24.4 5.4 23.4 6.4 23 9 C22.6 6.4 21.6 5.4 19 5 C21.6 4.6 22.6 3.6 23 1 Z" fill="#818CF8"/></svg><span>KI schreibt …</span></div>
+          </div>
+
+          <div id="a4-botm"><div id="a4-botz">
+            <div id="a4-bot">
+              <svg id="a4-mk" viewBox="0 0 760 160"><path id="a4-mkp" class="a4-mkp" d="M52 113 Q 280 106 506 110" pathLength="1"/></svg>
+              <div id="a4-btitle">KI-Trading-Bot</div>
+              <div id="a4-akt"><div id="a4-halo"></div><div id="a4-dot"></div><span>aktiv</span></div>
+              <div id="a4-r1" class="a4-row"><em>Markt</em><div id="a4-goldhl"></div><strong id="a4-gold">Gold</strong></div>
+              <div id="a4-r2" class="a4-row"><em>Regeln</em><strong>fest</strong><svg id="a4-check" viewBox="0 0 44 44"><circle cx="22" cy="22" r="21" fill="#16A34A"/><path d="M12.5 22.5 L19 29 L31.5 15.5" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div id="a4-r3" class="a4-row"><em>Strategien</em><strong>9</strong></div>
+              <div id="a4-tray">
+                <div id="a4-s0" class="a4-sw" style="left:49px"><i id="a4-k0"></i></div>
+                <div id="a4-s1" class="a4-sw" style="left:124px"><i id="a4-k1"></i></div>
+                <div id="a4-s2" class="a4-sw" style="left:200px"><i id="a4-k2"></i></div>
+                <div id="a4-s3" class="a4-sw" style="left:275px"><i id="a4-k3"></i></div>
+                <div id="a4-s4" class="a4-sw" style="left:349px"><i id="a4-k4"></i></div>
+                <div id="a4-s5" class="a4-sw" style="left:424px"><i id="a4-k5"></i></div>
+                <div id="a4-s6" class="a4-sw" style="left:498px"><i id="a4-k6"></i></div>
+                <div id="a4-s7" class="a4-sw" style="left:573px"><i id="a4-k7"></i></div>
+                <div id="a4-s8" class="a4-sw" style="left:649px"><i id="a4-k8"></i></div>
+              </div>
+            </div>
+          </div></div>
+
+          <div id="a4-week"><div id="a4-weekz">
+            <div class="a4-bar"><div class="a4-dots"><i></i><i></i><i></i></div><div class="a4-wt">Diese Woche</div></div>
+            <div class="a4-wrow" style="top:66px; border-top:0"><em>Do</em></div>
+            <div class="a4-wrow" style="top:172px"><em>Fr</em></div>
+            <div class="a4-wrow" style="top:278px"><em>Sa</em></div>
+            <div id="a4-wso" class="a4-wrow" style="top:384px"><em>So</em><div id="a4-wblk">Wochen-Check · 20 Min</div></div>
+          </div></div>
+
+          <div id="a4-dhalo"></div>
+          <div id="a4-ddot"></div>
+          <!--@include cursor p="a4"-->
+        </div>
+
+        <div id="a4-ovl">
+          <div id="a4-clock" class="a4-ico"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/><circle cx="80" cy="80" r="44" fill="none" stroke="#0E1A2B" stroke-width="9"/><path d="M80 80 V52 M80 80 L100 92" stroke="#0E1A2B" stroke-width="9" stroke-linecap="round"/><path id="a4-clockx" class="fx-stroke" d="M30 30 L130 130" pathLength="1"/></svg></div>
+          <div id="a4-mag" class="a4-ico"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="74" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/><circle cx="71" cy="71" r="27" fill="none" stroke="#0E1A2B" stroke-width="9"/><path d="M91 91 L114 114" stroke="#0E1A2B" stroke-width="12" stroke-linecap="round"/><path id="a4-magx" class="fx-stroke" d="M30 30 L130 130" pathLength="1"/></svg></div>
+          <div id="a4-x"><svg viewBox="0 0 180 180"><path d="M24 24 L156 156 M156 24 L24 156" fill="none" stroke="#DC2626" stroke-width="18" stroke-linecap="round"/></svg></div>
+        </div>
+      </div>
+
+      <!--@include endcard p="a4e" platz="10 Plätze"-->
+    </div>
+  </div>
+
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const GREY = "#9CA3AF", GREEN = "#16A34A";
+
+    // ---------------------------------------------------------------- initial states
+    FX.init(tl, "#a4-bot", { opacity: 0 });
+    FX.init(tl, "#a4-goldhl", { scaleX: 0, transformOrigin: "0% 50%" });
+    FX.init(tl, "#a4-check", { opacity: 0 });
+    FX.init(tl, "#a4-halo", { opacity: 0 });
+    FX.init(tl, "#a4-dock", { y: 170 });
+    FX.init(tl, "#a4-ddot", { opacity: 0 });
+    FX.init(tl, "#a4-dhalo", { opacity: 0 });
+    FX.init(tl, "#a4-cal", { opacity: 0 });
+    FX.init(tl, "#a4-mtg", { opacity: 0 });
+    FX.init(tl, "#a4-trn", { opacity: 0 });
+    FX.init(tl, "#a4-f1", { opacity: 0 });
+    FX.init(tl, "#a4-f2", { opacity: 0 });
+    FX.init(tl, "#a4-clock", { opacity: 0 });
+    FX.init(tl, "#a4-mag", { opacity: 0 });
+    FX.init(tl, "#a4-x", { opacity: 0 });
+    FX.init(tl, "#a4-week", { x: 1300 });
+    FX.init(tl, "#a4-wblk", { opacity: 0 });
+
+    // ---------------------------------------------------------------- 1 "Im Büro schreibt dir die KI längst deine E-Mails"
+    // The mail types itself from frame 1, the rest stands grey as AI suggestion, "KI schreibt …" blinks.
+    const LINES = ["Hallo Team,", "anbei die Übersicht für diese", "Woche. Schöne Grüße"];
+    const SEQ = LINES.join("");
+    const CH = [], CR = [];
+    const bodyEl = document.getElementById("a4-body");
+    for (const line of LINES) {
+      const ln = document.createElement("div");
+      ln.className = "a4-ln";
+      for (const ch of line) {
+        const s = document.createElement("span");
+        s.textContent = ch;
+        ln.appendChild(s);
+        CH.push(s);
+        const c = document.createElement("i");
+        c.className = "a4-cr";
+        const b = document.createElement("b");
+        c.appendChild(b);
+        ln.appendChild(c);
+        CR.push(b);
+      }
+      bodyEl.appendChild(ln);
+    }
+    const N0 = 13, N1 = 51;           // typed at frame 1 ("Hallo Team, an") / where the AI suggestion waits ("… Schö|ne Grüße")
+    const INK = "#111827", SUG = "#B4BBC7";
+    CH.forEach((s, i) => FX.init(tl, s, { color: i < N0 ? INK : SUG }));
+    CR.forEach((b, i) => FX.init(tl, b, { opacity: i === N0 - 1 ? 1 : 0 }));
+    const tType = clamp(C.klick1 - 0.2, 1.6, 3.0);
+    const wts = [];
+    for (let i = N0; i < N1; i++) {
+      const prev = SEQ[i - 1];
+      wts.push(1 + 0.3 * Math.sin(i * 2.3) + (prev === " " ? 0.5 : 0) + (prev === "," || prev === "." ? 1.2 : 0));
+    }
+    const wSum = wts.reduce((a, b) => a + b, 0);
+    let tt = 0.03;
+    for (let i = N0; i < N1; i++) {
+      tt += (wts[i - N0] / wSum) * (tType - 0.03);
+      FX.set(tl, CH[i], { color: INK }, tt);
+      FX.set(tl, CR[i - 1], { opacity: 0 }, tt);
+      FX.set(tl, CR[i], { opacity: 1 }, tt);
+    }
+    for (let t = tType + 0.45, on = false; t < C.tag; t += 0.45, on = !on) FX.set(tl, CR[N1 - 1], { opacity: on ? 1 : 0 }, t);
+
+    // ---------------------------------------------------------------- 2 "was viel Besseres": the pointer glides in and clicks the chip
+    const m1 = C.klick1 - 0.15;
+    const d1 = clamp(C.tradet - 0.2 - m1, 0.4, 0.7);
+    const tClick = m1 + d1 + 0.03;
+    FX.blink(tl, "#a4-chip", 0, Math.max(0.8, tClick));
+
+    // ---------------------------------------------------------------- 3 "sie tradet nämlich für mich": the bot card slams over the mail, the mail blurs
+    FX.slam(tl, "#a4-bot", C.tradet);
+    FX.tween(tl, "#a4-mail", { filter: "blur(0px)" }, { filter: "blur(7px)", duration: 0.25, ease: "power1.out" }, C.tradet);
+
+    // ---------------------------------------------------------------- 4 "automatisiert und auch sehr erfolgreich": only the green dot pulses
+    const dP = clamp(C.bot - C.auto1 - 0.3, 0.8, 2.4);
+    FX.pulse(tl, "#a4-dot", C.auto1, dP);
+    FX.tween(tl, "#a4-halo", { scale: 1, opacity: 0.7 }, { scale: 2.6, opacity: 0, duration: 0.8, ease: "power1.out", repeat: Math.max(1, Math.floor(dP / 0.8)) - 1 }, C.auto1);
+
+    // ---------------------------------------------------------------- 5 "Genau das ist ein KI-Trading-Bot": yellow marker line under the title
+    FX.draw(tl, "#a4-mkp", C.bot, 0.35);
+
+    // ---------------------------------------------------------------- 6 "kurz und einfach": slow zoom on the card
+    const zD = clamp(C.tag - 0.1 - C.kurz, 1, 3);
+    const zEnd = 1 + 0.08 * zD / 3;
+    FX.slowZoom(tl, "#a4-botz", C.kurz, { origin: "540px 330px", d: zD, to: zEnd });
+
+    // ---------------------------------------------------------------- 7 "automatisch mit Gold": "Gold" gets a yellow background
+    FX.tween(tl, "#a4-goldhl", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.25, ease: "power2.out", transformOrigin: "0% 50%" }, C.gold - 0.05);
+    FX.tween(tl, "#a4-gold", { color: "#FFFFFF" }, { color: "#0E1A2B", duration: 0.15, ease: "none" }, C.gold + 0.02);
+
+    // ---------------------------------------------------------------- 8 "nach festen Regeln": green check next to "fest"
+    FX.pop(tl, "#a4-check", C.regeln);
+
+    // ---------------------------------------------------------------- 9 "die KI entscheidet immer wieder": the card folds open, 9 switches in a row
+    FX.tween(tl, "#a4-bot", { height: 392 }, { height: 536, duration: 0.4, ease: "power2.inOut" }, C.entscheidet);
+
+    // ---------------------------------------------------------------- 10 "gerade arbeiten darf": switches jump to green one by one or stay grey, then 2 change
+    function flip(i, on, t) {
+      FX.tween(tl, `#a4-k${i}`, { x: on ? 0 : 26 }, { x: on ? 26 : 0, duration: 0.14, ease: "power2.out" }, t);
+      FX.tween(tl, `#a4-s${i}`, { backgroundColor: on ? GREY : GREEN }, { backgroundColor: on ? GREEN : GREY, duration: 0.14, ease: "none" }, t);
+    }
+    const ON1 = [1, 0, 1, 1, 0, 1, 0, 0, 1];
+    const st = clamp((C.tag - C.darf - 1.1) / 9, 0.06, 0.11);
+    ON1.forEach((on, i) => { if (on) flip(i, true, C.darf + i * st); });
+    const tSw = C.darf + 9 * st + 0.3;
+    flip(1, true, tSw);
+    flip(5, false, tSw + 0.14);
+
+    // ---------------------------------------------------------------- 11 "ganz normal meinen Tag lebe": card shrinks into the dock, the green dot stays, calendar widget appears
+    const KI = [720, 634], DOT = [720, 684];
+    const cardC = [540, 330 + (354 - 330) * zEnd], cardW = 760 * zEnd;
+    const kS = 76 / cardW;
+    FX.tween(tl, "#a4-dock", { y: 170 }, { y: 0, duration: 0.3, ease: "power2.out" }, C.tag - 0.2);
+    FX.fadeOut(tl, "#a4-mail", C.tag, 0.3);
+    FX.tween(tl, "#a4-botm", { scale: 1, x: 0, y: 0, transformOrigin: "0px 0px" }, { scale: kS, x: KI[0] - kS * cardC[0], y: KI[1] - kS * cardC[1], duration: 0.55, ease: "power2.in", transformOrigin: "0px 0px" }, C.tag);
+    FX.fadeOut(tl, "#a4-botm", C.tag + 0.42, 0.13);
+    const dotFrom = [540 + (756 - 540) * zEnd, 330 + (155 - 330) * zEnd];
+    FX.set(tl, "#a4-dot", { opacity: 0 }, C.tag);
+    FX.set(tl, "#a4-ddot", { opacity: 1 }, C.tag);
+    FX.tween(tl, "#a4-ddot", { x: dotFrom[0] - DOT[0], y: dotFrom[1] - DOT[1], scale: (20 * zEnd) / 14 }, { x: 0, y: 0, scale: 1, duration: 0.55, ease: "power2.inOut" }, C.tag);
+    FX.tween(tl, "#a4-ki", { scale: 1.18 }, { scale: 1, duration: 0.2, ease: "power2.out" }, C.tag + 0.55);
+    FX.fadeIn(tl, "#a4-cal", C.tag + 0.45);
+
+    // ---------------------------------------------------------------- 12 / 13 "im Meeting sitze" / "beim Training bin": calendar blocks pop
+    FX.pop(tl, "#a4-mtg", C.meeting, { origin: "0% 50%" });
+    FX.pop(tl, "#a4-trn", C.training, { origin: "0% 50%" });
+
+    // ---------------------------------------------------------------- camera (one element, keyframes in time order, never overlapping)
+    let cs = { s: 1, x: 0, y: 0 };
+    function cam(t, d, to, ease) {
+      to = { s: to.s, x: clamp(to.x, 1080 - to.s * 1080, 0), y: clamp(to.y, 710 - to.s * 710, 0) };
+      FX.tween(tl, "#a4-cam", { scale: cs.s, x: cs.x, y: cs.y, transformOrigin: "0px 0px" }, { scale: to.s, x: to.x, y: to.y, duration: d, ease: ease || "power2.inOut", transformOrigin: "0px 0px" }, t);
+      cs = to;
+    }
+    const focus = (s, P, Q) => ({ s, x: Q[0] - s * P[0], y: Q[1] - s * P[1] });
+    const around = (k, Q) => ({ s: cs.s * k, x: Q[0] - k * (Q[0] - cs.x), y: Q[1] - k * (Q[1] - cs.y) });
+    const HOME = { s: 1, x: 0, y: 0 };
+    function ping(t, n, period) {
+      FX.tween(tl, "#a4-dhalo", { scale: 1, opacity: 0.8 }, { scale: 2.8, opacity: 0, duration: period, ease: "power1.out", repeat: n - 1 }, t);
+    }
+
+    // ---------------------------------------------------------------- 14 "setzt der Bot die Trades für mich": zoom onto the dock, the green dot pulses 2×
+    cam(C.setzt - 0.1, 0.5, focus(3, KI, [600, 400]));
+    const DOCKQ = [cs.x + cs.s * KI[0], cs.y + cs.s * KI[1]];
+    const dP2 = clamp(C.trades - C.setzt - 0.5, 0.8, 1.6);
+    FX.pulse(tl, "#a4-ddot", C.setzt + 0.35, dP2);
+    ping(C.setzt + 0.35, Math.max(1, Math.floor(dP2 / 0.8)), 0.8);
+
+    // ---------------------------------------------------------------- 15 "zwischen 50-80 trades am tag": the dock dot blinks fast, no list, no number
+    const dB = clamp(C.ergebnisse - C.trades - 0.25, 0.8, 2.4);
+    const nB = Math.max(3, Math.floor(dB / 0.2));
+    FX.tween(tl, "#a4-ddot", { opacity: 1 }, { opacity: 0.15, duration: 0.1, ease: "none", yoyo: true, repeat: nB * 2 - 1 }, C.trades);
+    ping(C.trades, Math.max(2, Math.floor(dB / 0.4)), 0.4);
+
+    // ---------------------------------------------------------------- 16 "die ergebnisse sind so gut": nothing new, slow zoom
+    const dZ = clamp(C.job - 0.2 - C.ergebnisse, 1, 5);
+    cam(C.ergebnisse, dZ, around(1 + 0.08 * dZ / 3, DOCKQ), "none");
+
+    // ---------------------------------------------------------------- 17 "Leute mit Job": back to the desktop, folders "Arbeit" and "Meine ETFs" appear
+    cam(C.job - 0.1, 0.5, HOME);
+    FX.fadeIn(tl, "#a4-f1", C.job + 0.2);
+    FX.fadeIn(tl, "#a4-f2", C.job + 0.3);
+
+    // ---------------------------------------------------------------- 18 "nur in ETFs oder Aktien investiert": fast zoom onto "Meine ETFs", circled in yellow
+    cam(C.etfs - 0.05, 0.4, focus(1.3, [190, 384], [300, 360]), "power3.out");
+    const ETFQ = [cs.x + cs.s * 190, cs.y + cs.s * 384];
+    FX.drawCircle(tl, "#a4-yc", C.etfs + 0.3);
+    const tS = C.etfs + 0.35, dS = clamp(C.stunden - 0.25 - tS, 0, 3);
+    if (dS > 0.6) cam(tS, dS, around(1 + 0.08 * dS / 3, ETFQ), "none");
+
+    // ---------------------------------------------------------------- 19 "stundenlang am Tag am PC": a clock icon pops and is struck through in red
+    cam(Math.max(C.stunden - 0.2, tS + Math.max(dS, 0) + 0.01), 0.45, HOME);
+    FX.pop(tl, "#a4-clock", C.stunden + 0.05);
+    FX.drawLine(tl, "#a4-clockx", C.stunden + 0.45);
+
+    // ---------------------------------------------------------------- 21 ("selbst klicken", spoken: "und irgendwie traden"): a big mouse pointer, a red X slams onto it
+    const tP = C.traden;
+    FX.fadeOut(tl, "#a4-clock", tP - 0.15, 0.15);
+    FX.tween(tl, "#a4-cur", { scale: 1, transformOrigin: "0px 0px" }, { scale: 2.4, duration: 0.25, ease: "power2.out", transformOrigin: "0px 0px" }, tP + 0.25);
+    FX.slam(tl, "#a4-x", tP + 0.5);
+
+    // the screencast pointer: calm, one movement per sentence
+    FX.cursor(tl, "#a4-cur", "#a4-ring", [1160, 800], [
+      { t: m1, to: [812, 596], d: d1, ease: "power2.out" },
+      { t: tClick, click: true },
+      { t: C.tag + 0.7, to: [900, 560], d: 0.9 },
+      { t: tP - 0.35, to: [386, 187], d: 0.6 },
+    ]);
+
+    // ---------------------------------------------------------------- 20 ("Charts lesen", spoken: "auch nicht traden lernen"): a magnifier icon is struck through in red
+    FX.fadeOut(tl, "#a4-cur", C.lernen - 0.2, 0.2);
+    FX.fadeOut(tl, "#a4-x", C.lernen - 0.2, 0.2);
+    FX.pop(tl, "#a4-mag", C.lernen);
+    FX.drawLine(tl, "#a4-magx", C.lernen + 0.32);
+
+    // ---------------------------------------------------------------- 22 "vielleicht 20 Minuten Zeit die Woche": a week calendar flies in, Sunday block "Wochen-Check · 20 Min"
+    FX.fadeOut(tl, "#a4-mag", Math.max(C.lernen + 0.7, C.woche - 0.15), 0.15);
+    FX.flyIn(tl, "#a4-week", C.woche - 0.1, { from: "right", dist: 1300 });
+    FX.pop(tl, "#a4-wblk", Math.max(C.w20, C.woche + 0.25), { origin: "0% 50%" });
+    const dW = Math.min(3, C.opt - 0.1 - (C.woche + 0.6));
+    if (dW > 1.2) FX.slowZoom(tl, "#a4-weekz", C.woche + 0.6, { origin: "600px 420px", d: dW, to: 1 + 0.08 * dW / 3 });
+
+    // ---------------------------------------------------------------- 23 ("das wars", spoken: "ein paar Sachen zu optimieren"): the calendar folds shut
+    FX.tween(tl, "#a4-week", { scaleY: 1, transformOrigin: "50% 0%" }, { scaleY: 0, duration: 0.3, ease: "power2.in", transformOrigin: "50% 0%" }, C.opt);
+    FX.fadeOut(tl, "#a4-week", C.opt + 0.2, 0.12);
+    // "Und wie das Ganze funktioniert, zeige ich dir live einmalig" (no row): slow zoom towards the bot in the dock
+    const tZ = C.opt + 0.35, dZ2 = Math.min(3, C.sonntag - 0.2 - tZ);
+    if (dZ2 > 1) cam(tZ, dZ2, around(1 + 0.08 * dZ2 / 3, KI), "none");
+
+    // ---------------------------------------------------------------- 24 "Am Sonntag, den 6.12." (BAUSTEIN): desktop shrinks into a grey laptop, then the end card
+    const LS = 0.52, LX = 259, LY = 128;
+    const tL = Math.max(C.sonntag - 0.15, C.opt + 0.35), dL = 0.6;
+    FX.tween(tl, "#a4-world", { scale: 1, x: 0, y: 0, transformOrigin: "0px 0px" }, { scale: LS, x: LX, y: LY, duration: dL, ease: "power2.inOut", transformOrigin: "0px 0px" }, tL);
+    FX.init(tl, "#a4-lap", { scale: 1 / LS, x: -LX / LS, y: -LY / LS, transformOrigin: "0px 0px" });
+    FX.tween(tl, "#a4-lap", { scale: 1 / LS, x: -LX / LS, y: -LY / LS, transformOrigin: "0px 0px" }, { scale: 1, x: 0, y: 0, duration: dL, ease: "power2.inOut", transformOrigin: "0px 0px" }, tL);
+
+    // 25–27 (BAUSTEIN): "nur 10 Leuten" chip, "klick auf den Link" tap on "Mehr dazu", "Schau es dir an" date pulses to the end
+    FX.endCard(tl, "a4e", { start: tL + dL + 0.12, t18: C.t18, bot: C.sub, klick: C.klick, platz: C.zehn, pulseDate: C.schau });
+
+    window.__timelines["ad4"] = tl;
+  </script>
+</template>

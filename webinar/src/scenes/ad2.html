@@ -1,0 +1,13 @@
+<template>
+  <style> #root { position: absolute; inset: 0; background: #0E1A2B; overflow: hidden; } #a2-v1, #a2-v2 { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; object-fit: cover; } </style>
+  <div id="root" data-composition-id="ad2" data-width="1080" data-height="710">
+    <div id="a2-media"><video id="a2-v2" class="clip" src="assets/img/ad2/a2-esc-loop.mp4" data-start="1" data-duration="3" data-media-start="2" muted playsinline></video></div>
+    <div id="a2-scene" class="clip" data-start="0" data-duration="{{DUR}}">
+      <video id="a2-v1" class="clip" src="assets/media/stock/mixkit-48002.mp4" data-start="0" data-duration="1" muted playsinline></video>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    window.__timelines["ad2"] = tl;
+  </script>
+</template>

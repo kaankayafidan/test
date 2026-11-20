@@ -1,0 +1,1592 @@
+[
+{
+"text": "Meine",
+"start": 0.0,
+"end": 0.26
+},
+{
+"text": "Trading-KI",
+"start": 0.26,
+"end": 0.56
+},
+{
+"text": "ist",
+"start": 0.78,
+"end": 0.98
+},
+{
+"text": "wie",
+"start": 0.98,
+"end": 1.08
+},
+{
+"text": "ein",
+"start": 1.08,
+"end": 1.18
+},
+{
+"text": "Fußballtrainer,",
+"start": 1.18,
+"end": 1.76
+},
+{
+"text": "denn",
+"start": 1.84,
+"end": 1.96
+},
+{
+"text": "sie",
+"start": 1.96,
+"end": 2.1
+},
+{
+"text": "entscheidet",
+"start": 2.1,
+"end": 2.52
+},
+{
+"text": "nämlich,",
+"start": 2.52,
+"end": 2.68
+},
+{
+"text": "welche",
+"start": 2.8,
+"end": 2.98
+},
+{
+"text": "Spieler",
+"start": 2.98,
+"end": 3.28
+},
+{
+"text": "in",
+"start": 3.28,
+"end": 3.42
+},
+{
+"text": "meinem",
+"start": 3.42,
+"end": 3.56
+},
+{
+"text": "Team",
+"start": 3.56,
+"end": 3.8
+},
+{
+"text": "gerade",
+"start": 3.8,
+"end": 4.02
+},
+{
+"text": "auf",
+"start": 4.02,
+"end": 4.18
+},
+{
+"text": "dem",
+"start": 4.18,
+"end": 4.28
+},
+{
+"text": "Platz",
+"start": 4.28,
+"end": 4.48
+},
+{
+"text": "dürfen,",
+"start": 4.48,
+"end": 4.74
+},
+{
+"text": "und",
+"start": 4.74,
+"end": 4.88
+},
+{
+"text": "keine",
+"start": 4.88,
+"end": 5.04
+},
+{
+"text": "Sorge,",
+"start": 5.04,
+"end": 5.3
+},
+{
+"text": "das",
+"start": 5.38,
+"end": 5.44
+},
+{
+"text": "verstehst",
+"start": 5.44,
+"end": 5.7
+},
+{
+"text": "du",
+"start": 5.7,
+"end": 5.8
+},
+{
+"text": "gleich,",
+"start": 5.8,
+"end": 5.92
+},
+{
+"text": "auch",
+"start": 5.92,
+"end": 6.12
+},
+{
+"text": "wenn",
+"start": 6.18,
+"end": 6.26
+},
+{
+"text": "du",
+"start": 6.26,
+"end": 6.36
+},
+{
+"text": "null",
+"start": 6.36,
+"end": 6.56
+},
+{
+"text": "Ahnung",
+"start": 6.56,
+"end": 6.84
+},
+{
+"text": "vom",
+"start": 6.84,
+"end": 6.99
+},
+{
+"text": "Trading",
+"start": 6.99,
+"end": 7.25
+},
+{
+"text": "hast.",
+"start": 7.25,
+"end": 7.47
+},
+{
+"text": "Jeder",
+"start": 7.662,
+"end": 8.002
+},
+{
+"text": "Spieler",
+"start": 8.002,
+"end": 8.262
+},
+{
+"text": "ist",
+"start": 8.262,
+"end": 8.442
+},
+{
+"text": "eine",
+"start": 8.442,
+"end": 8.562
+},
+{
+"text": "Trading-Strategie,",
+"start": 8.822,
+"end": 9.302
+},
+{
+"text": "und",
+"start": 9.302,
+"end": 9.442
+},
+{
+"text": "diese",
+"start": 9.442,
+"end": 9.642
+},
+{
+"text": "Strategien",
+"start": 9.642,
+"end": 10.102
+},
+{
+"text": "habe",
+"start": 10.102,
+"end": 10.302
+},
+{
+"text": "ich",
+"start": 10.302,
+"end": 10.482
+},
+{
+"text": "im",
+"start": 10.482,
+"end": 10.622
+},
+{
+"text": "Kader.",
+"start": 10.622,
+"end": 10.922
+},
+{
+"text": "Also",
+"start": 11.082,
+"end": 11.162
+},
+{
+"text": "die",
+"start": 11.162,
+"end": 11.282
+},
+{
+"text": "KI,",
+"start": 11.282,
+"end": 11.602
+},
+{
+"text": "der",
+"start": 11.762,
+"end": 11.942
+},
+{
+"text": "Trainer,",
+"start": 11.942,
+"end": 12.242
+},
+{
+"text": "schaut",
+"start": 12.362,
+"end": 12.562
+},
+{
+"text": "immer",
+"start": 12.562,
+"end": 12.762
+},
+{
+"text": "wieder,",
+"start": 12.762,
+"end": 13.042
+},
+{
+"text": "wer",
+"start": 13.162,
+"end": 13.402
+},
+{
+"text": "gerade",
+"start": 13.402,
+"end": 13.682
+},
+{
+"text": "in",
+"start": 13.682,
+"end": 13.842
+},
+{
+"text": "Form",
+"start": 13.842,
+"end": 14.002
+},
+{
+"text": "ist.",
+"start": 14.002,
+"end": 14.222
+},
+{
+"text": "Und",
+"start": 14.222,
+"end": 14.342
+},
+{
+"text": "wer",
+"start": 14.342,
+"end": 14.442
+},
+{
+"text": "gut",
+"start": 14.442,
+"end": 14.642
+},
+{
+"text": "drauf",
+"start": 14.642,
+"end": 14.782
+},
+{
+"text": "ist,",
+"start": 14.818,
+"end": 15.038
+},
+{
+"text": "wird",
+"start": 15.058,
+"end": 15.198
+},
+{
+"text": "eingewechselt,",
+"start": 15.198,
+"end": 15.778
+},
+{
+"text": "und",
+"start": 15.778,
+"end": 15.978
+},
+{
+"text": "wer",
+"start": 15.978,
+"end": 16.098
+},
+{
+"text": "schwächelt,",
+"start": 16.098,
+"end": 16.438
+},
+{
+"text": "sitzt",
+"start": 16.538,
+"end": 16.638
+},
+{
+"text": "gerade",
+"start": 16.638,
+"end": 16.878
+},
+{
+"text": "auf",
+"start": 16.878,
+"end": 17.058
+},
+{
+"text": "der",
+"start": 17.058,
+"end": 17.178
+},
+{
+"text": "Bank.",
+"start": 17.178,
+"end": 17.418
+},
+{
+"text": "Und",
+"start": 17.718,
+"end": 17.778
+},
+{
+"text": "wie",
+"start": 17.778,
+"end": 17.898
+},
+{
+"text": "meine",
+"start": 17.898,
+"end": 18.058
+},
+{
+"text": "Mannschaft,",
+"start": 18.058,
+"end": 18.418
+},
+{
+"text": "also",
+"start": 18.538,
+"end": 18.618
+},
+{
+"text": "mein",
+"start": 18.618,
+"end": 18.778
+},
+{
+"text": "automatisierter",
+"start": 18.778,
+"end": 19.638
+},
+{
+"text": "KI-Trading-Bot,",
+"start": 19.898,
+"end": 20.338
+},
+{
+"text": "aufgestellt",
+"start": 20.458,
+"end": 20.958
+},
+{
+"text": "ist,",
+"start": 20.958,
+"end": 21.198
+},
+{
+"text": "zeige",
+"start": 21.358,
+"end": 21.578
+},
+{
+"text": "ich",
+"start": 21.578,
+"end": 21.638
+},
+{
+"text": "dir",
+"start": 21.638,
+"end": 21.718
+},
+{
+"text": "in",
+"start": 21.658,
+"end": 21.73
+},
+{
+"text": "meinem",
+"start": 21.73,
+"end": 21.85
+},
+{
+"text": "Live-Webinar",
+"start": 22.17,
+"end": 22.49
+},
+{
+"text": "am",
+"start": 22.49,
+"end": 22.83
+},
+{
+"text": "Sonntag,",
+"start": 22.83,
+"end": 23.23
+},
+{
+"text": "den",
+"start": 23.29,
+"end": 23.34
+},
+{
+"text": "6.",
+"start": 23.33,
+"end": 23.57
+},
+{
+"text": "Dezember",
+"start": 23.63,
+"end": 23.93
+},
+{
+"text": "um",
+"start": 23.93,
+"end": 24.11
+},
+{
+"text": "18",
+"start": 24.11,
+"end": 24.33
+},
+{
+"text": "Uhr",
+"start": 24.33,
+"end": 24.55
+},
+{
+"text": "einmalig.",
+"start": 24.55,
+"end": 25.19
+},
+{
+"text": "Deswegen",
+"start": 25.31,
+"end": 25.59
+},
+{
+"text": "klick",
+"start": 25.59,
+"end": 25.81
+},
+{
+"text": "unter",
+"start": 25.81,
+"end": 25.95
+},
+{
+"text": "dem",
+"start": 25.95,
+"end": 26.05
+},
+{
+"text": "Video",
+"start": 26.05,
+"end": 26.21
+},
+{
+"text": "auf",
+"start": 26.21,
+"end": 26.37
+},
+{
+"text": "„Mehr",
+"start": 26.37,
+"end": 26.53
+},
+{
+"text": "dazu“,",
+"start": 26.53,
+"end": 26.81
+},
+{
+"text": "um",
+"start": 26.85,
+"end": 26.97
+},
+{
+"text": "dir",
+"start": 26.97,
+"end": 27.07
+},
+{
+"text": "deinen",
+"start": 27.07,
+"end": 27.19
+},
+{
+"text": "Platz",
+"start": 27.19,
+"end": 27.43
+},
+{
+"text": "zu",
+"start": 27.43,
+"end": 27.55
+},
+{
+"text": "sichern.",
+"start": 27.55,
+"end": 27.81
+},
+{
+"text": "Aber",
+"start": 28.09,
+"end": 28.19
+},
+{
+"text": "bleib",
+"start": 28.19,
+"end": 28.41
+},
+{
+"text": "noch",
+"start": 28.41,
+"end": 28.49
+},
+{
+"text": "kurz",
+"start": 28.49,
+"end": 28.69
+},
+{
+"text": "dran,",
+"start": 28.642,
+"end": 28.862
+},
+{
+"text": "weil",
+"start": 29.102,
+"end": 29.182
+},
+{
+"text": "jetzt",
+"start": 29.182,
+"end": 29.342
+},
+{
+"text": "kommt",
+"start": 29.342,
+"end": 29.502
+},
+{
+"text": "das",
+"start": 29.502,
+"end": 29.642
+},
+{
+"text": "Beste.",
+"start": 29.642,
+"end": 29.922
+},
+{
+"text": "Ich",
+"start": 30.102,
+"end": 30.382
+},
+{
+"text": "muss",
+"start": 30.382,
+"end": 30.602
+},
+{
+"text": "nicht",
+"start": 30.602,
+"end": 30.762
+},
+{
+"text": "mal",
+"start": 30.762,
+"end": 30.902
+},
+{
+"text": "Trainer",
+"start": 30.902,
+"end": 31.202
+},
+{
+"text": "oder",
+"start": 31.202,
+"end": 31.402
+},
+{
+"text": "Spieler",
+"start": 31.402,
+"end": 31.662
+},
+{
+"text": "sein.",
+"start": 31.662,
+"end": 31.922
+},
+{
+"text": "Ich",
+"start": 32.062,
+"end": 32.242
+},
+{
+"text": "bin",
+"start": 32.242,
+"end": 32.362
+},
+{
+"text": "sozusagen",
+"start": 32.362,
+"end": 32.722
+},
+{
+"text": "der",
+"start": 32.722,
+"end": 32.982
+},
+{
+"text": "Vereinsbesitzer.",
+"start": 32.982,
+"end": 33.862
+},
+{
+"text": "Denn",
+"start": 34.042,
+"end": 34.162
+},
+{
+"text": "der",
+"start": 34.162,
+"end": 34.262
+},
+{
+"text": "KI-Trading-Bot",
+"start": 34.522,
+"end": 34.962
+},
+{
+"text": "tradet",
+"start": 35.162,
+"end": 35.622
+},
+{
+"text": "für",
+"start": 35.534,
+"end": 35.694
+},
+{
+"text": "mich",
+"start": 35.694,
+"end": 35.894
+},
+{
+"text": "komplett",
+"start": 35.894,
+"end": 36.354
+},
+{
+"text": "passiv.",
+"start": 36.354,
+"end": 36.834
+},
+{
+"text": "Während",
+"start": 36.954,
+"end": 37.234
+},
+{
+"text": "meine",
+"start": 37.234,
+"end": 37.374
+},
+{
+"text": "Mannschaft",
+"start": 37.374,
+"end": 37.714
+},
+{
+"text": "auf",
+"start": 37.714,
+"end": 37.894
+},
+{
+"text": "dem",
+"start": 37.894,
+"end": 38.014
+},
+{
+"text": "Platz",
+"start": 38.014,
+"end": 38.194
+},
+{
+"text": "also",
+"start": 38.194,
+"end": 38.374
+},
+{
+"text": "alles",
+"start": 38.374,
+"end": 38.674
+},
+{
+"text": "gibt,",
+"start": 38.674,
+"end": 38.854
+},
+{
+"text": "sitze",
+"start": 39.074,
+"end": 39.274
+},
+{
+"text": "ich",
+"start": 39.274,
+"end": 39.354
+},
+{
+"text": "entspannt",
+"start": 39.354,
+"end": 39.734
+},
+{
+"text": "in",
+"start": 39.734,
+"end": 39.894
+},
+{
+"text": "der",
+"start": 39.894,
+"end": 39.994
+},
+{
+"text": "VIP-Lounge,",
+"start": 40.254,
+"end": 40.634
+},
+{
+"text": "und",
+"start": 40.634,
+"end": 40.774
+},
+{
+"text": "genau",
+"start": 40.774,
+"end": 40.994
+},
+{
+"text": "das",
+"start": 40.994,
+"end": 41.314
+},
+{
+"text": "ist",
+"start": 41.314,
+"end": 41.434
+},
+{
+"text": "das",
+"start": 41.434,
+"end": 41.574
+},
+{
+"text": "Schöne",
+"start": 41.574,
+"end": 41.874
+},
+{
+"text": "an",
+"start": 41.874,
+"end": 42.014
+},
+{
+"text": "so",
+"start": 42.014,
+"end": 42.174
+},
+{
+"text": "einem",
+"start": 42.174,
+"end": 42.294
+},
+{
+"text": "automatisierten",
+"start": 42.266,
+"end": 43.146
+},
+{
+"text": "KI-Trading-Bot.",
+"start": 43.146,
+"end": 44.006
+},
+{
+"text": "Und",
+"start": 44.006,
+"end": 44.286
+},
+{
+"text": "genau",
+"start": 44.71,
+"end": 44.89
+},
+{
+"text": "das",
+"start": 44.89,
+"end": 45.19
+},
+{
+"text": "geht",
+"start": 45.19,
+"end": 45.35
+},
+{
+"text": "eben",
+"start": 45.35,
+"end": 45.51
+},
+{
+"text": "auch",
+"start": 45.51,
+"end": 45.69
+},
+{
+"text": "neben",
+"start": 45.69,
+"end": 45.89
+},
+{
+"text": "deinem",
+"start": 45.89,
+"end": 46.09
+},
+{
+"text": "Job,",
+"start": 46.09,
+"end": 46.29
+},
+{
+"text": "weil",
+"start": 46.39,
+"end": 46.47
+},
+{
+"text": "gespielt",
+"start": 46.47,
+"end": 46.89
+},
+{
+"text": "wird",
+"start": 46.89,
+"end": 47.01
+},
+{
+"text": "auf",
+"start": 47.01,
+"end": 47.17
+},
+{
+"text": "einem",
+"start": 47.17,
+"end": 47.31
+},
+{
+"text": "VPS-Server",
+"start": 47.85,
+"end": 48.19
+},
+{
+"text": "24/7,",
+"start": 48.19,
+"end": 48.59
+},
+{
+"text": "und",
+"start": 49.03,
+"end": 49.41
+},
+{
+"text": "du",
+"start": 49.41,
+"end": 49.49
+},
+{
+"text": "schaust",
+"start": 49.49,
+"end": 49.71
+},
+{
+"text": "nur",
+"start": 49.71,
+"end": 49.85
+},
+{
+"text": "einmal",
+"start": 49.85,
+"end": 50.05
+},
+{
+"text": "die",
+"start": 50.05,
+"end": 50.17
+},
+{
+"text": "Woche",
+"start": 50.17,
+"end": 50.35
+},
+{
+"text": "30",
+"start": 50.35,
+"end": 50.71
+},
+{
+"text": "Minuten",
+"start": 50.71,
+"end": 50.97
+},
+{
+"text": "auf",
+"start": 50.97,
+"end": 51.15
+},
+{
+"text": "die",
+"start": 51.15,
+"end": 51.25
+},
+{
+"text": "Ergebnisse",
+"start": 51.25,
+"end": 51.59
+},
+{
+"text": "und",
+"start": 51.386,
+"end": 52.026
+},
+{
+"text": "musst",
+"start": 52.026,
+"end": 52.286
+},
+{
+"text": "nicht",
+"start": 52.286,
+"end": 52.586
+},
+{
+"text": "selbst",
+"start": 52.586,
+"end": 52.966
+},
+{
+"text": "traden.",
+"start": 52.966,
+"end": 53.406
+},
+{
+"text": "Und",
+"start": 53.406,
+"end": 53.702
+},
+{
+"text": "genau",
+"start": 53.702,
+"end": 53.842
+},
+{
+"text": "deshalb",
+"start": 53.842,
+"end": 54.182
+},
+{
+"text": "interessieren",
+"start": 54.182,
+"end": 54.602
+},
+{
+"text": "sich",
+"start": 54.602,
+"end": 54.702
+},
+{
+"text": "immer",
+"start": 54.702,
+"end": 54.942
+},
+{
+"text": "mehr",
+"start": 54.942,
+"end": 55.082
+},
+{
+"text": "Angestellte",
+"start": 55.082,
+"end": 55.562
+},
+{
+"text": "für",
+"start": 55.562,
+"end": 55.682
+},
+{
+"text": "die",
+"start": 55.682,
+"end": 55.762
+},
+{
+"text": "Möglichkeit,",
+"start": 55.762,
+"end": 56.162
+},
+{
+"text": "mit",
+"start": 56.202,
+"end": 56.482
+},
+{
+"text": "einem",
+"start": 56.482,
+"end": 56.622
+},
+{
+"text": "KI-Trading-Bot",
+"start": 56.982,
+"end": 57.362
+},
+{
+"text": "ihr",
+"start": 57.522,
+"end": 57.662
+},
+{
+"text": "Geld",
+"start": 57.662,
+"end": 57.862
+},
+{
+"text": "für",
+"start": 57.862,
+"end": 57.982
+},
+{
+"text": "sich",
+"start": 57.982,
+"end": 58.122
+},
+{
+"text": "arbeiten",
+"start": 58.122,
+"end": 58.422
+},
+{
+"text": "zu",
+"start": 58.422,
+"end": 58.562
+},
+{
+"text": "lassen,",
+"start": 58.562,
+"end": 58.802
+},
+{
+"text": "anstatt",
+"start": 58.962,
+"end": 59.302
+},
+{
+"text": "immer",
+"start": 59.302,
+"end": 59.502
+},
+{
+"text": "nur",
+"start": 59.502,
+"end": 59.622
+},
+{
+"text": "selbst",
+"start": 59.622,
+"end": 59.922
+},
+{
+"text": "für",
+"start": 59.922,
+"end": 60.062
+},
+{
+"text": "seinen",
+"start": 60.062,
+"end": 60.182
+},
+{
+"text": "eigenen",
+"start": 60.182,
+"end": 60.482
+},
+{
+"text": "Chef",
+"start": 60.498,
+"end": 60.698
+},
+{
+"text": "zu",
+"start": 60.698,
+"end": 60.878
+},
+{
+"text": "arbeiten,",
+"start": 60.878,
+"end": 61.178
+},
+{
+"text": "und",
+"start": 61.318,
+"end": 61.498
+},
+{
+"text": "es",
+"start": 61.498,
+"end": 61.618
+},
+{
+"text": "ist",
+"start": 61.618,
+"end": 61.718
+},
+{
+"text": "nicht",
+"start": 61.718,
+"end": 61.858
+},
+{
+"text": "zu",
+"start": 61.858,
+"end": 61.998
+},
+{
+"text": "Unrecht",
+"start": 61.998,
+"end": 62.318
+},
+{
+"text": "die",
+"start": 62.318,
+"end": 62.458
+},
+{
+"text": "spannendste",
+"start": 62.458,
+"end": 62.858
+},
+{
+"text": "Möglichkeit,",
+"start": 62.858,
+"end": 63.198
+},
+{
+"text": "sich",
+"start": 63.258,
+"end": 63.458
+},
+{
+"text": "2026",
+"start": 63.458,
+"end": 64.138
+},
+{
+"text": "ein",
+"start": 64.138,
+"end": 64.578
+},
+{
+"text": "zweites",
+"start": 64.578,
+"end": 65.018
+},
+{
+"text": "passives",
+"start": 65.018,
+"end": 65.458
+},
+{
+"text": "Standbein",
+"start": 65.458,
+"end": 65.858
+},
+{
+"text": "aufzubauen.",
+"start": 65.858,
+"end": 66.398
+},
+{
+"text": "Und",
+"start": 66.458,
+"end": 66.678
+},
+{
+"text": "am",
+"start": 66.678,
+"end": 66.798
+},
+{
+"text": "Sonntag,",
+"start": 66.798,
+"end": 67.238
+},
+{
+"text": "den",
+"start": 67.238,
+"end": 67.378
+},
+{
+"text": "6.",
+"start": 67.41,
+"end": 67.65
+},
+{
+"text": "Dezember",
+"start": 67.71,
+"end": 67.97
+},
+{
+"text": "um",
+"start": 67.97,
+"end": 68.11
+},
+{
+"text": "18",
+"start": 68.11,
+"end": 68.31
+},
+{
+"text": "Uhr",
+"start": 68.31,
+"end": 68.53
+},
+{
+"text": "zeige",
+"start": 68.53,
+"end": 68.89
+},
+{
+"text": "ich",
+"start": 68.89,
+"end": 68.95
+},
+{
+"text": "dir",
+"start": 68.95,
+"end": 69.03
+},
+{
+"text": "in",
+"start": 69.03,
+"end": 69.11
+},
+{
+"text": "meinem",
+"start": 69.11,
+"end": 69.21
+},
+{
+"text": "Live-Webinar,",
+"start": 69.39,
+"end": 69.73
+},
+{
+"text": "wie",
+"start": 69.89,
+"end": 70.07
+},
+{
+"text": "mein",
+"start": 70.07,
+"end": 70.25
+},
+{
+"text": "KI-Trading-Bot",
+"start": 70.57,
+"end": 70.93
+},
+{
+"text": "für",
+"start": 71.07,
+"end": 71.23
+},
+{
+"text": "mich",
+"start": 71.23,
+"end": 71.45
+},
+{
+"text": "tradet,",
+"start": 71.45,
+"end": 71.81
+},
+{
+"text": "automatisiert.",
+"start": 71.97,
+"end": 72.47
+},
+{
+"text": "Und",
+"start": 72.61,
+"end": 72.79
+},
+{
+"text": "ich",
+"start": 72.79,
+"end": 72.87
+},
+{
+"text": "erkläre",
+"start": 72.87,
+"end": 73.15
+},
+{
+"text": "es",
+"start": 73.15,
+"end": 73.33
+},
+{
+"text": "so",
+"start": 73.33,
+"end": 73.43
+},
+{
+"text": "einfach,",
+"start": 73.43,
+"end": 73.71
+},
+{
+"text": "dass",
+"start": 73.81,
+"end": 73.93
+},
+{
+"text": "du",
+"start": 73.93,
+"end": 74.03
+},
+{
+"text": "es",
+"start": 74.03,
+"end": 74.13
+},
+{
+"text": "auch",
+"start": 74.13,
+"end": 74.29
+},
+{
+"text": "verstehen",
+"start": 74.202,
+"end": 74.622
+},
+{
+"text": "wirst,",
+"start": 74.622,
+"end": 74.882
+},
+{
+"text": "wenn",
+"start": 74.902,
+"end": 75.122
+},
+{
+"text": "du",
+"start": 75.122,
+"end": 75.202
+},
+{
+"text": "keine",
+"start": 75.202,
+"end": 75.402
+},
+{
+"text": "Ahnung",
+"start": 75.402,
+"end": 75.602
+},
+{
+"text": "vom",
+"start": 75.602,
+"end": 75.742
+},
+{
+"text": "Trading",
+"start": 75.742,
+"end": 76.002
+},
+{
+"text": "hast.",
+"start": 76.002,
+"end": 76.222
+},
+{
+"text": "Deswegen",
+"start": 76.402,
+"end": 76.682
+},
+{
+"text": "klick",
+"start": 76.682,
+"end": 76.882
+},
+{
+"text": "unter",
+"start": 76.882,
+"end": 77.022
+},
+{
+"text": "dem",
+"start": 77.022,
+"end": 77.122
+},
+{
+"text": "Video",
+"start": 77.122,
+"end": 77.282
+},
+{
+"text": "auf",
+"start": 77.282,
+"end": 77.442
+},
+{
+"text": "„Mehr",
+"start": 77.442,
+"end": 77.602
+},
+{
+"text": "dazu“",
+"start": 77.602,
+"end": 77.902
+},
+{
+"text": "und",
+"start": 77.902,
+"end": 78.222
+},
+{
+"text": "sichere",
+"start": 78.222,
+"end": 78.442
+},
+{
+"text": "dir",
+"start": 78.442,
+"end": 78.562
+},
+{
+"text": "deinen",
+"start": 78.562,
+"end": 78.682
+},
+{
+"text": "Platz.",
+"start": 78.682,
+"end": 78.922
+},
+{
+"text": "Und",
+"start": 78.922,
+"end": 79.082
+},
+{
+"text": "dann",
+"start": 79.082,
+"end": 79.142
+},
+{
+"text": "sehen",
+"start": 79.142,
+"end": 79.282
+},
+{
+"text": "wir",
+"start": 79.282,
+"end": 79.382
+},
+{
+"text": "uns",
+"start": 79.382,
+"end": 79.522
+},
+{
+"text": "am",
+"start": 79.522,
+"end": 79.622
+},
+{
+"text": "Sonntag,",
+"start": 79.622,
+"end": 79.962
+},
+{
+"text": "den",
+"start": 80.042,
+"end": 80.092
+},
+{
+"text": "6.",
+"start": 80.062,
+"end": 80.262
+},
+{
+"text": "Dezember",
+"start": 80.322,
+"end": 80.642
+},
+{
+"text": "um",
+"start": 80.642,
+"end": 80.982
+},
+{
+"text": "18",
+"start": 80.982,
+"end": 81.162
+},
+{
+"text": "Uhr.",
+"start": 81.162,
+"end": 81.322
+}
+]
