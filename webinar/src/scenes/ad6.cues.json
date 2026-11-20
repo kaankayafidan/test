@@ -30,9 +30,12 @@
       "phrase": "neben dem Job schon gar nicht",
       "word": 4
     },
-    "beste": "Und jetzt kommt das Beste",
+    "beste": {
+      "phrase": "Und jetzt kommt das Beste",
+      "word": 2
+    },
     "erfahrung": "keine 9 Jahre Trading-Erfahrung",
-    "bot": "setzt der Bot ganz allein",
+    "bot": "setzt der Bot ganz alleine",
     "brauchst": "Was du brauchst",
     "kapital": {
       "phrase": "moderates Startkapital",

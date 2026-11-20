@@ -8,7 +8,8 @@
        Karten in Caveat, Post-its in Permanent Marker. All wall items live in world px inside #a6-cam. */
     #a6-scene { position: absolute; inset: 0; overflow: hidden; background: #4f351f; }
     #a6-cam { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
-    #a6-cork { position: absolute; left: -660px; top: -480px; width: 2400px; height: 1700px; }
+    /* Kork reicht bis über die obere Reihe (damals | heute bei y -300), Seitenverhältnis wie cork.jpg */
+    #a6-cork { position: absolute; left: -900px; top: -760px; width: 2900px; height: 2054px; }
     .a6-item { position: absolute; width: 0; height: 0; }
     .a6-tilt { position: absolute; }
     .a6-swing { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
@@ -22,6 +23,8 @@
     .a6-win::after { content: ""; position: absolute; inset: 0; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.28), inset 0 2px 8px rgba(0, 0, 0, 0.35); }
     .photo-slot { position: absolute; inset: 0; }
     .photo-slot img, .photo-slot svg { display: block; width: 248px; height: 248px; object-fit: cover; }
+    .photo-slot img { position: absolute; left: 0; top: 0; } /* Foto liegt über dem Platzhalter; fehlt die Datei, bleibt er sichtbar */
+    .photo-slot[data-src] img { object-position: 50% 30%; } /* Kilians Fotos (damals/heute): Hochformat-Fotos eher oben beschneiden, Gesichter bleiben drin */
     .a6-year { position: absolute; left: 0; width: 280px; top: 268px; text-align: center; font-family: 'Caveat'; font-weight: 700; font-size: 58px; line-height: 60px; color: #1D3A8A; }
     #a6-robot { position: absolute; left: 212px; top: 272px; width: 58px; height: 58px; }
     #a6-speed { position: absolute; left: -140px; top: 112px; width: 130px; height: 120px; }
@@ -76,9 +79,37 @@
       <div id="a6-cam">
         <img id="a6-cork" src="assets/img/ad6/cork.jpg" alt="">
 
-        <!-- Polaroid 2017: echter Gegenstand aus der Zeit (Notizbuch + Stift), kein Foto von Kilian -->
-        <div id="a6-p17" class="a6-item"><div class="a6-tilt">
+        <!-- Erstes Bild (Kilians Wunsch): zwei Fotos von ihm, links "damals" (ganz jung), rechts "heute" (wie er heute tradet).
+             Die Fotos kommen noch als assets/img/ad6/jung.jpg und assets/img/ad6/heute.jpg (data-src am Slot). Das Skript legt das
+             <img> darüber an; fehlt die Datei, entfernt es das <img> wieder und der neutrale graue Platzhalter bleibt sichtbar.
+             Kein statisches <img src>: lint meldet die noch fehlende Datei sonst als Fehler. -->
+        <div id="a6-pj" class="a6-item"><div class="a6-tilt">
           <svg id="a6-speed" viewBox="0 0 130 120"><g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.75"><line x1="8" y1="20" x2="124" y2="20"/><line x1="40" y1="60" x2="124" y2="60"/><line x1="70" y1="100" x2="124" y2="100"/></g></svg>
+          <div id="a6-pjs" class="a6-swing a6-pola">
+            <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-jung" data-src="assets/img/ad6/jung.jpg">
+              <svg viewBox="0 0 248 248"><rect width="248" height="248" fill="#DDE3EA"/><circle cx="124" cy="99" r="42" fill="#9CA3AF"/><path d="M45 248 C45 179 82 154 124 154 C166 154 203 179 203 248 Z" fill="#9CA3AF"/></svg>
+            </div></div>
+            <div class="a6-year">damals</div>
+          </div>
+          <div id="a6-pjpin" class="a6-pin" style="left:140px; top:15px"></div>
+        </div></div>
+
+        <div id="a6-ph" class="a6-item"><div class="a6-tilt">
+          <div id="a6-phs" class="a6-swing a6-pola">
+            <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-heute" data-src="assets/img/ad6/heute.jpg">
+              <svg viewBox="0 0 248 248"><rect width="248" height="248" fill="#DDE3EA"/><circle cx="124" cy="99" r="42" fill="#9CA3AF"/><path d="M45 248 C45 179 82 154 124 154 C166 154 203 179 203 248 Z" fill="#9CA3AF"/></svg>
+            </div></div>
+            <div class="a6-year">heute</div>
+            <svg id="a6-robot" viewBox="0 0 60 60"><g class="a6-ink" style="stroke-width:3.2"><line x1="30" y1="7" x2="30" y2="15"/><rect x="12" y="15" width="36" height="27" rx="6" style="fill:#EEF2FF"/><path d="M23 34 q7 5 14 0"/><line x1="7" y1="26" x2="12" y2="26"/><line x1="48" y1="26" x2="53" y2="26"/><rect x="19" y="45" width="22" height="10" rx="3"/></g><circle cx="30" cy="6" r="3.4" fill="#1D3A8A"/><circle cx="23" cy="26" r="3.4" fill="#1D3A8A"/><circle cx="37" cy="26" r="3.4" fill="#1D3A8A"/></svg>
+          </div>
+          <div id="a6-phpin" class="a6-pin" style="left:140px; top:15px"></div>
+        </div></div>
+
+        <!-- roter Zettel "?" zwischen damals und heute -->
+        <div id="a6-q" class="a6-item"><div class="a6-tilt"><div id="a6-qs" class="a6-swing a6-qnote"><b>?</b><i class="a6-qfold"></i></div></div></div>
+
+        <!-- Polaroid 2017: echter Gegenstand aus der Zeit (Notizbuch), kein Foto von Kilian. Hängt schon an der Wand, kommt beim Zoom-out ins Bild -->
+        <div id="a6-p17" class="a6-item"><div class="a6-tilt">
           <div id="a6-p17s" class="a6-swing a6-pola">
             <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-2017"><img src="assets/img/ad6/notebook-2017.jpg" alt="">
             </div></div>
@@ -88,17 +119,13 @@
           <div id="a6-p17pin" class="a6-pin" style="left:140px; top:15px"></div>
         </div></div>
 
-        <!-- roter Zettel "?" -->
-        <div id="a6-q" class="a6-item"><div class="a6-tilt"><div id="a6-qs" class="a6-swing a6-qnote"><b>?</b><i class="a6-qfold"></i></div></div></div>
-
-        <!-- Polaroid 2026: Kilian heute am Schreibtisch (Standbild aus seiner Aufnahme, bis das echte Foto kommt) -->
-        <div id="a6-p26" class="a6-item"><div class="a6-tilt">
-          <div id="a6-p26s" class="a6-swing a6-pola">
-            <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-2026"><img src="assets/img/ad6/kilian-2026.jpg" alt=""></div></div>
-            <div class="a6-year">2026</div>
-            <svg id="a6-robot" viewBox="0 0 60 60"><g class="a6-ink" style="stroke-width:3.2"><line x1="30" y1="7" x2="30" y2="15"/><rect x="12" y="15" width="36" height="27" rx="6" style="fill:#EEF2FF"/><path d="M23 34 q7 5 14 0"/><line x1="7" y1="26" x2="12" y2="26"/><line x1="48" y1="26" x2="53" y2="26"/><rect x="19" y="45" width="22" height="10" rx="3"/></g><circle cx="30" cy="6" r="3.4" fill="#1D3A8A"/><circle cx="23" cy="26" r="3.4" fill="#1D3A8A"/><circle cx="37" cy="26" r="3.4" fill="#1D3A8A"/></svg>
+        <!-- Polaroid 2022: Kilian am Schreibtisch (Standbild aus seiner Aufnahme; laut Kilian nicht von heute, daher 2022) -->
+        <div id="a6-p22" class="a6-item"><div class="a6-tilt">
+          <div id="a6-p22s" class="a6-swing a6-pola">
+            <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-2022"><img src="assets/img/ad6/kilian-2022.jpg" alt=""></div></div>
+            <div class="a6-year">2022</div>
           </div>
-          <div id="a6-p26pin" class="a6-pin" style="left:140px; top:15px"></div>
+          <div id="a6-p22pin" class="a6-pin" style="left:140px; top:15px"></div>
         </div></div>
 
         <!-- Karteikarte 1: keine Angst · keine Gier -->
@@ -180,11 +207,25 @@
     const $ = (s) => document.querySelector(s);
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
+    // Fotos, die noch kommen (Slot mit data-src): <img> über den Platzhalter legen. Fehlt die Datei, wird es wieder entfernt
+    // (kein Bruch-Symbol), der graue Platzhalter bleibt sichtbar. load/error feuern im selben Task, in dem complete wahr wird.
+    document.querySelectorAll("#a6-scene .photo-slot[data-src]").forEach((slot) => {
+      const im = document.createElement("img");
+      im.alt = "";
+      im.onerror = () => im.remove();
+      im.src = slot.dataset.src;
+      slot.appendChild(im);
+    });
+
     // ---------------------------------------------------------------- wall layout (world px; camera scale 1 = storyboard B)
+    // Oberste Reihe (nur erstes Bild bis "3 richtig gute Gründe"): damals | ? | heute. Darunter die Wand aus dem Briefing:
+    // 2017 | 2022, die 3 Karteikarten, später Notizbuchseite und End-Karte.
     const L = {
+      pj: { x: 318, y: -300, r: -4, w: 280, h: 340 },
+      q: { x: 540, y: -345, r: 8, w: 170, h: 170 },
+      ph: { x: 762, y: -296, r: 3, w: 280, h: 340 },
       p17: { x: 210, y: 195, r: -4, w: 280, h: 340 },
-      q: { x: 540, y: 150, r: 8, w: 170, h: 170 },
-      p26: { x: 870, y: 195, r: 3, w: 280, h: 340 },
+      p22: { x: 870, y: 195, r: 3, w: 280, h: 340 },
       c1: { x: 190, y: 572, r: -2, w: 320, h: 236 },
       c2: { x: 540, y: 576, r: 1.5, w: 320, h: 236 },
       c3: { x: 890, y: 572, r: -1.5, w: 320, h: 236 },
@@ -270,9 +311,9 @@
         cur = to;
       });
     }
-    const camA = view(L.p17.x, L.p17.y, 1.3, 500, 363); // first image: 2017 big, right side open
-    const camT = view(540, 200, 1.08);                   // top row: 2017 | ? | 2026
-    const camO = view(540, 350, 0.96);                   // whole wall
+    const camA = view(L.pj.x, L.pj.y, 1.36, 430, 362);  // first image: "damals" big, right side open for "heute"
+    const camP = view(540, -292, 1.3);                   // first image: damals | heute (later the "?" between them)
+    const camO = view(540, 350, 0.96);                   // whole wall: 2017 | 2022 + 3 cards (the top row is out of view)
     const camCard1 = view(188, 512, 1.5);                // Karte 1, oben links noch der Rand des Fotos 2017 (Zeile 7)
     const camCard = (n) => view(L["c" + n].x, L["c" + n].y, 1.8);
     const camRow = view(540, 728, 1.0);                  // 3 cards + space below
@@ -280,38 +321,39 @@
     const camC = { x: -30, y: 25, scale: 1 };            // payoff: 2017 | notebook | end card (storyboard C)
     const camEnd = view(L.ec.x + 6, L.ec.y + 14, 1.66);  // end card hero
 
-    // ---------------------------------------------------------------- 1 "Ich trade jetzt seit 9 Jahren": Polaroid 2017 fliegt rein, Pin knallt
-    // First frame = briefing's first image: the polaroid is already mid-flight (speed lines), the pin bangs at 0.25 s.
-    FX.init(tl, "#a6-p17s", { rotation: -6, transformOrigin: swingOrigin(L.p17), smoothOrigin: false });
-    FX.init(tl, "#a6-p17pin", { opacity: 0 });
-    FX.flyIn(tl, "#a6-p17", 0, { from: "left", dist: 130 });
+    // ---------------------------------------------------------------- 1 "Ich trade jetzt seit 9 Jahren": Polaroid "damals" (Kilian ganz jung) fliegt rein, Pin knallt
+    // First frame = first image: the polaroid is already mid-flight (speed lines), the pin bangs at 0.25 s.
+    FX.init(tl, "#a6-pjs", { rotation: -6, transformOrigin: swingOrigin(L.pj), smoothOrigin: false });
+    FX.init(tl, "#a6-pjpin", { opacity: 0 });
+    FX.flyIn(tl, "#a6-pj", 0, { from: "left", dist: 130 });
     FX.tween(tl, "#a6-speed", { opacity: 1 }, { opacity: 0, duration: 0.24, ease: "none" }, 0.06);
-    FX.slam(tl, "#a6-p17pin", 0.25);
-    FX.wobble(tl, "#a6-p17s", 0.25, 0.6, { origin: swingOrigin(L.p17) });
-    FX.settle(tl, "#a6-p17s", 0.85, 6, { origin: swingOrigin(L.p17) });
-    slow(0.9);
+    FX.slam(tl, "#a6-pjpin", 0.25);
+    FX.wobble(tl, "#a6-pjs", 0.25, 0.6, { origin: swingOrigin(L.pj) });
+    FX.settle(tl, "#a6-pjs", 0.85, 6, { origin: swingOrigin(L.pj) });
 
-    // 2 "trotzdem lass ich heute eine KI für mich traden": Polaroid 2026 rechts daneben, kleiner Roboter
-    go(C.trotzdem, 0.6, camT);
-    preIn("p26");
-    pinIn("p26", Math.max(C.trotzdem + 0.15, C.heute - 0.2), { from: "right" });
+    // 2 "trotzdem lass ich heute eine KI für mich traden": Polaroid "heute" (wie Kilian heute tradet) rechts daneben, kleiner Roboter
+    go(C.trotzdem, 0.6, camP);
+    preIn("ph");
+    pinIn("ph", Math.max(C.trotzdem + 0.15, C.heute - 0.2), { from: "right" });
     FX.init(tl, "#a6-robot", { opacity: 0 });
     FX.pop(tl, "#a6-robot", Math.max(C.ki, C.heute + 0.5));
+    slow(C.trotzdem + 0.62, 1.04);
 
-    // 3 "Klingt erst mal verrückt": roter Zettel "?" knallt zwischen die Fotos und wackelt
+    // 3 "Klingt erst mal verrückt": roter Zettel "?" knallt zwischen damals und heute und wackelt
     FX.init(tl, "#a6-q", { opacity: 0 });
     FX.init(tl, "#a6-qs", { rotation: -6, transformOrigin: "50% 100%", smoothOrigin: false }); // lands tilted, flows into the wobble
     FX.slam(tl, "#a6-q", C.verrueckt);
     const qw = FX.wobble(tl, "#a6-qs", C.verrueckt + 0.12, clamp(C.gruende - C.verrueckt - 0.5, 0.6, 2.4));
     FX.settle(tl, "#a6-qs", qw.end, qw.endRotation);
 
-    // 4 "3 richtig gute Gründe": Zoom-out, 3 Karteikarten 1-2-3 werden unten angepinnt ("?" geht, max. 5 Elemente)
-    go(C.gruende, 0.5, camO);
-    FX.fadeOut(tl, "#a6-q", C.gruende);
+    // 4 "3 richtig gute Gründe": Zoom-out nach unten auf die Wand (2017 | 2022 hängen dort schon), 3 Karteikarten 1-2-3
+    // werden unten angepinnt. damals | ? | heute gehen oben aus dem Bild (max. 5 Elemente).
+    go(C.gruende, 0.6, camO);
+    FX.fadeOut(tl, "#a6-q", C.gruende + 0.2);
     [1, 2, 3].forEach((n) => {
       preIn("c" + n);
       FX.init(tl, `#a6-c${n}b`, { opacity: 0, rotationY: -90, transformPerspective: 1100 });
-      pinIn("c" + n, C.gruende + 0.12 + (n - 1) * 0.08, { from: "bottom", dist: 900 });
+      pinIn("c" + n, C.gruende + 0.25 + (n - 1) * 0.08, { from: "bottom", dist: 900 });
     });
 
     // 5 "Erstens": schnelles Ranzoomen auf Karte 1, sie dreht sich: keine Angst · keine Gier
@@ -356,7 +398,8 @@
     FX.pop(tl, "#a6-jobs", C.job);
     FX.slam(tl, "#a6-jobx", Math.max(C.garnicht, C.job + 0.35));
 
-    // 15 "Und jetzt kommt das Beste": schnelles Ranzoomen auf das Foto von 2017 (Karten 1, 2 + Post-its gehen außerhalb des Bildes)
+    // 15 "Und jetzt kommt das Beste": schnelles Ranzoomen auf das Foto von 2017 (Karten 1, 2 + Post-its gehen außerhalb des Bildes).
+    //    Cue "beste" = "kommt" (cues.json word 2): bei Tempo 1.1 folgt "Und" nur 0.36 s auf "gar nicht", so bleibt das rote X ~0.8 s stehen.
     go(C.beste, 0.4, camPhoto, "power3.out");
     FX.set(tl, ["#a6-c1", "#a6-c2", "#a6-job"], { opacity: 0 }, C.beste + 0.42);
     // 16 "keine 9 Jahre Erfahrung": gelbes Post-it "brauchst du nicht" auf das Foto
@@ -364,14 +407,14 @@
     FX.pop(tl, "#a6-pi17i", C.erfahrung);
     slow(C.erfahrung + 0.35, 1.06);
 
-    // 17 "setzt der Bot ganz allein": Karte 3 rutscht neben das Foto von 2026
+    // 17 "setzt der Bot ganz allein": Karte 3 rutscht neben das Foto rechts oben (Briefing: 2026, jetzt 2022)
     go(C.bot, 0.5, camC);
     const c3to = { x: 578, y: 238 };
     FX.tween(tl, "#a6-c3", { x: 0, y: 0 }, { x: c3to.x - L.c3.x, y: c3to.y - L.c3.y, duration: 0.6, ease: "power2.inOut" }, C.bot + 0.15);
     FX.tween(tl, "#a6-c3s", { rotation: 0, transformOrigin: swingOrigin(L.c3), smoothOrigin: false }, { rotation: -3, transformOrigin: swingOrigin(L.c3), smoothOrigin: false, duration: 0.6, ease: "power2.inOut" }, C.bot + 0.15);
 
-    // 18 "Was du brauchst": Notizbuchseite mit 3 leeren Kästchen wird angepinnt (deckt Karte 3 zu, 2026 geht: Storyboard C)
-    FX.tween(tl, "#a6-p26", { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "none" }, C.brauchst);
+    // 18 "Was du brauchst": Notizbuchseite mit 3 leeren Kästchen wird angepinnt (deckt Karte 3 zu, 2022 geht: Storyboard C)
+    FX.tween(tl, "#a6-p22", { opacity: 1 }, { opacity: 0, duration: 0.25, ease: "none" }, C.brauchst);
     FX.tween(tl, "#a6-c3", { opacity: 1 }, { opacity: 0, duration: 0.2, ease: "none" }, C.brauchst + 0.2); // liegt jetzt unter der Seite
     preIn("nb");
     pinIn("nb", C.brauchst + 0.05, { from: "top", dist: 900 });

@@ -1,5 +1,10 @@
 {
  "cues": {
+  "allein": {
+   "phrase": "ganz alleine eröffnet",
+   "word": 1
+  },
+  "ablauf": "wie so etwas abläuft",
   "ahnung": "keine Ahnung von Trading hast",
   "spannend": "besonders spannend für dich",
   "kibot": {
@@ -41,6 +46,10 @@
    "phrase": "schließt den Trade automatisiert wieder",
    "word": 4
   },
+  "angefasst": {
+   "phrase": "also nichts angefasst",
+   "word": 1
+  },
   "fasz": "fasziniert mich bis heute",
   "heisst": "was heißt das für dich",
   "koennen": "nicht traden können",
@@ -71,6 +80,10 @@
  },
  "sfx": [
   {
+   "t": 0.55,
+   "type": "pen"
+  },
+  {
    "at": "ahnung",
    "type": "pop",
    "offset": -0.15
@@ -81,7 +94,7 @@
    "offset": -0.1
   },
   {
-   "at": "wieder",
+   "at": "angefasst",
    "type": "stamp"
   },
   {

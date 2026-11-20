@@ -26,6 +26,15 @@
     #a8-pen { position: absolute; left: 0; top: 0; width: 1px; height: 1px; z-index: 40; pointer-events: none; }
     #a8-pen svg { position: absolute; left: -40px; top: -272px; width: 240px; height: 300px; overflow: visible; filter: drop-shadow(10px 14px 10px rgba(15, 23, 42, 0.22)); }
     #a8-date { transform: rotate(-1.5deg); }
+    /* Backtest-Bild (Kundenwunsch): Screenshot aus Kilians Tester-Aufnahme, nur die Balance-Linie auf neutralem Grund
+       (assets/img/ad8/_prep.py), eingeklebt unten auf Seite 1; das Label hängt fest dran. Kartenfarbe = Bildgrund. */
+    #a8-bt { position: absolute; left: 100px; top: 446px; width: 880px; height: 246px; }
+    #a8-btc { position: absolute; inset: 0; border-radius: 18px; overflow: hidden; background: #F3F4F6;
+      box-shadow: 0 0 0 2px #D5D9DF, 0 8px 18px rgba(15, 23, 42, 0.14); }
+    #a8-bti { position: absolute; left: 0; top: 0; width: 880px; height: 246px; display: block; }
+    #a8-btl { position: absolute; right: 20px; bottom: 20px; height: 58px; padding: 0 20px; border-radius: 14px;
+      background: #FFFFFF; box-shadow: 0 0 0 2px #D5D9DF, 0 4px 10px rgba(15, 23, 42, 0.10);
+      font-family: 'Poppins'; font-weight: 700; font-size: 38px; line-height: 58px; color: #0E1A2B; white-space: nowrap; }
   </style>
   <div id="root" data-composition-id="ad8" data-width="1080" data-height="710">
     <div id="a8-scene" class="clip" data-start="0" data-duration="{{DUR}}">
@@ -87,6 +96,11 @@
             <path id="a8-clk" class="a8-st" style="stroke-width:6" pathLength="1" d="M1004 456 A27 27 0 1 1 1058 456 A27 27 0 1 1 1004 456 M1031 456 V437 M1031 456 L1045 465"/>
             <path id="a8-dc" class="a8-st" pathLength="1" d=""/>
           </svg>
+          <!-- Backtest-Bild: nur die Linie, keine Achsen, Zahlen, Daten oder Oberfläche; Label immer dabei -->
+          <div id="a8-bt">
+            <div id="a8-btc"><img id="a8-bti" src="assets/img/ad8/balance-backtest.png" alt=""></div>
+            <div id="a8-btl">Backtest · Simulation</div>
+          </div>
         </div>
 
         <!-- Rückseite der umblätternden Seite 1 -->
@@ -242,6 +256,18 @@
 
     // ---------- 10 · "24/7": nur ein Uhr-Doodle am Ausweis ----------
     draw("#a8-clk", C.uhr - 0.1, 0.35);
+
+    // ---------- 10b · "bei steigenden als auch bei fallenden Kursen" (Kundenwunsch, nicht in der Tabelle): das Backtest-Bild ----------
+    // ploppt unten auf die Seite, die Linie deckt sich von links auf (Wischen); "Backtest · Simulation" hängt die ganze Zeit
+    // dran. 3–4 s, raus vor "komplett automatisiert" (die Seite unten ist danach frei für das Datum).
+    const tBt = C.steigend - 0.15;
+    const tBtOut = clamp(C.komplett - 0.15, tBt + 3.0, Math.min(tBt + 3.8, C.live - 0.6));
+    const BT0 = "inset(0px 836px 0px 0px)", BT1 = "inset(0px 0px 0px 0px)";   // 836 = 880 - 44 (left margin of the line)
+    FX.init(tl, "#a8-bt", { opacity: 0 });
+    FX.init(tl, "#a8-bti", { clipPath: BT0 });
+    FX.pop(tl, "#a8-bt", tBt);
+    FX.tween(tl, "#a8-bti", { clipPath: BT0 }, { clipPath: BT1, duration: 1.1, ease: "none" }, tBt + 0.05);   // gleichmäßig wie die Zeit
+    FX.fadeOut(tl, "#a8-bt", tBtOut, 0.2);
 
     // ---------- 11 · "fallenden Kursen" (Tabelle: "fallenden ETF Kursen"): Doppelpfeil wird einmal nachgezogen ----------
     draw("#a8-dbl2", C.kursen, 0.4);

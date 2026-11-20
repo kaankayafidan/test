@@ -23,30 +23,35 @@ Panel = the bot's on-chart panel, border box x 744..1405, y 263..1273. Text rows
 
 a7-panel.mp4 (40 s, 1080 x 710): crop x 757..1180, y 540..818 (423 x 278, only panel inside: below the Slow EMA row
   incl. its faint ringing at y 538-539, above the ACCOUNT band at 818/819), Lanczos x 2.553 (= ~250 %).
-  Visible: Trend BULLISH, VOLUME PROFILE, POC/VAH/VAL labels, Signal WAIT, the label Last Trade, Position FLAT.
-  Hidden: POC/VAH/VAL values and the Last Trade value (no trade direction anywhere in the ad) = mosaic 5 x 1 blocks
-  of 54 x 54 px per line (one block = 1.8 characters x full line height incl. ringing), output x 808..1078, rows
-  y 234/310/388/538 (+54); the Last Trade block starts below the Signal band (449-535) and ends above Position (620).
+  Visible: Trend BULLISH, VOLUME PROFILE, POC/VAH/VAL labels, Signal WAIT, Last Trade SELL, Position FLAT.
+  SELL (red in the panel) is the bot's own record of the direction of its last trade, a word, no number: it is the
+  first image of the ad ("Diesen Trade hat gerade kein Mensch ausgefuehrt"); no time / price / volume / result of that
+  trade exists anywhere in the clips.
+  Hidden: POC/VAH/VAL values = mosaic 5 x 1 blocks of 54 x 54 px per line (one block = 1.8 characters x full line
+  height incl. ringing), output x 808..1078, rows y 234/310/388 (+54).
   Everything else of the screen (title with the product name, prices, account, toolbar, Market Watch, Navigator,
   taskbar, chart) is outside the crop.
   Output rows (px): Trend 29-70, VOLUME PROFILE band 120-213, Signal label x 31-209 / WAIT x 836-955 y 467-519 (row
-  centre 491), Last Trade 544-587, Position 620-662. a7-panel = a7-screen region x 25.0..310.5, y 191.7..379.3 (x 3.78).
+  centre 491), Last Trade label x 33-332 / SELL x 840-955 y 544-585 (clean band y 522-608 between the Signal and
+  Position ink), Position 620-662. a7-panel = a7-screen region x 25.0..310.5, y 191.7..379.3 (x 3.78).
 a7-screen.mp4 (40 s, 1080 x 710): crop x 720..2320, y 256..1308 (1600 x 1052, area x 0.675): the whole panel left,
   the chart right of it. Cropped out: title bar, menu, toolbar (Algo Trading), Market Watch, Navigator, the chart's
   symbol/price header line (y 232-254), price axis, the EA label top right, time axis, ATR window, taskbar, the
   parked mouse (x >= 2404). Chart (everything outside the panel box) Gaussian-blurred sigma 12 output px (panel box
   blanked first, nothing of the panel bleeds in); this also smears the bot's input-string line (y 266-282, x >= 1408).
   Mosaic 14 x 14 px blocks on: the panel title (product name), all MARKET values, POC/VAH/VAL values, and the whole
-  ACCOUNT and POSITIONS rows, labels included (Balance, Equity, Margin, P/L, %, Lots), the Last Trade value; 11 x 17 px
-  blocks on the "(14)" of ATR(14), so no digit is left. Sharp: section headers, the MARKET / VOLUME PROFILE labels,
-  BULLISH, WAIT, FLAT. The panel box is pasted back sharp; where a candle / the EMA / a grid tick crosses its outer
+  ACCOUNT and POSITIONS rows, labels included (Balance, Equity, Margin, P/L, %, Lots); 11 x 17 px blocks on the "(14)"
+  of ATR(14), so no digit is left. Sharp: section headers, the MARKET / VOLUME PROFILE labels, BULLISH, WAIT, SELL,
+  FLAT. The panel box is pasted back sharp; where a candle / the EMA / a grid tick crosses its outer
   2 px border in the source, those pixels get the border line's own colour (no sharp chart pixel is left).
 a7-clock.mp4 (14 s, 832 x 240): the Market Watch server-time digits only, crop x 160..264, y 222..252 (the header bar
   between "Watch:" ending at x 157 and the empty bar; nothing else in it), ink coverage per R/G/B subpixel (ClearType =
   3 horizontal samples per pixel), cubic x 8, smoothed edge -> white digits on black (mix-blend-mode: screen / lighten).
 a7-clock.json: the ticks of that clock in clip time ([t, "HH:MM:SS"]; 10:48:34 at t = 0, +1 s per tick, verified
   by eye 118 - 159 s: 10:48:33 .. 10:49:15, no skipped second) - for a drawn clock that ticks exactly like the recording.
-Checked (every 0.5 s by eye + every frame numerically): no digit / title / account text / cursor / UI chrome legible;
+  NOT used by ad7.html any more (opening rework): a clock next to the Last Trade row would invent a time for that trade.
+Checked (every 0.5 s by eye + every frame numerically): no digit / title / account text / cursor / UI chrome legible
+  (re-checked after unmasking SELL: the panel mosaic blocks stay uniform, max 3/255; the Last Trade band max 17/255);
   outside the mosaics nothing changes over time beyond codec noise (max 20/255), the mosaic blocks stay uniform.
 """
 import json, os, subprocess, sys
@@ -113,8 +118,8 @@ def mosaic(img, x0, y0, x1, y1, b, bh=None):
 
 # ---------------------------------------------------------------- a7-panel
 PANEL_CROP = (757, 540, 423, 278)  # x, y, w, h (source); rows 538-539 / 818 carry faint residue of Slow EMA / ACCOUNT
-PANEL_BLOCKS = [(808, y, 1078, y + 54) for y in (234, 310, 388, 538)]  # POC, VAH, VAL, Last Trade values (output px)
-PANEL_DUR = 40.0  # first image + zoom-out (0 - 5.6 s) and the card (27 - 38 s)
+PANEL_BLOCKS = [(808, y, 1078, y + 54) for y in (234, 310, 388)]  # POC, VAH, VAL values (output px); Last Trade SELL stays
+PANEL_DUR = 40.0  # first image, whole panel (0 - 12.4 s) and the card (a later stretch of the same 40 s, see ad7.html)
 
 
 def panel():
@@ -133,11 +138,10 @@ SCR_CROP = (720, 256, 1600, 1052)
 SX, SY = 1080 / 1600, 710 / 1052
 PANEL_BOX = (744, 263, 1406, 1274)  # source, border included
 SCR_MOSAIC = [  # (source rect, block w, block h in output px): title, MARKET values, VOLUME PROFILE values, ACCOUNT rows,
-    #             POSITIONS rows, the "(14)" of the ATR(14) label (glyphs x 806..849, "R" ends at 803) -> 3 blocks,
-    #             the Last Trade value (ink y 754-769; Signal 723-742 and Position 783-799 stay sharp)
+    #             POSITIONS rows, the "(14)" of the ATR(14) label (glyphs x 806..849, "R" ends at 803) -> 3 blocks
+    #             (Signal WAIT, Last Trade SELL and Position FLAT stay sharp: words, no number)
     ((764, 281, 1094, 309), 14, 14), ((1081, 367, 1186, 541), 14, 14), ((1081, 631, 1174, 713), 14, 14),
-    ((764, 861, 1186, 1038), 14, 14), ((764, 1093, 1186, 1237), 14, 14), ((805, 459, 852, 484), 11, 17),
-    ((1081, 750, 1186, 773), 14, 14)]
+    ((764, 861, 1186, 1038), 14, 14), ((764, 1093, 1186, 1237), 14, 14), ((805, 459, 852, 484), 11, 17)]
 
 
 def to_out(x0, y0, x1, y1):

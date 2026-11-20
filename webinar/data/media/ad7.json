@@ -1,14 +1,15 @@
 {
- "duration": 57.96,
+ "duration": 66.75,
  "voice": "assets/media/ad7.voice.wav",
  "voiceWav": "assets/media/ad7.voice.wav",
  "cam": "assets/media/ad7.cam.mp4",
  "cuts": [
-  8.476,
-  17.514,
-  24.714,
-  28.124,
-  49.486
+  6.752,
+  15.324,
+  24.514,
+  31.619,
+  36.867,
+  58.276
  ],
  "tempo": 1.05,
  "crop": {
@@ -17,7 +18,7 @@
   "size": 252,
   "faces": -1
  },
- "loudness_in": -30.5,
+ "loudness_in": -30.3,
  "loudness_out": -14.3,
  "true_peak": -4.6
 }

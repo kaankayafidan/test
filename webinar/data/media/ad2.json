@@ -1,14 +1,13 @@
 {
- "duration": 81.65,
+ "duration": 83.402,
  "voice": "assets/media/ad2.voice.wav",
  "voiceWav": "assets/media/ad2.voice.wav",
  "cam": "assets/media/ad2.cam.mp4",
  "cuts": [
-  9.827,
-  28.627,
-  39.836,
-  42.564,
-  57.773
+  9.927,
+  41.591,
+  44.318,
+  59.527
  ],
  "tempo": 1.1,
  "crop": {
