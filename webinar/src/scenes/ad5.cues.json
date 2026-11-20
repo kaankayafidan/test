@@ -1,0 +1,41 @@
+{
+  "cues": {
+    "stuhl": "Würdest du dich auf einen Stuhl setzen",
+    "nicht": "Wahrscheinlich nicht, oder?",
+    "angest": "die meisten Angestellten genau so",
+    "ki": "eine KI sein kann",
+    "gehalt": "das Gehalt",
+    "arbeitgeber": "einem einzigen Arbeitgeber",
+    "saegt": "Solange keiner dran sägt",
+    "gesaegt": "ordentlich gesägt",
+    "industrie": "in der deutschen Industrie",
+    "jobs": "140.000 Jobs",
+    "deshalb": "Deshalb wünschen sich gerade so viele",
+    "zeit": "fehlt einfach die ZEIT",
+    "lernen": "trading zu lernen",
+    "bots": "Und genau dafür gibt es KI-Trading-Bots",
+    "bevor": "bevor du denkst",
+    "kram": "reich kram",
+    "hoer": "hör mir kurz zu",
+    "regeln": "nach festen Regeln",
+    "arbeite": "während ich arbeite",
+    "schlafe": "während ich schlafe",
+    "strat": "9 Trading-Strategien gerade aktiv sind",
+    "passen": "welche gerade nicht passen",
+    "beste": "DAS beste ist also",
+    "standbein": "profitables Standbein",
+    "koennen": "nicht traden können",
+    "woche": "einmal pro Woche 30 Minuten",
+    "gewinn": "kein Gewinnversprechen",
+    "ehrlich": "ist nicht ehrlich",
+    "sonntag": "Am Sonntag, den 6.12.",
+    "t18": "um 18 Uhr",
+    "bot": "wie mein KI-Trading-Bot",
+    "button": "auf den Button"
+  },
+  "sfx": [],
+  "kil": [
+    { "at": "bevor", "until": "kram" },
+    { "at": "gewinn", "until": "ehrlich" }
+  ]
+}
