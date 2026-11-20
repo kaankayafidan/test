@@ -105,7 +105,7 @@
    "scene": "ad7",
    "name": "07_BotLive",
    "title": "Der Bot live",
-   "hook": "Kein Mensch hat geklickt",
+   "hook": "Hier klickt kein Mensch",
    "hookFs": null,
    "tempo": 1.05,
    "kilBig": 3,

@@ -13,3 +13,4 @@ __pycache__
 briefing/
 # derived video clips (rebuilt by assets/img/ad2/_prep.py)
 assets/img/ad2/*.mp4
+assets/img/ad7/*.mp4
