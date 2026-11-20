@@ -11,3 +11,5 @@ assets/music/bed.wav
 __pycache__
 # client briefing (confidential) stays local
 briefing/
+# derived video clips (rebuilt by assets/img/ad2/_prep.py)
+assets/img/ad2/*.mp4

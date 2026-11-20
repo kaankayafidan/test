@@ -20,7 +20,7 @@ ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
 STOCK = os.path.join(ROOT, "assets", "media", "stock")
 A, B, C = (os.path.join(STOCK, f) for f in ("mixkit-48002.mp4", "mixkit-20061.mp4", "mixkit-22137.mp4"))
 OUT = lambda f: os.path.join(HERE, f)
-X264 = ["-c:v", "libx264", "-preset", "slow", "-crf", "15", "-pix_fmt", "yuv420p", "-g", "15", "-an", "-movflags", "+faststart"]
+X264 = ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-pix_fmt", "yuv420p", "-g", "15", "-an", "-movflags", "+faststart"]
 
 
 def ff(*args):

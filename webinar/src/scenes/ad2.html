@@ -289,7 +289,7 @@
     // ---- 7 "läuft die Rolltreppe mal rückwärts": Rückspul-Effekt 0,5 s (auch der Zoom spult zurück), dann Clip A
     // rückwärts; der Pfeil dreht auf Rot nach unten
     FX.tween(tl, "#a2-shotA", { scale: zTo, transformOrigin: zOrigin }, { scale: 1, transformOrigin: zOrigin, duration: 0.5, ease: "power2.inOut" }, C.rueck);
-    FX.tween(tl, "#a2-arr1", { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 180, transformOrigin: "50% 50%", duration: 0.4, ease: "power2.inOut" }, C.rueck);
+    FX.tween(tl, "#a2-arr1", { rotationX: 0, transformPerspective: 900, transformOrigin: "50% 50%" }, { rotationX: 180, transformPerspective: 900, transformOrigin: "50% 50%", duration: 0.4, ease: "power2.inOut" }, C.rueck);
     FX.init(tl, ".a2-af", { fill: "#16A34A" });
     tl.set(".a2-af", { fill: "#DC2626" }, C.rueck + 0.2);  // Farbwechsel in der Mitte der Drehung (kein Braun)
 
