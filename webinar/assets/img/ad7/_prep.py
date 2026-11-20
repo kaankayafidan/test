@@ -9,8 +9,11 @@ Source: data/raw/ad7/experiment1.mov (3456 x 2234, ~60 fps VFR, BT.709, 324.5 s)
   at (2404..2430, 746..782) in the chart (template match, 5 fps, 209/209 samples identical 118.0 - 159.8 s), no menu
   bar, no popup, the chart does not move; the panel ticks live (POC/VAH/VAL), Trend BULLISH / Signal WAIT /
   Last Trade SELL / Position FLAT stay as they are; no trade is opened or closed.
-All clips start at S0 = 119.0 s: clip time t <-> source time 119.0 + t (fps=30 CFR resample, H.264 yuv420p BT.709,
-crf 18, -g 15, no audio). The same t means the same real moment in all three clips.
+All clips start at S0 = 119.0 s: clip time t <-> source time 119.0 + t (fps=30 CFR resample, H.264 yuv420p, BT.709
+matrix, tv range, crf 18, -g 15, no audio). The same t means the same real moment in all three clips.
+No colour tags (primaries / transfer / matrix) on panel and screen: HyperFrames 0.8.202 colour-manages BT.709-tagged
+video and renders its shadows 40-60 % darker than prepared; untagged it shows the prepared levels.
+Mosaics are colour-neutral (each block = the grey of its mean luminance), so no green/red hint of a hidden value is left.
 
 Panel = the bot's on-chart panel, border box x 744..1405, y 263..1273. Text rows (ink, y): title 285-305 (product name),
   MARKET 337-351, Bid 371-387, Ask 402-417, Spread 432-450, ATR 462-480, Fast EMA 492-507, Slow EMA 521-538,
@@ -18,12 +21,14 @@ Panel = the bot's on-chart panel, border box x 744..1405, y 263..1273. Text rows
   754-769, Position 783-799, ACCOUNT band 819-854, Balance .. Eq/Bal % 865-1034, POSITIONS band, Positions .. EA P/L
   1097-1233. Labels x 768..910, values x 1085..1180.
 
-a7-panel.mp4 (14 s, 1080 x 710): crop x 757..1180, y 540..818 (423 x 278, only panel inside: below the Slow EMA row
+a7-panel.mp4 (40 s, 1080 x 710): crop x 757..1180, y 540..818 (423 x 278, only panel inside: below the Slow EMA row
   incl. its faint ringing at y 538-539, above the ACCOUNT band at 818/819), Lanczos x 2.553 (= ~250 %).
-  Visible: Trend BULLISH, VOLUME PROFILE, POC/VAH/VAL labels, Signal WAIT, Last Trade SELL, Position FLAT.
-  Hidden: POC/VAH/VAL values = mosaic 5 x 1 blocks of 54 x 54 px per line (one block = 1.8 characters x full line
-  height incl. ringing), output x 808..1078, rows y 234/310/388 (+54). Everything else of the screen (title with the
-  product name, prices, account, toolbar, Market Watch, Navigator, taskbar, chart) is outside the crop.
+  Visible: Trend BULLISH, VOLUME PROFILE, POC/VAH/VAL labels, Signal WAIT, the label Last Trade, Position FLAT.
+  Hidden: POC/VAH/VAL values and the Last Trade value (no trade direction anywhere in the ad) = mosaic 5 x 1 blocks
+  of 54 x 54 px per line (one block = 1.8 characters x full line height incl. ringing), output x 808..1078, rows
+  y 234/310/388/538 (+54); the Last Trade block starts below the Signal band (449-535) and ends above Position (620).
+  Everything else of the screen (title with the product name, prices, account, toolbar, Market Watch, Navigator,
+  taskbar, chart) is outside the crop.
   Output rows (px): Trend 29-70, VOLUME PROFILE band 120-213, Signal label x 31-209 / WAIT x 836-955 y 467-519 (row
   centre 491), Last Trade 544-587, Position 620-662. a7-panel = a7-screen region x 25.0..310.5, y 191.7..379.3 (x 3.78).
 a7-screen.mp4 (40 s, 1080 x 710): crop x 720..2320, y 256..1308 (1600 x 1052, area x 0.675): the whole panel left,
@@ -32,8 +37,10 @@ a7-screen.mp4 (40 s, 1080 x 710): crop x 720..2320, y 256..1308 (1600 x 1052, ar
   parked mouse (x >= 2404). Chart (everything outside the panel box) Gaussian-blurred sigma 12 output px (panel box
   blanked first, nothing of the panel bleeds in); this also smears the bot's input-string line (y 266-282, x >= 1408).
   Mosaic 14 x 14 px blocks on: the panel title (product name), all MARKET values, POC/VAH/VAL values, and the whole
-  ACCOUNT and POSITIONS rows, labels included (Balance, Equity, Margin, P/L, %, Lots); 11 x 17 px blocks on the "(14)"
-  of ATR(14), so no digit is left. Sharp: section headers, the MARKET / VOLUME PROFILE labels, BULLISH, WAIT, SELL, FLAT.
+  ACCOUNT and POSITIONS rows, labels included (Balance, Equity, Margin, P/L, %, Lots), the Last Trade value; 11 x 17 px
+  blocks on the "(14)" of ATR(14), so no digit is left. Sharp: section headers, the MARKET / VOLUME PROFILE labels,
+  BULLISH, WAIT, FLAT. The panel box is pasted back sharp; where a candle / the EMA / a grid tick crosses its outer
+  2 px border in the source, those pixels get the border line's own colour (no sharp chart pixel is left).
 a7-clock.mp4 (14 s, 832 x 240): the Market Watch server-time digits only, crop x 160..264, y 222..252 (the header bar
   between "Watch:" ending at x 157 and the empty bar; nothing else in it), ink coverage per R/G/B subpixel (ClearType =
   3 horizontal samples per pixel), cubic x 8, smoothed edge -> white digits on black (mix-blend-mode: screen / lighten).
@@ -53,7 +60,7 @@ OUT = lambda f: os.path.join(HERE, f)
 S0 = 119.0
 CLOCK_AT_S0 = (10, 48, 34)  # read off the recording at 119.0 s (changes to 10:48:35 at 119.23 s)
 X264 = ["-c:v", "libx264", "-preset", "slow", "-crf", "18", "-g", "15", "-an", "-movflags", "+faststart",
-        "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-color_range", "tv"]
+        "-color_range", "tv"]  # no -colorspace / -color_primaries / -color_trc tags (see above)
 TO_RGB = "in_color_matrix=bt709:in_range=tv"
 
 
@@ -91,24 +98,29 @@ class Enc:
             sys.exit(f"encode {self.name} failed")
 
 
+LUMA = np.array([0.2126, 0.7152, 0.0722], np.float32)  # BT.709 luma of RGB
+
+
 def mosaic(img, x0, y0, x1, y1, b, bh=None):
-    """Fill every b x bh block of the rectangle (blocks anchored at x0, y0) with its mean colour."""
+    """Fill every b x bh block of the rectangle (blocks anchored at x0, y0) with the grey of its mean luminance
+    (colour-neutral: a green or red value must not survive as a green or red block)."""
     bh = bh or b
     for by in range(y0, y1, bh):
         for bx in range(x0, x1, b):
             blk = img[by:min(by + bh, y1), bx:min(bx + b, x1)]
-            blk[...] = blk.reshape(-1, 3).mean(0)
+            blk[...] = float(blk.reshape(-1, 3).mean(0) @ LUMA)
 
 
 # ---------------------------------------------------------------- a7-panel
 PANEL_CROP = (757, 540, 423, 278)  # x, y, w, h (source); rows 538-539 / 818 carry faint residue of Slow EMA / ACCOUNT
-PANEL_BLOCKS = [(808, y, 1078, y + 54) for y in (234, 310, 388)]  # POC, VAH, VAL values (output px), 54 px blocks
+PANEL_BLOCKS = [(808, y, 1078, y + 54) for y in (234, 310, 388, 538)]  # POC, VAH, VAL, Last Trade values (output px)
+PANEL_DUR = 40.0  # first image + zoom-out (0 - 5.6 s) and the card (27 - 38 s)
 
 
 def panel():
     x, y, w, h = PANEL_CROP
     e = Enc("a7-panel.mp4", 1080, 710)
-    for f in frames(14.0, f"crop={w}:{h}:{x}:{y}:exact=1,scale=1080:710:flags=lanczos+accurate_rnd+full_chroma_int:{TO_RGB}", 1080, 710):
+    for f in frames(PANEL_DUR, f"crop={w}:{h}:{x}:{y}:exact=1,scale=1080:710:flags=lanczos+accurate_rnd+full_chroma_int:{TO_RGB}", 1080, 710):
         img = f.astype(np.float32)
         for r in PANEL_BLOCKS:
             mosaic(img, *r, 54)
@@ -121,14 +133,29 @@ SCR_CROP = (720, 256, 1600, 1052)
 SX, SY = 1080 / 1600, 710 / 1052
 PANEL_BOX = (744, 263, 1406, 1274)  # source, border included
 SCR_MOSAIC = [  # (source rect, block w, block h in output px): title, MARKET values, VOLUME PROFILE values, ACCOUNT rows,
-    #             POSITIONS rows, and the "(14)" of the ATR(14) label (glyphs x 806..849, "R" ends at 803) -> 3 blocks
+    #             POSITIONS rows, the "(14)" of the ATR(14) label (glyphs x 806..849, "R" ends at 803) -> 3 blocks,
+    #             the Last Trade value (ink y 754-769; Signal 723-742 and Position 783-799 stay sharp)
     ((764, 281, 1094, 309), 14, 14), ((1081, 367, 1186, 541), 14, 14), ((1081, 631, 1174, 713), 14, 14),
-    ((764, 861, 1186, 1038), 14, 14), ((764, 1093, 1186, 1237), 14, 14), ((805, 459, 852, 484), 11, 17)]
+    ((764, 861, 1186, 1038), 14, 14), ((764, 1093, 1186, 1237), 14, 14), ((805, 459, 852, 484), 11, 17),
+    ((1081, 750, 1186, 773), 14, 14)]
 
 
 def to_out(x0, y0, x1, y1):
     X, Y = SCR_CROP[:2]
     return (int(np.floor((x0 - X) * SX)), int(np.floor((y0 - Y) * SY)), int(np.ceil((x1 - X) * SX)), int(np.ceil((y1 - Y) * SY)))
+
+
+def clean_border(out, x0, y0, x1, y1, w=2, tol=30.0):
+    """The outer w columns / rows of the pasted panel box: a pixel that differs from its line's median by more than tol
+    (a sharp candle, the EMA or a grid tick crossing the border in the source) gets that median (the border colour)."""
+    for x in [*range(x0, x0 + w), *range(x1 - w, x1)]:
+        line = out[y0:y1, x]
+        med = np.median(line, axis=0)
+        line[np.abs(line - med).max(axis=1) > tol] = med
+    for y in [*range(y0, y0 + w), *range(y1 - w, y1)]:
+        line = out[y, x0:x1]
+        med = np.median(line, axis=0)
+        line[np.abs(line - med).max(axis=1) > tol] = med
 
 
 def screen():
@@ -144,6 +171,7 @@ def screen():
         chart[py0:py1, px0:px1] = 0  # nothing of the panel bleeds into the blur
         out = cv2.GaussianBlur(chart, (0, 0), 12)
         out[py0:py1, px0:px1] = img[py0:py1, px0:px1]
+        clean_border(out, px0, py0, px1, py1)
         e.put(np.clip(out + 0.5, 0, 255))
     e.close()
 

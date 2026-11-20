@@ -2,7 +2,7 @@
   "cues": {
     "ahnung": "keine Ahnung von Trading hast",
     "spannend": "besonders spannend für dich",
-    "so": "So ein KI-Trading-Bot läuft",
+    "kibot": { "phrase": "So ein KI-Trading-Bot läuft", "word": 2 },
     "sog": "sogenannten VPS-Server",
     "vps": { "phrase": "sogenannten VPS-Server", "word": 1 },
     "laptop": { "phrase": "der Laptop aus ist", "word": 1 },
@@ -10,8 +10,7 @@
     "neun": "9 Trading-Strategien",
     "abw": "die abwechselnd zum Einsatz kommen",
     "ki": { "phrase": "die KI dahinter entscheidet immer wieder", "word": 1 },
-    "entscheidet": { "phrase": "die KI dahinter entscheidet immer wieder", "word": 3 },
-    "eingesetzt": "welche Strategie gerade eingesetzt wird",
+    "eingesetzt": { "phrase": "welche Strategie gerade eingesetzt wird", "word": 3 },
     "welche": "und welche nicht",
     "sobald": "sobald eine der aktiven Strategien läuft",
     "setzt": "setzt der Bot automatisch nach festen Regeln den Trade",

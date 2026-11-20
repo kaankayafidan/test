@@ -4,57 +4,66 @@
 
   HONEST ADAPTATION. The only real material is Kilian's recording of the bot running on the server (demo account).
   No trade is opened or closed in it, so nothing here shows, imitates or implies a trade: no drawn platform, no trade
-  rows, no prices/times of trades, no "Wartezeit übersprungen" (the recording plays in real time, no jumps), never the
-  Algo-Trading button. Footage = the derived clips in assets/img/ad7 (built by _prep.py, mosaics/blur baked in; no CSS
-  filters here). Clip time t = source 119.0 s + t in all clips; here media time = scene time (data-media-start =
-  data-start), so the drawn clock and both clips always show the same real moment.
-    a7-panel.mp4  bot panel close-up (~250 %), only panel interior; first image + start of the zoom-out
-    a7-screen.mp4 whole panel + chart (chart blurred hard, values/account rows mosaicked); from the zoom-out to the card
-    a7-clock.json the real Market-Watch server clock ticks → drawn clock (Poppins 900) in the first image
+  rows, no prices/times of trades, no trade direction (the panel's "Last Trade" value is mosaicked in the clips), no
+  "Wartezeit übersprungen" (the recording plays in real time, no jumps), never the Algo-Trading button. Footage = the
+  derived clips in assets/img/ad7 (built by _prep.py, grey mosaics/blur baked in, no colour tags; no CSS filters here).
+  Clip time t = source 119.0 s + t in all clips; here media time = scene time (data-media-start = data-start), so the
+  drawn clock and both clips always show the same real moment.
+    a7-panel.mp4  bot panel close-up (~250 %), only panel interior: first image, the whole panel, and the card
+    a7-screen.mp4 whole panel + chart (chart blurred hard); only its chart part is used, 180–195 %, always dimmed
+                  behind a Schaubild ("Charts höchstens unscharf im Hintergrund"); the whole screen is never shown
+    a7-clock.json the real Market-Watch server clock ticks → drawn clock (Poppins 900, 180 px) in the first image
 
   cue (spoken)                                     picture
   0 (first image)                                  Signal-WAIT row of the panel 250 % (rest of the table hidden), yellow flash
                                                    0.3 s, red circle; below the real server clock ticking; badge DEMOKONTO
-  "keine Ahnung von Trading hast"                  note "ohne Vorwissen ✓" pops top left
+  "keine Ahnung von Trading hast"                  note "ohne Vorwissen ✓" pops top left. Decided plan beat 2: this phrase is
+                                                   spoken at 0.6 s, inside the first image, so from 0.49 s the first image holds
+                                                   3 text elements (row, clock, note) - an explicit exception to "max 2" (p.8);
+                                                   frame 1 itself has row + clock only, and nothing else is added before 3.7 s.
   "besonders spannend für dich"                    Kilian 2 s big (cues kil), recording keeps running
-  "So ein KI-Trading-Bot läuft"                    the row opens into the whole panel, zoom-out panel → screen (same media time)
-  "sogenannten VPS-Server"                         recording dims, camera drifts onto the blurred chart; laptop | server + "läuft"
+  "So ein KI-Trading-Bot läuft"                    after the hook is gone: the row opens into the whole panel (250 %), slow push
+  "sogenannten VPS-Server"                         the panel dissolves into the blurred chart, dimmed; laptop | server + "läuft"
   "der Laptop aus ist"                             lid closes, "aus"; server dot keeps pulsing
-  "9 Trading-Strategien" / "die abwechselnd …"     3 × 3 navy tiles pop / Lauflicht 0.15 s per tile
-  "die KI dahinter entscheidet …" / "und welche nicht"   chip KI frames 3 tiles yellow / selection changes once
+  "9 Trading-Strategien" / "die abwechselnd …"     3 × 3 navy tiles pop / Lauflicht: one tile at a time, 0.15 s per tile
+  "die KI dahinter …" / "eingesetzt" / "und welche nicht"   chip KI frames 3 tiles yellow / they pulse / selection changes
   "sobald eine der aktiven Strategien läuft"       one framed tile blinks 3×
-  "setzt der Bot automatisch …"                    schematic: that tile → "Einstieg ✓"
+  "setzt der Bot automatisch …"                    Schaubild 2 (clearly drawn, on near-black): only the running tile stays,
+                                                   tile → "Einstieg ✓"
   "schließt den Trade automatisiert wieder"        → "Ausstieg ✓", chip "automatisch ✓", drawn cursor + red X
-  "fasziniert mich bis heute"                      diagram goes, the dimmed recording comes back full frame, Kilian 2 s big
-  "was heißt das für dich" / "nicht traden können" recording shrinks into a card / note "Trading-Wissen: nicht nötig ✓"
+  "fasziniert mich bis heute"                      the diagram goes, the recording stays dimmed (darker), Kilian 2 s big
+  "was heißt das für dich" / "nicht traden können" the recording shrinks into a card showing the live bot panel / note
+                                                   "Trading-Wissen: nicht nötig ✓"; card + note slow zoom 100 → 108 %
   "20 bis 30 Minuten Zeit pro Woche"               Wochenleiste, field "30 Min"
-  "Und am Sonntag …" → end                         End-Karte (Baustein, no Platz-Chip), touch at "Klick", date pulses
+  "Und am Sonntag …" → end                         End-Karte (Baustein, no Platz-Chip, 19 px lower so the badge stays clear
+                                                   above it), touch at "Klick", date pulses
   -->
   <style>
     #root { position: absolute; inset: 0; background: #0B0F15; overflow: hidden; }
     /* Ad 7 · Der Bot live: Plattform dunkel, Blitz/Auswahl Gelb #FACC15, Demokonto Rot #B91C1C, läuft Grün #16A34A,
-       Schaubilder als Navy-Kacheln mit gelben Rahmen. Motif px = 1080 x 710. */
+       Schaubilder als Navy-Kacheln #0E1A2B mit gelben Rahmen. Motif px = 1080 x 710. */
     #a7-media { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
     #a7-scene { position: absolute; inset: 0; z-index: 5; overflow: hidden; pointer-events: none; }
     #a7-scene div, #a7-scene b, #a7-scene i, #a7-scene span { box-sizing: border-box; }
     .a7-f { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
 
-    /* Aufnahme: Kamera (#a7-cam, wird zur Karte) > Bildschirm (#a7-sz) + Panel-Nahaufnahme (#a7-pz, Maske #a7-pm) */
+    /* Aufnahme: Kamera (#a7-cam, wird zur Karte) > Chart (#a7-sz) + Panel-Nahaufnahme (#a7-pz, Maske #a7-pm) */
     #a7-cam { overflow: hidden; background: #131313; box-shadow: 0 40px 100px rgba(0, 0, 0, 0.75); }
     .a7-vid { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; object-fit: fill; }
     #a7-dim { background: #000000; }
     #a7-rim { border: 20px solid #FFFFFF; box-sizing: border-box; }
 
-    /* Erstes Bild: Blitz-Balken mit gelber Kante, roter Kreis (.fx-stroke), Uhr des Servers groß */
+    /* Erstes Bild: Blitz-Balken mit gelber Kante, roter Kreis (.fx-stroke), Uhr des Servers groß (Große Zahlen 180 px) */
     #a7-flash { position: absolute; left: 13px; top: 451px; width: 960px; height: 82px; border-radius: 8px; background: #FACC15; }
     #a7-edge { position: absolute; left: 13px; top: 449px; width: 10px; height: 86px; border-radius: 5px; background: #FACC15; }
-    #a7-clock { position: absolute; right: 44px; top: 462px; height: 150px; display: flex; align-items: center; gap: 26px; }
-    #a7-clock svg { width: 108px; height: 108px; flex: none; overflow: visible; }
-    .a7-clk { display: flex; align-items: center; height: 150px; color: #FFFFFF; font-family: 'Poppins'; font-weight: 900; font-size: 144px; line-height: 150px; white-space: nowrap; }
+    #a7-flring { position: absolute; left: 13px; top: 451px; width: 960px; height: 82px; border-radius: 8px; box-shadow: inset 0 0 0 4px #FACC15; }
+    #a7-clock { position: absolute; left: 0; top: 441px; width: 1080px; height: 188px; display: flex; align-items: center; justify-content: center; gap: 26px; }
+    #a7-clock svg { width: 126px; height: 126px; flex: none; overflow: visible; }
+    .a7-clk { display: flex; align-items: center; height: 188px; color: #FFFFFF; font-family: 'Poppins'; font-weight: 900; font-size: 180px; line-height: 188px; white-space: nowrap; }
     .a7-clk i { display: inline-block; width: 0.66em; text-align: center; font-style: normal; }
     .a7-clk b { display: inline-block; width: 0.34em; text-align: center; font-weight: 900; }
-    #a7-ssb { position: relative; display: inline-block; height: 150px; }
-    .a7-ss { position: absolute; left: 0; top: 0; display: flex; height: 150px; }
+    #a7-ssb { position: relative; display: inline-block; height: 188px; }
+    .a7-ss { position: absolute; left: 0; top: 0; display: flex; height: 188px; }
 
     /* Notizen und Chips (wichtige Wörter >= 44 px) */
     .a7-note { position: absolute; padding: 14px 30px 16px 26px; border-radius: 18px; background: #FFFFFF; border-left: 10px solid #FACC15;
@@ -64,8 +73,8 @@
     .a7-pill { position: absolute; height: 66px; padding: 0 30px; border-radius: 33px; color: #FFFFFF; font-family: 'Poppins'; font-weight: 700; font-size: 44px; line-height: 66px;
       white-space: nowrap; text-align: center; box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45); }
 
-    /* Schaubild: Laptop, Server, 3 x 3 Kacheln, Chip "KI" */
-    .a7-tile { position: absolute; width: 116px; height: 70px; border-radius: 12px; background: #22314D; box-shadow: inset 0 0 0 2px #3A4C6E; }
+    /* Schaubild: Laptop, Server, 3 x 3 Navy-Kacheln (hell = Lauflicht), Chip "KI" */
+    .a7-tile { position: absolute; width: 116px; height: 70px; border-radius: 12px; background: #0E1A2B; box-shadow: inset 0 0 0 2px #3A4C6E; }
     .a7-lit { position: absolute; left: 0; top: 0; width: 116px; height: 70px; border-radius: 12px; background: #3466AE; box-shadow: inset 0 0 0 2px #6B98DA; }
     .a7-fr { position: absolute; left: -10px; top: -10px; width: 136px; height: 90px; border-radius: 18px; border: 6px solid #FACC15; }
     #a7-ki { position: absolute; left: 0; top: 0; width: 156px; height: 72px; border-radius: 36px; background: #FACC15; display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -74,7 +83,7 @@
     #a7-ki path { fill: none; stroke: #0E1A2B; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
 
     /* Schaubild 2: Kachel → Einstieg ✓ → Ausstieg ✓, Chip "automatisch ✓", gezeichneter Mauszeiger mit rotem X */
-    .a7-step { position: absolute; top: 247px; width: 310px; height: 106px; border-radius: 18px; background: #1B2D4F; border: 6px solid #FACC15;
+    .a7-step { position: absolute; top: 247px; width: 310px; height: 106px; border-radius: 18px; background: #0E1A2B; border: 6px solid #FACC15;
       display: flex; align-items: center; justify-content: center; color: #FFFFFF; font-family: 'Poppins'; font-weight: 700; font-size: 46px; line-height: 1;
       white-space: nowrap; box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); }
     .a7-arw { fill: none; stroke: #E5E7EB; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
@@ -92,9 +101,9 @@
     #a7-field { position: absolute; left: 6px; top: 62px; width: 198px; height: 64px; border-radius: 12px; background: #0E1A2B;
       color: #FFFFFF; font-family: 'Poppins'; font-weight: 800; font-size: 50px; line-height: 64px; text-align: center; white-space: nowrap; }
 
-    /* Badge "Demokonto": rot #B91C1C, oben rechts, dauerhaft ab Frame 1 (jedes echte Bild stammt aus einem Demokonto) */
-    #a7-demo { position: absolute; right: 16px; top: 6px; height: 48px; padding: 0 18px; border-radius: 9px; background: #B91C1C; color: #FFFFFF; z-index: 99;
-      font-family: 'Poppins'; font-weight: 800; font-size: 38px; line-height: 48px; letter-spacing: 0.05em; white-space: nowrap; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
+    /* Badge "Demokonto": rot #B91C1C, oben rechts, dauerhaft ab Frame 1 (jedes echte Bild stammt aus einem Demokonto), 44 px */
+    #a7-demo { position: absolute; right: 16px; top: 8px; height: 52px; padding: 0 20px; border-radius: 10px; background: #B91C1C; color: #FFFFFF; z-index: 99;
+      font-family: 'Poppins'; font-weight: 800; font-size: 44px; line-height: 52px; letter-spacing: 0.05em; white-space: nowrap; box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4); }
   </style>
   <div id="root" data-composition-id="ad7" data-width="1080" data-height="710">
 
@@ -103,14 +112,16 @@
       <div id="a7-recz" class="a7-f" data-layout-allow-overflow>
         <div id="a7-cam" class="a7-f">
           <div id="a7-sz" class="a7-f" data-layout-allow-overflow>
-            <video id="a7-vs" class="clip a7-vid" src="assets/img/ad7/a7-screen.mp4" data-start="{{C.so - 0.3}}" data-duration="{{Math.min(DUR, 40) - (C.so - 0.3)}}" data-media-start="{{C.so - 0.3}}" data-hf-media-start-basis="local" muted playsinline></video>
+            <video id="a7-vs" class="clip a7-vid" src="assets/img/ad7/a7-screen.mp4" data-start="{{C.sog - 0.4}}" data-duration="{{C.heisst + 0.5 - (C.sog - 0.4)}}" data-media-start="{{C.sog - 0.4}}" data-hf-media-start-basis="local" muted playsinline></video>
           </div>
           <div id="a7-pz" class="a7-f" data-layout-allow-overflow>
             <div id="a7-pm" class="a7-f">
-              <video id="a7-vp" class="clip a7-vid" src="assets/img/ad7/a7-panel.mp4" data-start="0" data-duration="{{C.so + 1.2}}" data-media-start="0" data-hf-media-start-basis="local" muted playsinline></video>
+              <video id="a7-vp" class="clip a7-vid" src="assets/img/ad7/a7-panel.mp4" data-start="0" data-duration="{{C.sog + 0.6}}" data-media-start="0" data-hf-media-start-basis="local" muted playsinline></video>
+              <video id="a7-vp2" class="clip a7-vid" src="assets/img/ad7/a7-panel.mp4" data-start="{{C.heisst - 0.4}}" data-duration="{{C.sonntag + 0.6 - (C.heisst - 0.4)}}" data-media-start="{{C.heisst - 0.4}}" data-hf-media-start-basis="local" muted playsinline></video>
             </div>
             <div id="a7-mk" class="a7-f">
               <div id="a7-flash"></div>
+              <div id="a7-flring"></div>
               <div id="a7-edge"></div>
               <svg class="fx-svg" viewBox="0 0 1080 710"><path id="a7-c1" class="fx-stroke" pathLength="1" d="M0 0"/></svg>
             </div>
@@ -154,14 +165,14 @@
           <rect x="730" y="104" width="190" height="66" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
           <rect x="730" y="184" width="190" height="66" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
           <rect x="730" y="264" width="190" height="66" rx="10" fill="#0F172A" stroke="#475569" stroke-width="2"/>
-          <circle id="a7-led" cx="756" cy="137" r="17" fill="#22C55E" opacity="0.35"/>
-          <circle cx="756" cy="137" r="9" fill="#22C55E"/>
+          <circle id="a7-led" cx="756" cy="137" r="17" fill="#16A34A" opacity="0.35"/>
+          <circle cx="756" cy="137" r="9" fill="#16A34A"/>
           <circle cx="756" cy="217" r="9" fill="#64748B"/>
           <circle cx="756" cy="297" r="9" fill="#64748B"/>
           <path d="M800 125 V149 M826 125 V149 M852 125 V149 M878 125 V149 M800 205 V229 M826 205 V229 M852 205 V229 M878 205 V229 M800 285 V309 M826 285 V309 M852 285 V309 M878 285 V309" stroke="#475569" stroke-width="5" stroke-linecap="round"/>
         </g>
       </svg>
-      <div id="a7-aus" class="a7-pill" style="left:168px; top:190px; width:140px; background:#4B5563;">aus</div>
+      <div id="a7-aus" class="a7-pill" style="left:168px; top:190px; width:140px; background:#9CA3AF; color:#0E1A2B;">aus</div>
       <div id="a7-run" class="a7-pill" style="left:727px; top:362px; width:196px; background:#16A34A;">läuft</div>
       <div id="a7-tiles" class="a7-f" data-layout-allow-overflow>
         <div class="a7-tile" style="left:350px; top:440px;"><i class="a7-lit"></i><b class="a7-fr"></b></div>
@@ -201,7 +212,7 @@
         <div id="a7-so" class="a7-day" style="left:696px;">So<div id="a7-ev"><div id="a7-field">30 Min</div></div></div>
       </div>
 
-      <!--@include endcard p="a7e"-->
+      <!--@include endcard p="a7e" y="74"-->
       <div id="a7-demo">DEMOKONTO</div>
     </div>
   </div>
@@ -211,20 +222,21 @@
     const $$ = (s) => [...document.querySelectorAll(s)];
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
     const O = { transformOrigin: "0px 0px" };
+    const HOOK_END = 3.7;   // the root's hook "Hier klickt kein Mensch": full 0–3.5 s, fade-out 3.5–3.7 s (builder)
 
     // ---------- geometry of the clips (from assets/img/ad7/_prep.py) ----------
-    // a7-panel (1080 x 710) shows exactly the a7-screen region x 24.975–310.5, y 191.67–379.3 (factor K).
-    const K = 3.7834, PX = 24.975, PY = 191.67;
     // Signal row in a7-panel px: label x 31–209, WAIT x 836–955, ink y 467–519; clean band y 449–535
-    // (VAL mosaic ends at 442, "Last Trade" starts at 544).
+    // (VAL mosaic ends at 442, the Last Trade mosaic starts at 538).
     const ROW = { cx: 493, cy: 492 }, BAND = [449, 535];
     const AT = { x: 540, y: 290 };                                   // first image: row centre in the motif
     const pzAt = (s) => ({ x: AT.x - ROW.cx * s, y: AT.y - ROW.cy * s, scale: s });
+    const at = (s, cx = 540, cy = 355) => ({ x: cx - cx * s, y: cy - cy * s, scale: s });   // scale s about motif point (cx, cy)
     // Market-Watch server clock of the recording in clip time (assets/img/ad7/a7-clock.json): 10:48:34 at t = 0
     const TICKS = [[0, "34"], [0.233, "35"], [1.167, "36"], [2.2, "37"], [3.267, "38"], [4.167, "39"], [5.3, "40"], [6.267, "41"],
       [7.367, "42"], [8.233, "43"], [9.333, "44"], [10.267, "45"], [11.333, "46"], [12.367, "47"], [13.2, "48"]];
 
-    // red circle around the row: rounded (superellipse) loop, ~1.06 turns from the left, so the long row fits inside
+    // red circle around the row: rounded (superellipse) loop, ~1.06 turns from the left; half-width 480 keeps the stroke
+    // >= 45 px inside the motif at the end of the push-in (scale 1.02) and still clears the row ink (x 31–955, y 467–519)
     function loop(cx, cy, a, b, n = 3, a0 = 196, turns = 1.06, N = 192) {
       let d = "";
       for (let i = 0; i <= N; i++) {
@@ -234,15 +246,15 @@
       }
       return d.trim();
     }
-    $("#a7-c1").setAttribute("d", loop(ROW.cx, ROW.cy + 1, 505, 62));
+    $("#a7-c1").setAttribute("d", loop(ROW.cx, ROW.cy + 1, 480, 66));
 
     // ---------- times ----------
-    const tZ = C.so - 0.05;                                 // zoom-out panel → screen
-    const tDim = C.sog - 0.1;                               // recording dims, Schaubild
+    const tZ = Math.max(C.kibot - 0.05, HOOK_END + 0.02);   // the row opens into the whole panel, only after the hook is gone
+    const tDim = C.sog - 0.1;                               // panel dissolves into the dimmed chart, Schaubild 1
     const dZ = clamp(tDim - 0.5 - tZ, 0.6, 1.0);
     const tFlow = C.setzt - 0.15;                           // Schaubild 2
-    const tF = C.fasz - 0.1;                                // diagram goes, recording back (dimmed)
-    const tG = C.heisst - 0.1;                              // recording shrinks into a card
+    const tF = C.fasz - 0.1;                                // diagram goes, recording stays dimmed
+    const tG = C.heisst - 0.1;                              // recording shrinks into a card (the live bot panel)
 
     // seconds of the clock while it is on screen: digits that do not change stay static, the rest is one stacked span
     // per tick, switched by opacity (seek-safe)
@@ -259,12 +271,15 @@
 
     // ---------- 1 · Erstes Bild: die Signal-Zeile des Bot-Panels ~250 %, vom Rest der Tabelle nichts; gelber Blitz 0,3 s,
     //               dann der rote Kreis; darunter groß die echte Server-Uhr; Badge "Demokonto" ab Frame 1 ----------
-    const BAND_IN = `inset(${BAND[0]}px 0px ${710 - BAND[1]}px 0px)`, OPEN = "inset(0px 0px 0px 0px)";
+    const BAND_IN = `inset(${BAND[0]}px 105px ${710 - BAND[1]}px 11px round 8px)`, OPEN = "inset(0px 0px 0px 0px round 0px)";   // = the flash band
     FX.init(tl, "#a7-pm", { clipPath: BAND_IN });
     FX.init(tl, "#a7-pz", { ...pzAt(1), ...O, opacity: 1 });
-    FX.tween(tl, "#a7-pz", { ...pzAt(1), ...O }, { ...pzAt(1.04), ...O, duration: tZ, ease: "none" }, 0);   // langsamer Zoom ab Frame 1
-    FX.init(tl, "#a7-flash", { opacity: 0.55 });
-    FX.tween(tl, "#a7-flash", { opacity: 0.55 }, { opacity: 0.14, duration: 0.3, ease: "power2.in" }, 0);
+    FX.tween(tl, "#a7-pz", { ...pzAt(1), ...O }, { ...pzAt(1.02), ...O, duration: tZ, ease: "none" }, 0);   // langsamer Zoom ab Frame 1
+    // the flash: a bright yellow outline + a light fill (the fill stays light so "Signal … WAIT" reads >= 3:1 from frame 1)
+    FX.init(tl, "#a7-flash", { opacity: 0.2 });
+    FX.tween(tl, "#a7-flash", { opacity: 0.2 }, { opacity: 0.12, duration: 0.3, ease: "power2.in" }, 0);
+    FX.init(tl, "#a7-flring", { opacity: 1 });
+    FX.tween(tl, "#a7-flring", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power2.in" }, 0);
     FX.drawCircle(tl, "#a7-c1", 0.3);
     SHOWN.forEach(([t], k) => {
       FX.init(tl, "#a7-ss" + k, { opacity: k === 0 ? 1 : 0 });
@@ -278,22 +293,22 @@
 
     // ---------- 3 · "besonders spannend für dich": Kilians Kreis 2 s groß (cues "kil"), die Aufnahme läuft weiter ----------
 
-    // ---------- "So ein KI-Trading-Bot läuft": die Zeile öffnet sich zum ganzen Panel, Kamerafahrt zurück auf den Bildschirm
-    //            (Panel-Nahaufnahme und Bildschirm zeigen denselben Moment; beide Ebenen fahren deckungsgleich) ----------
+    // ---------- "So ein KI-Trading-Bot läuft" (after the hook): the row opens into the whole bot panel (~230 %, anchored at
+    //            the bottom so the Trend row sits below the badge), then a slow push; the chart is never shown whole ----------
     FX.fadeOut(tl, ["#a7-mk", "#a7-clock", "#a7-note1"], tZ, 0.2);
-    const P0 = pzAt(1.04), P1 = { x: PX, y: PY, scale: 1 / K };
-    const S0 = { x: P0.x - K * P0.scale * PX, y: P0.y - K * P0.scale * PY, scale: K * P0.scale }, S1 = { x: 0, y: 0, scale: 1 };
-    FX.init(tl, "#a7-sz", { ...S0, ...O, opacity: 0 });
-    FX.tween(tl, "#a7-pz", { ...P0, ...O }, { ...P1, ...O, duration: dZ, ease: "power2.inOut" }, tZ);
-    FX.tween(tl, "#a7-sz", { ...S0, ...O }, { ...S1, ...O, duration: dZ, ease: "power2.inOut" }, tZ);
-    FX.tween(tl, "#a7-pm", { clipPath: BAND_IN }, { clipPath: OPEN, duration: dZ * 0.5, ease: "power2.inOut" }, tZ);
-    FX.fadeIn(tl, "#a7-sz", tZ + 0.08, 0.25);
-    FX.fadeOut(tl, "#a7-pz", tZ + dZ * 0.55, dZ * 0.4);
+    const P0 = pzAt(1.02), PF = at(0.92, 540, 710), PH = at(0.95, 540, 710);
+    FX.tween(tl, "#a7-pz", { ...P0, ...O }, { ...PF, ...O, duration: dZ, ease: "power2.inOut" }, tZ);
+    FX.tween(tl, "#a7-pm", { clipPath: BAND_IN }, { clipPath: OPEN, duration: dZ * 0.6, ease: "power2.inOut" }, tZ);
+    FX.tween(tl, "#a7-pz", { ...PF, ...O }, { ...PH, ...O, duration: tDim + 0.45 - (tZ + dZ), ease: "none" }, tZ + dZ);
 
-    // ---------- 4 · "sogenannten VPS-Server": die Aufnahme dimmt, die Kamera gleitet auf den unscharfen Chart (das Panel geht
-    //               links raus); darüber das Schaubild: links ein Laptop, rechts ein Server mit grünem Punkt, Schild "läuft" ----------
-    const SC = { x: 1080 - 1080 * 1.7, y: 355 - 355 * 1.7, scale: 1.7 };
-    FX.tween(tl, "#a7-sz", { ...S1, ...O }, { ...SC, ...O, duration: 1.2, ease: "power2.inOut" }, tDim);
+    // ---------- 4 · "sogenannten VPS-Server": the panel dissolves into the recording's chart (blurred, 180 %, right part
+    //               only), dimmed; darüber das Schaubild: links ein Laptop, rechts ein Server mit grünem Punkt, Schild "läuft".
+    //               The chart drifts slowly (180 → 195 %) until the card, so the backdrop never stands still ----------
+    const SC = at(1.8, 1080, 355), SC2 = at(1.95, 1080, 355);   // anchored at the right edge: the panel (x <= 463) stays out
+    FX.init(tl, "#a7-sz", { ...SC, ...O, opacity: 0 });
+    FX.set(tl, "#a7-sz", { opacity: 1 }, tDim);                 // beneath the still opaque panel close-up
+    FX.tween(tl, "#a7-sz", { ...SC, ...O }, { ...SC2, ...O, duration: tG - tDim, ease: "none" }, tDim);
+    FX.tween(tl, "#a7-pz", { opacity: 1 }, { opacity: 0, duration: 0.45, ease: "power1.inOut" }, tDim);
     FX.init(tl, "#a7-dim", { opacity: 0 });
     FX.tween(tl, "#a7-dim", { opacity: 0 }, { opacity: 0.66, duration: 0.45, ease: "power1.out" }, tDim);
     FX.init(tl, ["#a7-lap", "#a7-srv", "#a7-run", "#a7-aus"], { opacity: 0 });
@@ -319,11 +334,11 @@
     FX.init(tl, FR, { opacity: 0 });
     TILES.forEach((e, i) => FX.pop(tl, e, C.neun - 0.1 + i * 0.08));
 
-    // ---------- 7 · "die abwechselnd zum Einsatz kommen": Lauflicht, je Kachel 0,15 s hell, dann wieder grau ----------
+    // ---------- 7 · "die abwechselnd zum Einsatz kommen": Lauflicht, immer genau eine Kachel 0,15 s hell, dann wieder Navy ----------
     const SNAKE = [0, 1, 2, 5, 4, 3, 6, 7, 8];
     SNAKE.forEach((i, k) => {
       FX.set(tl, LIT[i], { opacity: 1 }, C.abw + 0.15 * k);
-      FX.set(tl, LIT[i], { opacity: 0 }, C.abw + 0.15 * (k + 2));
+      FX.set(tl, LIT[i], { opacity: 0 }, C.abw + 0.15 * (k + 1));
     });
 
     // ---------- 8 · "die KI dahinter entscheidet immer wieder": der Chip "KI" fährt über das Raster und rahmt 3 Kacheln gelb ein;
@@ -360,12 +375,14 @@
     // ---------- 9 · "sobald eine der aktiven Strategien läuft": eine eingerahmte Kachel blinkt 3× ----------
     FX.tween(tl, [LIT[ACT], FR[ACT]], { opacity: 1 }, { opacity: 0.15, duration: 0.2, ease: "none", yoyo: true, repeat: 5 }, C.sobald);
 
-    // ---------- 10 · "setzt der Bot automatisch nach festen Regeln den Trade": Schaubild 2 (klar gezeichnet): Laptop, Server
-    //                und Chip gehen, das Raster rückt verkleinert nach links (nur die laufende Kachel bleibt hell und gerahmt),
-    //                von ihr ein Pfeil zur Kachel "Einstieg ✓" ----------
+    // ---------- 10 · "setzt der Bot automatisch nach festen Regeln den Trade": Schaubild 2 (klar gezeichnet, auf fast
+    //                Schwarz: the recording dims further, nothing real under the drawing). Laptop, Server, Chip and the 8 other
+    //                tiles go; only the running tile stays (lit and framed) and moves left; from it an arrow to "Einstieg ✓" ----------
     FX.fadeOut(tl, ["#a7-lap", "#a7-srv", "#a7-link", "#a7-run", "#a7-aus", "#a7-ki"], tFlow, 0.25);
-    SEL2.filter((i) => i !== ACT).forEach((i) => { FX.fadeOut(tl, FR[i], tFlow, 0.25); FX.set(tl, LIT[i], { opacity: 0 }, tFlow + 0.25); });
-    const GO = { transformOrigin: "540px 561px" }, GT = { x: 150 - 540, y: 300 - 561, scale: 0.6 };   // grid centre (540, 561) → (150, 300)
+    FX.fadeOut(tl, TILES.filter((_, i) => i !== ACT), tFlow, 0.2);
+    FX.tween(tl, "#a7-dim", { opacity: 0.66 }, { opacity: 0.88, duration: 0.3, ease: "power1.out" }, tFlow);
+    const GO = { transformOrigin: "540px 561px" }, GS = 1.1;
+    const GT = { x: 190 - 540 - (672 - 540) * GS, y: 300 - 561, scale: GS };   // running tile (centre 672, 561) → (190, 300)
     FX.tween(tl, "#a7-tiles", { x: 0, y: 0, scale: 1, ...GO }, { ...GT, ...GO, duration: 0.45, ease: "power2.inOut" }, tFlow);
     FX.init(tl, ["#a7-in", "#a7-out", "#a7-auto", "#a7-curpop", "#a7-xg"], { opacity: 0 });
     const tA1 = tFlow + 0.45;
@@ -387,33 +404,38 @@
     FX.pop(tl, "#a7-curpop", tX - 0.38, { origin: "30% 40%" });
     FX.slam(tl, "#a7-xg", tX, { svgOrigin: "177 505" });
 
-    // ---------- 12 · "fasziniert mich bis heute": das Schaubild geht, die abgedunkelte Aufnahme kommt ganz zurück,
-    //                Kilians Kreis 2 s groß (cues "kil") ----------
+    // ---------- 12 · "fasziniert mich bis heute": das Schaubild geht, die Aufnahme dimmt (noch dunkler; the panel does not come
+    //                back right after the drawn exit), Kilians Kreis 2 s groß (cues "kil") ----------
     FX.fadeOut(tl, ["#a7-tiles", "#a7-flow"], tF, 0.3);
-    FX.tween(tl, "#a7-sz", { ...SC, ...O }, { ...S1, ...O, duration: 1.2, ease: "power2.inOut" }, tF);
-    FX.tween(tl, "#a7-dim", { opacity: 0.66 }, { opacity: 0.5, duration: 0.5, ease: "power1.inOut" }, tF);
+    FX.tween(tl, "#a7-dim", { opacity: 0.88 }, { opacity: 0.94, duration: 0.5, ease: "power1.inOut" }, tF);
 
-    // ---------- 13 · "was heißt das für dich?": die Aufnahme schrumpft in eine Karte (links, vertikal mittig) ----------
+    // ---------- 13 · "was heißt das für dich?": die Aufnahme schrumpft in eine Karte (links, vertikal mittig); in der Karte
+    //                das Bot-Panel live (a7-panel, same real moment), no chart ----------
     const CARD = { x: 90, y: 213, scale: 0.4 };
     FX.init(tl, "#a7-cam", { x: 0, y: 0, scale: 1, borderRadius: 0, ...O });
     FX.tween(tl, "#a7-cam", { x: 0, y: 0, scale: 1, borderRadius: 0, ...O }, { ...CARD, borderRadius: 110, ...O, duration: 0.5, ease: "power2.inOut" }, tG);
     FX.init(tl, "#a7-rim", { opacity: 0, borderRadius: 0 });
     FX.tween(tl, "#a7-rim", { opacity: 0, borderRadius: 0 }, { opacity: 1, borderRadius: 110, duration: 0.5, ease: "power2.inOut" }, tG);
-    FX.tween(tl, "#a7-dim", { opacity: 0.5 }, { opacity: 0, duration: 0.5, ease: "power1.inOut" }, tG);
+    FX.tween(tl, "#a7-dim", { opacity: 0.94 }, { opacity: 0, duration: 0.5, ease: "power1.inOut" }, tG);
+    FX.set(tl, "#a7-pz", { ...at(0.88), ...O }, tG);           // margin: no text under the card's round corners or rim
+    FX.tween(tl, "#a7-pz", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power1.out" }, tG);
 
     // ---------- 14 · "nicht traden können": Notiz "Trading-Wissen: nicht nötig ✓" ploppt ----------
     FX.init(tl, "#a7-note2", { opacity: 0 });
     FX.pop(tl, "#a7-note2", C.koennen - 0.15, { origin: "0% 0%" });
     FX.draw(tl, "#a7-ck2", C.koennen + 0.05, 0.25);
-    // bis "20 bis 30 Minuten" > 4 s ohne Stichwort: langsamer Zoom auf die Karte
-    const tZc = C.koennen + 0.9;
-    FX.slowZoom(tl, "#a7-recz", tZc, { to: 1.04, d: clamp(C.minuten - 0.3 - tZc, 1, 3), origin: `${CARD.x + 540 * CARD.scale}px ${CARD.y + 355 * CARD.scale}px` });
+    // bis "20 bis 30 Minuten" > 4 s ohne Stichwort: langsamer Zoom 100 → 108 % über 3 s auf Karte und Notiz (one camera
+    // move about the motif point between them)
+    const tZc = C.koennen + 0.9, dZc = clamp(C.minuten - 0.3 - tZc, 1, 3), ZP = [540, 355], ZS = 1.08;
+    const n2 = $("#a7-note2");
+    FX.slowZoom(tl, "#a7-recz", tZc, { to: ZS, d: dZc, origin: `${ZP[0]}px ${ZP[1]}px` });
+    FX.slowZoom(tl, "#a7-note2", tZc, { to: ZS, d: dZc, origin: `${ZP[0] - n2.offsetLeft}px ${ZP[1] - n2.offsetTop}px` });
 
     // ---------- 15 · "20 bis 30 Minuten Zeit pro Woche": Karte und Notiz gleiten nach oben, darunter die Wochenleiste
     //                mit dem Feld "30 Min" ----------
     const tUp = C.minuten - 0.45, UP = 126;
     FX.tween(tl, "#a7-cam", { ...CARD, ...O }, { ...CARD, y: CARD.y - UP, ...O, duration: 0.4, ease: "power2.inOut" }, tUp);
-    FX.tween(tl, "#a7-note2", { y: 0 }, { y: -UP * 1.04, duration: 0.4, ease: "power2.inOut" }, tUp);
+    FX.tween(tl, "#a7-note2", { y: 0 }, { y: -UP * ZS, duration: 0.4, ease: "power2.inOut" }, tUp);
     const DAYS = $$("#a7-week .a7-day");
     FX.init(tl, DAYS, { opacity: 0 });
     DAYS.forEach((d, i) => FX.pop(tl, d, C.minuten - 0.1 + i * 0.06, { origin: "50% 100%" }));
@@ -423,10 +445,13 @@
 
     // ---------- 16 · End-Karte (Baustein, ohne Platz-Chip) ab "am Sonntag", baut sich mit dem Satz auf; "Klick auf den Link":
     //                der Touch-Punkt tippt auf "Mehr dazu"; das zweite "am Sonntag": das Datum pulsiert bis zum Ende (der Ton ist
-    //                nach "um 18 Uhr" hart geschnitten). Karte, Notiz und Wochenleiste liegen ganz unter der End-Karte. ----------
+    //                nach "um 18 Uhr" hart geschnitten). The card sits at y 74 (badge y 8–60 stays clear above it); card,
+    //                note and Wochenleiste go once the opaque card covers them. ----------
     const tEnd = C.sonntag - 0.12;
-    FX.endCard(tl, "a7e", { start: tEnd, t18: C.t18, bot: C.bot, klick: C.klick, pulseDate: C.sonntag2 });
-    FX.fadeOut(tl, ["#a7-note2", "#a7-week"], tEnd + 0.3, 0.2);   // already covered by the opaque card: no text left beneath it
+    // the date pulse counts whole 0.8 s beats: start it so that the last beat ends 0.1 s before the end (no still card)
+    const tDatePulse = DUR - 0.1 - 0.8 * Math.floor((DUR - 0.1 - C.sonntag2) / 0.8) - 0.001;
+    FX.endCard(tl, "a7e", { start: tEnd, t18: C.t18, bot: C.bot, klick: C.klick, pulseDate: tDatePulse });
+    FX.fadeOut(tl, ["#a7-note2", "#a7-week", "#a7-recz"], tEnd + 0.3, 0.2);
 
     window.__timelines["ad7"] = tl;
   </script>
