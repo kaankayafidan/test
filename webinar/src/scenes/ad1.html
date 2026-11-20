@@ -16,7 +16,7 @@
     .a1-dr { stroke-dasharray: 1; stroke-dashoffset: 1; }
     .a1-txt { font-family: 'Caveat'; font-weight: 700; fill: #F1EFE6; }
     /* Kreide-Wörter: Caveat Bold mit Kreide-Filter, per Wischen von links aufgedeckt */
-    .a1-w { position: absolute; display: flex; align-items: center; gap: 10px; font-family: 'Caveat'; font-weight: 700; color: #F1EFE6; line-height: 1; white-space: nowrap; padding: 4px 14px 12px 10px; filter: url(#a1-chalkT); }
+    .a1-w { position: absolute; display: flex; align-items: center; gap: 14px; font-family: 'Caveat'; font-weight: 700; color: #F1EFE6; line-height: 1; white-space: nowrap; padding: 4px 14px 12px 10px; filter: url(#a1-chalkT); }
     .a1-w.y { color: #FACC15; }
     .a1-w.g { color: #C3C8CF; }
     .a1-w svg { flex: none; overflow: visible; }
@@ -33,7 +33,7 @@
     .a1-mag.s .a1-f { box-shadow: 0 6px 10px rgba(0, 0, 0, 0.42), 0 2px 3px rgba(0, 0, 0, 0.35), inset 0 -4px 6px rgba(0, 0, 0, 0.12), inset 0 2px 2px rgba(255, 255, 255, 0.95); }
     #a1-m1 { z-index: 4; } #a1-m2, #a1-m3, #a1-m4, #a1-m5 { z-index: 3; } #a1-m6, #a1-m7, #a1-m8, #a1-m9 { z-index: 2; } #a1-scan { z-index: 5; }
     #a1-scan { position: absolute; left: 858px; top: 0; width: 190px; height: 10px; border-radius: 5px; background: #FACC15; box-shadow: 0 0 18px 6px rgba(250, 204, 21, 0.55); }
-    #a1-led { position: absolute; left: 605px; top: 481px; width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #DCFCE7 0%, #4ADE80 45%, #16A34A 100%); box-shadow: 0 0 14px 5px rgba(74, 222, 128, 0.65); }
+    #a1-led { position: absolute; left: 111px; top: 25px; width: 18px; height: 18px; border-radius: 50%; background: radial-gradient(circle at 40% 35%, #DCFCE7 0%, #4ADE80 45%, #16A34A 100%); box-shadow: 0 0 14px 5px rgba(74, 222, 128, 0.65); }
     #a1-sponge { position: absolute; left: -105px; top: 190px; width: 210px; height: 330px; z-index: 60; filter: drop-shadow(0 16px 14px rgba(0, 0, 0, 0.45)); }
   </style>
   <div id="root" data-composition-id="ad1" data-width="1080" data-height="710">
@@ -266,19 +266,10 @@
 
         <!-- ============ E: Angestellte, Bot, Du → Chef / Bot → Du ============ -->
         <div id="a1-E" class="a1-full">
-          <div id="a1-f0" class="a1-grp" style="left:86px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="86 176 128 340"><use href="#a1-fig" x="0" /></svg></div>
-          <div id="a1-f1" class="a1-grp" style="left:226px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="226 176 128 340"><use href="#a1-fig" x="140" /></svg></div>
-          <div id="a1-f2" class="a1-grp" style="left:366px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="366 176 128 340"><use href="#a1-fig" x="280" /></svg></div>
-          <div id="a1-f3" class="a1-grp" style="left:506px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="506 176 128 340"><use href="#a1-fig" x="420" /></svg></div>
-          <svg width="0" height="0" style="position:absolute">
-            <defs>
-              <g id="a1-fig" class="a1-k" filter="url(#a1-chalk)">
-                <circle cx="150" cy="214" r="32" />
-                <path d="M150 246 V392 M150 282 L104 360 M150 282 L196 360 M150 392 L116 500 M150 392 L184 500 M134 248 L150 258 L166 248" />
-                <path class="a1-fill" d="M142 254 H158 L150 266 Z M150 266 L141 314 L150 328 L159 314 Z" />
-              </g>
-            </defs>
-          </svg>
+          <div id="a1-f0" class="a1-grp" style="left:86px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="86 176 128 340"><g class="a1-k" filter="url(#a1-chalk)"><circle cx="150" cy="214" r="32" /><path d="M150 246 V392 M150 282 L104 360 M150 282 L196 360 M150 392 L116 500 M150 392 L184 500 M134 248 L150 258 L166 248" /><path class="a1-fill" d="M142 254 H158 L150 266 Z M150 266 L141 314 L150 328 L159 314 Z" /></g></svg></div>
+          <div id="a1-f1" class="a1-grp" style="left:226px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="226 176 128 340"><g class="a1-k" filter="url(#a1-chalk)"><circle cx="290" cy="214" r="32" /><path d="M290 246 V392 M290 282 L244 360 M290 282 L336 360 M290 392 L256 500 M290 392 L324 500 M274 248 L290 258 L306 248" /><path class="a1-fill" d="M282 254 H298 L290 266 Z M290 266 L281 314 L290 328 L299 314 Z" /></g></svg></div>
+          <div id="a1-f2" class="a1-grp" style="left:366px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="366 176 128 340"><g class="a1-k" filter="url(#a1-chalk)"><circle cx="430" cy="214" r="32" /><path d="M430 246 V392 M430 282 L384 360 M430 282 L476 360 M430 392 L396 500 M430 392 L464 500 M414 248 L430 258 L446 248" /><path class="a1-fill" d="M422 254 H438 L430 266 Z M430 266 L421 314 L430 328 L439 314 Z" /></g></svg></div>
+          <div id="a1-f3" class="a1-grp" style="left:506px; top:176px; width:128px; height:340px"><svg width="128" height="340" viewBox="506 176 128 340"><g class="a1-k" filter="url(#a1-chalk)"><circle cx="570" cy="214" r="32" /><path d="M570 246 V392 M570 282 L524 360 M570 282 L616 360 M570 392 L536 500 M570 392 L604 500 M554 248 L570 258 L586 248" /><path class="a1-fill" d="M562 254 H578 L570 266 Z M570 266 L561 314 L570 328 L579 314 Z" /></g></svg></div>
           <div id="a1-bot3" class="a1-grp" style="left:700px; top:220px; width:230px; height:210px">
             <svg width="230" height="210" viewBox="700 220 230 210">
               <g class="a1-k" style="stroke-width:6.7" filter="url(#a1-chalk)" transform="translate(815 325) scale(1.5) translate(-128 -90)">
@@ -508,7 +499,7 @@
     // 17 · "Vereinsbesitzer": Stadion erscheint in 0,6 s, Glaskasten "VIP" mit Besitzer (aufrecht), schnelles Ranzoomen
     FX.init(tl, S("C"), { opacity: 0 });
     FX.tween(tl, S("C"), { opacity: 0, scale: 0.97, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.6, ease: "power2.out", transformOrigin: "50% 50%" }, C.verein);
-    FX.zoomFast(tl, S("cam"), C.verein + 0.6, { origin: "180px 205px" });
+    FX.zoomFast(tl, S("cam"), C.verein + 0.6, { origin: "180px 160px" });
 
     // 18 · "tradet für mich": Magnete laufen auf gestrichelten Wegen, in Schleife (19 · "komplett passiv": nichts Neues)
     FX.init(tl, S("loops"), { opacity: 0 });
@@ -520,7 +511,7 @@
     loopMove(S("c8"), LB, Math.PI * 1.5, -1, 4.4, C.tradet, tLoopEnd);
 
     // 20 · "auf dem Platz alles gibt": Zoom-out aufs ganze Stadion
-    FX.tween(tl, S("cam"), { scale: 1.3, transformOrigin: "180px 205px" }, { scale: 1, duration: 0.5, ease: "power2.inOut", transformOrigin: "180px 205px" }, Math.max(C.gibt, C.verein + 1.05));
+    FX.tween(tl, S("cam"), { scale: 1.3, transformOrigin: "180px 160px" }, { scale: 1, duration: 0.5, ease: "power2.inOut", transformOrigin: "180px 160px" }, Math.max(C.gibt, C.verein + 1.05));
 
     // 21 · "sitze ich entspannt in der VIP-Lounge": Posenwechsel in 0,2 s (zurückgelehnt, Füße hoch, Kaffee)
     FX.init(tl, S("p2"), { opacity: 0 });
@@ -537,7 +528,7 @@
     const tLift = C.job + 690 / SPV;
     FX.tween(tl, S("sponge"), { opacity: 1, scale: 1 }, { opacity: 0, scale: 1.08, duration: 0.2, ease: "power1.in" }, tLift);
     FX.init(tl, S("Cl"), { clipPath: "inset(0px 0px 0px 0px)" });
-    FX.tween(tl, S("Cl"), { clipPath: "inset(0px 0px 0px 0px)" }, { clipPath: "inset(0px 0px 0px 632px)", duration: tLift - C.job - 170 / SPV, ease: "none" }, C.job + 170 / SPV);
+    FX.tween(tl, S("Cl"), { clipPath: "inset(0px 0px 0px 0px)" }, { clipPath: "inset(0px 0px 0px 690px)", duration: tLift - C.job - 170 / SPV, ease: "none" }, C.job + 170 / SPV);
     write(S("desk"), C.job + 0.3, 0.5);
     write(S("du"), C.job + 0.55, 0.35);
 

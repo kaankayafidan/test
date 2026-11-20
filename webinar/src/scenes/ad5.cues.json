@@ -1,149 +1,59 @@
 {
   "cues": {
     "stuhl": "Würdest du dich auf einen Stuhl setzen",
-    "nicht": "Wahrscheinlich nicht, oder?",
-    "angest": {
-      "phrase": "die meisten Angestellten genau so",
-      "word": 2
-    },
-    "ki": {
-      "phrase": "eine KI sein kann",
-      "word": 1
-    },
-    "gehalt": {
-      "phrase": "das Gehalt",
-      "word": 1
-    },
+    "nicht": "wahrscheinlich nicht",
+    "angest": { "phrase": "die meisten Angestellten genau so", "word": 2 },
+    "ki": { "phrase": "eine KI sein kann", "word": 1 },
+    "gehalt": { "phrase": "normale Gehalt", "word": 1 },
     "arbeitgeber": "einem einzigen Arbeitgeber",
-    "agb": {
-      "phrase": "einem einzigen Arbeitgeber",
-      "word": 2
-    },
-    "saegt": "Solange keiner dran sägt",
+    "agb": { "phrase": "einem einzigen Arbeitgeber", "word": 2 },
+    "saegt": "solange keiner dran sägt",
+    "steht": "steht der Stuhl weiter",
     "gesaegt": "ordentlich gesägt",
-    "industrie": {
-      "phrase": "in der deutschen Industrie",
-      "word": 3
-    },
+    "industrie": { "phrase": "in der deutschen Industrie", "word": 3 },
     "jobs": "140.000 Jobs",
-    "deshalb": "Deshalb wünschen sich gerade so viele",
-    "zeit": "fehlt einfach die ZEIT",
-    "lernen": "trading zu lernen",
-    "bots": "Und genau dafür gibt es KI-Trading-Bots",
-    "kibots": {
-      "phrase": "Und genau dafür gibt es KI-Trading-Bots",
-      "word": 5
-    },
+    "deshalb": "Deshalb wünschen sich",
+    "zeit": "fehlt einfach die Zeit",
+    "lernen": { "phrase": "Neues zu lernen", "word": 1 },
+    "bots": "Und genau dafür gibt es",
+    "kibots": { "phrase": "jetzt KI-Trading-Bots", "word": 1 },
     "bevor": "bevor du denkst",
-    "kram": "reich kram",
+    "system": "das nächste Schnell-reich-System",
     "hoer": "hör mir kurz zu",
-    "regeln": {
-      "phrase": "nach festen Regeln",
-      "word": 1
-    },
-    "arbeite": {
-      "phrase": "während ich arbeite",
-      "word": 2
-    },
-    "schlafe": {
-      "phrase": "während ich schlafe",
-      "word": 2
-    },
-    "strat": "9 Trading-Strategien gerade aktiv sind",
-    "aktiv": {
-      "phrase": "9 Trading-Strategien gerade aktiv sind",
-      "word": 3
-    },
-    "passen": {
-      "phrase": "welche gerade nicht passen",
-      "word": 2
-    },
-    "beste": "DAS beste ist also",
-    "standbein": "profitables Standbein",
-    "koennen": "nicht traden können",
-    "koennenw": {
-      "phrase": "nicht traden können",
-      "word": 2
-    },
-    "woche": "einmal pro Woche 30 Minuten",
-    "woche30": {
-      "phrase": "einmal pro Woche 30 Minuten",
-      "word": 3
-    },
+    "regeln": { "phrase": "nach festen Regeln", "word": 1 },
+    "arbeite": { "phrase": "während ich arbeite", "word": 2 },
+    "schlafe": { "phrase": "während ich schlafe", "word": 2 },
+    "strat": "9 Trading-Strategien gerade aktiv",
+    "aktiv": { "phrase": "9 Trading-Strategien gerade aktiv", "word": 3 },
+    "passen": { "phrase": "gerade nicht passen", "word": 1 },
+    "beste": "Das Beste ist also",
+    "dumusst": "du musst nicht Trading lernen",
+    "nichtlernen": { "phrase": "du musst nicht Trading lernen", "word": 2 },
+    "lernen2": { "phrase": "du musst nicht Trading lernen", "word": 4 },
+    "standbein": "profitables zweites Standbein",
     "gewinn": "kein Gewinnversprechen",
-    "ehrlich": "ist nicht ehrlich",
-    "sonntag": "Am Sonntag, den 6.12.",
-    "t18": {
-      "phrase": "um 18 Uhr",
-      "word": 1
-    },
-    "bot": "wie mein KI-Trading-Bot",
-    "button": {
-      "phrase": "auf den Button",
-      "word": 2
-    }
+    "wurden": "generiert wurden",
+    "sonntag": "am Sonntag, den 6.",
+    "t18": { "phrase": "um 18 Uhr", "word": 1 },
+    "bot": "in meinem Live-Webinar",
+    "button": { "phrase": "auf „Mehr dazu“", "word": 1 },
+    "sonntag2": { "phrase": "uns am Sonntag", "word": 1 }
   },
   "sfx": [
-    {
-      "at": "nicht",
-      "type": "pop"
-    },
-    {
-      "at": "ki",
-      "type": "pop",
-      "offset": 0.2
-    },
-    {
-      "at": "gehalt",
-      "type": "pop"
-    },
-    {
-      "at": "gesaegt",
-      "type": "whoosh",
-      "offset": -0.05
-    },
-    {
-      "at": "jobs",
-      "type": "stamp"
-    },
-    {
-      "at": "lernen",
-      "type": "pop"
-    },
-    {
-      "at": "kibots",
-      "type": "pop",
-      "offset": 0.35
-    },
-    {
-      "at": "regeln",
-      "type": "pop"
-    },
-    {
-      "at": "aktiv",
-      "type": "pop"
-    },
-    {
-      "at": "woche30",
-      "type": "pop"
-    },
-    {
-      "at": "sonntag",
-      "type": "whoosh"
-    },
-    {
-      "at": "button",
-      "type": "pop"
-    }
+    { "at": "nicht", "type": "pop" },
+    { "at": "gehalt", "type": "pop" },
+    { "at": "gesaegt", "type": "whoosh", "offset": -0.05 },
+    { "at": "jobs", "type": "stamp" },
+    { "at": "lernen", "type": "pop" },
+    { "at": "kibots", "type": "pop", "offset": 0.35 },
+    { "at": "regeln", "type": "pop" },
+    { "at": "aktiv", "type": "pop" },
+    { "at": "lernen2", "type": "pop", "offset": -0.05 },
+    { "at": "sonntag", "type": "whoosh" },
+    { "at": "button", "type": "pop" }
   ],
   "kil": [
-    {
-      "at": "bevor",
-      "until": "kram"
-    },
-    {
-      "at": "gewinn",
-      "until": "ehrlich"
-    }
+    { "at": "bevor", "until": "system" },
+    { "at": "gewinn", "until": "wurden" }
   ]
 }
