@@ -1,46 +1,121 @@
 {
-  "cues": {
-    "ahnung": "keine Ahnung von Trading hast",
-    "spannend": "besonders spannend für dich",
-    "kibot": { "phrase": "So ein KI-Trading-Bot läuft", "word": 2 },
-    "sog": "sogenannten VPS-Server",
-    "vps": { "phrase": "sogenannten VPS-Server", "word": 1 },
-    "laptop": { "phrase": "der Laptop aus ist", "word": 1 },
-    "aus": { "phrase": "der Laptop aus ist", "word": 2 },
-    "neun": "9 Trading-Strategien",
-    "abw": "die abwechselnd zum Einsatz kommen",
-    "ki": { "phrase": "die KI dahinter entscheidet immer wieder", "word": 1 },
-    "eingesetzt": { "phrase": "welche Strategie gerade eingesetzt wird", "word": 3 },
-    "welche": "und welche nicht",
-    "sobald": "sobald eine der aktiven Strategien läuft",
-    "setzt": "setzt der Bot automatisch nach festen Regeln den Trade",
-    "schliesst": "schließt den Trade automatisiert wieder",
-    "autom": { "phrase": "schließt den Trade automatisiert wieder", "word": 3 },
-    "wieder": { "phrase": "schließt den Trade automatisiert wieder", "word": 4 },
-    "fasz": "fasziniert mich bis heute",
-    "heisst": "was heißt das für dich",
-    "koennen": "nicht traden können",
-    "minuten": "20 bis 30 Minuten Zeit pro Woche",
-    "dreissig": { "phrase": "20 bis 30 Minuten Zeit pro Woche", "word": 2 },
-    "woche": { "phrase": "20 bis 30 Minuten Zeit pro Woche", "word": 6 },
-    "sonntag": { "phrase": "Und am Sonntag, den 6. Dezember um 18 Uhr", "word": 1 },
-    "t18": { "phrase": "um 18 Uhr", "word": 1 },
-    "bot": "wie so ein Trading-Bot funktioniert",
-    "klick": "Klick auf den Link",
-    "sonntag2": "am Sonntag, den 6. Dezember um 18 Uhr"
+ "cues": {
+  "ahnung": "keine Ahnung von Trading hast",
+  "spannend": "besonders spannend für dich",
+  "kibot": {
+   "phrase": "So ein KI-Trading-Bot läuft",
+   "word": 2
   },
-  "sfx": [
-    { "at": "ahnung", "type": "pop", "offset": -0.15 },
-    { "at": "sog", "type": "whoosh", "offset": -0.1 },
-    { "at": "wieder", "type": "stamp" },
-    { "at": "heisst", "type": "whoosh", "offset": -0.1 },
-    { "at": "koennen", "type": "pop", "offset": -0.15 },
-    { "at": "dreissig", "type": "pop", "offset": -0.1 },
-    { "at": "sonntag", "type": "pop" },
-    { "at": "klick", "type": "pop" }
-  ],
-  "kil": [
-    { "at": "spannend", "dur": 2 },
-    { "at": "fasz", "dur": 2 }
-  ]
+  "sog": "sogenannten VPS-Server",
+  "vps": {
+   "phrase": "sogenannten VPS-Server",
+   "word": 1
+  },
+  "laptop": {
+   "phrase": "der Laptop aus ist",
+   "word": 1
+  },
+  "aus": {
+   "phrase": "der Laptop aus ist",
+   "word": 2
+  },
+  "neun": "9 Trading-Strategien",
+  "abw": "die abwechselnd zum Einsatz kommen",
+  "ki": {
+   "phrase": "die KI dahinter entscheidet immer wieder",
+   "word": 1
+  },
+  "eingesetzt": {
+   "phrase": "welche Strategie gerade eingesetzt wird",
+   "word": 3
+  },
+  "welche": "und welche nicht",
+  "sobald": "sobald eine der aktiven Strategien läuft",
+  "setzt": "setzt der Bot automatisch nach festen Regeln den Trade",
+  "schliesst": "schließt den Trade automatisiert wieder",
+  "autom": {
+   "phrase": "schließt den Trade automatisiert wieder",
+   "word": 3
+  },
+  "wieder": {
+   "phrase": "schließt den Trade automatisiert wieder",
+   "word": 4
+  },
+  "fasz": "fasziniert mich bis heute",
+  "heisst": "was heißt das für dich",
+  "koennen": "nicht traden können",
+  "minuten": "20 bis 30 Minuten Zeit pro Woche",
+  "dreissig": {
+   "phrase": "20 bis 30 Minuten Zeit pro Woche",
+   "word": 2
+  },
+  "woche": {
+   "phrase": "20 bis 30 Minuten Zeit pro Woche",
+   "word": 6
+  },
+  "sonntag": {
+   "phrase": "Und am Sonntag, den 6. Dezember um 18 Uhr",
+   "word": 1
+  },
+  "t18": {
+   "phrase": "um 18 Uhr",
+   "word": 1
+  },
+  "bot": "wie so ein Trading-Bot funktioniert",
+  "nutzen": {
+   "phrase": "für dich nutzen kannst",
+   "word": 2
+  },
+  "klick": "Klick auf den Link",
+  "sonntag2": "am Sonntag, den 6. Dezember um 18 Uhr"
+ },
+ "sfx": [
+  {
+   "at": "ahnung",
+   "type": "pop",
+   "offset": -0.15
+  },
+  {
+   "at": "sog",
+   "type": "whoosh",
+   "offset": -0.1
+  },
+  {
+   "at": "wieder",
+   "type": "stamp"
+  },
+  {
+   "at": "heisst",
+   "type": "whoosh",
+   "offset": -0.1
+  },
+  {
+   "at": "koennen",
+   "type": "pop",
+   "offset": -0.15
+  },
+  {
+   "at": "dreissig",
+   "type": "pop",
+   "offset": -0.1
+  },
+  {
+   "at": "sonntag",
+   "type": "pop"
+  },
+  {
+   "at": "klick",
+   "type": "pop"
+  }
+ ],
+ "kil": [
+  {
+   "at": "spannend",
+   "dur": 2
+  },
+  {
+   "at": "fasz",
+   "dur": 2
+  }
+ ]
 }

@@ -443,14 +443,16 @@
     FX.pop(tl, "#a7-ev", C.dreissig - 0.1);
     FX.pulse(tl, "#a7-ev", C.woche, clamp(C.sonntag - 0.3 - C.woche, 0.8, 1.6));
 
-    // ---------- 16 · End-Karte (Baustein, ohne Platz-Chip) ab "am Sonntag", baut sich mit dem Satz auf; "Klick auf den Link":
-    //                der Touch-Punkt tippt auf "Mehr dazu"; das zweite "am Sonntag": das Datum pulsiert bis zum Ende (der Ton ist
-    //                nach "um 18 Uhr" hart geschnitten). The card sits at y 74 (badge y 8–60 stays clear above it); card,
-    //                note and Wochenleiste go once the opaque card covers them. ----------
+    // ---------- 16 · End-Karte (Baustein, ohne Platz-Chip) ab "am Sonntag", baut sich mit dem Satz auf; "für dich nutzen":
+    //                "Mehr dazu" pulsiert einmal (sonst > 4 s ohne Neues); "Deswegen klick auf den Link": der Touch-Punkt
+    //                tippt auf "Mehr dazu"; das zweite "am Sonntag": das Datum pulsiert bis zum Ende (der Schluss ist in der
+    //                Aufnahme vollständig, also bleibt er drin - Briefing S. 34). The card sits at y 74 (badge y 8–60 stays
+    //                clear above it); card, note and Wochenleiste go once the opaque card covers them. ----------
     const tEnd = C.sonntag - 0.12;
     // the date pulse counts whole 0.8 s beats: start it so that the last beat ends 0.1 s before the end (no still card)
     const tDatePulse = DUR - 0.1 - 0.8 * Math.floor((DUR - 0.1 - C.sonntag2) / 0.8) - 0.001;
     FX.endCard(tl, "a7e", { start: tEnd, t18: C.t18, bot: C.bot, klick: C.klick, pulseDate: tDatePulse });
+    FX.pulse(tl, "#a7e-btn", C.nutzen, 0.8, { origin: "0% 50%", to: 1.05 });
     FX.fadeOut(tl, ["#a7-note2", "#a7-week", "#a7-recz"], tEnd + 0.3, 0.2);
 
     window.__timelines["ad7"] = tl;
