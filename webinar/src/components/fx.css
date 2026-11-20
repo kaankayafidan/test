@@ -1,0 +1,39 @@
+/* Shared motif styles (injected into every scene). Tokens from the briefing (Schrift, Farben, Bausteine S. 10-12). */
+/* Mauszeiger (nur Ad 4; Ad 7 nur gezeichnet): 64 px, gelber Klick-Ring Ø 64, 50 % */
+.fx-cursor { position: absolute; left: 0; top: 0; width: 44px; height: 64px; z-index: 90; pointer-events: none; }
+.fx-cursor svg { position: absolute; left: -3px; top: -3px; width: 44px; height: 64px; overflow: visible; }
+.fx-ring { position: absolute; left: -32px; top: -32px; width: 64px; height: 64px; border-radius: 50%; background: #FACC15; z-index: 89; pointer-events: none; }
+/* einkreisen / durchstreichen: Rot 10 px */
+.fx-stroke { fill: none; stroke: #DC2626; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.fx-svg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; pointer-events: none; }
+.fx-num { font-family: 'Poppins'; font-weight: 900; color: #0E1A2B; line-height: 1; white-space: nowrap; }
+.fx-word { font-family: 'Poppins'; font-weight: 700; color: #0E1A2B; line-height: 1.05; white-space: nowrap; }
+.fx-label { font-family: 'Poppins'; font-weight: 700; font-size: 44px; color: #0E1A2B; background: #F3F4F6; border-radius: 14px; padding: 6px 18px; white-space: nowrap; line-height: 1.2; }
+
+/* Touch-Punkt: grauer Kreis #6B7280 mit 55 % Deckkraft, weißer Rand 4 px, Ø 68 px; beim Tippen zwei Wellen in 0,3 s */
+.fx-touch { position: absolute; left: -34px; top: -34px; width: 68px; height: 68px; border-radius: 50%; background: rgba(107, 114, 128, 0.55); border: 4px solid #FFFFFF; z-index: 95; pointer-events: none; }
+.fx-wave { position: absolute; left: -34px; top: -34px; width: 68px; height: 68px; border-radius: 50%; border: 4px solid rgba(255, 255, 255, 0.9); box-shadow: 0 0 0 2px rgba(107, 114, 128, 0.5); z-index: 94; pointer-events: none; opacity: 0; }
+
+/* Mitte-CTA (Ad 1, 2, 3, 8): Navy-Chip "Live · So 6.12. · 18 Uhr" (SemiBold 30 px, roter Punkt) + weißer Button "Mehr dazu" (Bold 40 px) */
+.fx-mid { position: absolute; inset: 0; pointer-events: none; z-index: 80; }
+.fx-mid-row { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; }
+.fx-chip { display: flex; align-items: center; gap: 14px; height: 58px; padding: 0 28px; border-radius: 29px; background: #0E1A2B; color: #FFFFFF; font-family: 'Poppins'; font-weight: 600; font-size: 30px; white-space: nowrap; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); }
+.fx-chip i { width: 16px; height: 16px; border-radius: 50%; background: #DC2626; flex: none; }
+.fx-btn { display: flex; align-items: center; gap: 18px; height: 84px; padding: 0 36px; border-radius: 42px; background: #FFFFFF; color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 40px; white-space: nowrap; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28); }
+.fx-btn svg { width: 24px; height: 34px; fill: #0E1A2B; }
+.fx-btn.navy { background: #0E1A2B; color: #FFFFFF; }
+.fx-btn.navy svg { fill: #FFFFFF; }
+
+/* End-Karte (alle Ads): Navy-Karte über dem abgedunkelten Motiv */
+.fx-end { position: absolute; inset: 0; pointer-events: none; z-index: 85; }
+.fx-end-dim { position: absolute; inset: 0; background: #000000; opacity: 0; }
+.fx-end-card { position: absolute; width: 940px; height: 600px; border-radius: 36px; background: #0E1A2B; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); overflow: hidden; }
+.fx-end-live { position: absolute; left: 60px; top: 52px; display: flex; align-items: center; gap: 16px; color: #FFFFFF; font-family: 'Poppins'; font-weight: 700; font-size: 38px; letter-spacing: 0.06em; white-space: nowrap; }
+.fx-end-live i { width: 26px; height: 26px; border-radius: 50%; background: #DC2626; box-shadow: 0 0 0 6px rgba(220, 38, 38, 0.3); flex: none; }
+.fx-end-date { position: absolute; left: 60px; top: 116px; color: #FFFFFF; font-family: 'Poppins'; font-weight: 800; font-size: 92px; line-height: 1.12; white-space: nowrap; }
+.fx-end-time { position: absolute; left: 60px; top: 220px; color: #FACC15; font-family: 'Poppins'; font-weight: 800; font-size: 92px; line-height: 1.12; white-space: nowrap; }
+.fx-end-sub { position: absolute; left: 60px; top: 340px; color: #E5E7EB; font-family: 'Poppins'; font-weight: 500; font-size: 38px; white-space: nowrap; }
+.fx-end-btn { position: absolute; left: 60px; top: 438px; display: flex; align-items: center; gap: 20px; height: 100px; padding: 0 42px; border-radius: 50px; background: #FFFFFF; color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 46px; white-space: nowrap; }
+.fx-end-btn svg { width: 28px; height: 40px; fill: #0E1A2B; }
+/* Platz-Chip: gelb, Navy-Text, Bold 36 px */
+.fx-platz { position: absolute; left: 470px; top: 458px; height: 62px; padding: 0 28px; border-radius: 31px; background: #FACC15; color: #0E1A2B; font-family: 'Poppins'; font-weight: 700; font-size: 36px; line-height: 62px; white-space: nowrap; }

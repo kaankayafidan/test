@@ -1,0 +1,13 @@
+node_modules
+build
+build-*
+out
+data/raw
+data/work
+.hyperframes
+*.log
+assets/media
+assets/music/bed.wav
+__pycache__
+# client briefing (confidential) stays local
+briefing/
