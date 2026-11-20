@@ -7,13 +7,13 @@
     .a2-shot { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; }
     .a2-vid { position: absolute; inset: 0; overflow: hidden; filter: url(#a2-grade); }
     .a2-vid video, .a2-vid img { position: absolute; max-width: none; object-fit: fill; }
-    /* crops (source 1280 x 720 -> motif px): A1 x402 y172 x1.6 | A2 x368 y150 x1.45 | B x60 y30 x1.1 | C1 x240 y60 x1.5 */
-    .a2-gA1 { left: -643.2px; top: -275.2px; width: 2048px; height: 1152px; }
+    /* crops (source 1280 x 720 -> motif px): A1 x422.4 y110 x1.7 | A2 x368 y150 x1.45 | B x60 y30 x1.1 | C1 x240 y60 x1.5 */
+    .a2-gA1 { left: -718.1px; top: -187px; width: 2176px; height: 1224px; }
     .a2-gA2 { left: -533.6px; top: -217.5px; width: 1856px; height: 1044px; }
     .a2-gB  { left: -66px; top: -33px; width: 1408px; height: 792px; }
     .a2-gC1 { left: -360px; top: -90px; width: 1920px; height: 1080px; }
     .a2-gC5 { left: -720px; top: -72px; width: 2304px; height: 1296px; }   /* x400 y40 x1.8 */
-    .a2-gKI { left: -826px; top: 0; width: 1792px; height: 1008px; }       /* panel 400 x 570: x590 y0 x1.4 */
+    .a2-gKI { left: -637.5px; top: 0; width: 1600px; height: 900px; }      /* panel 400 x 570: x510 y0 x1.25 */
     .a2-gSL { left: -655px; top: -75px; width: 1600px; height: 900px; }    /* half 540 x 710: x524 y60 x1.25 */
     .a2-gSR { left: -682.5px; top: 0; width: 1664px; height: 936px; }      /* half 540 x 710: x525 y0 x1.3 */
     #a2-grain { position: absolute; inset: 0; background: url(assets/img/ad2/a2-grain.png) 0 0 / 384px 384px repeat; mix-blend-mode: overlay; opacity: 0.16; pointer-events: none; }
@@ -28,23 +28,23 @@
     /* A1: Rolltreppe */
     #a2-ringsvg { position: absolute; left: 0; top: 0; width: 1080px; height: 710px; overflow: visible; }
     #a2-ring { fill: none; stroke: #DC2626; stroke-width: 12; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
-    #a2-etf { left: 226px; top: 340px; width: 600px; height: 100px; }
+    #a2-etf { left: 212.9px; top: 380px; width: 600px; height: 100px; }
     #a2-etf-shadow { position: absolute; left: 190px; bottom: -14px; width: 220px; height: 26px; border-radius: 50%; background: radial-gradient(closest-side, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)); }
     #a2-arr1 { left: 880px; top: 170px; width: 140px; height: 400px; }
     #a2-flash { position: absolute; inset: 0; border: 18px solid #DC2626; box-sizing: border-box; }
     #a2-ki { position: absolute; left: 650px; top: 70px; width: 400px; height: 570px; }
-    #a2-ki-box { position: absolute; inset: 0; border-radius: 26px; overflow: hidden; border: 5px solid rgba(255, 255, 255, 0.85); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
+    #a2-ki-box { position: absolute; inset: 0; background: rgba(14, 26, 43, 0.3); border-radius: 26px; overflow: hidden; border: 5px solid rgba(255, 255, 255, 0.85); box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35); }
     #a2-ki-box .a2-vid { opacity: 0.6; }
     #a2-ki-chip { left: -46px; top: 40px; }
 
     /* B: Tokio */
     #a2-japan { left: 40px; top: 40px; width: auto; height: auto; }
     #a2-extrem { right: 40px; top: 40px; }
-    #a2-cnt { position: absolute; left: 240px; top: 96px; width: 720px; height: 330px; }
-    #a2-cnt-win { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 24%, #000 40%); mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.55) 24%, #000 40%); }
-    #a2-cnt-strip { position: absolute; left: 0; top: 120px; width: 720px; }
+    #a2-cnt { position: absolute; left: 240px; top: 46px; width: 720px; height: 380px; }
+    #a2-cnt-win { position: absolute; inset: 0; overflow: hidden; -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 20%, #000 40%); mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 20%, #000 40%); }
+    #a2-cnt-strip { position: absolute; left: 0; top: 170px; width: 720px; }
     .a2-yr { height: 210px; font-family: 'Poppins'; font-weight: 900; font-size: 224px; line-height: 210px; color: #FFFFFF; text-align: center; letter-spacing: -4px; text-shadow: 0 8px 36px rgba(0, 0, 0, 0.6); }
-    .a2-yr.bl { filter: blur(6px); opacity: 0.6; }
+    .a2-yr.bl { filter: blur(5px); opacity: 0.72; }
     #a2-stamp { position: absolute; left: 330px; top: 440px; width: 460px; height: 128px; border: 9px solid #DC2626; border-radius: 18px; background: rgba(255, 255, 255, 0.92); box-shadow: inset 0 0 0 5px rgba(255, 255, 255, 0.92), inset 0 0 0 10px #DC2626, 0 14px 30px rgba(0, 0, 0, 0.35); color: #DC2626; font-family: 'Poppins'; font-weight: 800; font-size: 82px; line-height: 110px; text-align: center; letter-spacing: 2px; white-space: nowrap; }
     #a2-stamp span { display: block; filter: url(#a2-grunge); }
     #a2-nikkei { position: absolute; left: 34px; top: 640px; background: #FFFFFF; color: #0E1A2B; font-family: 'Poppins'; font-weight: 600; font-size: 26px; line-height: 1; padding: 9px 18px 8px; border-radius: 12px; white-space: nowrap; }
@@ -109,7 +109,7 @@
           <video id="a2-vrew" class="clip a2-gA1" src="assets/img/ad2/a2-esc-rew8.mp4" data-start="{{C.rueck}}" data-duration="0.5" data-media-start="{{(29.4 - (9.8 + C.rueck - C.problem - 0.3)) / 8}}" data-hf-media-start-basis="local" muted playsinline></video>
           <video id="a2-vrev" class="clip a2-gA1" src="assets/img/ad2/a2-esc-rev.mp4" data-start="{{C.rueck + 0.5}}" data-duration="{{C.japan - C.rueck - 0.5}}" data-media-start="{{29.4 - (9.8 + C.rueck - C.problem - 0.3 - 4)}}" data-hf-media-start-basis="local" muted playsinline></video>
         </div>
-        <svg id="a2-ringsvg" viewBox="0 0 1080 710"><path id="a2-ring" pathLength="1" d="M659.5 72.0 A282 322 -8 1 1 523.2 53.1" /></svg>
+        <svg id="a2-ringsvg" viewBox="0 0 1080 710"><path id="a2-ring" pathLength="1" d="M667.0 71.9 A262 322 -9 1 1 539.6 54.0" /></svg>
         <svg id="a2-arr1" class="a2-arrow a2-later" viewBox="0 0 140 400">
           <g id="a2-arr1-p">
             <rect id="a2-arr1-shaft" class="a2-af" x="47" y="112" width="46" height="288" rx="9" fill="#16A34A" />
@@ -248,8 +248,8 @@
     FX.fadeOut(tl, "#a2-ringsvg", C.problem);
 
     // ---- 2 "dein ETF" ploppt auf eine Stufe und fährt mit (rechte Rolltreppe; Perspektive: Abstand zur Fluchtlinie
-    // D = y + 541 px, Breite ~ D, Stufentempo K * D^2 px/s). Anker = Fußpunkt des Schilds (x 526, y 440).
-    const K = 2.256e-5, D0 = 981;
+    // D = y + 469 px, Breite ~ D, Stufentempo K * D^2 px/s). Anker = Fußpunkt des Schilds (x 512.9, y 480).
+    const K = 2.125e-5, D0 = 949.2, AX = 512.9, AY = 480;
     const pose = (D) => ({ x: 0.122 * (D - D0), y: D - D0, scale: D / D0 });
     const segsEtf = [[C.etf, C.problem, 1], [C.problem, C.problem + 0.3, 0], [C.problem + 0.3, C.rueck, 1], [C.rueck, C.rueck + 0.5, -8], [C.rueck + 0.5, C.japan, -1]];
     const rideD = (t) => { let D = D0; for (const [a, b, v] of segsEtf) { if (t <= a) break; D = 1 / (1 / D + K * v * (Math.min(t, b) - a)); } return D; };
@@ -283,14 +283,15 @@
 
     // ---- 6 "ganz bequem nach oben": langsamer Zoom auf das Schild (bis zum Rückspulen)
     const zD = clamp(C.rueck - C.bequem, 0.5, 3), zTo = 1 + 0.08 * (zD / 3);
-    const zOrigin = `${(526 + pose(rideD(C.bequem)).x).toFixed(1)}px ${(440 + pose(rideD(C.bequem)).y - 40).toFixed(1)}px`;
+    const zOrigin = `${(AX + pose(rideD(C.bequem)).x).toFixed(1)}px ${(AY + pose(rideD(C.bequem)).y - 40).toFixed(1)}px`;
     FX.slowZoom(tl, "#a2-shotA", C.bequem, { origin: zOrigin, to: zTo, d: zD });
 
     // ---- 7 "läuft die Rolltreppe mal rückwärts": Rückspul-Effekt 0,5 s (auch der Zoom spult zurück), dann Clip A
     // rückwärts; der Pfeil dreht auf Rot nach unten
     FX.tween(tl, "#a2-shotA", { scale: zTo, transformOrigin: zOrigin }, { scale: 1, transformOrigin: zOrigin, duration: 0.5, ease: "power2.inOut" }, C.rueck);
     FX.tween(tl, "#a2-arr1", { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 180, transformOrigin: "50% 50%", duration: 0.4, ease: "power2.inOut" }, C.rueck);
-    FX.tween(tl, ".a2-af", { fill: "#16A34A" }, { fill: "#DC2626", duration: 0.4, ease: "none" }, C.rueck);
+    FX.init(tl, ".a2-af", { fill: "#16A34A" });
+    tl.set(".a2-af", { fill: "#DC2626" }, C.rueck + 0.2);  // Farbwechsel in der Mitte der Drehung (kein Braun)
 
     // ---- 8 "eine Menge Knete": der rote Pfeil pulsiert (kein Geld im Bild)
     FX.pulse(tl, "#a2-arr1-p", C.knete, clamp(C.japan - C.knete - 0.2, 0.8, 2.4), { svgOrigin: "70 200" });

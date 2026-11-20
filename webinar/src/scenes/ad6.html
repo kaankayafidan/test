@@ -326,6 +326,7 @@
 
     // 3 "Klingt erst mal verrückt": roter Zettel "?" knallt zwischen die Fotos und wackelt
     FX.init(tl, "#a6-q", { opacity: 0 });
+    FX.init(tl, "#a6-qs", { rotation: -6, transformOrigin: "50% 100%", smoothOrigin: false }); // lands tilted, flows into the wobble
     FX.slam(tl, "#a6-q", C.verrueckt);
     const qw = FX.wobble(tl, "#a6-qs", C.verrueckt + 0.12, clamp(C.gruende - C.verrueckt - 0.5, 0.6, 2.4));
     FX.settle(tl, "#a6-qs", qw.end, qw.endRotation);
