@@ -4,7 +4,7 @@
    "phrase": "ganz alleine eröffnet",
    "word": 1
   },
-  "ablauf": "wie so etwas abläuft",
+  "ablauf": "wieso das funktioniert",
   "ahnung": "keine Ahnung von Trading hast",
   "spannend": "besonders spannend für dich",
   "kibot": {
@@ -41,10 +41,6 @@
   "autom": {
    "phrase": "schließt den Trade automatisiert wieder",
    "word": 3
-  },
-  "wieder": {
-   "phrase": "schließt den Trade automatisiert wieder",
-   "word": 4
   },
   "angefasst": {
    "phrase": "also nichts angefasst",

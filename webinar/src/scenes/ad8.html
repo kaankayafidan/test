@@ -257,11 +257,13 @@
     // ---------- 10 · "24/7": nur ein Uhr-Doodle am Ausweis ----------
     draw("#a8-clk", C.uhr - 0.1, 0.35);
 
-    // ---------- 10b · "bei steigenden als auch bei fallenden Kursen" (Kundenwunsch, nicht in der Tabelle): das Backtest-Bild ----------
-    // ploppt unten auf die Seite, die Linie deckt sich von links auf (Wischen); "Backtest · Simulation" hängt die ganze Zeit
-    // dran. 3–4 s, raus vor "komplett automatisiert" (die Seite unten ist danach frei für das Datum).
-    const tBt = C.steigend - 0.15;
-    const tBtOut = clamp(C.komplett - 0.15, tBt + 3.0, Math.min(tBt + 3.8, C.live - 0.6));
+    // ---------- 10b · Backtest-Bild (Kundenwunsch, nicht in der Tabelle) ----------
+    // "für dich Trades setzt und bei steigenden als auch bei fallenden Kursen": das Bild ploppt unten auf die Seite, die
+    // Linie deckt sich von links auf (Wischen); "Backtest · Simulation" hängt die ganze Zeit dran. Gut 3 s; ganz weg, bevor
+    // der Untertitel "dich Profite generieren" kommt (C.profite = "dich", Start dieser Untertitel-Gruppe): das Bild steht
+    // nie neben dem Wort "Profite".
+    const tBt = C.trades - 0.18;                                           // "für dich Trades setzt"
+    const tBtOut = clamp(C.profite - 0.22, tBt + 2.8, Math.min(tBt + 3.8, C.live - 0.6));
     const BT0 = "inset(0px 836px 0px 0px)", BT1 = "inset(0px 0px 0px 0px)";   // 836 = 880 - 44 (left margin of the line)
     FX.init(tl, "#a8-bt", { opacity: 0 });
     FX.init(tl, "#a8-bti", { clipPath: BT0 });
