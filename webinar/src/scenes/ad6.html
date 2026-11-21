@@ -80,14 +80,12 @@
         <img id="a6-cork" src="assets/img/ad6/cork.jpg" alt="">
 
         <!-- Erstes Bild (Kilians Wunsch): zwei Fotos von ihm, links "damals" (ganz jung), rechts "heute" (wie er heute tradet).
-             Die Fotos kommen noch als assets/img/ad6/jung.jpg und assets/img/ad6/heute.jpg (data-src am Slot). Das Skript legt das
-             <img> darüber an; fehlt die Datei, entfernt es das <img> wieder und der neutrale graue Platzhalter bleibt sichtbar.
-             Kein statisches <img src>: lint meldet die noch fehlende Datei sonst als Fehler. -->
+             assets/img/ad6/jung.jpg und heute.jpg kommen aus assets/img/ad6/_prep_photos.py (Logos, Uhr und Bildschirme unscharf). -->
         <div id="a6-pj" class="a6-item"><div class="a6-tilt">
           <svg id="a6-speed" viewBox="0 0 130 120"><g stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" opacity="0.75"><line x1="8" y1="20" x2="124" y2="20"/><line x1="40" y1="60" x2="124" y2="60"/><line x1="70" y1="100" x2="124" y2="100"/></g></svg>
           <div id="a6-pjs" class="a6-swing a6-pola">
             <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-jung" data-src="assets/img/ad6/jung.jpg">
-              <svg viewBox="0 0 248 248"><rect width="248" height="248" fill="#DDE3EA"/><circle cx="124" cy="99" r="42" fill="#9CA3AF"/><path d="M45 248 C45 179 82 154 124 154 C166 154 203 179 203 248 Z" fill="#9CA3AF"/></svg>
+              <img src="assets/img/ad6/jung.jpg" alt="">
             </div></div>
             <div class="a6-year">damals</div>
           </div>
@@ -97,7 +95,7 @@
         <div id="a6-ph" class="a6-item"><div class="a6-tilt">
           <div id="a6-phs" class="a6-swing a6-pola">
             <div class="a6-win"><div class="photo-slot" data-asset="ad6-foto-heute" data-src="assets/img/ad6/heute.jpg">
-              <svg viewBox="0 0 248 248"><rect width="248" height="248" fill="#DDE3EA"/><circle cx="124" cy="99" r="42" fill="#9CA3AF"/><path d="M45 248 C45 179 82 154 124 154 C166 154 203 179 203 248 Z" fill="#9CA3AF"/></svg>
+              <img src="assets/img/ad6/heute.jpg" alt="">
             </div></div>
             <div class="a6-year">heute</div>
             <svg id="a6-robot" viewBox="0 0 60 60"><g class="a6-ink" style="stroke-width:3.2"><line x1="30" y1="7" x2="30" y2="15"/><rect x="12" y="15" width="36" height="27" rx="6" style="fill:#EEF2FF"/><path d="M23 34 q7 5 14 0"/><line x1="7" y1="26" x2="12" y2="26"/><line x1="48" y1="26" x2="53" y2="26"/><rect x="19" y="45" width="22" height="10" rx="3"/></g><circle cx="30" cy="6" r="3.4" fill="#1D3A8A"/><circle cx="23" cy="26" r="3.4" fill="#1D3A8A"/><circle cx="37" cy="26" r="3.4" fill="#1D3A8A"/></svg>
@@ -206,16 +204,6 @@
     const tl = gsap.timeline({ paused: true });
     const $ = (s) => document.querySelector(s);
     const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-
-    // Fotos, die noch kommen (Slot mit data-src): <img> über den Platzhalter legen. Fehlt die Datei, wird es wieder entfernt
-    // (kein Bruch-Symbol), der graue Platzhalter bleibt sichtbar. load/error feuern im selben Task, in dem complete wahr wird.
-    document.querySelectorAll("#a6-scene .photo-slot[data-src]").forEach((slot) => {
-      const im = document.createElement("img");
-      im.alt = "";
-      im.onerror = () => im.remove();
-      im.src = slot.dataset.src;
-      slot.appendChild(im);
-    });
 
     // ---------------------------------------------------------------- wall layout (world px; camera scale 1 = storyboard B)
     // Oberste Reihe (nur erstes Bild bis "3 richtig gute Gründe"): damals | ? | heute. Darunter die Wand aus dem Briefing:
